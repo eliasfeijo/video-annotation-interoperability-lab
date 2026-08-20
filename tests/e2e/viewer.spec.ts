@@ -77,3 +77,30 @@ async function shotViewer(page: import("@playwright/test").Page, name: string): 
   await page.screenshot({ path: p });
   return p;
 }
+
+/**
+ * E14 viewer probe — Model B (nested Overlay Canvas, IIIF 4.0 DRAFT context).
+ * Ramp is a stable IIIF 3.0 viewer; the draft 4.0 nested-Canvas-as-Content-
+ * Resource structure is expected to be unparseable. This records the
+ * VIEWER_GAP: the expressive structure exists only in the draft, and no stable
+ * mainstream viewer consumes it.
+ */
+test("e14 viewer: Ramp cannot consume a nested Overlay Canvas (IIIF 4.0 draft)", async ({ page }) => {
+  await page.goto(
+    `/viewer-check.html?manifest=${encodeURIComponent("/manifests/e14/e14-case14-b.json")}`,
+  );
+  await expect(page.locator("#status")).toContainText("bundle loaded", { timeout: 30000 });
+
+  const boundaryText = await page.locator("#root").innerText({ timeout: 30000 });
+  const videoCount = await page.locator("video").count();
+  const logText = await page.locator("#log").innerText();
+
+  await shotViewer(page, "viewer/e14-case14-b-ramp");
+
+  record("viewer-e14-case14-b", {
+    rootText: boundaryText.slice(0, 200),
+    videoCount,
+    log: logText.slice(0, 400),
+    note: "Nested Canvas painting (Model B) uses the IIIF 4.0 draft context; stable Ramp cannot parse it. Model B is expressible only in the draft — a VIEWER_GAP and a draft-only dependency.",
+  });
+});
