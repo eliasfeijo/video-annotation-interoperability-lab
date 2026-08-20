@@ -84,7 +84,65 @@ visual layout from the same manifest.
 
 ---
 
-## Points where both renderers AGREE (no ambiguity)
+## 5. SVG-as-image embedding semantics (E14 case06/07) — FALSIFIED / VIEWER_GAP
+
+- **Question.** An SVG body with no `viewBox` is painted into a 960×540 region.
+  What geometry results? In the blind-comparison this was Case 11b (above).
+  Experiment E14 added the browser-native renderer, which renders Image bodies
+  through the real `<img>` pipeline.
+- **Blind Renderer** (nested `<svg>`, no viewBox): 1:1 — circle centre at Canvas
+  (980,770) (`[NORMATIVE]` SVG 1.1 §7.2 reading).
+- **Renderer A** (nested `<svg>`, synthesized viewBox): fit — circle centre at
+  (960,540).
+- **Native Renderer** (`<img>`, default `object-fit: fill`): the browser
+  **stretches the SVG's intrinsic canvas into the region box** — circle centre
+  at (960,540), matching Renderer A, not the 1:1 blind reading.
+- **Empirical result.** The SVG-as-image 1:1 prediction is **falsified** under
+  `<img>` (Chrome). 1:1 is only reproducible by forcing
+  `object-fit: none; object-position: left top`. Pixel probes:
+  `evidence/observations/e14-case06-{native,blind}.json`,
+  `evidence/screenshots/e14/*`.
+- **Provenance.** The "region is the SVG viewport" rule is embedding-context
+  dependent; `<img>` does not implement it. ⇒ `[VIEWER_GAP]`, recorded in
+  `evidence/observations/e14-case06-native.json` as
+  `SVG-as-image 1:1 prediction falsified`.
+- **Verdict.** `difference:no-viewBox-placement` (E14) — three renderers, three
+  geometries for the same manifest. Recommendation (E14 §9): require an explicit
+  `viewBox` on every SVG body to make the mapping agreed (the viewBox-meet
+  cases are unambiguous in all renderers).
+
+## 6. Out-of-bounds spatial fragment re-check (E14 case13) — NORMATIVE ambiguity
+
+- **Question.** `xywh=2000,0,100,100` on a 1920-wide Canvas (Case 10 above).
+  E14 re-ran this with all three renderers.
+- **Renderer A** keeps the fragment: paints a region at Canvas x=2000 (clipped,
+  invisible). **Blind and native** treat the fragment as absent → whole Canvas
+  (`0,0,1920,1080`).
+- **Provenance.** Media Fragments §6.2 "SHOULD ignore the fragment" is genuinely
+  ambiguous between "ignore the fragment selector" (fall back to whole media —
+  blind/native) and "ignore the invalid part, keep the annotation" (Renderer A).
+  E14 reclassifies this from REFERENCE GAP (§2 above) to a genuine
+  `[NORMATIVE]` ambiguity: Renderer A now deliberately validates nothing and
+  keeps the annotation; blind/native drop the fragment. Both readings are
+  defensible.
+- **Verdict.** `difference:spatial-fragment-validation`. 2/2/2 overlay counts;
+  destinations differ (a keeps x=2000, blind/native full canvas).
+
+## 7. SVG security policy is not manifest-expressible (E14 case16) — IMPLEMENTATION_GAP
+
+- **Question.** A body contains `<script>`/`onclick`/`<foreignObject>`. What is
+  painted?
+- **Blind Renderer**: classifies `unsafe` → **rejects** (red marker).
+- **Native Renderer**: classifies `unsafe`, decision `render` — the `<img>`
+  sandbox neutralizes active content, so it paints (renders inert).
+- **Renderer A**: renders unconditionally.
+- **Provenance.** The `<img>` sandbox is a *platform behavior*, not a
+  manifest-expressible security policy. IIIF/W3C define no security attribute.
+  ⇒ `[IMPLEMENTATION_GAP]` (`evidence/observations/e14-case16-native.json`).
+- **Verdict.** case16 verdicts: `a!=blind` (CONVENTION), `a==native`,
+  `blind!=native` (IMPLEMENTATION_GAP).
+
+## Points where all three E14 renderers AGREE (no ambiguity)
 
 These were all expected to diverge or at least were worth checking, and did not:
 
@@ -105,3 +163,15 @@ These were all expected to diverge or at least were worth checking, and did not:
 - **Mode A vs Mode B** (IIIF 3.0 vs 4.0 draft): zero geometric differences in
   all 13 cases (`modeAIdenticalToModeB: true` everywhere). The two modes only
   change the *provenance label* of the z-order and xywh-coordinate-space rules.
+
+E14 additions (all three renderers — Renderer A, blind, native `<img>`):
+- **`percent:` is the normative unit** (case03): after the Renderer A fix,
+  `percent:`/`pixel:`/`pct:` all resolve identically (`[NORMATIVE]` MF §4.2.2,
+  `pct:` `[CONVENTION]`).
+- **viewBox + PAR geometries** (cases 01-05, 08-12, 14, 15): meet/slice/none and
+  multi-resource z-order resolve identically across A/blind/native.
+- **Nested Overlay Canvas mapping** (Model B, cases 14/14reg/15): the inner
+  canvas scaled by `(rw/iw, rh/ih)` into the region, then bodies resolved in
+  inner space — byte-identical across all three renderers.
+- **Model C conventions** (case 09/10/12): z-order = annotation order, spatial
+  frame = probed video dims, SVG at region — applied identically by all three.

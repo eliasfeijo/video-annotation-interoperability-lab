@@ -20,6 +20,7 @@ Guide: each row = one falsifiable question. `evidence/` holds the machine output
 | 9 | Text determinism | Are `<text>` glyph boxes measurable; is outline-path a deterministic surrogate? | exp-text: latin/arabic/tspspan/monospace + hand-drawn stroke word | ✅ (partial) | `observations/text.json` |
 | 10 | IIIF validation | Do standard fixtures pass the official validator? | POST of 10 manifests to `presentation-validator.iiif.io` | ✅ (`okay:1`, 0 warnings) | `observations/iiif-validation.json` |
 | 11 | Third-party viewer | Can a mainstream IIIF AV player consume the manifests? | Ramp (`@samvera/ramp` UMD from unpkg) against local manifests | ✅ video loads / ❌ SVG-body annotation crashes player | `observations/viewer-{plain,svg-annotation}.json`, `screenshots/viewer/*.png` |
+| 14 | Painting composition & SVG resource semantics | Can composed overlays (SVG/PNG/TextualBody, nested Overlay Canvas, Web Annotation) be expressed and resolved identically by independent renderers, incl. the browser's real `<img>` semantics? | e14-case01..16 `{a,b,c}` fixtures × Renderer A + Blind + Native (`<img>`) + Ramp probe | ✅ 35/39 renderer sets identical; 3 designed divergences classified | `e14/summary.json`, `e14/e14-case*.json`, `observations/e14-*.json`, `screenshots/e14/*` |
 
 ## Bug-fix log (implementation-side discoveries)
 
@@ -40,10 +41,20 @@ Guide: each row = one falsifiable question. `evidence/` holds the machine output
    error. Added a name map.
 9. **snapshot vs seek race** — `snapshot()` could run before `applyAt`; it now applies the
    time before measuring visibility.
+10. **e14/percent unit** — Renderer A `parseSpatial` only stripped `pct:` (IIIF convention), not
+    the normative `percent:`/`pixel:` prefixes (MF §4.2.2); `xywh=percent:…` fell back to the
+    full Canvas. Fixed in `src/reference/lib/selectors.ts` (case03).
+11. **e14/object-fit** — the native `<img>` stage's default `object-fit: fill` stretches a
+    no-viewBox SVG's intrinsic canvas into the region, falsifying the 1:1 reading under `<img>`
+    (case06, `evidence/observations/e14-case06-native.json`). 1:1 needs explicit
+    `object-fit: none`.
+12. **e14/viewer intrinsic** — Chrome reports `naturalWidth` 267×150 for a viewBox-only SVG
+    (CSS default sizing); a body's intended region size is not recoverable from the SVG alone
+    (case14-b).
 
 ## Test totals (final)
 
-- Unit (Vitest): **37 passing** (`selectors`, `timing`, `svg`, `iiif`).
-- E2E (Playwright, Chromium): **19 passing** across exp1–7, exp4 regions, parity (1,2,3,5a,
-  5b,5c,6,7), security, text, viewer.
+- Unit (Vitest): **125 passing** (`selectors`, `timing`, `svg`, `iiif`, `e14-comparison`).
+- E2E (Playwright, Chromium): **35 passing** across exp1–7, exp4 regions, parity (1,2,3,5a,
+  5b,5c,6,7), security, text, viewer, e14 (8), e14 viewer (1).
 - `tsc --noEmit`: clean.

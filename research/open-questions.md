@@ -28,6 +28,19 @@ document.
    and Canvas height for `y`/`h` (per Media Fragments). Confirm with a second implementation to
    catch any library divergence.
 8. **Sanitizer completeness.** Our allowlist covers parse-time payloads. `foreignObject`-hosted
+
+9. **SVG-as-image embedding semantics (E14).** Chrome `<img>` default `object-fit: fill`
+   stretches a no-viewBox SVG's intrinsic canvas into the region, falsifying the 1:1
+   (nested-`<svg>`) reading — three renderers, three geometries for one manifest. Proposed E15:
+   render case06 through an embedding matrix (`<img>` fill/contain/none, nested `<svg>`, CSS
+   background, `<object>`) and record resolved geometry per embedding, to quantify the viewer
+   matrix and motivate a spec erratum or a "require viewBox" convention.
+10. **Nested-canvas `contain` mapping (E14 Model B).** The IIIF 4.0 draft says the inner Canvas
+    is "scaled to fit that region"; only linear `fill` is exercised here. The `contain`
+    (aspect-preserving) variant is OPEN — candidate E16.
+11. **Nested-canvas viewer support (E14).** Ramp (stable IIIF 3.0) throws on a 4.0-draft nested
+    Overlay Canvas. Is draft-4.0 nesting parseable by any current viewer, or is Model B
+    strictly a draft-only expressibility result?
    HTML + CSS selectors like `circle { display:none }` were removed; test newer attack surfaces
    (e.g. SVG `href`, `allowReorder`, `style` on nested elements, base64 data URIs).
 9. **Scale/performance.** Could not test large numbers of simultaneous annotations (this lab is

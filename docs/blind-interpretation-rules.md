@@ -259,6 +259,59 @@ cited specifications. References:
 
 ---
 
+## 16. E14: the no-viewBox reading is embedding-context dependent (empirical, 2026-08-20)
+
+- `[NORMATIVE]` SVG 1.1 §7.3/§7.10: with no `viewBox`, user units equal viewport units (1:1).
+  This packet's §11 rule (no-viewBox → 1:1 into the destination region) follows that rule.
+- **Empirical finding (E14, case06).** The 1:1 rule holds when the body is embedded as a
+  nested `<svg>` in a DOM (Blind Renderer). It does **not** hold when the same body is rendered
+  as an IIIF Image resource through the browser's `<img>` pipeline: Chrome's default
+  replaced-element sizing (`object-fit: fill`) **stretches the SVG's intrinsic canvas into the
+  region box**, scaling a 1000×1000 intrinsic canvas into a 960×540 region and placing the
+  region-centred artwork at the region centre, not 1:1 from the region origin. Pixel probes:
+  `evidence/observations/e14-case06-{native,blind}.json`. 1:1 is reproducible under `<img>`
+  only with explicit `object-fit: none; object-position: left top`.
+- `[VIEWER_GAP]` Whether "the region is the SVG viewport" holds is therefore decided by the
+  *embedding context* the consumer chooses (nested `<svg>` vs `<img>` vs CSS background vs
+  `<object>`), which the manifest cannot express. The Blind Renderer's reading is the SVG-
+  normative one and is correct for nested-`<svg>` embedding; consumers using `<img>`-style
+  Image-resource rendering will see different geometry for the same manifest.
+- **E14 recommendation** (see `research/e14-report.md` §9): producers should require an
+  explicit `viewBox` on every SVG body so the mapping is the agreed viewBox-meet case, which
+  all three renderers (A, blind, native `<img>`) resolve identically.
+
+## 17. E14: security decision is a renderer policy, not a manifest property
+
+- `[IMPLEMENTATION_GAP]` IIIF and W3C Web Annotation define no security policy attribute.
+  Whether an unsafe SVG (`<script>`, `on*`, `<foreignObject>`, off-host href) renders, is
+  sanitized, or is rejected is a consumer decision. The Blind Renderer's explicit
+  classification-and-reject (packet §4 of `docs/ambiguities.md`) is `[CONVENTION]`. The
+  browser `<img>` sandbox neutralizes active content (E14 case16) but that is platform
+  behavior, not a standard the manifest can rely on.
+
+## 18. E14: Model B nested Overlay Canvas
+
+- `[NORMATIVE]` only in **IIIF 4.0 draft** ("Nesting Containers"; "Containers as Content
+  Resources"; Use Case 6). Not expressible in stable IIIF 3.0.
+- `[DERIVED]` When a nested Canvas is painted into a region, the renderer establishes an inner
+  Canvas coordinate space of the nested Canvas's own width/height, scales it by
+  `(rw/iw, rh/ih)` into the region, then resolves the nested Canvas's painting bodies in inner
+  space (linear fill). The `contain` variant is `[OPEN]`.
+- **Empirical (E14):** all three renderers produce identical geometry for the nested fixtures
+  (full-canvas, sub-region, temporal). Stable viewers do not parse the draft structure (Ramp
+  throws), so Model B is a draft-only expressibility result.
+
+## 19. E14: Model C Web Annotation
+
+- `[NORMATIVE]` W3C Web Annotation can target video with `FragmentSelector`s and can carry
+  SVG/Image/TextualBody bodies.
+- `[OPEN]` / `[CONVENTION]` W3C Web Annotation defines no painting/compositing semantics: no
+  "paint into the target" rule, no z-order rule, no spatial frame other than the media's own
+  dimensions. This experiment applies the Model A conventions (z-order = annotation order;
+  spatial frame = probed video dimensions; SVG at the targeted region) to Model C fixtures,
+  which is why Model C agrees with Model A — the agreement is carried by the conventions, not
+  by W3C text.
+
 ## Consolidated rule set the Blind Renderer MUST implement
 
 (Each rule is implementable from the above; nothing else from any renderer is used.)

@@ -29,6 +29,22 @@ convention or non-standard extension), `B` = browser/environment dependent.
 | Official spec conformance | IIIF Presentation 3 manifest | S | S | 10/10 fixtures `okay:1`, 0 warnings (exp10) |
 | Mainstream viewer (video) | Ramp (`@samvera/ramp`) | S | S | Loads/plays plain video Canvas locally (exp11) |
 | Mainstream viewer (SVG overlay) | Ramp | S* | G | Playable structure *permitted*; viewer throws on Image/SVG painting body (exp11) |
+| `percent:` spatial unit (E14 case03) | Media Fragments §4.2.2 | S | S | After Renderer A fix, `percent:`/`pixel:`/`pct:` agree across A/blind/native |
+| SVG-as-image geometry, no viewBox (E14 case06/07) | Image body via `<img>` | G | G | Three renderers → three geometries; 1:1 falsified under `<img>` (object-fit fill stretches intrinsic canvas). `[VIEWER_GAP]` |
+| Nested Overlay Canvas (E14 Model B) | IIIF 4.0 **draft** | S* | G | Geometrically identical across renderers, but *draft-only*; Ramp throws on it |
+| Web Annotation Model C overlay (E14) | W3C Web Annotation | S* | G | Expressible; z-order + painting are CONVENTION; no mainstream IIIF AV player consumes AnnotationCollections |
+| SVG security policy (E14 case16) | — | — | G | `<img>` sandbox neutralizes active content but is platform behavior; blind rejects unsafe, native renders inert, A renders always — no manifest-expressible policy. `[IMPLEMENTATION_GAP]` |
+
+### E14 notes (expanded)
+
+- E14 recommendation (see `research/e14-report.md`): require an explicit `viewBox` on every SVG
+  painting body — the no-viewBox row above becomes the unambiguous viewBox-meet case. This is
+  the single highest-value interop rule.
+- Native-renderer SVG-as-image behavior is the true consumer semantics of an IIIF `Image`
+  body; `evidence/observations/e14-case06-native.json` records the falsification of the 1:1
+  reading under `<img>`.
+- Model C (Web Annotation) is expressible but silent on painting; the packet must carry the
+  conventions. Model B is draft-only; do not target stable IIIF 3.0 clients with it.
 
 ### Legend / honesty notes
 
@@ -40,6 +56,9 @@ convention or non-standard extension), `B` = browser/environment dependent.
   execution, keyframes due to being non-standard.
 - Rendering of SVG bodies in deployed viewers (right-hand column, last row) is the largest
   remaining gap between "the data structure is valid" and "humans can see the overlay".
+- New E14 rows follow the same legend: `S` = supported (probed), `G` = gap (needs convention or
+  extension), `B` = browser/environment dependent; `S*` = supported only in a draft or by
+  convention.
 
 ### Suggested profile (if this were a product, NOT currently part of any standard)
 
