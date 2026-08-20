@@ -7,7 +7,7 @@ export const EVIDENCE = resolve("evidence");
 
 export interface GotoOpts {
   exp: string;
-  renderer?: "a" | "b";
+  renderer?: "a" | "b" | "blind";
   t?: number;
   aspect?: "16:9" | "4:3" | "narrow" | "wide";
   sanitize?: "0" | "1";
