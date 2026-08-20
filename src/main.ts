@@ -1,9 +1,9 @@
 import "./style.css";
-import type { CanvasInfo, RendererKind, ResolvedOverlay } from "./lib/types.ts";
-import { resolveManifest } from "./lib/iiif.ts";
-import { resolveReference } from "./renderers/rendererB.ts";
-import { Stage, type Fit } from "./renderers/dom.ts";
-import { allowlistSanitizer, identitySanitizer } from "./lib/sanitize.ts";
+import type { CanvasInfo, RendererKind, ResolvedOverlay } from "./reference/lib/types.ts";
+import { resolveManifest } from "./reference/lib/iiif.ts";
+import { resolveReference } from "./reference/renderers/rendererB.ts";
+import { Stage, type Fit } from "./reference/renderers/dom.ts";
+import { allowlistSanitizer, identitySanitizer } from "./reference/lib/sanitize.ts";
 import { expRefs, sameOverlay, VIDEO } from "./experiments.ts";
 
 interface LabApi {

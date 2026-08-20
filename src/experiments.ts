@@ -1,4 +1,8 @@
-import type { Keyframe, ReferenceOverlay, ResolvedOverlay } from "./lib/types.ts";
+import type {
+  Keyframe,
+  ReferenceOverlay,
+  ResolvedOverlay,
+} from "./reference/lib/types.ts";
 
 /**
  * Reference (Renderer B) overlays per experiment. These mirror the same SVG
@@ -10,7 +14,8 @@ export const VIDEO = "/video/test-grid-1920x1080-30s.mp4";
 
 async function svg(path: string): Promise<string> {
   const r = await fetch(path);
-  if (!r.ok) throw new Error(`failed to load reference svg ${path}: ${r.status}`);
+  if (!r.ok)
+    throw new Error(`failed to load reference svg ${path}: ${r.status}`);
   return r.text();
 }
 
@@ -28,12 +33,21 @@ export async function expRefs(id: string): Promise<ExpRefs> {
     case "1":
       return {
         rawEqual: true,
-        refs: [{ startTime: 10, endTime: 15, zIndex: 0, svg: await svg("/svg/exp1-circle.svg") }],
+        refs: [
+          {
+            startTime: 10,
+            endTime: 15,
+            zIndex: 0,
+            svg: await svg("/svg/exp1-circle.svg"),
+          },
+        ],
       };
     case "2":
       return {
         rawEqual: true,
-        refs: [{ ...full, zIndex: 0, svg: await svg("/svg/exp2-primitives.svg") }],
+        refs: [
+          { ...full, zIndex: 0, svg: await svg("/svg/exp2-primitives.svg") },
+        ],
       };
     case "3": {
       const svgs = [
@@ -57,9 +71,24 @@ export async function expRefs(id: string): Promise<ExpRefs> {
       return {
         rawEqual: false, // oracle uses baked coords; equivalence is geometric
         refs: [
-          { id: "region-circles", ...full, zIndex: 0, svg: await svg("/svg/exp4-pos-00.svg") },
-          { id: "region-circles-t", ...full, zIndex: 1, svg: await svg("/svg/exp4-pos-960540.svg") },
-          { id: "region-pct", ...full, zIndex: 2, svg: await svg("/svg/exp4-pos-pct.svg") },
+          {
+            id: "region-circles",
+            ...full,
+            zIndex: 0,
+            svg: await svg("/svg/exp4-pos-00.svg"),
+          },
+          {
+            id: "region-circles-t",
+            ...full,
+            zIndex: 1,
+            svg: await svg("/svg/exp4-pos-960540.svg"),
+          },
+          {
+            id: "region-pct",
+            ...full,
+            zIndex: 2,
+            svg: await svg("/svg/exp4-pos-pct.svg"),
+          },
           {
             id: "region-timed",
             startTime: 10,
@@ -71,17 +100,37 @@ export async function expRefs(id: string): Promise<ExpRefs> {
       };
     }
     case "5a":
-      return { rawEqual: true, refs: [{ ...full, zIndex: 0, svg: await svg("/svg/exp5-viewbox-1920.svg") }] };
+      return {
+        rawEqual: true,
+        refs: [
+          { ...full, zIndex: 0, svg: await svg("/svg/exp5-viewbox-1920.svg") },
+        ],
+      };
     case "5b":
-      return { rawEqual: true, refs: [{ ...full, zIndex: 0, svg: await svg("/svg/exp5-viewbox-1000.svg") }] };
+      return {
+        rawEqual: true,
+        refs: [
+          { ...full, zIndex: 0, svg: await svg("/svg/exp5-viewbox-1000.svg") },
+        ],
+      };
     case "5c":
-      return { rawEqual: true, refs: [{ ...full, zIndex: 0, svg: await svg("/svg/exp5-viewbox-64.svg") }] };
+      return {
+        rawEqual: true,
+        refs: [
+          { ...full, zIndex: 0, svg: await svg("/svg/exp5-viewbox-64.svg") },
+        ],
+      };
     case "6":
       // Reuses the exp1 content; the ASPECT is the variable.
       return {
         rawEqual: true,
         refs: [
-          { startTime: 10, endTime: 15, zIndex: 0, svg: await svg("/svg/exp1-circle.svg") },
+          {
+            startTime: 10,
+            endTime: 15,
+            zIndex: 0,
+            svg: await svg("/svg/exp1-circle.svg"),
+          },
         ],
       };
     case "7": {
@@ -94,7 +143,13 @@ export async function expRefs(id: string): Promise<ExpRefs> {
         rawEqual: true,
         keyframesUrl: "/manifests/exp7-keyframes.json",
         refs: [
-          { startTime: 10, endTime: 25, zIndex: 0, svg: await svg("/svg/exp7-dot.svg"), keyframes },
+          {
+            startTime: 10,
+            endTime: 25,
+            zIndex: 0,
+            svg: await svg("/svg/exp7-dot.svg"),
+            keyframes,
+          },
         ],
       };
     }
@@ -108,15 +163,15 @@ export function sameOverlay(a: ResolvedOverlay, b: ResolvedOverlay): string[] {
   const diffs: string[] = [];
   // `id` is excluded on purpose: renderer B synthesizes ids (ref-N). The
   // informative payload is the time window, z-order, SVG body and target region.
-  if (Math.abs(a.startTime - b.startTime) > 1e-6) diffs.push(`start: ${a.startTime} != ${b.startTime}`);
-  if (Math.abs(a.endTime - b.endTime) > 1e-6) diffs.push(`end: ${a.endTime} != ${b.endTime}`);
+  if (Math.abs(a.startTime - b.startTime) > 1e-6)
+    diffs.push(`start: ${a.startTime} != ${b.startTime}`);
+  if (Math.abs(a.endTime - b.endTime) > 1e-6)
+    diffs.push(`end: ${a.endTime} != ${b.endTime}`);
   if (a.zIndex !== b.zIndex) diffs.push(`z: ${a.zIndex} != ${b.zIndex}`);
   if (a.svgText !== b.svgText) diffs.push("svgText differs");
   const va = a.viewport;
   const vb = b.viewport;
-  if (
-    va.x !== vb.x || va.y !== vb.y || va.w !== vb.w || va.h !== vb.h
-  ) {
+  if (va.x !== vb.x || va.y !== vb.y || va.w !== vb.w || va.h !== vb.h) {
     diffs.push(`viewport: ${JSON.stringify(va)} != ${JSON.stringify(vb)}`);
   }
   const ka = a.keyframes;
@@ -124,7 +179,11 @@ export function sameOverlay(a: ResolvedOverlay, b: ResolvedOverlay): string[] {
   if (ka?.length !== kb?.length) diffs.push("keyframes length differs");
   else if (ka && kb) {
     for (let i = 0; i < ka.length; i++) {
-      if (ka[i]!.t !== kb[i]!.t || ka[i]!.x !== kb[i]!.x || ka[i]!.y !== kb[i]!.y) {
+      if (
+        ka[i]!.t !== kb[i]!.t ||
+        ka[i]!.x !== kb[i]!.x ||
+        ka[i]!.y !== kb[i]!.y
+      ) {
         diffs.push(`keyframe[${i}] differs`);
         break;
       }

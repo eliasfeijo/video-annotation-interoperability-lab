@@ -5,7 +5,7 @@ import {
   parseViewBox,
   computeNestedSvgPlacement,
   canvasPointOfSvgUserPoint,
-} from "../src/lib/svg.ts";
+} from "../src/reference/lib/svg.ts";
 
 describe("readSvgRootAttrs", () => {
   it("extracts viewBox, preserveAspectRatio, width, height", () => {

@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { temporalWindow, isActiveAt } from "../src/lib/timing.ts";
-import type { ResolvedOverlay } from "../src/lib/types.ts";
+import { temporalWindow, isActiveAt } from "../src/reference/lib/timing.ts";
+import type { ResolvedOverlay } from "../src/reference/lib/types.ts";
 
 const DURATION = 30;
 

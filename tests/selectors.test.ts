@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { parseTemporal, parseSpatial, parseFragmentValue } from "../src/lib/selectors.ts";
+import {
+  parseTemporal,
+  parseSpatial,
+  parseFragmentValue,
+} from "../src/reference/lib/selectors.ts";
 
 describe("parseTemporal", () => {
   it("parses full range t=10,15", () => {

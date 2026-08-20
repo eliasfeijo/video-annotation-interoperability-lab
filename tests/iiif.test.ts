@@ -1,12 +1,15 @@
-import { describe, it, expect } from "vitest";
-import { resolveManifest } from "../src/lib/iiif.ts";
-import { resolveReference } from "../src/renderers/rendererB.ts";
+import { describe, expect, it } from "vitest";
+import { resolveManifest } from "../src/reference/lib/iiif.ts";
+import { resolveReference } from "../src/reference/renderers/rendererB.ts";
 
 const ORIGIN = "http://localhost:5173";
 
 function manifestWith(pages: any[], canvasOverrides: any = {}): any {
   return {
-    "@context": ["http://www.w3.org/ns/anno.jsonld", "http://iiif.io/api/presentation/3/context.json"],
+    "@context": [
+      "http://www.w3.org/ns/anno.jsonld",
+      "http://iiif.io/api/presentation/3/context.json",
+    ],
     id: `${ORIGIN}/manifests/exp1.json`,
     type: "Manifest",
     items: [
@@ -17,7 +20,9 @@ function manifestWith(pages: any[], canvasOverrides: any = {}): any {
         height: 1080,
         duration: 30,
         ...canvasOverrides,
-        items: [{ id: `${ORIGIN}/page/1`, type: "AnnotationPage", items: pages }],
+        items: [
+          { id: `${ORIGIN}/page/1`, type: "AnnotationPage", items: pages },
+        ],
       },
     ],
   };
@@ -39,32 +44,55 @@ const SVG_BODY = {
 };
 
 const fetcher = async (url: string) => {
-  if (url.endsWith("a.svg")) return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><circle cx="10" cy="20" r="30"/></svg>`;
+  if (url.endsWith("a.svg"))
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><circle cx="10" cy="20" r="30"/></svg>`;
   throw new Error("unexpected fetch " + url);
 };
 
 describe("resolveManifest (Renderer A)", () => {
   it("extracts canvas geometry and duration", async () => {
     const r = await resolveManifest(
-      manifestWith([{ id: "a", type: "Annotation", motivation: "painting", target: `${ORIGIN}/canvas/main`, body: VIDEO_BODY }]),
+      manifestWith([
+        {
+          id: "a",
+          type: "Annotation",
+          motivation: "painting",
+          target: `${ORIGIN}/canvas/main`,
+          body: VIDEO_BODY,
+        },
+      ]),
       `${ORIGIN}/manifests/exp1.json`,
       fetcher,
     );
-    expect(r.canvas).toEqual({ id: `${ORIGIN}/canvas/main`, width: 1920, height: 1080, duration: 30 });
+    expect(r.canvas).toEqual({
+      id: `${ORIGIN}/canvas/main`,
+      width: 1920,
+      height: 1080,
+      duration: 30,
+    });
     expect(r.videoUrl).toBe(`${ORIGIN}/video/test.mp4`);
   });
 
   it("builds overlay from SVG painting with temporal + spatial fragment", async () => {
     const r = await resolveManifest(
       manifestWith([
-        { id: "doc", type: "Annotation", motivation: "painting", target: `${ORIGIN}/canvas/main`, body: VIDEO_BODY },
+        {
+          id: "doc",
+          type: "Annotation",
+          motivation: "painting",
+          target: `${ORIGIN}/canvas/main`,
+          body: VIDEO_BODY,
+        },
         {
           id: "anno/circle",
           type: "Annotation",
           motivation: "painting",
           target: {
             source: `${ORIGIN}/canvas/main`,
-            selector: { type: "FragmentSelector", value: "xywh=100,50,200,300&t=10,20" },
+            selector: {
+              type: "FragmentSelector",
+              value: "xywh=100,50,200,300&t=10,20",
+            },
           },
           body: SVG_BODY,
         },
@@ -84,8 +112,20 @@ describe("resolveManifest (Renderer A)", () => {
   it("skips non-painting annotations and non-SVG bodies", async () => {
     const r = await resolveManifest(
       manifestWith([
-        { id: "doc", type: "Annotation", motivation: "commenting", target: `${ORIGIN}/canvas/main`, body: { id: "x", type: "Text" } },
-        { id: "anno/other", type: "Annotation", motivation: "painting", target: `${ORIGIN}/canvas/main`, body: { id: `${ORIGIN}/pic.png`, type: "Image", format: "image/png" } },
+        {
+          id: "doc",
+          type: "Annotation",
+          motivation: "commenting",
+          target: `${ORIGIN}/canvas/main`,
+          body: { id: "x", type: "Text" },
+        },
+        {
+          id: "anno/other",
+          type: "Annotation",
+          motivation: "painting",
+          target: `${ORIGIN}/canvas/main`,
+          body: { id: `${ORIGIN}/pic.png`, type: "Image", format: "image/png" },
+        },
       ]),
       `${ORIGIN}/manifests/exp1.json`,
       fetcher,
@@ -96,7 +136,13 @@ describe("resolveManifest (Renderer A)", () => {
   it("no temporal fragment => whole canvas duration window", async () => {
     const r = await resolveManifest(
       manifestWith([
-        { id: "anno/full", type: "Annotation", motivation: "painting", target: `${ORIGIN}/canvas/main`, body: SVG_BODY },
+        {
+          id: "anno/full",
+          type: "Annotation",
+          motivation: "painting",
+          target: `${ORIGIN}/canvas/main`,
+          body: SVG_BODY,
+        },
       ]),
       `${ORIGIN}/manifests/exp1.json`,
       fetcher,
@@ -109,10 +155,34 @@ describe("resolveManifest (Renderer A)", () => {
   it("preserves annotation page order as z-order across multiple annotations", async () => {
     const r = await resolveManifest(
       manifestWith([
-        { id: "doc", type: "Annotation", motivation: "painting", target: `${ORIGIN}/canvas/main`, body: VIDEO_BODY },
-        { id: "anno/a", type: "Annotation", motivation: "painting", target: `${ORIGIN}/canvas/main`, body: SVG_BODY },
-        { id: "anno/b", type: "Annotation", motivation: "painting", target: `${ORIGIN}/canvas/main`, body: SVG_BODY },
-        { id: "anno/c", type: "Annotation", motivation: "painting", target: `${ORIGIN}/canvas/main`, body: SVG_BODY },
+        {
+          id: "doc",
+          type: "Annotation",
+          motivation: "painting",
+          target: `${ORIGIN}/canvas/main`,
+          body: VIDEO_BODY,
+        },
+        {
+          id: "anno/a",
+          type: "Annotation",
+          motivation: "painting",
+          target: `${ORIGIN}/canvas/main`,
+          body: SVG_BODY,
+        },
+        {
+          id: "anno/b",
+          type: "Annotation",
+          motivation: "painting",
+          target: `${ORIGIN}/canvas/main`,
+          body: SVG_BODY,
+        },
+        {
+          id: "anno/c",
+          type: "Annotation",
+          motivation: "painting",
+          target: `${ORIGIN}/canvas/main`,
+          body: SVG_BODY,
+        },
       ]),
       `${ORIGIN}/manifests/exp1.json`,
       fetcher,
@@ -126,7 +196,12 @@ describe("resolveReference (Renderer B)", () => {
   it("defaults viewport to full canvas, preserves given times/z", () => {
     const r = resolveReference(
       [
-        { startTime: 10, endTime: 15, zIndex: 0, svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="10"/></svg>` },
+        {
+          startTime: 10,
+          endTime: 15,
+          zIndex: 0,
+          svg: `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="10"/></svg>`,
+        },
       ],
       { width: 1920, height: 1080, duration: 30 },
     );
