@@ -1,0 +1,51 @@
+{
+  "@context": ["http://www.w3.org/ns/anno.jsonld", "http://iiif.io/api/presentation/3/context.json"],
+  "id": "http://localhost:5173/manifests/case4.json",
+  "type": "Manifest",
+  "label": { "en": ["case4: spatial targeting in pixels, percent and pct"] },
+  "items": [
+    {
+      "id": "http://localhost:5173/canvas/main",
+      "type": "Canvas",
+      "width": 1920,
+      "height": 1080,
+      "duration": 30,
+      "items": [
+        {
+          "id": "http://localhost:5173/page/1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "http://localhost:5173/annotation/video",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "http://localhost:5173/canvas/main",
+              "body": { "id": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4", "type": "Video", "format": "video/mp4", "width": 1920, "height": 1080, "duration": 30 }
+            },
+            {
+              "id": "http://localhost:5173/annotation/pixel",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": { "source": "http://localhost:5173/canvas/main", "selector": { "type": "FragmentSelector", "value": "xywh=100,100,400,300" } },
+              "body": { "id": "http://localhost:5173/svg/case10-pixel.svg", "type": "Image", "format": "image/svg+xml" }
+            },
+            {
+              "id": "http://localhost:5173/annotation/percent",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": { "source": "http://localhost:5173/canvas/main", "selector": { "type": "FragmentSelector", "value": "xywh=pct:25,25,50,50" } },
+              "body": { "id": "http://localhost:5173/svg/case10-percent.svg", "type": "Image", "format": "image/svg+xml" }
+            },
+            {
+              "id": "http://localhost:5173/annotation/pct",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": { "source": "http://localhost:5173/canvas/main", "selector": { "type": "FragmentSelector", "value": "xywh=pct:10,10,20,20" } },
+              "body": { "id": "http://localhost:5173/svg/case10-pct.svg", "type": "Image", "format": "image/svg+xml" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

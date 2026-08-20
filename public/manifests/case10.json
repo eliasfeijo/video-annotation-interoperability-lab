@@ -1,0 +1,44 @@
+{
+  "@context": ["http://www.w3.org/ns/anno.jsonld", "http://iiif.io/api/presentation/3/context.json"],
+  "id": "http://localhost:5173/manifests/case10.json",
+  "type": "Manifest",
+  "label": { "en": ["case10: invalid spatial fragments (zero-size, out-of-bounds)"] },
+  "items": [
+    {
+      "id": "http://localhost:5173/canvas/main",
+      "type": "Canvas",
+      "width": 1920,
+      "height": 1080,
+      "duration": 30,
+      "items": [
+        {
+          "id": "http://localhost:5173/page/1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "http://localhost:5173/annotation/video",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "http://localhost:5173/canvas/main",
+              "body": { "id": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4", "type": "Video", "format": "video/mp4", "width": 1920, "height": 1080, "duration": 30 }
+            },
+            {
+              "id": "http://localhost:5173/annotation/zero-size",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": { "source": "http://localhost:5173/canvas/main", "selector": { "type": "FragmentSelector", "value": "xywh=0,0,0,0" } },
+              "body": { "id": "http://localhost:5173/svg/case10-invalid0.svg", "type": "Image", "format": "image/svg+xml" }
+            },
+            {
+              "id": "http://localhost:5173/annotation/out-of-bounds",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": { "source": "http://localhost:5173/canvas/main", "selector": { "type": "FragmentSelector", "value": "xywh=2000,0,100,100" } },
+              "body": { "id": "http://localhost:5173/svg/case10-invalidob.svg", "type": "Image", "format": "image/svg+xml" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

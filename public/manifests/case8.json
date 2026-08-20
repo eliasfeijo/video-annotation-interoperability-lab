@@ -1,0 +1,50 @@
+{
+  "@context": ["http://www.w3.org/ns/anno.jsonld", "http://iiif.io/api/presentation/3/context.json"],
+  "id": "http://localhost:5173/manifests/case8.json",
+  "type": "Manifest",
+  "label": { "en": ["case8: z-order across multiple AnnotationPages"] },
+  "items": [
+    {
+      "id": "http://localhost:5173/canvas/main",
+      "type": "Canvas",
+      "width": 1920,
+      "height": 1080,
+      "duration": 30,
+      "items": [
+        {
+          "id": "http://localhost:5173/page/1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "http://localhost:5173/annotation/video",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "http://localhost:5173/canvas/main",
+              "body": { "id": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4", "type": "Video", "format": "video/mp4", "width": 1920, "height": 1080, "duration": 30 }
+            },
+            {
+              "id": "http://localhost:5173/annotation/page1-a",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "http://localhost:5173/canvas/main",
+              "body": { "id": "http://localhost:5173/svg/case8-a.svg", "type": "Image", "format": "image/svg+xml" }
+            }
+          ]
+        },
+        {
+          "id": "http://localhost:5173/page/2",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "http://localhost:5173/annotation/page2-b",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "http://localhost:5173/canvas/main",
+              "body": { "id": "http://localhost:5173/svg/case8-b.svg", "type": "Image", "format": "image/svg+xml" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

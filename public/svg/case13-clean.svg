@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <rect x="200" y="200" width="800" height="500" fill="#fea"/>
+  <circle cx="1500" cy="500" r="200" fill="#0c6"/>
+  <text x="960" y="900" font-size="80" fill="#222">safe</text>
+</svg>
