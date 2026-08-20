@@ -1,0 +1,6 @@
+{
+  "rootText": "Cannot set properties of undefined (setting 'id')\nTry again",
+  "videoCount": 0,
+  "log": "manifest fetch: 200 http://127.0.0.1:5173/manifests/e14/e14-case14-b.json\nrender ok\n",
+  "note": "Nested Canvas painting (Model B) uses the IIIF 4.0 draft context; stable Ramp cannot parse it. Model B is expressible only in the draft — a VIEWER_GAP and a draft-only dependency."
+}

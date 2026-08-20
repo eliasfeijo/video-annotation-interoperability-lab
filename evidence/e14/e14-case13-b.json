@@ -1,0 +1,63 @@
+{
+  "byPair": [
+    {
+      "a": "a",
+      "b": "blind",
+      "diffs": [
+        {
+          "overlayIndex": 0,
+          "overlayId": "http://localhost:5173/annotation/e14/overlay-svg",
+          "field": "destination",
+          "a": "2000,0,100,100",
+          "b": "0,0,1920,1080",
+          "classification": "DERIVED"
+        },
+        {
+          "overlayIndex": 0,
+          "overlayId": "http://localhost:5173/annotation/e14/overlay-svg",
+          "field": "placement",
+          "a": "nested-canvas|vp=2000,0,100,100|s=null|t=2000,0|nested(1920x1080 s=0.052083,0.092593 off=2000,0)",
+          "b": "nested-canvas|vp=0,0,1920,1080|s=null|t=0,0|nested(1920x1080 s=1,1 off=0,0)",
+          "classification": "DERIVED"
+        }
+      ]
+    },
+    {
+      "a": "a",
+      "b": "native",
+      "diffs": [
+        {
+          "overlayIndex": 0,
+          "overlayId": "http://localhost:5173/annotation/e14/overlay-svg",
+          "field": "destination",
+          "a": "2000,0,100,100",
+          "b": "0,0,1920,1080",
+          "classification": "DERIVED"
+        },
+        {
+          "overlayIndex": 0,
+          "overlayId": "http://localhost:5173/annotation/e14/overlay-svg",
+          "field": "placement",
+          "a": "nested-canvas|vp=2000,0,100,100|s=null|t=2000,0|nested(1920x1080 s=0.052083,0.092593 off=2000,0)",
+          "b": "nested-canvas|vp=0,0,1920,1080|s=null|t=0,0|nested(1920x1080 s=1,1 off=0,0)",
+          "classification": "DERIVED"
+        }
+      ]
+    },
+    {
+      "a": "blind",
+      "b": "native",
+      "diffs": []
+    }
+  ],
+  "verdicts": [
+    "a!=blind",
+    "a!=native",
+    "blind==native"
+  ],
+  "overlayCount": {
+    "a": 1,
+    "blind": 1,
+    "native": 1
+  }
+}

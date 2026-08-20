@@ -1,0 +1,458 @@
+{
+  "e14-case01-a": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case01-b": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case01-c": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case02-a": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case02-b": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case02-c": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case03-a": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case03-b": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case03-c": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case04-a": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case04-b": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case04-c": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case05-a": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case05-b": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case05-c": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case06-a": {
+    "verdicts": [
+      "a!=blind",
+      "a!=native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case06-b": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case06-c": {
+    "verdicts": [
+      "a!=blind",
+      "a!=native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case07-a": {
+    "verdicts": [
+      "a!=blind",
+      "a!=native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case07-b": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case07-c": {
+    "verdicts": [
+      "a!=blind",
+      "a!=native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case08-a": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 4,
+      "blind": 4,
+      "native": 4
+    }
+  },
+  "e14-case09-a": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case09-c": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case10-a": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case10-c": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case11-a": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 3,
+      "blind": 3,
+      "native": 3
+    }
+  },
+  "e14-case11-b": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 2,
+      "blind": 2,
+      "native": 2
+    }
+  },
+  "e14-case11-c": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 3,
+      "blind": 3,
+      "native": 3
+    }
+  },
+  "e14-case12-a": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 2,
+      "blind": 2,
+      "native": 2
+    }
+  },
+  "e14-case12-b": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 2,
+      "blind": 2,
+      "native": 2
+    }
+  },
+  "e14-case13-a": {
+    "verdicts": [
+      "a!=blind",
+      "a!=native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 2,
+      "blind": 2,
+      "native": 2
+    }
+  },
+  "e14-case13-b": {
+    "verdicts": [
+      "a!=blind",
+      "a!=native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case13-c": {
+    "verdicts": [
+      "a!=blind",
+      "a!=native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case14-b": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case14reg-b": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case15-b": {
+    "verdicts": [
+      "a==blind",
+      "a==native",
+      "blind==native"
+    ],
+    "overlayCount": {
+      "a": 1,
+      "blind": 1,
+      "native": 1
+    }
+  },
+  "e14-case16-a": {
+    "verdicts": [
+      "a!=blind",
+      "a==native",
+      "blind!=native"
+    ],
+    "overlayCount": {
+      "a": 2,
+      "blind": 2,
+      "native": 2
+    }
+  }
+}

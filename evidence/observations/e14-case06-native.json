@@ -1,0 +1,17 @@
+{
+  "nearCentre": [
+    206,
+    17,
+    17
+  ],
+  "far": [
+    20,
+    20,
+    20
+  ],
+  "intrinsic": [
+    1000,
+    1000
+  ],
+  "finding": "SVG-as-image 1:1 prediction falsified under <img>; browser stretches intrinsic canvas into region (object-fit fill default)"
+}

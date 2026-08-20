@@ -1,0 +1,29 @@
+{
+  "byPair": [
+    {
+      "a": "a",
+      "b": "blind",
+      "diffs": []
+    },
+    {
+      "a": "a",
+      "b": "native",
+      "diffs": []
+    },
+    {
+      "a": "blind",
+      "b": "native",
+      "diffs": []
+    }
+  ],
+  "verdicts": [
+    "a==blind",
+    "a==native",
+    "blind==native"
+  ],
+  "overlayCount": {
+    "a": 4,
+    "blind": 4,
+    "native": 4
+  }
+}

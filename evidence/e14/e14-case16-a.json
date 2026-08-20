@@ -1,0 +1,47 @@
+{
+  "byPair": [
+    {
+      "a": "a",
+      "b": "blind",
+      "diffs": [
+        {
+          "overlayIndex": 1,
+          "overlayId": "http://localhost:5173/annotation/e14/unsafe",
+          "field": "security.decision",
+          "a": "render",
+          "b": "reject",
+          "classification": "CONVENTION"
+        }
+      ]
+    },
+    {
+      "a": "a",
+      "b": "native",
+      "diffs": []
+    },
+    {
+      "a": "blind",
+      "b": "native",
+      "diffs": [
+        {
+          "overlayIndex": 1,
+          "overlayId": "http://localhost:5173/annotation/e14/unsafe",
+          "field": "security.decision",
+          "a": "reject",
+          "b": "render",
+          "classification": "IMPLEMENTATION_GAP"
+        }
+      ]
+    }
+  ],
+  "verdicts": [
+    "a!=blind",
+    "a==native",
+    "blind!=native"
+  ],
+  "overlayCount": {
+    "a": 2,
+    "blind": 2,
+    "native": 2
+  }
+}
