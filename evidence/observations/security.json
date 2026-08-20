@@ -1,0 +1,29 @@
+{
+  "sanitized": {
+    "script": 0,
+    "foreignObject": 0,
+    "a": 0,
+    "image": 0,
+    "use": 0,
+    "filter": 0,
+    "style": 0,
+    "marker": 0,
+    "defs": 0,
+    "animate": 0
+  },
+  "raw": {
+    "script": 1,
+    "foreignObject": 1,
+    "a": 1,
+    "image": 1,
+    "use": 0,
+    "filter": 1,
+    "style": 1,
+    "marker": 0,
+    "defs": 0,
+    "animate": 0
+  },
+  "scriptExecuted": false,
+  "title": "Video Annotation Interoperability Lab",
+  "note": "innerHTML-injected <script> does not execute; onclick attributes remain inert unless an event is dispatched"
+}

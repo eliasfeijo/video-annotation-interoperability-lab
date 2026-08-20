@@ -1,0 +1,90 @@
+{
+  "16:9": {
+    "expectedContentRect": {
+      "x": 0,
+      "y": 0.5625,
+      "w": 1278,
+      "h": 718.875
+    },
+    "overlayRegionRect": {
+      "x": 1,
+      "y": 0.5625,
+      "width": 1278,
+      "height": 718.875
+    },
+    "circleCenterCanvas": {
+      "x": 960,
+      "y": 540
+    },
+    "driftCanvas": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  "4:3": {
+    "expectedContentRect": {
+      "x": 0,
+      "y": 120.5625,
+      "w": 1278,
+      "h": 718.875
+    },
+    "overlayRegionRect": {
+      "x": 1,
+      "y": 120.5625,
+      "width": 1278,
+      "height": 718.875
+    },
+    "circleCenterCanvas": {
+      "x": 960,
+      "y": 540
+    },
+    "driftCanvas": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  "narrow": {
+    "expectedContentRect": {
+      "x": 0,
+      "y": 405.5625,
+      "w": 478,
+      "h": 268.875
+    },
+    "overlayRegionRect": {
+      "x": 1,
+      "y": 405.5625,
+      "width": 478,
+      "height": 268.875
+    },
+    "circleCenterCanvas": {
+      "x": 960,
+      "y": 540
+    },
+    "driftCanvas": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  "wide": {
+    "expectedContentRect": {
+      "x": 532.3333333333334,
+      "y": 0,
+      "w": 853.3333333333333,
+      "h": 480
+    },
+    "overlayRegionRect": {
+      "x": 533.328125,
+      "y": 0,
+      "width": 853.328125,
+      "height": 480
+    },
+    "circleCenterCanvas": {
+      "x": 960,
+      "y": 540
+    },
+    "driftCanvas": {
+      "x": 0,
+      "y": 0
+    }
+  }
+}

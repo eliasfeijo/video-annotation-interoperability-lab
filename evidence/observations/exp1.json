@@ -1,0 +1,71 @@
+{
+  "times": {
+    "9": {
+      "expectedVisible": false,
+      "activeIds": [],
+      "overlayVisible": false,
+      "regionFrac": {
+        "w": 1278,
+        "h": 718.875
+      },
+      "shapes": [
+        "circle"
+      ]
+    },
+    "10": {
+      "expectedVisible": true,
+      "activeIds": [
+        "http://localhost:5173/annotation/circle"
+      ],
+      "overlayVisible": true,
+      "regionFrac": {
+        "w": 1278,
+        "h": 718.875
+      },
+      "shapes": [
+        "circle"
+      ]
+    },
+    "12": {
+      "expectedVisible": true,
+      "activeIds": [
+        "http://localhost:5173/annotation/circle"
+      ],
+      "overlayVisible": true,
+      "regionFrac": {
+        "w": 1278,
+        "h": 718.875
+      },
+      "shapes": [
+        "circle"
+      ]
+    },
+    "15": {
+      "expectedVisible": false,
+      "activeIds": [],
+      "overlayVisible": false,
+      "regionFrac": {
+        "w": 1278,
+        "h": 718.875
+      },
+      "shapes": [
+        "circle"
+      ]
+    },
+    "16": {
+      "expectedVisible": false,
+      "activeIds": [],
+      "overlayVisible": false,
+      "regionFrac": {
+        "w": 1278,
+        "h": 718.875
+      },
+      "shapes": [
+        "circle"
+      ]
+    }
+  },
+  "parity": {
+    "clean": true
+  }
+}

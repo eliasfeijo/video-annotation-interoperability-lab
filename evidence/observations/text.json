@@ -1,0 +1,57 @@
+{
+  "at2s": {
+    "probeShapes": [
+      {
+        "tag": "text",
+        "w": 571.873779296875,
+        "h": 72
+      },
+      {
+        "tag": "text",
+        "w": 234.196044921875,
+        "h": 72
+      },
+      {
+        "tag": "text",
+        "w": 311.0000305175781,
+        "h": 152.85000610351562
+      },
+      {
+        "tag": "tspan",
+        "w": 159.78125,
+        "h": 57
+      },
+      {
+        "tag": "tspan",
+        "w": 299.3281555175781,
+        "h": 56.999969482421875
+      },
+      {
+        "tag": "tspan",
+        "w": 186.34375,
+        "h": 57
+      },
+      {
+        "tag": "text",
+        "w": 380.6094055175781,
+        "h": 62.000030517578125
+      }
+    ],
+    "outlinedPaths": 4,
+    "outlinedPathRect": {
+      "x": 80.875,
+      "y": 100.40625,
+      "width": 133.125,
+      "height": 465.9375
+    }
+  },
+  "computedFont": {
+    "family": "Arial, sans-serif",
+    "fontSize": "96px",
+    "paintOrder": "normal"
+  },
+  "at16s": {
+    "outlinedVisible": false,
+    "probeVisible": true
+  }
+}

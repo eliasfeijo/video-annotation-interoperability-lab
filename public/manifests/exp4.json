@@ -1,0 +1,142 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/anno.jsonld",
+    "http://iiif.io/api/presentation/3/context.json"
+  ],
+  "id": "http://localhost:5173/manifests/exp4.json",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "exp4"
+    ]
+  },
+  "items": [
+    {
+      "id": "http://localhost:5173/canvas/main",
+      "type": "Canvas",
+      "width": 1920,
+      "height": 1080,
+      "duration": 30,
+      "label": {
+        "en": [
+          "main canvas"
+        ]
+      },
+      "items": [
+        {
+          "id": "http://localhost:5173/page/1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "http://localhost:5173/annotation/video",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "http://localhost:5173/canvas/main",
+              "body": {
+                "id": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+                "type": "Video",
+                "format": "video/mp4",
+                "width": 1920,
+                "height": 1080,
+                "duration": 30,
+                "label": {
+                  "en": [
+                    "video"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/region-circles",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=0,0,960,540"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/exp4-circle.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "region-circles"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/region-circles-t",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=960,540,960,540"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/exp4-circle.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "region-circles-t"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/region-pct",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=pct:50,0,25,25"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/exp4-circle.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "region-pct"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/region-timed",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=0,540,960,540&t=10,20"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/exp4-circle.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "region-timed"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

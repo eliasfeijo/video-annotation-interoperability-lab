@@ -1,0 +1,8 @@
+# Normalize all text to LF in the repository (checkout keeps LF too).
+* text=auto eol=lf
+
+# Explicit binary assets.
+*.png binary
+*.jpg binary
+*.webp binary
+*.mp4 binary

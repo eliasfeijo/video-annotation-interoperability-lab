@@ -1,0 +1,43 @@
+{
+  "keyframe@10": {
+    "expectedX": 100,
+    "actualCenter": {
+      "x": 101.978759765625,
+      "y": 500
+    }
+  },
+  "keyframe@12.5": {
+    "expectedX": 200,
+    "actualCenter": {
+      "x": 201.99079486685739,
+      "y": 500
+    }
+  },
+  "keyframe@15": {
+    "expectedX": 300,
+    "actualCenter": {
+      "x": 302.9952042987089,
+      "y": 500
+    }
+  },
+  "keyframe@17.5": {
+    "expectedX": 450,
+    "actualCenter": {
+      "x": 452.2892367224178,
+      "y": 500
+    }
+  },
+  "keyframe@20": {
+    "expectedX": 600,
+    "actualCenter": {
+      "x": 600,
+      "y": 500
+    }
+  },
+  "svganimate@12.5": {
+    "actualCenter": {
+      "x": 0,
+      "y": 0
+    }
+  }
+}

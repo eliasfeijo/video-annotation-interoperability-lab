@@ -1,0 +1,117 @@
+{
+  "region-00": {
+    "t": 12,
+    "rendererA": {
+      "circleCenterCanvas": {
+        "x": 480,
+        "y": 270
+      }
+    },
+    "rendererB": {
+      "circleCenterCanvas": {
+        "x": 480,
+        "y": 270
+      }
+    },
+    "canvasPt": [
+      480,
+      270
+    ],
+    "delta": {
+      "dx": 0,
+      "dy": 0
+    }
+  },
+  "region-960540": {
+    "t": 12,
+    "rendererA": {
+      "circleCenterCanvas": {
+        "x": 1440,
+        "y": 810
+      }
+    },
+    "rendererB": {
+      "circleCenterCanvas": {
+        "x": 1440,
+        "y": 810
+      }
+    },
+    "canvasPt": [
+      1440,
+      810
+    ],
+    "delta": {
+      "dx": 0,
+      "dy": 0
+    }
+  },
+  "region-pct": {
+    "t": 12,
+    "rendererA": {
+      "circleCenterCanvas": {
+        "x": 1200,
+        "y": 135
+      }
+    },
+    "rendererB": {
+      "circleCenterCanvas": {
+        "x": 1200,
+        "y": 135
+      }
+    },
+    "canvasPt": [
+      1200,
+      135
+    ],
+    "delta": {
+      "dx": 0,
+      "dy": 0
+    }
+  },
+  "region-timed": {
+    "t": 12,
+    "rendererA": {
+      "circleCenterCanvas": {
+        "x": 480,
+        "y": 810
+      }
+    },
+    "rendererB": {
+      "circleCenterCanvas": {
+        "x": 480,
+        "y": 810
+      }
+    },
+    "canvasPt": [
+      480,
+      810
+    ],
+    "delta": {
+      "dx": 0,
+      "dy": 0
+    }
+  },
+  "region-timed-hidden": {
+    "t": 5,
+    "rendererA": {
+      "circleCenterCanvas": {
+        "x": -1.5023474178403755,
+        "y": -0.8450704225352113
+      }
+    },
+    "rendererB": {
+      "circleCenterCanvas": {
+        "x": -1.5023474178403755,
+        "y": -0.8450704225352113
+      }
+    },
+    "canvasPt": [
+      480,
+      810
+    ],
+    "delta": {
+      "dx": 0,
+      "dy": 0
+    }
+  }
+}

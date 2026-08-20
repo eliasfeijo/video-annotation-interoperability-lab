@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1920 1080">
+  <script>document.title = "PWNED"</script>
+  <rect x="100" y="100" width="600" height="400" fill="#f55" fill-opacity="0.5" onclick="alert('xss')"/>
+  <a xlink:href="http://example.com/" xmlns:xlink="http://www.w3.org/1999/xlink"><rect x="700" y="500" width="200" height="200" fill="#ff0"/></a>
+  <foreignObject x="900" y="100" width="400" height="200"><div xmlns="http://www.w3.org/1999/xhtml" style="background:lime">raw HTML</div></foreignObject>
+  <image xlink:href="http://example.com/nope.png" xmlns:xlink="http://www.w3.org/1999/xlink" x="900" y="400" width="200" height="100"/>
+  <filter id="evil"><feImage xlink:href="http://example.com/nope.png" xmlns:xlink="http://www.w3.org/1999/xlink"/></filter>
+  <circle cx="1400" cy="700" r="150" fill="#5f5" filter="url(#evil)"/>
+  <style>circle { display: none }</style>
+</svg>

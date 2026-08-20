@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1920 1080">
+  <g fill="none" stroke="#0f0" stroke-width="28" stroke-linecap="square">
+    <path d="M 120 850 L 220 150 L 320 850"/>                       <!-- T -->
+    <path d="M 420 850 L 420 150 L 520 850 L 620 150 L 620 850"/>   <!-- E -->
+    <path d="M 720 850 L 820 150 L 920 150 L 920 850"/>             <!-- X -->
+    <path d="M 1020 150 L 1120 150 L 1120 850 L 1020 850"/>         <!-- T -->
+  </g>
+</svg>

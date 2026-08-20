@@ -1,0 +1,68 @@
+{
+  "rect-only": {
+    "canvas": [
+      300,
+      220
+    ],
+    "css": [
+      200.6875,
+      147
+    ],
+    "actual": [
+      149,
+      123,
+      9
+    ],
+    "expected": [
+      149,
+      123,
+      9
+    ]
+  },
+  "circle-over-rect": {
+    "canvas": [
+      500,
+      380
+    ],
+    "css": [
+      333.8125,
+      253.5
+    ],
+    "actual": [
+      206,
+      38,
+      15
+    ],
+    "expected": [
+      181,
+      18,
+      17
+    ]
+  },
+  "arrow-mid": {
+    "canvas": [
+      950,
+      225
+    ],
+    "css": [
+      633.34375,
+      150.328125
+    ],
+    "actual": [
+      0,
+      187,
+      0
+    ],
+    "expected": [
+      0,
+      187,
+      0
+    ]
+  },
+  "domOrderIds": [
+    "http://localhost:5173/annotation/yellow-rect",
+    "http://localhost:5173/annotation/red-circle",
+    "http://localhost:5173/annotation/arrow",
+    "http://localhost:5173/annotation/text"
+  ]
+}

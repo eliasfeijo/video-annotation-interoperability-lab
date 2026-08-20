@@ -1,0 +1,37 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/anno.jsonld",
+    "http://iiif.io/api/presentation/3/context.json"
+  ],
+  "id": "http://localhost:5173/manifests/exp7-keyframes.json",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "experimental keyframe timeline (NON-STANDARD)"
+    ]
+  },
+  "extension": "experimental-keyframes",
+  "annotations": [
+    {
+      "id": "http://localhost:5173/annotation/moving-dot",
+      "keyframes": [
+        {
+          "t": 10,
+          "x": 100,
+          "y": 500,
+          "metadata": "linear"
+        },
+        {
+          "t": 15,
+          "x": 300,
+          "y": 500
+        },
+        {
+          "t": 20,
+          "x": 600,
+          "y": 500
+        }
+      ]
+    }
+  ]
+}

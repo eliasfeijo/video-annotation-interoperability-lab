@@ -1,0 +1,37 @@
+{
+  "shapeCount": 19,
+  "tags": [
+    "path",
+    "line",
+    "polyline",
+    "polygon",
+    "rect",
+    "circle",
+    "ellipse",
+    "text",
+    "tspan"
+  ],
+  "textShapes": [
+    {
+      "tag": "text",
+      "cls": null,
+      "rect": {
+        "x": 27.625,
+        "y": 663.8125,
+        "width": 216.6390380859375,
+        "height": 36.00006103515625
+      }
+    },
+    {
+      "tag": "text",
+      "cls": null,
+      "rect": {
+        "x": 906.25,
+        "y": 450.8124694824219,
+        "width": 142.6875,
+        "height": 67.95004272460938
+      }
+    }
+  ],
+  "screenshot": "C:\\Users\\Elias\\workspace\\video-annotation-interoperability-lab\\evidence\\screenshots\\exp2\\exp2-primitives.png"
+}

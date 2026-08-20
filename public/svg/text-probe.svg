@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1920 1080">
+  <text x="120" y="200" font-size="96" fill="#fff" font-family="Arial, sans-serif">The quick brown fox</text>
+  <text x="120" y="360" font-size="96" fill="#ffd700" font-family="Arial, sans-serif" font-style="italic" font-weight="bold">جمل الوزن</text>
+  <text x="120" y="500" font-size="64" fill="#7dd7ff">
+    <tspan>Line one</tspan>
+    <tspan x="120" dy="72">Line two (tspan)</tspan>
+    <tspan x="120" dy="72" fill="#ff7979">Line three</tspan>
+  </text>
+  <text x="120" y="760" font-size="80" fill="#fff" font-family="monospace">C:\dir \u0041</text>
+</svg>

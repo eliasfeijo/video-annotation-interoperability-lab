@@ -1,0 +1,90 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/anno.jsonld",
+    "http://iiif.io/api/presentation/3/context.json"
+  ],
+  "id": "http://localhost:5173/manifests/exp-security.json",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "exp-security"
+    ]
+  },
+  "items": [
+    {
+      "id": "http://localhost:5173/canvas/main",
+      "type": "Canvas",
+      "width": 1920,
+      "height": 1080,
+      "duration": 30,
+      "label": {
+        "en": [
+          "main canvas"
+        ]
+      },
+      "items": [
+        {
+          "id": "http://localhost:5173/page/1",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "http://localhost:5173/annotation/video",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "http://localhost:5173/canvas/main",
+              "body": {
+                "id": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+                "type": "Video",
+                "format": "video/mp4",
+                "width": 1920,
+                "height": 1080,
+                "duration": 30,
+                "label": {
+                  "en": [
+                    "video"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/clean",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/main"
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/security-clean.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "clean"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/danger",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/main"
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/security-danger.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "danger"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

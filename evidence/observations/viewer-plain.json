@@ -1,0 +1,8 @@
+{
+  "readyState": 4,
+  "duration": 30,
+  "currentSrc": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+  "videoWidth": 1920,
+  "videoHeight": 1080,
+  "note": "Ramp plays the local video Canvas: the standards structure (Canvas/AnnotationPage/painting Video body) is consumable by a mainstream IIIF AV viewer."
+}

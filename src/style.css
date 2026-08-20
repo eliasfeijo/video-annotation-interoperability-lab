@@ -1,0 +1,60 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+  color: #ddd;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.viewport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Aspect presets used by experiment 6 (the video content itself stays 16:9). */
+.viewport.ar-169 {
+  width: 1280px;
+  height: 720px;
+}
+.viewport.ar-43 {
+  width: 1280px;
+  height: 960px;
+}
+.viewport.ar-narrow {
+  width: 480px;
+  height: 1080px;
+}
+.viewport.ar-wide {
+  width: 1920px;
+  height: 480px;
+}
+
+#stage-root {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  border: 1px dashed #444; /* shows the viewport frame in screenshots */
+}
+
+#stage-root .stage {
+  width: 100%;
+  height: 100%;
+}
+
+#hud {
+  position: fixed;
+  left: 8px;
+  bottom: 8px;
+  z-index: 50;
+  font-size: 12px;
+  font-family: Consolas, monospace;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 4px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+  color: #8f8;
+}

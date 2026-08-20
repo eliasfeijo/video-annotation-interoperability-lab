@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Viewer check — Ramp (third-party IIIF AV player)</title>
+    <link rel="stylesheet" href="https://unpkg.com/@samvera/ramp/dist/ramp.css" />
+  </head>
+  <body style="margin: 0; background: #111; color: #ddd; font-family: sans-serif">
+    <div style="padding: 8px">
+      <input
+        id="manifest"
+        style="width: 70%"
+        placeholder="manifest URL (default: /manifests/exp1.json)"
+        value=""
+      />
+      <button id="load">Load</button>
+    </div>
+    <div id="root"></div>
+    <div id="status">loading bundle…</div>
+    <pre id="log" style="position: fixed; left: 8px; bottom: 8px; background: rgba(0,0,0,.8); color: #f88; font-size: 12px; max-width: 60vw; white-space: pre-wrap"></pre>
+    <script src="https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js"></script>
+    <script>
+      const logEl = document.getElementById('log');
+      const log = (...args) => {
+        logEl.textContent += args.map((a) => (a && a.stack) || String(a)).join(' ') + '\n';
+      };
+      window.addEventListener('error', (e) => log('window.error:', e.error || e.message));
+      window.addEventListener('unhandledrejection', (e) => log('unhandledrejection:', e.reason));
+
+      const RampIIIF = globalThis.RampIIIF || globalThis.Ramp;
+      const { IIIFPlayer, MediaPlayer, React, ReactDOM } = RampIIIF;
+
+      async function render(manifestUrl) {
+        const root = document.getElementById('root');
+        root.innerHTML = '<div>loading manifest…</div>';
+        try {
+          const res = await fetch(manifestUrl, { headers: { Accept: 'application/json' } });
+          log('manifest fetch:', res.status, manifestUrl);
+          if (!res.ok) throw new Error('manifest fetch failed: ' + res.status);
+        } catch (e) {
+          log('fetch error:', e);
+        }
+        try {
+          const player = React.createElement(
+            IIIFPlayer,
+            { manifestUrl },
+            React.createElement(
+              'div',
+              { className: 'iiif-player-demo' },
+              React.createElement(MediaPlayer),
+            ),
+          );
+          ReactDOM.createRoot(root).render(player);
+          log('render ok');
+        } catch (e) {
+          log('render error:', e);
+        }
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      const initial = params.get('manifest');
+      const input = document.getElementById('manifest');
+      input.value = initial || '/manifests/exp1.json';
+      document.getElementById('status').textContent = 'bundle loaded';
+      document.getElementById('load').addEventListener('click', () => render(input.value));
+      const abs = new URL(input.value, window.location.href).href;
+      render(abs);
+    </script>
+  </body>
+</html>

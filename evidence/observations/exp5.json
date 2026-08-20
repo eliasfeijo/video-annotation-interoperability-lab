@@ -1,0 +1,50 @@
+{
+  "5a": {
+    "label": "A: 1920x1080",
+    "centerCanvas": {
+      "x": 960,
+      "y": 540
+    },
+    "radiusCanvas": 200,
+    "predictedCenter": {
+      "x": 960,
+      "y": 540
+    },
+    "driftsFromCenterOfCanvas": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  "5b": {
+    "label": "B: 1000x1000",
+    "centerCanvas": {
+      "x": 960.0000229240023,
+      "y": 588.5999624046361
+    },
+    "radiusCanvas": 216.0000137544014,
+    "predictedCenter": {
+      "x": 960.0000229240023,
+      "y": 588.5999624046361
+    },
+    "driftsFromCenterOfCanvas": {
+      "x": 0.00002292400233727676,
+      "y": 48.59996240463613
+    }
+  },
+  "5c": {
+    "label": "C: 64x36",
+    "centerCanvas": {
+      "x": 960,
+      "y": 540
+    },
+    "radiusCanvas": 210,
+    "predictedCenter": {
+      "x": 960,
+      "y": 540
+    },
+    "driftsFromCenterOfCanvas": {
+      "x": 0,
+      "y": 0
+    }
+  }
+}
