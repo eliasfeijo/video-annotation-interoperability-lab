@@ -1,0 +1,81 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/anno.jsonld",
+    "http://iiif.io/api/presentation/4/context.json"
+  ],
+  "id": "http://localhost:5173/manifests/e14/e14-case05-b.json",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "e14-case05-b (IIIF 4.0 draft)"
+    ]
+  },
+  "items": [
+    {
+      "id": "http://localhost:5173/canvas/main",
+      "type": "Canvas",
+      "width": 1920,
+      "height": 1080,
+      "duration": 30,
+      "label": {
+        "en": [
+          "main canvas"
+        ]
+      },
+      "items": [
+        {
+          "id": "http://localhost:5173/page/e14",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "http://localhost:5173/annotation/e14/video",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "http://localhost:5173/canvas/main",
+              "body": {
+                "id": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+                "type": "Video",
+                "format": "video/mp4",
+                "width": 1920,
+                "height": 1080,
+                "duration": 30,
+                "label": {
+                  "en": [
+                    "video"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e14/overlay-canvas",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=480,270,960,540"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/canvas/e14-overlay",
+                "type": "Canvas",
+                "partOf": {
+                  "id": "http://localhost:5173/manifests/e14/inner-overlay.json"
+                },
+                "width": 1920,
+                "height": 1080,
+                "duration": 30,
+                "label": {
+                  "en": [
+                    "overlay-canvas"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

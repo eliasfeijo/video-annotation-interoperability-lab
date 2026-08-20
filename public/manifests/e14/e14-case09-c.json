@@ -1,0 +1,30 @@
+{
+  "@context": "http://www.w3.org/ns/anno.jsonld",
+  "id": "http://localhost:5173/manifests/e14/e14-case09-c.json",
+  "type": "AnnotationCollection",
+  "label": {
+    "en": [
+      "e14-case09-c"
+    ]
+  },
+  "items": [
+    {
+      "id": "http://localhost:5173/annotation/e14/c9",
+      "type": "Annotation",
+      "motivation": "highlighting",
+      "target": {
+        "source": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4"
+      },
+      "body": {
+        "id": "http://localhost:5173/svg/e14/e14-red-circle.png",
+        "type": "Image",
+        "format": "image/png",
+        "label": {
+          "en": [
+            "c9"
+          ]
+        }
+      }
+    }
+  ]
+}

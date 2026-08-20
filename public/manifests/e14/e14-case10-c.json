@@ -1,0 +1,24 @@
+{
+  "@context": "http://www.w3.org/ns/anno.jsonld",
+  "id": "http://localhost:5173/manifests/e14/e14-case10-c.json",
+  "type": "AnnotationCollection",
+  "label": {
+    "en": [
+      "e14-case10-c"
+    ]
+  },
+  "items": [
+    {
+      "id": "http://localhost:5173/annotation/e14/c10",
+      "type": "Annotation",
+      "motivation": "highlighting",
+      "target": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+      "body": {
+        "type": "TextualBody",
+        "value": "E14 text overlay",
+        "format": "text/plain",
+        "language": "en"
+      }
+    }
+  ]
+}

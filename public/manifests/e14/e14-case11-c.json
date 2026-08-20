@@ -1,0 +1,66 @@
+{
+  "@context": "http://www.w3.org/ns/anno.jsonld",
+  "id": "http://localhost:5173/manifests/e14/e14-case11-c.json",
+  "type": "AnnotationCollection",
+  "label": {
+    "en": [
+      "e14-case11-c"
+    ]
+  },
+  "items": [
+    {
+      "id": "http://localhost:5173/annotation/e14/c11a",
+      "type": "Annotation",
+      "motivation": "highlighting",
+      "target": {
+        "source": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4"
+      },
+      "body": {
+        "id": "http://localhost:5173/svg/e14/e14-rect.svg",
+        "type": "Image",
+        "format": "image/svg+xml",
+        "label": {
+          "en": [
+            "c11a"
+          ]
+        }
+      }
+    },
+    {
+      "id": "http://localhost:5173/annotation/e14/c11b",
+      "type": "Annotation",
+      "motivation": "highlighting",
+      "target": {
+        "source": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4"
+      },
+      "body": {
+        "id": "http://localhost:5173/svg/e14/e14-shapes.svg",
+        "type": "Image",
+        "format": "image/svg+xml",
+        "label": {
+          "en": [
+            "c11b"
+          ]
+        }
+      }
+    },
+    {
+      "id": "http://localhost:5173/annotation/e14/c11c",
+      "type": "Annotation",
+      "motivation": "highlighting",
+      "target": {
+        "source": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4"
+      },
+      "body": {
+        "id": "http://localhost:5173/svg/e14/e14-text.svg",
+        "type": "Image",
+        "format": "image/svg+xml",
+        "label": {
+          "en": [
+            "c11c"
+          ]
+        }
+      }
+    }
+  ]
+}

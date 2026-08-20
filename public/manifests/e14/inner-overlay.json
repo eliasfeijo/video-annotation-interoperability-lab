@@ -1,0 +1,56 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/anno.jsonld",
+    "http://iiif.io/api/presentation/4/context.json"
+  ],
+  "id": "http://localhost:5173/manifests/e14/inner-overlay.json",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "e14 inner overlay canvas (IIIF 4.0 draft)"
+    ]
+  },
+  "items": [
+    {
+      "id": "http://localhost:5173/canvas/e14-overlay",
+      "type": "Canvas",
+      "width": 1920,
+      "height": 1080,
+      "duration": 30,
+      "partOf": {
+        "id": "http://localhost:5173/manifests/e14/inner-overlay.json"
+      },
+      "label": {
+        "en": [
+          "overlay canvas"
+        ]
+      },
+      "items": [
+        {
+          "id": "http://localhost:5173/page/e14/overlay",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "http://localhost:5173/annotation/e14/overlay-svg",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/main"
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e14/e14-shapes.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "overlay-svg"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

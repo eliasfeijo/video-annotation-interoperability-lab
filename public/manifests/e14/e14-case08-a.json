@@ -1,0 +1,142 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/anno.jsonld",
+    "http://iiif.io/api/presentation/3/context.json"
+  ],
+  "id": "http://localhost:5173/manifests/e14/e14-case08-a.json",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "e14-case08-a"
+    ]
+  },
+  "items": [
+    {
+      "id": "http://localhost:5173/canvas/main",
+      "type": "Canvas",
+      "width": 1920,
+      "height": 1080,
+      "duration": 30,
+      "label": {
+        "en": [
+          "main canvas"
+        ]
+      },
+      "items": [
+        {
+          "id": "http://localhost:5173/page/e14",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "http://localhost:5173/annotation/e14/video",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "http://localhost:5173/canvas/main",
+              "body": {
+                "id": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+                "type": "Video",
+                "format": "video/mp4",
+                "width": 1920,
+                "height": 1080,
+                "duration": 30,
+                "label": {
+                  "en": [
+                    "video"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e14/par-meet",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=0,0,960,540"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e14/e14-par-meet.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "par-meet"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e14/par-min",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=0,540,960,540"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e14/e14-par-min.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "par-min"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e14/par-slice",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=960,0,960,540"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e14/e14-par-slice.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "par-slice"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e14/par-none",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=960,540,960,540"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e14/e14-par-none.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "par-none"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
