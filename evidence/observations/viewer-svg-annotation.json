@@ -1,5 +1,5 @@
 {
-  "rootText": "",
+  "rootText": "Cannot set properties of undefined (setting 'id')\nTry again",
   "videoCount": 0,
   "note": "Adding an Image/SVG painting annotation to the same video Canvas makes Ramp throw (React error boundary) instead of playing — a real viewer-vs-model limitation for SVG-body video annotations."
 }

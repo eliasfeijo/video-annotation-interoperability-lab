@@ -1,0 +1,473 @@
+{
+  "case": "case5",
+  "mode": "A",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "duration": 30
+  },
+  "reference": [
+    {
+      "id": "http://localhost:5173/annotation/vb1920",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 0,
+      "region": {
+        "x": 480,
+        "y": 270,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 1920,
+          "h": 1080
+        }
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 480,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 1920,
+            "y": 0
+          },
+          "canvas": {
+            "x": 1440,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 1080
+          },
+          "canvas": {
+            "x": 480,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 1920,
+            "y": 1080
+          },
+          "canvas": {
+            "x": 1440,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 960,
+            "y": 540
+          },
+          "canvas": {
+            "x": 960,
+            "y": 540
+          }
+        }
+      ]
+    },
+    {
+      "id": "http://localhost:5173/annotation/vb1000",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 1,
+      "region": {
+        "x": 480,
+        "y": 270,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 1000,
+          "h": 1000
+        }
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 690,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 1000,
+            "y": 0
+          },
+          "canvas": {
+            "x": 1230,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 1000
+          },
+          "canvas": {
+            "x": 690,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 1000,
+            "y": 1000
+          },
+          "canvas": {
+            "x": 1230,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 500,
+            "y": 500
+          },
+          "canvas": {
+            "x": 960,
+            "y": 540
+          }
+        }
+      ]
+    },
+    {
+      "id": "http://localhost:5173/annotation/vb100",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 2,
+      "region": {
+        "x": 480,
+        "y": 270,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 100,
+          "h": 100
+        }
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 690,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 0
+          },
+          "canvas": {
+            "x": 1230,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 100
+          },
+          "canvas": {
+            "x": 690,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 100
+          },
+          "canvas": {
+            "x": 1230,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 50,
+            "y": 50
+          },
+          "canvas": {
+            "x": 960,
+            "y": 540
+          }
+        }
+      ]
+    }
+  ],
+  "blind": [
+    {
+      "id": "http://localhost:5173/annotation/vb1920",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 0,
+      "region": {
+        "x": 480,
+        "y": 270,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 1920,
+          "h": 1080
+        }
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 480,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 1920,
+            "y": 0
+          },
+          "canvas": {
+            "x": 1440,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 1080
+          },
+          "canvas": {
+            "x": 480,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 1920,
+            "y": 1080
+          },
+          "canvas": {
+            "x": 1440,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 960,
+            "y": 540
+          },
+          "canvas": {
+            "x": 960,
+            "y": 540
+          }
+        }
+      ],
+      "security": {
+        "level": "safe",
+        "blocking": []
+      }
+    },
+    {
+      "id": "http://localhost:5173/annotation/vb1000",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 1,
+      "region": {
+        "x": 480,
+        "y": 270,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 1000,
+          "h": 1000
+        }
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 690,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 1000,
+            "y": 0
+          },
+          "canvas": {
+            "x": 1230,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 1000
+          },
+          "canvas": {
+            "x": 690,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 1000,
+            "y": 1000
+          },
+          "canvas": {
+            "x": 1230,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 500,
+            "y": 500
+          },
+          "canvas": {
+            "x": 960,
+            "y": 540
+          }
+        }
+      ],
+      "security": {
+        "level": "safe",
+        "blocking": []
+      }
+    },
+    {
+      "id": "http://localhost:5173/annotation/vb100",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 2,
+      "region": {
+        "x": 480,
+        "y": 270,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 100,
+          "h": 100
+        }
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 690,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 0
+          },
+          "canvas": {
+            "x": 1230,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 100
+          },
+          "canvas": {
+            "x": 690,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 100
+          },
+          "canvas": {
+            "x": 1230,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 50,
+            "y": 50
+          },
+          "canvas": {
+            "x": 960,
+            "y": 540
+          }
+        }
+      ],
+      "security": {
+        "level": "safe",
+        "blocking": []
+      }
+    }
+  ],
+  "diffs": [
+    [],
+    [],
+    []
+  ],
+  "verdicts": [
+    "match",
+    "match",
+    "match"
+  ],
+  "classifications": [
+    "match",
+    "match",
+    "match"
+  ],
+  "modeAIdenticalToModeB": true
+}

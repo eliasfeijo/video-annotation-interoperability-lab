@@ -1,0 +1,175 @@
+{
+  "case": "case1",
+  "mode": "A",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "duration": 30
+  },
+  "reference": [
+    {
+      "id": "http://localhost:5173/annotation/case1",
+      "startTime": 10,
+      "endTime": 15,
+      "zIndex": 0,
+      "region": {
+        "x": 0,
+        "y": 0,
+        "w": 1920,
+        "h": 1080
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 100,
+          "h": 100
+        },
+        "width": 200,
+        "height": 200
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 420,
+            "y": 0
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 0
+          },
+          "canvas": {
+            "x": 1500,
+            "y": 0
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 100
+          },
+          "canvas": {
+            "x": 420,
+            "y": 1080
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 100
+          },
+          "canvas": {
+            "x": 1500,
+            "y": 1080
+          }
+        },
+        {
+          "user": {
+            "x": 50,
+            "y": 50
+          },
+          "canvas": {
+            "x": 960,
+            "y": 540
+          }
+        }
+      ]
+    }
+  ],
+  "blind": [
+    {
+      "id": "http://localhost:5173/annotation/case1",
+      "startTime": 10,
+      "endTime": 15,
+      "zIndex": 0,
+      "region": {
+        "x": 0,
+        "y": 0,
+        "w": 1920,
+        "h": 1080
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 100,
+          "h": 100
+        },
+        "width": 200,
+        "height": 200
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 420,
+            "y": 0
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 0
+          },
+          "canvas": {
+            "x": 1500,
+            "y": 0
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 100
+          },
+          "canvas": {
+            "x": 420,
+            "y": 1080
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 100
+          },
+          "canvas": {
+            "x": 1500,
+            "y": 1080
+          }
+        },
+        {
+          "user": {
+            "x": 50,
+            "y": 50
+          },
+          "canvas": {
+            "x": 960,
+            "y": 540
+          }
+        }
+      ],
+      "security": {
+        "level": "safe",
+        "blocking": []
+      }
+    }
+  ],
+  "diffs": [
+    []
+  ],
+  "verdicts": [
+    "match"
+  ],
+  "classifications": [
+    "match"
+  ],
+  "modeAIdenticalToModeB": true
+}

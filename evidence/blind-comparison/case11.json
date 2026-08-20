@@ -1,0 +1,324 @@
+{
+  "case": "case11",
+  "mode": "A",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "duration": 30
+  },
+  "reference": [
+    {
+      "id": "http://localhost:5173/annotation/viewbox-intrinsic",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 0,
+      "region": {
+        "x": 0,
+        "y": 0,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 100,
+          "h": 100
+        },
+        "width": 200,
+        "height": 100
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 210,
+            "y": 0
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 0
+          },
+          "canvas": {
+            "x": 750,
+            "y": 0
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 100
+          },
+          "canvas": {
+            "x": 210,
+            "y": 540
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 100
+          },
+          "canvas": {
+            "x": 750,
+            "y": 540
+          }
+        },
+        {
+          "user": {
+            "x": 50,
+            "y": 50
+          },
+          "canvas": {
+            "x": 480,
+            "y": 270
+          }
+        }
+      ]
+    },
+    {
+      "id": "http://localhost:5173/annotation/no-viewbox",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 1,
+      "region": {
+        "x": 0,
+        "y": 540,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "width": 1000,
+        "height": 1000
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 210,
+            "y": 540
+          }
+        },
+        {
+          "user": {
+            "x": 1000,
+            "y": 0
+          },
+          "canvas": {
+            "x": 750,
+            "y": 540
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 1000
+          },
+          "canvas": {
+            "x": 210,
+            "y": 1080
+          }
+        },
+        {
+          "user": {
+            "x": 1000,
+            "y": 1000
+          },
+          "canvas": {
+            "x": 750,
+            "y": 1080
+          }
+        },
+        {
+          "user": {
+            "x": 500,
+            "y": 500
+          },
+          "canvas": {
+            "x": 480,
+            "y": 810
+          }
+        }
+      ]
+    }
+  ],
+  "blind": [
+    {
+      "id": "http://localhost:5173/annotation/viewbox-intrinsic",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 0,
+      "region": {
+        "x": 0,
+        "y": 0,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 100,
+          "h": 100
+        },
+        "width": 200,
+        "height": 100
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 210,
+            "y": 0
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 0
+          },
+          "canvas": {
+            "x": 750,
+            "y": 0
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 100
+          },
+          "canvas": {
+            "x": 210,
+            "y": 540
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 100
+          },
+          "canvas": {
+            "x": 750,
+            "y": 540
+          }
+        },
+        {
+          "user": {
+            "x": 50,
+            "y": 50
+          },
+          "canvas": {
+            "x": 480,
+            "y": 270
+          }
+        }
+      ],
+      "security": {
+        "level": "safe",
+        "blocking": []
+      }
+    },
+    {
+      "id": "http://localhost:5173/annotation/no-viewbox",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 1,
+      "region": {
+        "x": 0,
+        "y": 540,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "width": 1000,
+        "height": 1000
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 0,
+            "y": 540
+          }
+        },
+        {
+          "user": {
+            "x": 1000,
+            "y": 0
+          },
+          "canvas": {
+            "x": 1000,
+            "y": 540
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 1000
+          },
+          "canvas": {
+            "x": 0,
+            "y": 1540
+          }
+        },
+        {
+          "user": {
+            "x": 1000,
+            "y": 1000
+          },
+          "canvas": {
+            "x": 1000,
+            "y": 1540
+          }
+        },
+        {
+          "user": {
+            "x": 500,
+            "y": 500
+          },
+          "canvas": {
+            "x": 500,
+            "y": 1040
+          }
+        }
+      ],
+      "security": {
+        "level": "safe",
+        "blocking": []
+      }
+    }
+  ],
+  "diffs": [
+    [],
+    [
+      "landmark[0] (0,0) -> ref(210,540) blind(0,540)",
+      "landmark[1] (1000,0) -> ref(750,540) blind(1000,540)",
+      "landmark[2] (0,1000) -> ref(210,1080) blind(0,1540)",
+      "landmark[3] (1000,1000) -> ref(750,1080) blind(1000,1540)",
+      "landmark[4] (500,500) -> ref(480,810) blind(500,1040)"
+    ]
+  ],
+  "verdicts": [
+    "match",
+    "difference"
+  ],
+  "classifications": [
+    "match",
+    "difference:no-viewBox-placement (blind=1:1, reference=synthetic viewBox)"
+  ],
+  "modeAIdenticalToModeB": true
+}

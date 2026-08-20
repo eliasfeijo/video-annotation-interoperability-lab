@@ -1,0 +1,630 @@
+{
+  "case": "case7",
+  "mode": "A",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "duration": 30
+  },
+  "reference": [
+    {
+      "id": "http://localhost:5173/annotation/meet",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 0,
+      "region": {
+        "x": 100,
+        "y": 270,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 100,
+          "h": 100
+        }
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 310,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 0
+          },
+          "canvas": {
+            "x": 850,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 100
+          },
+          "canvas": {
+            "x": 310,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 100
+          },
+          "canvas": {
+            "x": 850,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 50,
+            "y": 50
+          },
+          "canvas": {
+            "x": 580,
+            "y": 540
+          }
+        }
+      ]
+    },
+    {
+      "id": "http://localhost:5173/annotation/min",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 1,
+      "region": {
+        "x": 100,
+        "y": 270,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 100,
+          "h": 100
+        },
+        "preserveAspectRatio": "xMinYMin meet"
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 100,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 0
+          },
+          "canvas": {
+            "x": 640,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 100
+          },
+          "canvas": {
+            "x": 100,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 100
+          },
+          "canvas": {
+            "x": 640,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 50,
+            "y": 50
+          },
+          "canvas": {
+            "x": 370,
+            "y": 540
+          }
+        }
+      ]
+    },
+    {
+      "id": "http://localhost:5173/annotation/slice",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 2,
+      "region": {
+        "x": 100,
+        "y": 270,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 100,
+          "h": 100
+        },
+        "preserveAspectRatio": "xMidYMid slice"
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 100,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 0
+          },
+          "canvas": {
+            "x": 1060,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 100
+          },
+          "canvas": {
+            "x": 100,
+            "y": 1230
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 100
+          },
+          "canvas": {
+            "x": 1060,
+            "y": 1230
+          }
+        },
+        {
+          "user": {
+            "x": 50,
+            "y": 50
+          },
+          "canvas": {
+            "x": 580,
+            "y": 750
+          }
+        }
+      ]
+    },
+    {
+      "id": "http://localhost:5173/annotation/none",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 3,
+      "region": {
+        "x": 100,
+        "y": 270,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 100,
+          "h": 100
+        },
+        "preserveAspectRatio": "none"
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 100,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 0
+          },
+          "canvas": {
+            "x": 1060,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 100
+          },
+          "canvas": {
+            "x": 100,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 100
+          },
+          "canvas": {
+            "x": 1060,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 50,
+            "y": 50
+          },
+          "canvas": {
+            "x": 580,
+            "y": 540
+          }
+        }
+      ]
+    }
+  ],
+  "blind": [
+    {
+      "id": "http://localhost:5173/annotation/meet",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 0,
+      "region": {
+        "x": 100,
+        "y": 270,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 100,
+          "h": 100
+        }
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 310,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 0
+          },
+          "canvas": {
+            "x": 850,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 100
+          },
+          "canvas": {
+            "x": 310,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 100
+          },
+          "canvas": {
+            "x": 850,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 50,
+            "y": 50
+          },
+          "canvas": {
+            "x": 580,
+            "y": 540
+          }
+        }
+      ],
+      "security": {
+        "level": "safe",
+        "blocking": []
+      }
+    },
+    {
+      "id": "http://localhost:5173/annotation/min",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 1,
+      "region": {
+        "x": 100,
+        "y": 270,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 100,
+          "h": 100
+        },
+        "preserveAspectRatio": "xMinYMin meet"
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 100,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 0
+          },
+          "canvas": {
+            "x": 640,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 100
+          },
+          "canvas": {
+            "x": 100,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 100
+          },
+          "canvas": {
+            "x": 640,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 50,
+            "y": 50
+          },
+          "canvas": {
+            "x": 370,
+            "y": 540
+          }
+        }
+      ],
+      "security": {
+        "level": "safe",
+        "blocking": []
+      }
+    },
+    {
+      "id": "http://localhost:5173/annotation/slice",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 2,
+      "region": {
+        "x": 100,
+        "y": 270,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 100,
+          "h": 100
+        },
+        "preserveAspectRatio": "xMidYMid slice"
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 100,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 0
+          },
+          "canvas": {
+            "x": 1060,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 100
+          },
+          "canvas": {
+            "x": 100,
+            "y": 1230
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 100
+          },
+          "canvas": {
+            "x": 1060,
+            "y": 1230
+          }
+        },
+        {
+          "user": {
+            "x": 50,
+            "y": 50
+          },
+          "canvas": {
+            "x": 580,
+            "y": 750
+          }
+        }
+      ],
+      "security": {
+        "level": "safe",
+        "blocking": []
+      }
+    },
+    {
+      "id": "http://localhost:5173/annotation/none",
+      "startTime": 0,
+      "endTime": 30,
+      "zIndex": 3,
+      "region": {
+        "x": 100,
+        "y": 270,
+        "w": 960,
+        "h": 540
+      },
+      "svgAttrs": {
+        "viewBox": {
+          "minX": 0,
+          "minY": 0,
+          "w": 100,
+          "h": 100
+        },
+        "preserveAspectRatio": "none"
+      },
+      "landmarks": [
+        {
+          "user": {
+            "x": 0,
+            "y": 0
+          },
+          "canvas": {
+            "x": 100,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 0
+          },
+          "canvas": {
+            "x": 1060,
+            "y": 270
+          }
+        },
+        {
+          "user": {
+            "x": 0,
+            "y": 100
+          },
+          "canvas": {
+            "x": 100,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 100,
+            "y": 100
+          },
+          "canvas": {
+            "x": 1060,
+            "y": 810
+          }
+        },
+        {
+          "user": {
+            "x": 50,
+            "y": 50
+          },
+          "canvas": {
+            "x": 580,
+            "y": 540
+          }
+        }
+      ],
+      "security": {
+        "level": "safe",
+        "blocking": []
+      }
+    }
+  ],
+  "diffs": [
+    [],
+    [],
+    [],
+    []
+  ],
+  "verdicts": [
+    "match",
+    "match",
+    "match",
+    "match"
+  ],
+  "classifications": [
+    "match",
+    "match",
+    "match",
+    "match"
+  ],
+  "modeAIdenticalToModeB": true
+}

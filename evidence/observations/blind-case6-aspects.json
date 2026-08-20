@@ -1,0 +1,50 @@
+{
+  "16:9": {
+    "visible": true,
+    "region": {
+      "x": 1,
+      "y": 0.5625,
+      "width": 1278,
+      "height": 718.875
+    },
+    "shapes": [
+      "circle"
+    ]
+  },
+  "4:3": {
+    "visible": true,
+    "region": {
+      "x": 1,
+      "y": 120.5625,
+      "width": 1278,
+      "height": 718.875
+    },
+    "shapes": [
+      "circle"
+    ]
+  },
+  "narrow": {
+    "visible": true,
+    "region": {
+      "x": 1,
+      "y": 405.5625,
+      "width": 478,
+      "height": 268.875
+    },
+    "shapes": [
+      "circle"
+    ]
+  },
+  "wide": {
+    "visible": true,
+    "region": {
+      "x": 533.328125,
+      "y": 0,
+      "width": 853.328125,
+      "height": 480
+    },
+    "shapes": [
+      "circle"
+    ]
+  }
+}

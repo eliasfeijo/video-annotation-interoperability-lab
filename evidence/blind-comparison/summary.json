@@ -1,0 +1,153 @@
+{
+  "case1": {
+    "verdicts": [
+      "match"
+    ],
+    "classifications": [
+      "match"
+    ],
+    "modeAIdenticalToModeB": true
+  },
+  "case2": {
+    "verdicts": [
+      "match"
+    ],
+    "classifications": [
+      "match"
+    ],
+    "modeAIdenticalToModeB": true
+  },
+  "case3": {
+    "verdicts": [
+      "match",
+      "match",
+      "match"
+    ],
+    "classifications": [
+      "match",
+      "match",
+      "match"
+    ],
+    "modeAIdenticalToModeB": true
+  },
+  "case4": {
+    "verdicts": [
+      "match",
+      "match",
+      "match"
+    ],
+    "classifications": [
+      "match",
+      "match",
+      "match"
+    ],
+    "modeAIdenticalToModeB": true
+  },
+  "case5": {
+    "verdicts": [
+      "match",
+      "match",
+      "match"
+    ],
+    "classifications": [
+      "match",
+      "match",
+      "match"
+    ],
+    "modeAIdenticalToModeB": true
+  },
+  "case6": {
+    "verdicts": [
+      "match"
+    ],
+    "classifications": [
+      "match"
+    ],
+    "modeAIdenticalToModeB": true
+  },
+  "case7": {
+    "verdicts": [
+      "match",
+      "match",
+      "match",
+      "match"
+    ],
+    "classifications": [
+      "match",
+      "match",
+      "match",
+      "match"
+    ],
+    "modeAIdenticalToModeB": true
+  },
+  "case8": {
+    "verdicts": [
+      "match",
+      "match"
+    ],
+    "classifications": [
+      "match",
+      "match"
+    ],
+    "modeAIdenticalToModeB": true
+  },
+  "case9": {
+    "verdicts": [
+      "match",
+      "match",
+      "match"
+    ],
+    "classifications": [
+      "match",
+      "match",
+      "match"
+    ],
+    "modeAIdenticalToModeB": true
+  },
+  "case10": {
+    "verdicts": [
+      "match",
+      "difference"
+    ],
+    "classifications": [
+      "match",
+      "difference:spatial-fragment-validation (blind drops out-of-bounds region per MF §6.3.3; reference does not validate)"
+    ],
+    "modeAIdenticalToModeB": true
+  },
+  "case11": {
+    "verdicts": [
+      "match",
+      "difference"
+    ],
+    "classifications": [
+      "match",
+      "difference:no-viewBox-placement (blind=1:1, reference=synthetic viewBox)"
+    ],
+    "modeAIdenticalToModeB": true
+  },
+  "case12": {
+    "verdicts": [
+      "match",
+      "match"
+    ],
+    "classifications": [
+      "match",
+      "match"
+    ],
+    "modeAIdenticalToModeB": true
+  },
+  "case13": {
+    "verdicts": [
+      "match",
+      "difference",
+      "difference"
+    ],
+    "classifications": [
+      "match",
+      "difference:security-sanitization",
+      "difference:security-rejection (blind refuses unsafe SVG; reference sanitizes and renders)"
+    ],
+    "modeAIdenticalToModeB": true
+  }
+}

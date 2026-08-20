@@ -1,0 +1,151 @@
+{
+  "case1": {
+    "verdicts": [
+      "match"
+    ],
+    "classifications": [
+      "match"
+    ],
+    "diffs": [
+      []
+    ]
+  },
+  "case2": {
+    "verdicts": [
+      "match"
+    ],
+    "classifications": [
+      "match"
+    ],
+    "diffs": [
+      []
+    ]
+  },
+  "case3": {
+    "verdicts": [
+      "match",
+      "match",
+      "match"
+    ],
+    "classifications": [
+      "match",
+      "match",
+      "match"
+    ],
+    "diffs": [
+      [],
+      [],
+      []
+    ]
+  },
+  "case4": {
+    "verdicts": [
+      "match",
+      "match",
+      "match"
+    ],
+    "classifications": [
+      "match",
+      "match",
+      "match"
+    ],
+    "diffs": [
+      [],
+      [],
+      []
+    ]
+  },
+  "case5": {
+    "verdicts": [
+      "match",
+      "match",
+      "match"
+    ],
+    "classifications": [
+      "match",
+      "match",
+      "match"
+    ],
+    "diffs": [
+      [],
+      [],
+      []
+    ]
+  },
+  "case6": {
+    "verdicts": [
+      "match"
+    ],
+    "classifications": [
+      "match"
+    ],
+    "diffs": [
+      []
+    ]
+  },
+  "case7": {
+    "verdicts": [
+      "match",
+      "match",
+      "match",
+      "match"
+    ],
+    "classifications": [
+      "match",
+      "match",
+      "match",
+      "match"
+    ],
+    "diffs": [
+      [],
+      [],
+      [],
+      []
+    ]
+  },
+  "case8": {
+    "verdicts": [
+      "match",
+      "match"
+    ],
+    "classifications": [
+      "match",
+      "match"
+    ],
+    "diffs": [
+      [],
+      []
+    ]
+  },
+  "case9": {
+    "verdicts": [
+      "match",
+      "match",
+      "match"
+    ],
+    "classifications": [
+      "match",
+      "match",
+      "match"
+    ],
+    "diffs": [
+      [],
+      [],
+      []
+    ]
+  },
+  "case12": {
+    "verdicts": [
+      "match",
+      "match"
+    ],
+    "classifications": [
+      "match",
+      "match"
+    ],
+    "diffs": [
+      [],
+      []
+    ]
+  }
+}
