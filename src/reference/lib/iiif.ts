@@ -18,24 +18,24 @@ export function motivationIsPainting(annotation: any): boolean {
   return list.some((m) => m === "painting" || m === "oa:painting" || /(^|:)painting$/.test(m));
 }
 
-function isSvgBody(body: any): boolean {
+export function isSvgBody(body: any): boolean {
   const format = String(body?.format ?? "");
   const id = String(body?.id ?? "");
   return format === "image/svg+xml" || /\.svg$/i.test(id) || /\.svg\?/i.test(id);
 }
 
-function isVideoBody(body: any): boolean {
+export function isVideoBody(body: any): boolean {
   const type = String(body?.type ?? "");
   const format = String(body?.format ?? "");
   return type === "Video" || type === "Audio" || /^video\//.test(format) || /^audio\//.test(format);
 }
 
-interface ParsedTarget {
+export interface ParsedTarget {
   source: string;
   fragments: MediaFragment[];
 }
 
-function parseTarget(target: any, canvasWidth?: number, canvasHeight?: number): ParsedTarget | null {
+export function parseTarget(target: any, canvasWidth?: number, canvasHeight?: number): ParsedTarget | null {
   if (typeof target === "string") return { source: target, fragments: [] };
   if (target && typeof target === "object") {
     const source = typeof target.source === "string"
@@ -53,7 +53,7 @@ function parseTarget(target: any, canvasWidth?: number, canvasHeight?: number): 
   return null;
 }
 
-function mergeFragments(fragments: MediaFragment[]): MediaFragment {
+export function mergeFragments(fragments: MediaFragment[]): MediaFragment {
   const merged: MediaFragment = {};
   for (const f of fragments) {
     if (f.temporal && !merged.temporal) merged.temporal = f.temporal;

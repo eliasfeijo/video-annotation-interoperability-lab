@@ -45,9 +45,14 @@ export function parseSpatial(
 ): SpatialFragment | null {
   let body = raw.trim();
   let percent = false;
-  if (body.startsWith("pct:")) {
-    percent = true;
-    body = body.slice(4);
+  // Unit prefix: `percent:` is the Media Fragments 1.0 normative form
+  // (MF §4.2.2); `pct:` is accepted as a documented CONVENTION alias;
+  // `pixel:` is the explicit default.
+  const unit = /^(pct|percent|pixel):/i.exec(body);
+  if (unit) {
+    const name = unit[1]!.toLowerCase();
+    percent = name === "pct" || name === "percent";
+    body = body.slice(unit[0].length);
   }
   const parts = body.split(",");
   if (parts.length !== 4) return null;
