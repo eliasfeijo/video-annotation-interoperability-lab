@@ -76,7 +76,11 @@ export function classifyDiff(field: string, a: E14Overlay, b: E14Overlay): Prove
   const pb = ruleProvenances(b);
   const all = Array.from(new Set([...pa, ...pb]));
 
-  if (field === "placement.mode" || field === "placement.scale") {
+  if (
+    field === "placement.mode" ||
+    field === "placement.scale" ||
+    field.startsWith("inner.placement")
+  ) {
     if (!a.svgAttrs.viewBox && !b.svgAttrs.viewBox) {
       return "OPEN"; // no-viewBox SVG-as-image reading
     }

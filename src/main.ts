@@ -163,10 +163,11 @@ function e14ToBlindOverlay(ov: E14Overlay): BlindOverlay | null {
 }
 
 async function boot(): Promise<void> {
-  // Experiment E14 path: load the e14 fixture, resolve it with all three
+  // Experiment E14/E16 path: load the fixture, resolve it with all three
   // renderers, and drive the stage chosen by `?renderer=`.
-  if (exp.startsWith("e14")) {
-    const manifestUrl = `${location.origin}/manifests/e14/${exp}.json`;
+  if (exp.startsWith("e14") || exp.startsWith("e16")) {
+    const dir = exp.startsWith("e16") ? "e16" : "e14";
+    const manifestUrl = `${location.origin}/manifests/${dir}/${exp}.json`;
     const res = await fetch(manifestUrl);
     if (!res.ok)
       throw new Error(`e14 manifest fetch failed: ${res.status}`);
