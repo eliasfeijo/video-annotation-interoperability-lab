@@ -1,0 +1,70 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/anno.jsonld",
+    "http://iiif.io/api/presentation/3/context.json"
+  ],
+  "id": "http://localhost:5173/manifests/n2/n2-svg-vb",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "n2-svg-vb"
+    ]
+  },
+  "items": [
+    {
+      "id": "http://localhost:5173/canvas/main",
+      "type": "Canvas",
+      "width": 1920,
+      "height": 1080,
+      "duration": 30,
+      "label": {
+        "en": [
+          "main canvas"
+        ]
+      },
+      "items": [
+        {
+          "id": "http://localhost:5173/canvas/main/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "http://localhost:5173/canvas/main/annotation/0",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "http://localhost:5173/canvas/main",
+              "body": {
+                "id": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+                "type": "Video",
+                "format": "video/mp4",
+                "width": 1920,
+                "height": 1080,
+                "duration": 30,
+                "label": {
+                  "en": [
+                    "video"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/canvas/main/annotation/1",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "http://localhost:5173/canvas/main#xywh=480,270,960,540",
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1000.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1000.svg"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mirador 3 check — third-party IIIF consumer</title>
+  </head>
+  <body style="margin: 0; background: #111; color: #ddd; font-family: sans-serif">
+    <div style="padding: 8px">
+      <input id="manifest" style="width: 70%" placeholder="manifest URL" value="" />
+      <button id="load">Load</button>
+    </div>
+    <div id="root" style="height: 80vh"></div>
+    <div id="status">loading bundle…</div>
+    <pre id="log" style="position: fixed; left: 8px; bottom: 8px; background: rgba(0,0,0,.8); color: #f88; font-size: 12px; max-width: 60vw; white-space: pre-wrap"></pre>
+    <script src="https://unpkg.com/mirador@3/dist/mirador.min.js"></script>
+    <script>
+      const logEl = document.getElementById('log');
+      const log = (...args) => {
+        logEl.textContent += args.map((a) => (a && a.stack) || String(a)).join(' ') + '\n';
+      };
+      window.addEventListener('error', (e) => log('window.error:', e.error || e.message));
+      window.addEventListener('unhandledrejection', (e) => log('unhandledrejection:', e.reason));
+
+      const params = new URLSearchParams(window.location.search);
+      const input = document.getElementById('manifest');
+      input.value = params.get('manifest') || '/manifests/viewer-plain.json';
+      document.getElementById('status').textContent = 'bundle loaded';
+
+      function launch(url) {
+        try {
+          const abs = new URL(url, window.location.href).href;
+          if (!globalThis.Mirador || typeof globalThis.Mirador.viewer !== 'function') {
+            log('Mirador global missing');
+            return;
+          }
+          globalThis.Mirador.viewer({
+            id: 'root',
+            windows: [{ loadedManifest: abs }],
+          });
+          log('mirador.launch ok');
+        } catch (e) {
+          log('launch error:', e);
+        }
+      }
+      document.getElementById('load').addEventListener('click', () => launch(input.value));
+      launch(input.value);
+    </script>
+  </body>
+</html>
