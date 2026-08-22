@@ -1,0 +1,119 @@
+{
+  "manifest": "fixture-provenance",
+  "version": 1,
+  "createdBy": "Phase C design (decision D5)",
+  "authority": "research/phase-b-provenance-terminology-audit.md section 7; research/pre-consolidation-inventory.md sections 3 and 9",
+  "_schemaNotes": [
+    "generator: path of the in-repo script that produces the family, or null.",
+    "generatorEverExisted: whether ANY in-repo generator existed at ANY point in git history (verified via full-history scripts/ listing).",
+    "authorship: 'in-repo-script' | 'unknown'. Never guess between hand-written and off-repo generation.",
+    "firstIntroduced: commit that added the family.",
+    "modifiedSinceIntroduction: whether any family file changed after its introducing commit.",
+    "consumptionNote: how consumers reach the family, where URL-construction hides literal references.",
+    "Extension rule: future fixture families APPEND an entry with the same fields; unknown values are recorded as \"unknown\", never speculated."
+  ],
+  "families": [
+    {
+      "id": "exp-era-root",
+      "paths": ["public/svg/exp*.svg", "public/svg/security-*.svg", "public/svg/text-*.svg", "public/manifests/exp*.json", "public/manifests/exp-text.json", "public/manifests/exp-security.json"],
+      "generator": "scripts/build-fixtures.mjs",
+      "generatorEverExisted": true,
+      "authorship": "in-repo-script",
+      "firstIntroduced": "993d82a (fixtures), generator present since initial commit",
+      "modifiedSinceIntroduction": false,
+      "notes": [
+        "exp7-keyframes.json is explicitly NON-STANDARD (labelled experimental); exp7.json is the spec-clean counterpart.",
+        "Consumed via index.html ?exp=N routing; MANIFEST_MAP in src/main.ts maps '6'->exp1.json and text/security names."
+      ]
+    },
+    {
+      "id": "case-blind-1-13",
+      "paths": ["public/manifests/case1.json .. case13.json", "public/svg/case*.svg"],
+      "generator": null,
+      "generatorEverExisted": false,
+      "authorship": "unknown",
+      "firstIntroduced": "cbd0880 (single commit, 39 files, +717 lines)",
+      "modifiedSinceIntroduction": false,
+      "notes": [
+        "PROVENANCE VERBATIM per D5: single-commit addition; no in-repo generator ever existed (full-history scripts/ listing shows additions only, zero modifications/deletions); authorship unknown.",
+        "Do NOT invent an authorship mechanism; do NOT create a retroactive generator.",
+        "Consumed via main.ts fallback naming (?exp=caseN -> caseN.json): literal-string searches understate consumption."
+      ]
+    },
+    {
+      "id": "e14-family",
+      "paths": ["public/svg/e14/", "public/manifests/e14/"],
+      "generator": "scripts/build-e14-fixtures.mjs",
+      "generatorEverExisted": true,
+      "authorship": "in-repo-script",
+      "firstIntroduced": "0c3be23 (fixtures/generator)",
+      "modifiedSinceIntroduction": false,
+      "notes": [
+        "Generator also writes public/svg/e14/e14-red-circle.png in-script via pngjs (raster-body fixture; PNG intentionally lives under svg/).",
+        "inner-overlay.json is a shared inner Canvas referenced by e14-case01..05-b manifests."
+      ]
+    },
+    {
+      "id": "e15-family",
+      "paths": ["public/svg/e15/", "public/manifests/e15/e15-manifest.json"],
+      "generator": "scripts/build-e15-fixtures.mjs",
+      "generatorEverExisted": true,
+      "authorship": "in-repo-script",
+      "firstIntroduced": "66fe59d",
+      "modifiedSinceIntroduction": false,
+      "notes": [
+        "public/svg/e15/e15-landmarks.json defines the landmark geometry CONTRACT reused by e16/e17.",
+        "Fixtures deliberately REUSED by the e17-family (cross-generation reuse by design)."
+      ]
+    },
+    {
+      "id": "e16-family",
+      "paths": ["public/svg/e16/", "public/manifests/e16/"],
+      "generator": "scripts/build-e16-fixtures.mjs",
+      "generatorEverExisted": true,
+      "authorship": "in-repo-script",
+      "firstIntroduced": "4ac3773",
+      "modifiedSinceIntroduction": false,
+      "notes": [
+        "inner-169/inner-43/inner-square.json are shared inner-Canvas bodies across e16 cases.",
+        "e16-case03-sq-full-a.json is additionally consumed cross-generation by the N2 probe matrix (V7)."
+      ]
+    },
+    {
+      "id": "e17-addition",
+      "paths": ["public/svg/e17/"],
+      "generator": "scripts/build-e17-fixtures.mjs",
+      "generatorEverExisted": true,
+      "authorship": "in-repo-script",
+      "firstIntroduced": "fa506ce",
+      "modifiedSinceIntroduction": false,
+      "notes": [
+        "Adds ONLY the xMaxYMax variant (e17-vb1000-max.svg + e17-landmarks.json); all other cells reuse e15-family fixtures via /e15-lab.html and /e17-lab.html."
+      ]
+    },
+    {
+      "id": "n2-manifests",
+      "paths": ["public/manifests/n2/"],
+      "generator": "scripts/build-n2-fixtures.mjs",
+      "generatorEverExisted": true,
+      "authorship": "in-repo-script",
+      "firstIntroduced": "6fd5380",
+      "modifiedSinceIntroduction": false,
+      "notes": [
+        "Probes also consume public/manifests/viewer-plain.json (exp era) and e16-case03-sq-full-a.json (see above)."
+      ]
+    },
+    {
+      "id": "video-fixture",
+      "paths": ["public/video/test-grid-1920x1080-30s.mp4"],
+      "generator": "scripts/generate-video.mjs",
+      "generatorEverExisted": true,
+      "authorship": "in-repo-script",
+      "firstIntroduced": "993d82a",
+      "modifiedSinceIntroduction": false,
+      "notes": [
+        "Deterministic FFmpeg product; regeneration requires FFmpeg and follows evidence-policy P-3 discipline if ever re-run."
+      ]
+    }
+  ]
+}
