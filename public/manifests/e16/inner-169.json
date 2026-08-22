@@ -1,0 +1,82 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/anno.jsonld",
+    "http://iiif.io/api/presentation/4/context.json"
+  ],
+  "id": "http://localhost:5173/manifests/e16/inner-169.json",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "E16 inner overlay 1920x1080 (IIIF 4.0 draft)"
+    ]
+  },
+  "items": [
+    {
+      "id": "http://localhost:5173/canvas/e16-overlay-169",
+      "type": "Canvas",
+      "width": 1920,
+      "height": 1080,
+      "partOf": [
+        {
+          "id": "http://localhost:5173/manifests/e16/inner-169.json",
+          "type": "Manifest"
+        }
+      ],
+      "label": {
+        "en": [
+          "overlay canvas 1920x1080"
+        ]
+      },
+      "items": [
+        {
+          "id": "http://localhost:5173/canvas/e16-overlay-169/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "http://localhost:5173/annotation/e16/inner-0",
+              "type": "Annotation",
+              "motivation": [
+                "painting"
+              ],
+              "target": {
+                "id": "http://localhost:5173/canvas/e16-overlay-169",
+                "type": "Canvas"
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e16/e16-shapes-169.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "inner-0"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e16/inner-1",
+              "type": "Annotation",
+              "motivation": [
+                "painting"
+              ],
+              "target": {
+                "id": "http://localhost:5173/canvas/e16-overlay-169",
+                "type": "Canvas"
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e16/e16-novb-sq.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "inner-1"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

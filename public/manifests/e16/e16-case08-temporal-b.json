@@ -1,0 +1,91 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/anno.jsonld",
+    "http://iiif.io/api/presentation/4/context.json"
+  ],
+  "id": "http://localhost:5173/manifests/e16/e16-case08-temporal-b",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "e16-case08-temporal-b (IIIF 4.0 DRAFT nested Canvas)"
+    ]
+  },
+  "summary": {
+    "en": [
+      "Overlay Canvas painted into an outer video Canvas; fit rule intentionally unspecified by the draft."
+    ]
+  },
+  "items": [
+    {
+      "id": "http://localhost:5173/canvas/e16-main",
+      "type": "Canvas",
+      "width": 1920,
+      "height": 1080,
+      "duration": 30,
+      "label": {
+        "en": [
+          "outer canvas"
+        ]
+      },
+      "items": [
+        {
+          "id": "http://localhost:5173/page/e16-main",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "http://localhost:5173/annotation/e16/video",
+              "type": "Annotation",
+              "motivation": [
+                "painting"
+              ],
+              "target": {
+                "id": "http://localhost:5173/canvas/e16-main",
+                "type": "Canvas"
+              },
+              "body": {
+                "id": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+                "type": "Video",
+                "format": "video/mp4",
+                "width": 1920,
+                "height": 1080,
+                "duration": 30
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e16/overlay",
+              "type": "Annotation",
+              "motivation": [
+                "painting"
+              ],
+              "target": {
+                "id": "http://localhost:5173/canvas/e16-main",
+                "type": "Canvas",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "t=10,15"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/canvas/e16-overlay-169",
+                "type": "Canvas",
+                "partOf": [
+                  {
+                    "id": "http://localhost:5173/manifests/e16/inner-169.json",
+                    "type": "Manifest"
+                  }
+                ],
+                "width": 1920,
+                "height": 1080,
+                "label": {
+                  "en": [
+                    "overlay canvas body"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

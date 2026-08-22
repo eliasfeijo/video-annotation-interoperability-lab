@@ -1,0 +1,74 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/anno.jsonld",
+    "http://iiif.io/api/presentation/3/context.json"
+  ],
+  "id": "http://localhost:5173/manifests/e16/e16-case05-43-full-a",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "e16-case05-43-full-a (STABLE IIIF 3.0, contain-equivalent direct paintings)"
+    ]
+  },
+  "items": [
+    {
+      "id": "http://localhost:5173/canvas/e16-main",
+      "type": "Canvas",
+      "width": 1920,
+      "height": 1080,
+      "duration": 30,
+      "label": {
+        "en": [
+          "outer canvas"
+        ]
+      },
+      "items": [
+        {
+          "id": "http://localhost:5173/page/e16-main",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "http://localhost:5173/annotation/e16/video-a",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "http://localhost:5173/canvas/e16-main",
+              "body": {
+                "id": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+                "type": "Video",
+                "format": "video/mp4",
+                "width": 1920,
+                "height": 1080,
+                "duration": 30
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e16/overlay-a",
+              "type": "Annotation",
+              "motivation": [
+                "painting"
+              ],
+              "target": {
+                "id": "http://localhost:5173/canvas/e16-main",
+                "type": "Canvas",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=240,0,1440,1080"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e16/e16-shapes-43.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "overlay-a"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
