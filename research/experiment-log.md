@@ -21,6 +21,8 @@ Guide: each row = one falsifiable question. `evidence/` holds the machine output
 | 10 | IIIF validation | Do standard fixtures pass the official validator? | POST of 10 manifests to `presentation-validator.iiif.io` | ✅ (`okay:1`, 0 warnings) | `observations/iiif-validation.json` |
 | 11 | Third-party viewer | Can a mainstream IIIF AV player consume the manifests? | Ramp (`@samvera/ramp` UMD from unpkg) against local manifests | ✅ video loads / ❌ SVG-body annotation crashes player | `observations/viewer-{plain,svg-annotation}.json`, `screenshots/viewer/*.png` |
 | 14 | Painting composition & SVG resource semantics | Can composed overlays (SVG/PNG/TextualBody, nested Overlay Canvas, Web Annotation) be expressed and resolved identically by independent renderers, incl. the browser's real `<img>` semantics? | e14-case01..16 `{a,b,c}` fixtures × Renderer A + Blind + Native (`<img>`) + Ramp probe | ✅ 35/39 renderer sets identical; 3 designed divergences classified | `e14/summary.json`, `e14/e14-case*.json`, `observations/e14-*.json`, `screenshots/e14/*` |
+| 15 | SVG embedding semantics | Is SVG painting geometry deterministic independently of the embedding mechanism? Does requiring an explicit viewBox eliminate the ambiguity? | 10 SVG variants × 4 regions × 8 embedding mechanisms = 176 cells, pixel-mask measured against named interpretations; intrinsics probe; IIIF manifest fixture for region provenance | ✅ viewBox ⇒ agreement among region-painting mechanisms; no-viewBox ⇒ 3 coexisting readings (`[BROWSER]`+`[OPEN]`); profile rule P1 strengthened | `evidence/e15/summary.json` + `case-*` + `geometry-matrix.json` + `intrinsics.json`, `screenshots/e15/`; `research/e15-report.md` |
+| 16 | IIIF nested-Canvas composition | Does IIIF 4.0 give precise Canvas-into-Canvas composition semantics ("scaled to fit")? Stable-3 expressibility? Does nesting resolve the SVG ambiguity? | 8 Model B fixtures × 3 renderers × {fill,contain} + 4 stable-IIIF-3 Mode A twins; browser pixel probes for aspect-mismatched cases | ✅ representable in STABLE 3.0 (supersedes E14 claim); fit rule `[OPEN]` (386-unit divergence measured); NEW: leaf-PAR collapse in `<img>` channel `[BROWSER]`; nesting relocates (not resolves) SVG ambiguity | `evidence/e16/cmp-*__{fill,contain}.json` + `modeA-twins.json` + `landmark-spot-check.json`, `screenshots/e16/`; `research/e16-report.md` |
 
 ## Bug-fix log (implementation-side discoveries)
 
@@ -51,10 +53,25 @@ Guide: each row = one falsifiable question. `evidence/` holds the machine output
 12. **e14/viewer intrinsic** — Chrome reports `naturalWidth` 267×150 for a viewBox-only SVG
     (CSS default sizing); a body's intended region size is not recoverable from the SVG alone
     (case14-b).
+13. **E15/lab-wide PAR regex** — `/yMid/` and `/yMax/` never matched valid SVG align tokens
+    (`xMidYMid` capitalizes the Y part), silently disabling vertical centering in EVERY
+    placement implementation (reference svg.ts + e14.ts, blind placement.ts, native
+    resolver.ts) since E1. Never triggered because earlier fixtures used aspect-matched
+    regions or xMin*/none variants. Exposed by E15 square-region cells where browser truth
+    disagreed with all four implementations simultaneously. Fixed with case-insensitive match
+    in all five sites.
+14. **E16/target serialization conformance** — resolvers read only W3C-style `target.source`
+    and object-form `partOf`; IIIF serializes targets as the Canvas object itself
+    (`target: {id, type}`) and `partOf` as an ARRAY (Use Case 6). Both input forms now
+    accepted by all three independent resolvers (same normalization, no shared code).
+15. **e15 harness calibration** (measurement infra, not renderers): mask scoring needed
+    clip-aware rasterized comparison (bbox heuristics break on corner-clipped circles);
+    HTML-context embeddings live in element-css space while canvas-space embeddings live in
+    Canvas units (`EMBEDDING_SPACE`).
 
-## Test totals (final)
+## Test totals (after E15/E16)
 
-- Unit (Vitest): **125 passing** (`selectors`, `timing`, `svg`, `iiif`, `e14-comparison`).
-- E2E (Playwright, Chromium): **35 passing** across exp1–7, exp4 regions, parity (1,2,3,5a,
-  5b,5c,6,7), security, text, viewer, e14 (8), e14 viewer (1).
+- Unit (Vitest): **147 passing** (previous 125 + 22 E16 comparison tests).
+- E2E (Playwright, Chromium): **61 passing** excluding network-dependent `viewer` specs
+  (previous suite + 24 E15 + 5 E16). Viewer specs unchanged from E14 (require network).
 - `tsc --noEmit`: clean.

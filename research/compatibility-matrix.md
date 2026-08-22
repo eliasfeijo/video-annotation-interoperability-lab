@@ -31,9 +31,27 @@ convention or non-standard extension), `B` = browser/environment dependent.
 | Mainstream viewer (SVG overlay) | Ramp | S* | G | Playable structure *permitted*; viewer throws on Image/SVG painting body (exp11) |
 | `percent:` spatial unit (E14 case03) | Media Fragments §4.2.2 | S | S | After Renderer A fix, `percent:`/`pixel:`/`pct:` agree across A/blind/native |
 | SVG-as-image geometry, no viewBox (E14 case06/07) | Image body via `<img>` | G | G | Three renderers → three geometries; 1:1 falsified under `<img>` (object-fit fill stretches intrinsic canvas). `[VIEWER_GAP]` |
-| Nested Overlay Canvas (E14 Model B) | IIIF 4.0 **draft** | S* | G | Geometrically identical across renderers, but *draft-only*; Ramp throws on it |
+| Nested Overlay Canvas (E14 Model B) | IIIF 4.0 **draft** | S* | G | Geometrically identical across renderers, but *draft-only*; Ramp throws on it — **SUPERSEDED by E16: stable IIIF 3.0 §5.3 also permits Canvas-as-body; the draft-only claim was wrong about expressibility (viewer gap remains)** |
 | Web Annotation Model C overlay (E14) | W3C Web Annotation | S* | G | Expressible; z-order + painting are CONVENTION; no mainstream IIIF AV player consumes AnnotationCollections |
 | SVG security policy (E14 case16) | — | — | G | `<img>` sandbox neutralizes active content but is platform behavior; blind rejects unsafe, native renders inert, A renders always — no manifest-expressible policy. `[IMPLEMENTATION_GAP]` |
+| Explicit-viewBox SVG geometry across region-painting embeddings (E15) | nested-svg / `<img>` fill / object | S | S | All distinguishable cells agree with I-REGION-VIEWPORT (`evidence/e15/geometry-matrix.json`). Profile rule P1 validated |
+| no-viewBox SVG across embeddings (E15) | `<img>` vs nested-`<svg>` | G | G | Three coexisting readings: 1:1 vs intrinsic-stretch vs document viewport `[BROWSER]`+`[OPEN]`; eliminable by profile rule (require viewBox) |
+| CSS letterbox channels for painting (E15) | object-fit contain/none, background-image | S* | S* | Normative CSS behavior; deterministic ONLY if profile pins the channel; background cannot paint into a region at all |
+| Nested Canvas representability in STABLE IIIF 3.0 (E16) | §5.3 "Canvases may be treated as content resources…" | S | S | **SUPERSEDES E14 row below**: not draft-only. Draft adds explicitness (UC6 pattern), not capability |
+| Nested Canvas fit semantics (E16) | IIIF 4.0 draft "scaled to fit that region" | G | G `[OPEN]` | fill vs contain undefined; destinations differ up to 386 Canvas units; same-aspect targets make all readings coincide (safe subset) |
+| Browser nested-composition fidelity (E16) | `<img>` channel leaves | B | G | Leaf-PAR collapse: leaf preserveAspectRatio applied against destination aspect inside fill-mapped container `[BROWSER]`+`[OPEN]` |
+| Vertical PAR centering (YMid/YMax tokens) | all renderers | S | S | Fixed E15 calibration bug #13: `/yMid/i` never matched capitalized spec tokens |
+
+### E15/E16 notes (expanded)
+
+- E15 verdict on the candidate profile rule "every SVG painting body MUST contain an explicit
+  viewBox": **not falsified — strengthened**, with companion rule P2 (consumer renders
+  region-as-viewport-equivalent). See `research/e15-report.md` §6.
+- E16: nested Canvas is representable in stable IIIF 3.0; the undefined piece is the fit rule
+  ("scaled to fit that region" names no algorithm) plus leaf-PAR/container-fit precedence in
+  collapsed browser pipelines. Same-aspect compositions make every reading coincide — the
+  interoperable subset today. See `research/e16-report.md`.
+- Full session conclusions: `research/e15-e16-final-report.md`.
 
 ### E14 notes (expanded)
 
