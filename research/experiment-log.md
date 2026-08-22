@@ -23,6 +23,7 @@ Guide: each row = one falsifiable question. `evidence/` holds the machine output
 | 14 | Painting composition & SVG resource semantics | Can composed overlays (SVG/PNG/TextualBody, nested Overlay Canvas, Web Annotation) be expressed and resolved identically by independent renderers, incl. the browser's real `<img>` semantics? | e14-case01..16 `{a,b,c}` fixtures × Renderer A + Blind + Native (`<img>`) + Ramp probe | ✅ 35/39 renderer sets identical; 3 designed divergences classified | `e14/summary.json`, `e14/e14-case*.json`, `observations/e14-*.json`, `screenshots/e14/*` |
 | 15 | SVG embedding semantics | Is SVG painting geometry deterministic independently of the embedding mechanism? Does requiring an explicit viewBox eliminate the ambiguity? | 10 SVG variants × 4 regions × 8 embedding mechanisms = 176 cells, pixel-mask measured against named interpretations; intrinsics probe; IIIF manifest fixture for region provenance | ✅ viewBox ⇒ agreement among region-painting mechanisms; no-viewBox ⇒ 3 coexisting readings (`[BROWSER]`+`[OPEN]`); profile rule P1 strengthened | `evidence/e15/summary.json` + `case-*` + `geometry-matrix.json` + `intrinsics.json`, `screenshots/e15/`; `research/e15-report.md` |
 | 16 | IIIF nested-Canvas composition | Does IIIF 4.0 give precise Canvas-into-Canvas composition semantics ("scaled to fit")? Stable-3 expressibility? Does nesting resolve the SVG ambiguity? | 8 Model B fixtures × 3 renderers × {fill,contain} + 4 stable-IIIF-3 Mode A twins; browser pixel probes for aspect-mismatched cases | ✅ representable in STABLE 3.0 (supersedes E14 claim); fit rule `[OPEN]` (386-unit divergence measured); NEW: leaf-PAR collapse in `<img>` channel `[BROWSER]`; nesting relocates (not resolves) SVG ambiguity | `evidence/e16/cmp-*__{fill,contain}.json` + `modeA-twins.json` + `landmark-spot-check.json`, `screenshots/e16/`; `research/e16-report.md` |
+| 17 | N1 cross-engine replication (Chromium/Firefox/WebKit) | Do the `[BROWSER]`-classified E15/E16 rows hold beyond Chromium? | Minimal adversarial subset: E15 core cells (vb/novb × square500/rect43/half; min/max/none/slice PAR) × 6–7 embeddings via mask classifier (E15-verbatim thresholds); E16 native-channel probes (case01/03/05/06/07); per-engine intrinsics; dedicated runner `playwright.e17.config.ts` | ✅ 62/62 matrix rows UNANIMOUS across engines; all E16 probes unanimous; intrinsics identical incl. attribute-less SVG; leaf-PAR collapse reproduces in FF+WK; zero divergences | `evidence/e17/{summary,cross-engine-matrix,intrinsics-*,case-*}.json`, `screenshots/e17/<engine>/`; `research/e17-report.md` |
 
 ## Bug-fix log (implementation-side discoveries)
 
@@ -68,6 +69,15 @@ Guide: each row = one falsifiable question. `evidence/` holds the machine output
     clip-aware rasterized comparison (bbox heuristics break on corner-clipped circles);
     HTML-context embeddings live in element-css space while canvas-space embeddings live in
     Canvas units (`EMBEDDING_SPACE`).
+16. **E17/case05 harness race** (measurement infra): the E16-derived row-scan probe applied the
+    target time only via the URL `t=` param and screenshotted after image load without a
+    re-apply. Chromium/WebKit painted fast enough to mask this; Firefox's slower decode/paint
+    pipeline rasterized a pre-applyAt state → empty magenta runs (initially looked like a
+    browser divergence). Fixed in `tests/e2e/e17.spec.ts` by explicit `seek(t)` + settle frames
+    AFTER `waitImgsLoaded`; Firefox then reproduced Chromium/WebKit fractions exactly
+    (0.0196, 0.1483). The historical `e16.spec.ts` carries the same latent pattern but is
+    frozen (Chromium-only by design); not modified. Lesson recorded: cross-engine probes must
+    re-apply time after resource load, never rely on load-order timing.
 
 ## Test totals (after E15/E16)
 
