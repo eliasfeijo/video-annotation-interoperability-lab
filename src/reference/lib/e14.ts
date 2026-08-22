@@ -130,7 +130,7 @@ export function refPlacement(viewport: Rect, attrs: E14SvgAttrs, synthesizeNoVie
   const usedW = viewBox.w * scale;
   const usedH = viewBox.h * scale;
   const ox = /xMax/.test(par) ? viewport.w - usedW : /xMid/.test(par) ? (viewport.w - usedW) / 2 : 0;
-  const oy = /yMax/.test(par) ? viewport.h - usedH : /yMid/.test(par) ? (viewport.h - usedH) / 2 : 0;
+  const oy = /yMax/i.test(par) ? viewport.h - usedH : /yMid/i.test(par) ? (viewport.h - usedH) / 2 : 0;
   return {
     mode: (meet ? "viewBox-meet" : "viewBox-slice") as E14Placement["mode"],
     viewport,

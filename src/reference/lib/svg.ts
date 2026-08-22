@@ -126,6 +126,7 @@ export function canvasPointOfSvgUserPoint(
   const ux = (p.x - viewBox.minX) * s;
   const uy = (p.y - viewBox.minY) * s;
   const ox = /xMax/.test(par) ? w - vw * s : /xMid/.test(par) ? (w - vw * s) / 2 : 0;
-  const oy = /yMax/.test(par) ? h - vh * s : /yMid/.test(par) ? (h - vh * s) / 2 : 0;
+  // Align tokens capitalize the y part ("xMidYMid"): match case-insensitively.
+  const oy = /yMax/i.test(par) ? h - vh * s : /yMid/i.test(par) ? (h - vh * s) / 2 : 0;
   return { x: x + ox + ux, y: y + oy + uy };
 }

@@ -136,7 +136,7 @@ export function nativePlacement(dest: Rect, attrs: E14SvgAttrs): E14Placement {
   const usedW = vb.w * scale;
   const usedH = vb.h * scale;
   const ox = /xMax/.test(par) ? dest.w - usedW : /xMid/.test(par) ? (dest.w - usedW) / 2 : 0;
-  const oy = /yMax/.test(par) ? dest.h - usedH : /yMid/.test(par) ? (dest.h - usedH) / 2 : 0;
+  const oy = /yMax/i.test(par) ? dest.h - usedH : /yMid/i.test(par) ? (dest.h - usedH) / 2 : 0;
   return {
     mode: (meet ? "viewBox-meet" : "viewBox-slice") as E14Placement["mode"],
     viewport: dest,

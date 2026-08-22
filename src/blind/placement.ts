@@ -73,9 +73,10 @@ export function computePlacement(req: PlacementRequest): Placement {
     : /xMid/.test(align)
       ? (destination.w - usedW) / 2
       : 0;
-  const oy = /yMax/.test(align)
+  // Align tokens capitalize the y part ("xMidYMid"): match case-insensitively.
+  const oy = /yMax/i.test(align)
     ? destination.h - usedH
-    : /yMid/.test(align)
+    : /yMid/i.test(align)
       ? (destination.h - usedH) / 2
       : 0;
   return {
