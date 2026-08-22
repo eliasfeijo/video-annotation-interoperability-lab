@@ -1,0 +1,32 @@
+{
+  "id": "T13",
+  "title": "Invalid Canvas dimensions rejected",
+  "requirements": [
+    "R-S3"
+  ],
+  "browserDependent": false,
+  "consumerDependent": false,
+  "expectedPreRegistered": "Each REJECTED (MISSING_CANVAS_DIMENSION / non-positive / non-integer)",
+  "failureCondition": "Any accepted",
+  "violations": [],
+  "pass": true,
+  "actual": {
+    "missingHeight": [
+      "CONSUMER_CONFORMANCE_BLOCKED",
+      "MISSING_CANVAS_DIMENSION"
+    ],
+    "zeroHeight": [
+      "CONSUMER_CONFORMANCE_BLOCKED",
+      "NONPOSITIVE_CANVAS_DIMENSION"
+    ],
+    "fractionalWidth": [
+      "CONSUMER_CONFORMANCE_BLOCKED",
+      "NONINTEGER_CANVAS_DIMENSION"
+    ],
+    "conforming": [
+      false,
+      false,
+      false
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "id": "T07",
+  "title": "Malformed fragments rejected with stable code",
+  "requirements": [
+    "R-S6a"
+  ],
+  "browserDependent": false,
+  "consumerDependent": false,
+  "expectedPreRegistered": "REJECTED with code MALFORMED_FRAGMENT (one per input)",
+  "failureCondition": "Accepted silently, or crash without code",
+  "violations": [],
+  "pass": true,
+  "actual": {
+    "perInput": [
+      {
+        "malformed": [
+          {
+            "dimension": "t",
+            "value": "banana",
+            "reason": "non-numeric start \"banana\""
+          }
+        ]
+      },
+      {
+        "malformed": [
+          {
+            "dimension": "xywh",
+            "value": "1,2,3",
+            "reason": "expected 4 comma-separated components, got 3"
+          }
+        ]
+      },
+      {
+        "malformed": [
+          {
+            "dimension": "t",
+            "value": ",,",
+            "reason": "expected at most 2 components, got 3"
+          }
+        ]
+      }
+    ],
+    "conforming": [
+      false,
+      false,
+      false
+    ]
+  }
+}

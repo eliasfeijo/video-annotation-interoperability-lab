@@ -1,0 +1,76 @@
+{
+  "id": "T12",
+  "title": "Same-aspect replacement pair A passes; mismatched pair B fails",
+  "requirements": [
+    "R-S4"
+  ],
+  "browserDependent": false,
+  "consumerDependent": false,
+  "expectedPreRegistered": "A: PASS, k = 2. B: FAIL ASPECT_MISMATCH. Cross products per the profile formula W'·H == H'·W: pair A 4,147,200 == 4,147,200; pair B 2,160,000 ≠ 3,840,000. NOTE (recorded ambiguity AMB-N6-1): the matrix/profile prose parentheticals quote pair B as “2,160,000 ≠ 2,073,600”, whose second value does not follow from the pre-registered formula (it equals H·W, not H'·W). The FAIL verdict is identical under both readings; this suite implements the formula stated identically in profile-draft.md Part 7.1, R-S4, and conformance-matrix.md Part A row S4.",
+  "failureCondition": "Wrong cross-product arithmetic; ε path applied to integers",
+  "violations": [],
+  "pass": true,
+  "actual": {
+    "pairA": {
+      "diagnostics": [
+        {
+          "requirement": "R-S4",
+          "status": "PASS",
+          "code": "ASPECT_CONFORMS",
+          "location": {},
+          "actual": {
+            "form": "replacement",
+            "path": "exact-integer",
+            "crossProductA": "4147200",
+            "crossProductB": "4147200",
+            "formula": "W'·H vs H'·W",
+            "W": 1920,
+            "H": 1080,
+            "W'": 3840,
+            "H'": 2160
+          },
+          "expected": "same aspect (W'·H == H'·W)"
+        }
+      ],
+      "mappings": [
+        {
+          "requirement": "R-S5",
+          "form": "replacement",
+          "k": 2,
+          "location": {},
+          "landmarks": [
+            {
+              "u": 40,
+              "v": 40,
+              "x": 80,
+              "y": 80
+            }
+          ]
+        }
+      ]
+    },
+    "pairB": {
+      "diagnostics": [
+        {
+          "requirement": "R-S4",
+          "status": "FAIL",
+          "code": "ASPECT_MISMATCH",
+          "location": {},
+          "actual": {
+            "form": "replacement",
+            "path": "exact-integer",
+            "crossProductA": "2160000",
+            "crossProductB": "3840000",
+            "formula": "W'·H vs H'·W",
+            "W": 1920,
+            "H": 1080,
+            "W'": 2000,
+            "H'": 2000
+          },
+          "expected": "same aspect required (W'·H == H'·W); aspect-mismatched compositions are excluded (X1) with no assigned placement behavior"
+        }
+      ],
+      "mappings": []
+    }
+  }
+}

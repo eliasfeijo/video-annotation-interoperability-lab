@@ -1,0 +1,235 @@
+{
+  "id": "T05",
+  "title": "Landmark mapping table (painted form and replacement form)",
+  "requirements": [
+    "R-S5"
+  ],
+  "browserDependent": false,
+  "consumerDependent": false,
+  "expectedPreRegistered": "Prediction exactly (Tx + k·u, Ty + k·v) = (730, 310); replacement sample 1920×1080→3840×2160 maps tick (40,40) → (80,80), circle centre (960,540) → (1920,1080), r 100→200",
+  "failureCondition": "Any dual-axis scale (k_x ≠ k_y) or off-by-offset value",
+  "violations": [],
+  "pass": true,
+  "actual": {
+    "painted": {
+      "manifestId": "n6-t05",
+      "validatorVersion": "n6-resource-validator@1.0.0",
+      "epsilonMode": false,
+      "conforming": true,
+      "diagnostics": [
+        {
+          "requirement": "R-S1",
+          "status": "PASS",
+          "code": "VIEWBOX_PRESENT",
+          "location": {
+            "manifestId": "http://example.org/manifest/inner",
+            "canvasId": "http://example.org/canvas/inner-square",
+            "depth": 1,
+            "annotationId": "http://example.org/manifest/inner/annotation/leaf",
+            "bodyId": "http://example.org/svg/vb1000.svg"
+          },
+          "actual": {
+            "viewBox": "0 0 1000 1000"
+          },
+          "expected": "explicit root viewBox with four numeric components"
+        },
+        {
+          "requirement": "R-S2",
+          "status": "BLOCKED",
+          "code": "CONSUMER_CONFORMANCE_BLOCKED",
+          "location": {
+            "manifestId": "n6-t05"
+          },
+          "actual": {
+            "capableConsumersAvailable": 0
+          },
+          "expected": "region-as-viewport predicate requires a consumer that renders secondary painting bodies; none tested realizes it (N2)"
+        },
+        {
+          "requirement": "R-S3",
+          "status": "PASS",
+          "code": "CANVAS_DIMENSIONS_OK",
+          "location": {
+            "manifestId": "http://example.org/manifest/inner",
+            "canvasId": "http://example.org/canvas/inner-square",
+            "depth": 1
+          },
+          "actual": {
+            "width": 1000,
+            "height": 1000
+          },
+          "expected": "Number.isInteger(w) && w > 0 && Number.isInteger(h) && h > 0"
+        },
+        {
+          "requirement": "R-S3",
+          "status": "PASS",
+          "code": "CANVAS_DIMENSIONS_OK",
+          "location": {
+            "manifestId": "n6-t05",
+            "canvasId": "http://example.org/canvas/outer",
+            "depth": 0
+          },
+          "actual": {
+            "width": 1920,
+            "height": 1080
+          },
+          "expected": "Number.isInteger(w) && w > 0 && Number.isInteger(h) && h > 0"
+        },
+        {
+          "requirement": "R-S4",
+          "status": "PASS",
+          "code": "ASPECT_CONFORMS",
+          "location": {
+            "manifestId": "n6-t05",
+            "canvasId": "http://example.org/canvas/outer",
+            "depth": 0,
+            "annotationId": "n6-t05/annotation/overlay",
+            "bodyId": "http://example.org/canvas/inner-square"
+          },
+          "actual": {
+            "form": "painted",
+            "path": "exact-integer",
+            "crossProductA": "500000",
+            "crossProductB": "500000",
+            "formula": "Tw·Hb vs Th·Wb",
+            "Tw": 500,
+            "Th": 500,
+            "Wb": 1000,
+            "Hb": 1000,
+            "Tx": 710,
+            "Ty": 290
+          },
+          "expected": "same aspect (Tw·Hb == Th·Wb)"
+        },
+        {
+          "requirement": "R-S6a",
+          "status": "PASS",
+          "code": "FRAGMENT_WELLFORMED",
+          "location": {
+            "manifestId": "n6-t05",
+            "canvasId": "http://example.org/canvas/outer",
+            "depth": 0,
+            "annotationId": "n6-t05/annotation/overlay"
+          },
+          "actual": {
+            "canonicalPrefix": "pixel",
+            "percent": false,
+            "x": 710,
+            "y": 290,
+            "w": 500,
+            "h": 500
+          },
+          "expected": "well-formed xywh= fragment; percent coordinates split per axis (MF §4.2.2)"
+        }
+      ],
+      "mappings": [
+        {
+          "requirement": "R-S5",
+          "form": "painted",
+          "k": 0.5,
+          "translation": {
+            "x": 710,
+            "y": 290
+          },
+          "landmarks": [
+            {
+              "u": 40,
+              "v": 40,
+              "x": 730,
+              "y": 310
+            }
+          ],
+          "location": {
+            "manifestId": "n6-t05",
+            "canvasId": "http://example.org/canvas/outer",
+            "depth": 0,
+            "annotationId": "n6-t05/annotation/overlay",
+            "bodyId": "http://example.org/canvas/inner-square"
+          }
+        }
+      ],
+      "predictions": [
+        {
+          "bodyId": "http://example.org/svg/vb1000.svg",
+          "viewport": {
+            "x": 0,
+            "y": 0,
+            "w": 1000,
+            "h": 1000
+          },
+          "viewBox": {
+            "minX": 0,
+            "minY": 0,
+            "w": 1000,
+            "h": 1000
+          },
+          "preserveAspectRatio": "xMidYMid meet",
+          "scale": 1,
+          "translation": {
+            "x": 0,
+            "y": 0
+          },
+          "location": {
+            "manifestId": "http://example.org/manifest/inner",
+            "canvasId": "http://example.org/canvas/inner-square",
+            "depth": 1,
+            "annotationId": "http://example.org/manifest/inner/annotation/leaf",
+            "bodyId": "http://example.org/svg/vb1000.svg"
+          }
+        }
+      ],
+      "fences": [
+        {
+          "requirement": "R-S8b",
+          "code": "TEMPORAL_HONORING_OPEN",
+          "statement": "Whether any consumer honors a temporal fragment is UNDETERMINED (N2 V2); interaction-level probes are required before any claim either way. This is not a requirement on producers or consumers."
+        }
+      ]
+    },
+    "replacement": {
+      "diagnostics": [
+        {
+          "requirement": "R-S4",
+          "status": "PASS",
+          "code": "ASPECT_CONFORMS",
+          "location": {},
+          "actual": {
+            "form": "replacement",
+            "path": "exact-integer",
+            "crossProductA": "4147200",
+            "crossProductB": "4147200",
+            "formula": "W'·H vs H'·W",
+            "W": 1920,
+            "H": 1080,
+            "W'": 3840,
+            "H'": 2160
+          },
+          "expected": "same aspect (W'·H == H'·W)"
+        }
+      ],
+      "mappings": [
+        {
+          "requirement": "R-S5",
+          "form": "replacement",
+          "k": 2,
+          "location": {},
+          "landmarks": [
+            {
+              "u": 40,
+              "v": 40,
+              "x": 80,
+              "y": 80
+            },
+            {
+              "u": 960,
+              "v": 540,
+              "x": 1920,
+              "y": 1080
+            }
+          ]
+        }
+      ]
+    },
+    "radiusScaled": 200
+  }
+}

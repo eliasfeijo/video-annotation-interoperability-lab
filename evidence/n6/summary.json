@@ -1,0 +1,131 @@
+{
+  "experiment": "N6 resource conformance validation (deterministic, browser-free)",
+  "companionDocuments": [
+    "research/profile-draft.md",
+    "research/conformance-matrix.md",
+    "research/n4-safe-subset.md"
+  ],
+  "validatorVersion": "n6-resource-validator@1.0.0",
+  "buildContext": {
+    "node": "v26.5.0",
+    "platform": "win32",
+    "gitCommit": "23e7f5062becbcbcf7bfbd7c6d0545cb9dcf7ce7",
+    "generatedAt": "2026-08-22T19:00:13.037Z"
+  },
+  "suite": {
+    "cases": 15,
+    "passed": 15,
+    "failed": 0,
+    "browserDependentCases": 0,
+    "consumerDependentCases": 0,
+    "ids": [
+      "T01",
+      "T02",
+      "T03",
+      "T04",
+      "T05",
+      "T06",
+      "T07",
+      "T08",
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15"
+    ],
+    "perCase": [
+      {
+        "id": "T01",
+        "pass": true,
+        "violations": 0
+      },
+      {
+        "id": "T02",
+        "pass": true,
+        "violations": 0
+      },
+      {
+        "id": "T03",
+        "pass": true,
+        "violations": 0
+      },
+      {
+        "id": "T04",
+        "pass": true,
+        "violations": 0
+      },
+      {
+        "id": "T05",
+        "pass": true,
+        "violations": 0
+      },
+      {
+        "id": "T06",
+        "pass": true,
+        "violations": 0
+      },
+      {
+        "id": "T07",
+        "pass": true,
+        "violations": 0
+      },
+      {
+        "id": "T08",
+        "pass": true,
+        "violations": 0
+      },
+      {
+        "id": "T09",
+        "pass": true,
+        "violations": 0
+      },
+      {
+        "id": "T10",
+        "pass": true,
+        "violations": 0
+      },
+      {
+        "id": "T11",
+        "pass": true,
+        "violations": 0
+      },
+      {
+        "id": "T12",
+        "pass": true,
+        "violations": 0
+      },
+      {
+        "id": "T13",
+        "pass": true,
+        "violations": 0
+      },
+      {
+        "id": "T14",
+        "pass": true,
+        "violations": 0
+      },
+      {
+        "id": "T15",
+        "pass": true,
+        "violations": 0
+      }
+    ]
+  },
+  "standingConfirmations": {
+    "consumerConformanceRemainsBlocked": true,
+    "openItemsPromoted": [],
+    "fitPolicyEmittedForAspectMismatches": false,
+    "zOrderAssertionsInOutput": false,
+    "researchSourceDocumentsModified": false,
+    "recordedAmbiguities": [
+      {
+        "id": "AMB-N6-1",
+        "affected": "T12 (replacement-form cross products); profile-draft.md Part 14 Example B parenthetical",
+        "description": "The profile formula W'·H == H'·W (stated identically in profile-draft.md Part 7.1, R-S4, and conformance-matrix.md Part A row S4) yields pair B products 2000·1080 = 2,160,000 vs 2000·1920 = 3,840,000 for 1920×1080 → 2000×2000. The prose parentheticals quote “2,160,000 ≠ 2,073,600”, whose second value equals H·W rather than H'·W. The FAIL ASPECT_MISMATCH verdict is identical under both readings. The validator implements the formula; no research document was modified pending clarification.",
+        "smallestClarificationNeeded": "Confirm the second product is H'·W (= 3,840,000) and correct the two prose parentheticals, or state an alternative intended formula."
+      }
+    ]
+  }
+}

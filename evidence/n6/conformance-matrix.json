@@ -1,0 +1,160 @@
+{
+  "stage": "N6",
+  "companionTo": "research/conformance-matrix.md",
+  "rows": [
+    {
+      "id": "R-S1",
+      "statement": "Explicit SVG root viewBox on every painting body",
+      "provenance": "PROFILE",
+      "implemented": true,
+      "mechanism": "static root-element parse",
+      "codes": [
+        "VIEWBOX_PRESENT",
+        "MISSING_VIEWBOX",
+        "INVALID_VIEWBOX"
+      ]
+    },
+    {
+      "id": "R-S2",
+      "statement": "Region-as-viewport consumer contract",
+      "provenance": "PROFILE",
+      "implemented": false,
+      "state": "BLOCKED — declarative only; needs a claiming consumer (N2 V4–V7/M2/M3)",
+      "codes": [
+        "CONSUMER_CONFORMANCE_BLOCKED"
+      ],
+      "note": "analytic region-as-viewport predictions are emitted as declarative data only"
+    },
+    {
+      "id": "R-S3",
+      "statement": "Positive integer Canvas height/width",
+      "provenance": "PROFILE",
+      "implemented": true,
+      "mechanism": "JSON parse + integer/positivity assertions",
+      "codes": [
+        "CANVAS_DIMENSIONS_OK",
+        "MISSING_CANVAS_DIMENSION",
+        "NONPOSITIVE_CANVAS_DIMENSION",
+        "NONINTEGER_CANVAS_DIMENSION"
+      ]
+    },
+    {
+      "id": "R-S4",
+      "statement": "Same-aspect painted/replaced Canvas (P5a); mismatch non-conforming, no fallback fit",
+      "provenance": "PROFILE",
+      "implemented": true,
+      "mechanism": "exact BigInt cross-multiplication; default reject of non-integers; documented ε=10⁻⁶ mode records its decision",
+      "codes": [
+        "ASPECT_CONFORMS",
+        "ASPECT_MISMATCH",
+        "NONINTEGER_DIMENSIONS_REJECTED",
+        "EPSILON_DECISION_RECORDED"
+      ],
+      "ambiguities": [
+        "AMB-N6-1"
+      ]
+    },
+    {
+      "id": "R-S5",
+      "statement": "Landmark mapping (u,v) ↦ (Tx+k·u, Ty+k·v), k uniform",
+      "provenance": "DERIVED",
+      "implemented": true,
+      "mechanism": "pure-function mapping tables emitted for conforming compositions",
+      "codes": [
+        "MAPPING_EMERGED*"
+      ]
+    },
+    {
+      "id": "R-S6a",
+      "statement": "Media Fragments t=/xywh= syntax; half-open intervals; percent axis-split; FragmentSelector chain",
+      "provenance": "NORMATIVE",
+      "implemented": true,
+      "mechanism": "strict MF grammar parser reporting rejections",
+      "codes": [
+        "FRAGMENT_WELLFORMED",
+        "MALFORMED_FRAGMENT"
+      ]
+    },
+    {
+      "id": "R-S6b",
+      "statement": "pct: alias accepted as percent: equivalent; canonical form percent:",
+      "provenance": "PROFILE",
+      "implemented": true,
+      "mechanism": "prefix normalization",
+      "codes": [
+        "ALIAS_NORMALIZED"
+      ]
+    },
+    {
+      "id": "R-S7",
+      "statement": "Exclusions X1–X8 (resource side)",
+      "provenance": "PROFILE",
+      "implemented": true,
+      "mechanism": "shares R-S1 rejection; declared-metadata reliance flagging is a DOCUMENTED HEURISTIC; consumer side blocked",
+      "codes": [
+        "EXCLUSION_RELIANCE_DECLARED",
+        "NO_GEOMETRY_PROMISED"
+      ]
+    },
+    {
+      "id": "R-S8a",
+      "statement": "Producers MAY use t= fragments; syntax valid regardless of honoring",
+      "provenance": "NORMATIVE",
+      "implemented": true,
+      "mechanism": "shares R-S6a parser",
+      "codes": [
+        "TEMPORAL_SYNTAX_PERMITTED"
+      ]
+    },
+    {
+      "id": "R-S8b",
+      "statement": "Temporal consumer honoring NOT guaranteed",
+      "provenance": "OPEN",
+      "implemented": false,
+      "state": "OPEN FENCE — no predicate by design; never becomes a requirement",
+      "codes": [
+        "TEMPORAL_HONORING_OPEN"
+      ]
+    },
+    {
+      "id": "X1",
+      "statement": "Arbitrary aspect-ratio replacement/nesting",
+      "state": "EXCLUDED — S4 predicate rejects; no fit behavior exists in the vocabulary"
+    },
+    {
+      "id": "X2",
+      "statement": "Reliance on implicit intrinsic SVG dimensions",
+      "state": "EXCLUDED — R-S1 rejection; intrinsic-fit expectation declarations flagged (heuristic)"
+    },
+    {
+      "id": "X3",
+      "statement": "Unspecified fit algorithms / fit keywords",
+      "state": "EXCLUDED — output vocabulary contains no fit parameter (meta-test T10)"
+    },
+    {
+      "id": "X4",
+      "statement": "Consumer-specific SVG painting-body assumptions",
+      "state": "OPEN fence — requires rendering consumers; none available (N2)"
+    },
+    {
+      "id": "X5",
+      "statement": "Canvas-as-body RENDERING through current consumers",
+      "state": "EXCLUDED for guarantees — data-level expression allowed"
+    },
+    {
+      "id": "X6",
+      "statement": "Z-order assumptions",
+      "state": "OUT OF SCOPE — no stacking assertions in any output (meta-test T08)"
+    },
+    {
+      "id": "X7",
+      "statement": "Reliance on temporal consumer honoring",
+      "state": "OPEN fence — same as R-S8b"
+    },
+    {
+      "id": "X8",
+      "statement": "Two-stage composition reliance",
+      "state": "EXCLUDED for guarantees — observable only with capable consumer"
+    }
+  ]
+}

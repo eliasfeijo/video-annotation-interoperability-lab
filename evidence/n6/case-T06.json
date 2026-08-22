@@ -1,0 +1,49 @@
+{
+  "id": "T06",
+  "title": "Well-formed temporal and pixel spatial fragments accepted",
+  "requirements": [
+    "R-S6a",
+    "R-S8a"
+  ],
+  "browserDependent": false,
+  "consumerDependent": false,
+  "expectedPreRegistered": "All ACCEPTED as well-formed; temporal interval normalized to half-open [10,20)",
+  "failureCondition": "Well-formed fragment rejected",
+  "violations": [],
+  "pass": true,
+  "actual": {
+    "temporal": [
+      {
+        "intervalNotation": "[10,20)",
+        "halfOpen": true,
+        "start": 10,
+        "end": 20
+      },
+      {
+        "intervalNotation": "[10,∞)",
+        "halfOpen": true,
+        "start": 10
+      }
+    ],
+    "spatial": [
+      {
+        "canonicalPrefix": "pixel",
+        "percent": false,
+        "x": 100,
+        "y": 100,
+        "w": 800,
+        "h": 600
+      }
+    ],
+    "malformedCounts": [
+      0,
+      0,
+      0
+    ],
+    "conforming": [
+      true,
+      true,
+      true
+    ]
+  }
+}

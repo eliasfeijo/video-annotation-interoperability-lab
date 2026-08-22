@@ -1,0 +1,124 @@
+{
+  "id": "T01",
+  "title": "Conforming SVG painting body with explicit viewBox",
+  "requirements": [
+    "R-S1"
+  ],
+  "browserDependent": false,
+  "consumerDependent": false,
+  "expectedPreRegistered": "PASS — conforming; emitted prediction uses region-as-viewport mapping",
+  "failureCondition": "Any parse error or MISSING_VIEWBOX raised",
+  "violations": [],
+  "pass": true,
+  "actual": {
+    "report": {
+      "manifestId": "n6-t01",
+      "validatorVersion": "n6-resource-validator@1.0.0",
+      "epsilonMode": false,
+      "conforming": true,
+      "diagnostics": [
+        {
+          "requirement": "R-S1",
+          "status": "PASS",
+          "code": "VIEWBOX_PRESENT",
+          "location": {
+            "manifestId": "n6-t01",
+            "canvasId": "n6-t01/canvas",
+            "depth": 0,
+            "annotationId": "n6-t01/annotation/svg",
+            "bodyId": "http://example.org/svg/vb1000.svg"
+          },
+          "actual": {
+            "viewBox": "0 0 1000 1000"
+          },
+          "expected": "explicit root viewBox with four numeric components"
+        },
+        {
+          "requirement": "R-S2",
+          "status": "BLOCKED",
+          "code": "CONSUMER_CONFORMANCE_BLOCKED",
+          "location": {
+            "manifestId": "n6-t01"
+          },
+          "actual": {
+            "capableConsumersAvailable": 0
+          },
+          "expected": "region-as-viewport predicate requires a consumer that renders secondary painting bodies; none tested realizes it (N2)"
+        },
+        {
+          "requirement": "R-S3",
+          "status": "PASS",
+          "code": "CANVAS_DIMENSIONS_OK",
+          "location": {
+            "manifestId": "n6-t01",
+            "canvasId": "n6-t01/canvas",
+            "depth": 0
+          },
+          "actual": {
+            "width": 1920,
+            "height": 1080
+          },
+          "expected": "Number.isInteger(w) && w > 0 && Number.isInteger(h) && h > 0"
+        },
+        {
+          "requirement": "R-S6a",
+          "status": "PASS",
+          "code": "FRAGMENT_WELLFORMED",
+          "location": {
+            "manifestId": "n6-t01",
+            "canvasId": "n6-t01/canvas",
+            "depth": 0,
+            "annotationId": "n6-t01/annotation/svg"
+          },
+          "actual": {
+            "canonicalPrefix": "pixel",
+            "percent": false,
+            "x": 480,
+            "y": 270,
+            "w": 960,
+            "h": 540
+          },
+          "expected": "well-formed xywh= fragment; percent coordinates split per axis (MF §4.2.2)"
+        }
+      ],
+      "mappings": [],
+      "predictions": [
+        {
+          "bodyId": "http://example.org/svg/vb1000.svg",
+          "viewport": {
+            "x": 480,
+            "y": 270,
+            "w": 960,
+            "h": 540
+          },
+          "viewBox": {
+            "minX": 0,
+            "minY": 0,
+            "w": 1000,
+            "h": 1000
+          },
+          "preserveAspectRatio": "xMidYMid meet",
+          "scale": 0.54,
+          "translation": {
+            "x": 690,
+            "y": 270
+          },
+          "location": {
+            "manifestId": "n6-t01",
+            "canvasId": "n6-t01/canvas",
+            "depth": 0,
+            "annotationId": "n6-t01/annotation/svg",
+            "bodyId": "http://example.org/svg/vb1000.svg"
+          }
+        }
+      ],
+      "fences": [
+        {
+          "requirement": "R-S8b",
+          "code": "TEMPORAL_HONORING_OPEN",
+          "statement": "Whether any consumer honors a temporal fragment is UNDETERMINED (N2 V2); interaction-level probes are required before any claim either way. This is not a requirement on producers or consumers."
+        }
+      ]
+    }
+  }
+}

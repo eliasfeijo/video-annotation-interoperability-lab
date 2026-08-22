@@ -1,0 +1,123 @@
+{
+  "id": "T09",
+  "title": "Intrinsic-fit expectation metadata does not rescue a viewBox-less body",
+  "requirements": [
+    "R-S7",
+    "R-S1"
+  ],
+  "browserDependent": false,
+  "consumerDependent": false,
+  "expectedPreRegistered": "NON-CONFORMING via MISSING_VIEWBOX; validator emits NO geometry guarantee of any kind for this body",
+  "failureCondition": "Any intrinsic-based geometry prediction emitted; any pass contingent on assumed stretch",
+  "violations": [],
+  "pass": true,
+  "actual": {
+    "report": {
+      "manifestId": "n6-t09",
+      "validatorVersion": "n6-resource-validator@1.0.0",
+      "epsilonMode": false,
+      "conforming": false,
+      "diagnostics": [
+        {
+          "requirement": "R-S1",
+          "status": "FAIL",
+          "code": "MISSING_VIEWBOX",
+          "location": {
+            "manifestId": "n6-t09",
+            "canvasId": "n6-t09/canvas",
+            "depth": 0,
+            "annotationId": "n6-t09/annotation/svg",
+            "bodyId": "http://example.org/svg/novb1000.svg"
+          },
+          "actual": {
+            "attribute": "absent"
+          },
+          "expected": "explicit root viewBox with four numeric components (R-S1); intrinsic size is not a coordinate contract"
+        },
+        {
+          "requirement": "R-S2",
+          "status": "BLOCKED",
+          "code": "CONSUMER_CONFORMANCE_BLOCKED",
+          "location": {
+            "manifestId": "n6-t09"
+          },
+          "actual": {
+            "capableConsumersAvailable": 0
+          },
+          "expected": "region-as-viewport predicate requires a consumer that renders secondary painting bodies; none tested realizes it (N2)"
+        },
+        {
+          "requirement": "R-S3",
+          "status": "PASS",
+          "code": "CANVAS_DIMENSIONS_OK",
+          "location": {
+            "manifestId": "n6-t09",
+            "canvasId": "n6-t09/canvas",
+            "depth": 0
+          },
+          "actual": {
+            "width": 1920,
+            "height": 1080
+          },
+          "expected": "Number.isInteger(w) && w > 0 && Number.isInteger(h) && h > 0"
+        },
+        {
+          "requirement": "R-S6a",
+          "status": "PASS",
+          "code": "FRAGMENT_WELLFORMED",
+          "location": {
+            "manifestId": "n6-t09",
+            "canvasId": "n6-t09/canvas",
+            "depth": 0,
+            "annotationId": "n6-t09/annotation/svg"
+          },
+          "actual": {
+            "canonicalPrefix": "pixel",
+            "percent": false,
+            "x": 480,
+            "y": 270,
+            "w": 960,
+            "h": 540
+          },
+          "expected": "well-formed xywh= fragment; percent coordinates split per axis (MF §4.2.2)"
+        },
+        {
+          "requirement": "R-S7",
+          "status": "FAIL",
+          "code": "EXCLUSION_RELIANCE_DECLARED",
+          "location": {
+            "manifestId": "n6-t09",
+            "canvasId": "n6-t09/canvas",
+            "depth": 0,
+            "annotationId": "n6-t09/annotation/svg",
+            "bodyId": "http://example.org/svg/novb1000.svg"
+          },
+          "actual": {
+            "exclusionId": "X2-intrinsic-fit",
+            "field": "metadata[1].value",
+            "declaration": "Consumers will scale this body's intrinsic canvas."
+          },
+          "expected": "no reliance on implicit intrinsic SVG dimensions (exclusion X2); explicit viewBox per R-S1",
+          "heuristic": true
+        }
+      ],
+      "mappings": [],
+      "predictions": [],
+      "fences": [
+        {
+          "requirement": "R-S8b",
+          "code": "TEMPORAL_HONORING_OPEN",
+          "statement": "Whether any consumer honors a temporal fragment is UNDETERMINED (N2 V2); interaction-level probes are required before any claim either way. This is not a requirement on producers or consumers."
+        },
+        {
+          "requirement": "R-S7",
+          "code": "NO_GEOMETRY_PROMISED",
+          "statement": "No geometry is promised for these excluded bodies; no prediction was emitted for them.",
+          "subjectIds": [
+            "http://example.org/svg/novb1000.svg"
+          ]
+        }
+      ]
+    }
+  }
+}

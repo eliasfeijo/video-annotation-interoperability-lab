@@ -1,0 +1,104 @@
+{
+  "id": "T02",
+  "title": "ViewBox-less body rejected",
+  "requirements": [
+    "R-S1",
+    "R-S7"
+  ],
+  "browserDependent": false,
+  "consumerDependent": false,
+  "expectedPreRegistered": "FAIL with code MISSING_VIEWBOX, pointing at the offending body",
+  "failureCondition": "Validator passes the body or crashes without diagnostic",
+  "violations": [],
+  "pass": true,
+  "actual": {
+    "report": {
+      "manifestId": "n6-t02",
+      "validatorVersion": "n6-resource-validator@1.0.0",
+      "epsilonMode": false,
+      "conforming": false,
+      "diagnostics": [
+        {
+          "requirement": "R-S1",
+          "status": "FAIL",
+          "code": "MISSING_VIEWBOX",
+          "location": {
+            "manifestId": "n6-t02",
+            "canvasId": "n6-t02/canvas",
+            "depth": 0,
+            "annotationId": "n6-t02/annotation/svg",
+            "bodyId": "http://example.org/svg/novb1000.svg"
+          },
+          "actual": {
+            "attribute": "absent"
+          },
+          "expected": "explicit root viewBox with four numeric components (R-S1); intrinsic size is not a coordinate contract"
+        },
+        {
+          "requirement": "R-S2",
+          "status": "BLOCKED",
+          "code": "CONSUMER_CONFORMANCE_BLOCKED",
+          "location": {
+            "manifestId": "n6-t02"
+          },
+          "actual": {
+            "capableConsumersAvailable": 0
+          },
+          "expected": "region-as-viewport predicate requires a consumer that renders secondary painting bodies; none tested realizes it (N2)"
+        },
+        {
+          "requirement": "R-S3",
+          "status": "PASS",
+          "code": "CANVAS_DIMENSIONS_OK",
+          "location": {
+            "manifestId": "n6-t02",
+            "canvasId": "n6-t02/canvas",
+            "depth": 0
+          },
+          "actual": {
+            "width": 1920,
+            "height": 1080
+          },
+          "expected": "Number.isInteger(w) && w > 0 && Number.isInteger(h) && h > 0"
+        },
+        {
+          "requirement": "R-S6a",
+          "status": "PASS",
+          "code": "FRAGMENT_WELLFORMED",
+          "location": {
+            "manifestId": "n6-t02",
+            "canvasId": "n6-t02/canvas",
+            "depth": 0,
+            "annotationId": "n6-t02/annotation/svg"
+          },
+          "actual": {
+            "canonicalPrefix": "pixel",
+            "percent": false,
+            "x": 480,
+            "y": 270,
+            "w": 960,
+            "h": 540
+          },
+          "expected": "well-formed xywh= fragment; percent coordinates split per axis (MF §4.2.2)"
+        }
+      ],
+      "mappings": [],
+      "predictions": [],
+      "fences": [
+        {
+          "requirement": "R-S8b",
+          "code": "TEMPORAL_HONORING_OPEN",
+          "statement": "Whether any consumer honors a temporal fragment is UNDETERMINED (N2 V2); interaction-level probes are required before any claim either way. This is not a requirement on producers or consumers."
+        },
+        {
+          "requirement": "R-S7",
+          "code": "NO_GEOMETRY_PROMISED",
+          "statement": "No geometry is promised for these excluded bodies; no prediction was emitted for them.",
+          "subjectIds": [
+            "http://example.org/svg/novb1000.svg"
+          ]
+        }
+      ]
+    }
+  }
+}

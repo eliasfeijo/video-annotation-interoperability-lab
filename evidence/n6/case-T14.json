@@ -1,0 +1,161 @@
+{
+  "id": "T14",
+  "title": "Nested SVG leaf without viewBox is rejected at depth",
+  "requirements": [
+    "R-S1"
+  ],
+  "browserDependent": false,
+  "consumerDependent": false,
+  "expectedPreRegistered": "REJECTED — every SVG leaf requires its own viewBox (nesting does not exempt)",
+  "failureCondition": "Only root checked; leaf passes",
+  "violations": [],
+  "pass": true,
+  "actual": {
+    "report": {
+      "manifestId": "n6-t14",
+      "validatorVersion": "n6-resource-validator@1.0.0",
+      "epsilonMode": false,
+      "conforming": false,
+      "diagnostics": [
+        {
+          "requirement": "R-S1",
+          "status": "FAIL",
+          "code": "MISSING_VIEWBOX",
+          "location": {
+            "manifestId": "http://example.org/manifest/inner-novb",
+            "canvasId": "http://example.org/canvas/inner-square",
+            "depth": 1,
+            "annotationId": "http://example.org/manifest/inner-novb/annotation/leaf",
+            "bodyId": "http://example.org/svg/novb1000.svg"
+          },
+          "actual": {
+            "attribute": "absent"
+          },
+          "expected": "explicit root viewBox with four numeric components (R-S1); intrinsic size is not a coordinate contract"
+        },
+        {
+          "requirement": "R-S2",
+          "status": "BLOCKED",
+          "code": "CONSUMER_CONFORMANCE_BLOCKED",
+          "location": {
+            "manifestId": "n6-t14"
+          },
+          "actual": {
+            "capableConsumersAvailable": 0
+          },
+          "expected": "region-as-viewport predicate requires a consumer that renders secondary painting bodies; none tested realizes it (N2)"
+        },
+        {
+          "requirement": "R-S3",
+          "status": "PASS",
+          "code": "CANVAS_DIMENSIONS_OK",
+          "location": {
+            "manifestId": "http://example.org/manifest/inner-novb",
+            "canvasId": "http://example.org/canvas/inner-square",
+            "depth": 1
+          },
+          "actual": {
+            "width": 1000,
+            "height": 1000
+          },
+          "expected": "Number.isInteger(w) && w > 0 && Number.isInteger(h) && h > 0"
+        },
+        {
+          "requirement": "R-S3",
+          "status": "PASS",
+          "code": "CANVAS_DIMENSIONS_OK",
+          "location": {
+            "manifestId": "n6-t14",
+            "canvasId": "http://example.org/canvas/outer",
+            "depth": 0
+          },
+          "actual": {
+            "width": 1920,
+            "height": 1080
+          },
+          "expected": "Number.isInteger(w) && w > 0 && Number.isInteger(h) && h > 0"
+        },
+        {
+          "requirement": "R-S4",
+          "status": "PASS",
+          "code": "ASPECT_CONFORMS",
+          "location": {
+            "manifestId": "n6-t14",
+            "canvasId": "http://example.org/canvas/outer",
+            "depth": 0,
+            "annotationId": "n6-t14/annotation/overlay",
+            "bodyId": "http://example.org/canvas/inner-square"
+          },
+          "actual": {
+            "form": "painted",
+            "path": "exact-integer",
+            "crossProductA": "500000",
+            "crossProductB": "500000",
+            "formula": "Tw·Hb vs Th·Wb",
+            "Tw": 500,
+            "Th": 500,
+            "Wb": 1000,
+            "Hb": 1000,
+            "Tx": 710,
+            "Ty": 290
+          },
+          "expected": "same aspect (Tw·Hb == Th·Wb)"
+        },
+        {
+          "requirement": "R-S6a",
+          "status": "PASS",
+          "code": "FRAGMENT_WELLFORMED",
+          "location": {
+            "manifestId": "n6-t14",
+            "canvasId": "http://example.org/canvas/outer",
+            "depth": 0,
+            "annotationId": "n6-t14/annotation/overlay"
+          },
+          "actual": {
+            "canonicalPrefix": "pixel",
+            "percent": false,
+            "x": 710,
+            "y": 290,
+            "w": 500,
+            "h": 500
+          },
+          "expected": "well-formed xywh= fragment; percent coordinates split per axis (MF §4.2.2)"
+        }
+      ],
+      "mappings": [
+        {
+          "requirement": "R-S5",
+          "form": "painted",
+          "k": 0.5,
+          "translation": {
+            "x": 710,
+            "y": 290
+          },
+          "location": {
+            "manifestId": "n6-t14",
+            "canvasId": "http://example.org/canvas/outer",
+            "depth": 0,
+            "annotationId": "n6-t14/annotation/overlay",
+            "bodyId": "http://example.org/canvas/inner-square"
+          }
+        }
+      ],
+      "predictions": [],
+      "fences": [
+        {
+          "requirement": "R-S8b",
+          "code": "TEMPORAL_HONORING_OPEN",
+          "statement": "Whether any consumer honors a temporal fragment is UNDETERMINED (N2 V2); interaction-level probes are required before any claim either way. This is not a requirement on producers or consumers."
+        },
+        {
+          "requirement": "R-S7",
+          "code": "NO_GEOMETRY_PROMISED",
+          "statement": "No geometry is promised for these excluded bodies; no prediction was emitted for them.",
+          "subjectIds": [
+            "http://example.org/svg/novb1000.svg"
+          ]
+        }
+      ]
+    }
+  }
+}

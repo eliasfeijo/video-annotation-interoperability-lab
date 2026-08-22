@@ -1,0 +1,181 @@
+{
+  "id": "T11",
+  "title": "pct: alias normalizes identically to percent:",
+  "requirements": [
+    "R-S6b"
+  ],
+  "browserDependent": false,
+  "consumerDependent": false,
+  "expectedPreRegistered": "Both accepted (S6b SHOULD); identical normalized rects (per-axis split per MF §4.2.2)",
+  "failureCondition": "Alias rejected outright, or divergent normalizations",
+  "violations": [],
+  "pass": true,
+  "actual": {
+    "pct": {
+      "ok": true,
+      "value": {
+        "canonicalPrefix": "percent",
+        "percent": true,
+        "x": 960,
+        "y": 0,
+        "w": 480,
+        "h": 270
+      }
+    },
+    "percent": {
+      "ok": true,
+      "value": {
+        "canonicalPrefix": "percent",
+        "percent": true,
+        "x": 960,
+        "y": 0,
+        "w": 480,
+        "h": 270
+      }
+    },
+    "viaPct": {
+      "manifestId": "n6-t11-pct",
+      "validatorVersion": "n6-resource-validator@1.0.0",
+      "epsilonMode": false,
+      "conforming": true,
+      "diagnostics": [
+        {
+          "requirement": "R-S2",
+          "status": "BLOCKED",
+          "code": "CONSUMER_CONFORMANCE_BLOCKED",
+          "location": {
+            "manifestId": "n6-t11-pct"
+          },
+          "actual": {
+            "capableConsumersAvailable": 0
+          },
+          "expected": "region-as-viewport predicate requires a consumer that renders secondary painting bodies; none tested realizes it (N2)"
+        },
+        {
+          "requirement": "R-S3",
+          "status": "PASS",
+          "code": "CANVAS_DIMENSIONS_OK",
+          "location": {
+            "manifestId": "n6-t11-pct",
+            "canvasId": "n6-t11-pct/canvas",
+            "depth": 0
+          },
+          "actual": {
+            "width": 1920,
+            "height": 1080
+          },
+          "expected": "Number.isInteger(w) && w > 0 && Number.isInteger(h) && h > 0"
+        },
+        {
+          "requirement": "R-S6a",
+          "status": "PASS",
+          "code": "FRAGMENT_WELLFORMED",
+          "location": {
+            "manifestId": "n6-t11-pct",
+            "canvasId": "n6-t11-pct/canvas",
+            "depth": 0,
+            "annotationId": "n6-t11-pct/a"
+          },
+          "actual": {
+            "canonicalPrefix": "percent",
+            "percent": true,
+            "x": 960,
+            "y": 0,
+            "w": 480,
+            "h": 270
+          },
+          "expected": "well-formed xywh= fragment; percent coordinates split per axis (MF §4.2.2)"
+        },
+        {
+          "requirement": "R-S6b",
+          "status": "PASS",
+          "code": "ALIAS_NORMALIZED",
+          "location": {
+            "manifestId": "n6-t11-pct",
+            "canvasId": "n6-t11-pct/canvas",
+            "depth": 0,
+            "annotationId": "n6-t11-pct/a"
+          },
+          "actual": {
+            "authoredPrefix": "pct:",
+            "normalizedPrefix": "percent:"
+          },
+          "expected": "pct: accepted as equivalent to normative percent:; canonical form percent:"
+        }
+      ],
+      "mappings": [],
+      "predictions": [],
+      "fences": [
+        {
+          "requirement": "R-S8b",
+          "code": "TEMPORAL_HONORING_OPEN",
+          "statement": "Whether any consumer honors a temporal fragment is UNDETERMINED (N2 V2); interaction-level probes are required before any claim either way. This is not a requirement on producers or consumers."
+        }
+      ]
+    },
+    "viaPercent": {
+      "manifestId": "n6-t11-percent",
+      "validatorVersion": "n6-resource-validator@1.0.0",
+      "epsilonMode": false,
+      "conforming": true,
+      "diagnostics": [
+        {
+          "requirement": "R-S2",
+          "status": "BLOCKED",
+          "code": "CONSUMER_CONFORMANCE_BLOCKED",
+          "location": {
+            "manifestId": "n6-t11-percent"
+          },
+          "actual": {
+            "capableConsumersAvailable": 0
+          },
+          "expected": "region-as-viewport predicate requires a consumer that renders secondary painting bodies; none tested realizes it (N2)"
+        },
+        {
+          "requirement": "R-S3",
+          "status": "PASS",
+          "code": "CANVAS_DIMENSIONS_OK",
+          "location": {
+            "manifestId": "n6-t11-percent",
+            "canvasId": "n6-t11-percent/canvas",
+            "depth": 0
+          },
+          "actual": {
+            "width": 1920,
+            "height": 1080
+          },
+          "expected": "Number.isInteger(w) && w > 0 && Number.isInteger(h) && h > 0"
+        },
+        {
+          "requirement": "R-S6a",
+          "status": "PASS",
+          "code": "FRAGMENT_WELLFORMED",
+          "location": {
+            "manifestId": "n6-t11-percent",
+            "canvasId": "n6-t11-percent/canvas",
+            "depth": 0,
+            "annotationId": "n6-t11-percent/a"
+          },
+          "actual": {
+            "canonicalPrefix": "percent",
+            "percent": true,
+            "x": 960,
+            "y": 0,
+            "w": 480,
+            "h": 270
+          },
+          "expected": "well-formed xywh= fragment; percent coordinates split per axis (MF §4.2.2)"
+        }
+      ],
+      "mappings": [],
+      "predictions": [],
+      "fences": [
+        {
+          "requirement": "R-S8b",
+          "code": "TEMPORAL_HONORING_OPEN",
+          "statement": "Whether any consumer honors a temporal fragment is UNDETERMINED (N2 V2); interaction-level probes are required before any claim either way. This is not a requirement on producers or consumers."
+        }
+      ]
+    }
+  }
+}

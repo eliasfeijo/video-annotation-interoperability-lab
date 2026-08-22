@@ -1,0 +1,303 @@
+{
+  "id": "T15",
+  "title": "Non-integer dimension pair: default reject vs documented ε path",
+  "requirements": [
+    "R-S4"
+  ],
+  "browserDependent": false,
+  "consumerDependent": false,
+  "expectedPreRegistered": "Default path REJECTED per SHOULD-reject rule; ε mode records its decision with the ε ≤ 10⁻⁶ value in output",
+  "failureCondition": "Undocumented tolerance silently applied",
+  "violations": [],
+  "pass": true,
+  "actual": {
+    "defaultPath": {
+      "manifestId": "n6-t15",
+      "validatorVersion": "n6-resource-validator@1.0.0",
+      "epsilonMode": false,
+      "conforming": false,
+      "diagnostics": [
+        {
+          "requirement": "R-S1",
+          "status": "PASS",
+          "code": "VIEWBOX_PRESENT",
+          "location": {
+            "manifestId": "http://example.org/manifest/inner",
+            "canvasId": "http://example.org/canvas/inner-square",
+            "depth": 1,
+            "annotationId": "http://example.org/manifest/inner/annotation/leaf",
+            "bodyId": "http://example.org/svg/vb1000.svg"
+          },
+          "actual": {
+            "viewBox": "0 0 1000 1000"
+          },
+          "expected": "explicit root viewBox with four numeric components"
+        },
+        {
+          "requirement": "R-S2",
+          "status": "BLOCKED",
+          "code": "CONSUMER_CONFORMANCE_BLOCKED",
+          "location": {
+            "manifestId": "n6-t15"
+          },
+          "actual": {
+            "capableConsumersAvailable": 0
+          },
+          "expected": "region-as-viewport predicate requires a consumer that renders secondary painting bodies; none tested realizes it (N2)"
+        },
+        {
+          "requirement": "R-S3",
+          "status": "PASS",
+          "code": "CANVAS_DIMENSIONS_OK",
+          "location": {
+            "manifestId": "http://example.org/manifest/inner",
+            "canvasId": "http://example.org/canvas/inner-square",
+            "depth": 1
+          },
+          "actual": {
+            "width": 1000,
+            "height": 1000
+          },
+          "expected": "Number.isInteger(w) && w > 0 && Number.isInteger(h) && h > 0"
+        },
+        {
+          "requirement": "R-S3",
+          "status": "PASS",
+          "code": "CANVAS_DIMENSIONS_OK",
+          "location": {
+            "manifestId": "n6-t15",
+            "canvasId": "n6-t15/canvas",
+            "depth": 0
+          },
+          "actual": {
+            "width": 1920,
+            "height": 1080
+          },
+          "expected": "Number.isInteger(w) && w > 0 && Number.isInteger(h) && h > 0"
+        },
+        {
+          "requirement": "R-S4",
+          "status": "FAIL",
+          "code": "NONINTEGER_DIMENSIONS_REJECTED",
+          "location": {
+            "manifestId": "n6-t15",
+            "canvasId": "n6-t15/canvas",
+            "depth": 0,
+            "annotationId": "n6-t15/annotation/overlay",
+            "bodyId": "http://example.org/canvas/inner-square"
+          },
+          "actual": {
+            "form": "painted",
+            "nonIntegers": [
+              "Tw"
+            ]
+          },
+          "expected": "non-integer dimension serializations are rejected by default (SHOULD); select documented ε mode to compare instead"
+        },
+        {
+          "requirement": "R-S6a",
+          "status": "PASS",
+          "code": "FRAGMENT_WELLFORMED",
+          "location": {
+            "manifestId": "n6-t15",
+            "canvasId": "n6-t15/canvas",
+            "depth": 0,
+            "annotationId": "n6-t15/annotation/overlay"
+          },
+          "actual": {
+            "canonicalPrefix": "pixel",
+            "percent": false,
+            "x": 460,
+            "y": 290,
+            "w": 500.5,
+            "h": 500
+          },
+          "expected": "well-formed xywh= fragment; percent coordinates split per axis (MF §4.2.2)"
+        }
+      ],
+      "mappings": [],
+      "predictions": [
+        {
+          "bodyId": "http://example.org/svg/vb1000.svg",
+          "viewport": {
+            "x": 0,
+            "y": 0,
+            "w": 1000,
+            "h": 1000
+          },
+          "viewBox": {
+            "minX": 0,
+            "minY": 0,
+            "w": 1000,
+            "h": 1000
+          },
+          "preserveAspectRatio": "xMidYMid meet",
+          "scale": 1,
+          "translation": {
+            "x": 0,
+            "y": 0
+          },
+          "location": {
+            "manifestId": "http://example.org/manifest/inner",
+            "canvasId": "http://example.org/canvas/inner-square",
+            "depth": 1,
+            "annotationId": "http://example.org/manifest/inner/annotation/leaf",
+            "bodyId": "http://example.org/svg/vb1000.svg"
+          }
+        }
+      ],
+      "fences": [
+        {
+          "requirement": "R-S8b",
+          "code": "TEMPORAL_HONORING_OPEN",
+          "statement": "Whether any consumer honors a temporal fragment is UNDETERMINED (N2 V2); interaction-level probes are required before any claim either way. This is not a requirement on producers or consumers."
+        }
+      ]
+    },
+    "epsilonPath": {
+      "manifestId": "n6-t15",
+      "validatorVersion": "n6-resource-validator@1.0.0",
+      "epsilonMode": true,
+      "conforming": false,
+      "diagnostics": [
+        {
+          "requirement": "R-S1",
+          "status": "PASS",
+          "code": "VIEWBOX_PRESENT",
+          "location": {
+            "manifestId": "http://example.org/manifest/inner",
+            "canvasId": "http://example.org/canvas/inner-square",
+            "depth": 1,
+            "annotationId": "http://example.org/manifest/inner/annotation/leaf",
+            "bodyId": "http://example.org/svg/vb1000.svg"
+          },
+          "actual": {
+            "viewBox": "0 0 1000 1000"
+          },
+          "expected": "explicit root viewBox with four numeric components"
+        },
+        {
+          "requirement": "R-S2",
+          "status": "BLOCKED",
+          "code": "CONSUMER_CONFORMANCE_BLOCKED",
+          "location": {
+            "manifestId": "n6-t15"
+          },
+          "actual": {
+            "capableConsumersAvailable": 0
+          },
+          "expected": "region-as-viewport predicate requires a consumer that renders secondary painting bodies; none tested realizes it (N2)"
+        },
+        {
+          "requirement": "R-S3",
+          "status": "PASS",
+          "code": "CANVAS_DIMENSIONS_OK",
+          "location": {
+            "manifestId": "http://example.org/manifest/inner",
+            "canvasId": "http://example.org/canvas/inner-square",
+            "depth": 1
+          },
+          "actual": {
+            "width": 1000,
+            "height": 1000
+          },
+          "expected": "Number.isInteger(w) && w > 0 && Number.isInteger(h) && h > 0"
+        },
+        {
+          "requirement": "R-S3",
+          "status": "PASS",
+          "code": "CANVAS_DIMENSIONS_OK",
+          "location": {
+            "manifestId": "n6-t15",
+            "canvasId": "n6-t15/canvas",
+            "depth": 0
+          },
+          "actual": {
+            "width": 1920,
+            "height": 1080
+          },
+          "expected": "Number.isInteger(w) && w > 0 && Number.isInteger(h) && h > 0"
+        },
+        {
+          "requirement": "R-S4",
+          "status": "FAIL",
+          "code": "EPSILON_DECISION_RECORDED",
+          "location": {
+            "manifestId": "n6-t15",
+            "canvasId": "n6-t15/canvas",
+            "depth": 0,
+            "annotationId": "n6-t15/annotation/overlay",
+            "bodyId": "http://example.org/canvas/inner-square"
+          },
+          "actual": {
+            "form": "painted",
+            "crossProductA": 500500,
+            "crossProductB": 500000,
+            "relativeDelta": 0.000999000999000999,
+            "epsilon": 0.000001,
+            "path": "epsilon"
+          },
+          "expected": "relative tolerance |A−B|/max(A,B) ≤ ε applied (ε = 0.000001); decision recorded per conformance-matrix T15"
+        },
+        {
+          "requirement": "R-S6a",
+          "status": "PASS",
+          "code": "FRAGMENT_WELLFORMED",
+          "location": {
+            "manifestId": "n6-t15",
+            "canvasId": "n6-t15/canvas",
+            "depth": 0,
+            "annotationId": "n6-t15/annotation/overlay"
+          },
+          "actual": {
+            "canonicalPrefix": "pixel",
+            "percent": false,
+            "x": 460,
+            "y": 290,
+            "w": 500.5,
+            "h": 500
+          },
+          "expected": "well-formed xywh= fragment; percent coordinates split per axis (MF §4.2.2)"
+        }
+      ],
+      "mappings": [],
+      "predictions": [
+        {
+          "bodyId": "http://example.org/svg/vb1000.svg",
+          "viewport": {
+            "x": 0,
+            "y": 0,
+            "w": 1000,
+            "h": 1000
+          },
+          "viewBox": {
+            "minX": 0,
+            "minY": 0,
+            "w": 1000,
+            "h": 1000
+          },
+          "preserveAspectRatio": "xMidYMid meet",
+          "scale": 1,
+          "translation": {
+            "x": 0,
+            "y": 0
+          },
+          "location": {
+            "manifestId": "http://example.org/manifest/inner",
+            "canvasId": "http://example.org/canvas/inner-square",
+            "depth": 1,
+            "annotationId": "http://example.org/manifest/inner/annotation/leaf",
+            "bodyId": "http://example.org/svg/vb1000.svg"
+          }
+        }
+      ],
+      "fences": [
+        {
+          "requirement": "R-S8b",
+          "code": "TEMPORAL_HONORING_OPEN",
+          "statement": "Whether any consumer honors a temporal fragment is UNDETERMINED (N2 V2); interaction-level probes are required before any claim either way. This is not a requirement on producers or consumers."
+        }
+      ]
+    }
+  }
+}

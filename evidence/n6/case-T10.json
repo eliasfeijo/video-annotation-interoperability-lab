@@ -1,0 +1,72 @@
+{
+  "id": "T10",
+  "title": "Output vocabulary audit over the whole corpus",
+  "requirements": [
+    "R-S7",
+    "R-S8b",
+    "R-S4"
+  ],
+  "browserDependent": false,
+  "consumerDependent": false,
+  "expectedPreRegistered": "Output contains no guarantee strings for unsupported bodies (\"will render\", \"honors t=\", \"stacks first\", fit-policy names); OPEN items appear only as explicit non-guarantee fences",
+  "failureCondition": "Any [OPEN]/excluded item phrased as capability or guarantee",
+  "violations": [],
+  "pass": true,
+  "actual": {
+    "corpusSize": 13,
+    "audits": [
+      {
+        "manifestId": "n6-t01",
+        "violations": []
+      },
+      {
+        "manifestId": "n6-t02",
+        "violations": []
+      },
+      {
+        "manifestId": "n6-t03",
+        "violations": []
+      },
+      {
+        "manifestId": "n6-t04",
+        "violations": []
+      },
+      {
+        "manifestId": "n6-t05",
+        "violations": []
+      },
+      {
+        "manifestId": "n6-t08",
+        "violations": []
+      },
+      {
+        "manifestId": "n6-t08",
+        "violations": []
+      },
+      {
+        "manifestId": "n6-t09",
+        "violations": []
+      },
+      {
+        "manifestId": "n6-t11-pct",
+        "violations": []
+      },
+      {
+        "manifestId": "n6-t11-percent",
+        "violations": []
+      },
+      {
+        "manifestId": "n6-t14",
+        "violations": []
+      },
+      {
+        "manifestId": "n6-t15",
+        "violations": []
+      },
+      {
+        "manifestId": "n6-t15",
+        "violations": []
+      }
+    ]
+  }
+}
