@@ -255,7 +255,9 @@ async function resolveBlindNested(
   model: E14Model,
   options: BlindE14Options,
 ): Promise<E14Overlay[]> {
-  const innerManifestUrl = abs(String(body.partOf?.id ?? body.id), manifestUrl);
+  // IIIF serializes partOf as an array; W3C-flavoured fixtures may use an object.
+  const partOf = Array.isArray(body.partOf) ? body.partOf[0]?.id : body.partOf?.id;
+  const innerManifestUrl = abs(String(partOf ?? body.id), manifestUrl);
   const innerManifest = await fetchers.fetchManifest(innerManifestUrl);
   const innerCanvas = findCanvas(innerManifest);
   if (!innerCanvas) throw new Error("nested Canvas not found");

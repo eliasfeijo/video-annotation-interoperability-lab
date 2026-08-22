@@ -217,8 +217,12 @@ async function resolveNativeIiif(
     const target = ann?.target;
     if (typeof target === "string") return { source: target, selectors: [] as any[] };
     if (target && typeof target === "object") {
+      // W3C `source` or IIIF `id` (the Canvas object itself).
       return {
-        source: typeof target.source === "string" ? target.source : String(target.source?.id ?? ""),
+        source:
+          typeof target.source === "string"
+            ? target.source
+            : String(target.source?.id ?? target.id ?? ""),
         selectors: asArray<any>(target.selector),
       };
     }
@@ -380,7 +384,9 @@ async function resolveNativeNested(
   model: E14Model,
   options: NativeOptions,
 ): Promise<E14Overlay[]> {
-  const innerManifestUrl = abs(String(body.partOf?.id ?? body.id), manifestUrl);
+  // IIIF serializes partOf as an array; W3C-flavoured fixtures may use an object.
+  const partOf = Array.isArray(body.partOf) ? body.partOf[0]?.id : body.partOf?.id;
+  const innerManifestUrl = abs(String(partOf ?? body.id), manifestUrl);
   const innerManifest = await fetchers.fetchManifest(innerManifestUrl);
   const innerCanvas = asArray<any>(innerManifest?.items).find((i) => i?.type === "Canvas" && i.id === body.id)
     ?? asArray<any>(innerManifest?.items).find((i) => i?.type === "Canvas");
@@ -486,7 +492,10 @@ async function resolveNativeC(
     const selectors: any[] = [];
     if (typeof target === "string") source = target;
     else if (target && typeof target === "object") {
-      source = typeof target.source === "string" ? target.source : String(target.source?.id ?? "");
+      source =
+        typeof target.source === "string"
+          ? target.source
+          : String(target.source?.id ?? target.id ?? "");
       selectors.push(...asArray<any>(target.selector));
     }
     if (/\.mp4$/i.test(source)) videoUrl = source;

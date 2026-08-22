@@ -79,12 +79,16 @@ export function parseTarget(
     return { source: target, fragments: [] };
   }
   if (target && typeof target === "object") {
+    // W3C SpecificResource uses `source`; IIIF serializes the target as the
+    // Canvas object itself (`id`). Accept both.
     const source =
       typeof target.source === "string"
         ? target.source
         : typeof target.source?.id === "string"
           ? target.source.id
-          : "";
+          : typeof target.id === "string"
+            ? target.id
+            : "";
     if (!source) return null;
     const fragments: MediaFragment[] = [];
     for (const sel of asArray<any>(target.selector)) {

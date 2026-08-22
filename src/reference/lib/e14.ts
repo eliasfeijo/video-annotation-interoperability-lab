@@ -62,6 +62,13 @@ function abs(url: string, base: string): string {
   }
 }
 
+/** IIIF serializes partOf as an array; W3C-flavoured fixtures may use an object. */
+function firstPartOfId(body: any): string | undefined {
+  const p = body?.partOf;
+  if (Array.isArray(p)) return p[0]?.id;
+  return p?.id;
+}
+
 export function detectModel(manifest: any): E14Model {
   const type = String(manifest?.type ?? "");
   if (type === "AnnotationCollection" || type === "Annotation") return "C";
@@ -318,7 +325,7 @@ async function resolveNestedCanvas(
   model: E14Model,
   options: E14ResolveOptions,
 ): Promise<E14Overlay[]> {
-  const innerManifestUrl = abs(String(body.partOf?.id ?? body.id), manifestUrl);
+  const innerManifestUrl = abs(String(firstPartOfId(body) ?? body.id), manifestUrl);
   const innerManifest = await fetchers.fetchManifest(innerManifestUrl);
   const innerCanvas = asArray<any>(innerManifest?.items).find((i) => i?.type === "Canvas" && i.id === body.id)
     ?? asArray<any>(innerManifest?.items).find((i) => i?.type === "Canvas");
