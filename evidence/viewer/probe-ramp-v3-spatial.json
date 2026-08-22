@@ -1,0 +1,172 @@
+{
+  "probeId": "N2-ramp-v3-spatial",
+  "slug": "ramp-v3-spatial",
+  "consumer": "Ramp",
+  "manifest": "/manifests/n2/n2-spatial.json",
+  "targetDescription": "Canvas#xywh=100,100,800,600 MediaFragment URI on the Video body",
+  "embeddingPath": "<video> via Ramp MediaPlayer",
+  "expectedInterpretations": [
+    "parsed without failure (spatial fragment tolerated)",
+    "parse failure / error boundary"
+  ],
+  "limitations": [
+    "a cropped video render is not expected from any IIIF AV client; probe tests parser robustness"
+  ],
+  "engine": "chromium",
+  "browserVersion": "151.0.7922.34",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+  "consumerVersion": "5.1.1",
+  "versionSource": [
+    "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js -> https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+  ],
+  "observed": {
+    "videoCount": 1,
+    "video": {
+      "currentSrc": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+      "readyState": 4,
+      "duration": 30,
+      "currentTime": 0,
+      "paused": true
+    },
+    "miradorRoot": false,
+    "rootTextSample": "Play Video\nPlay\nLoaded: 11.81%\nTime \n0:00\n/\nDuration \n0:30\nMute\nFullscreen",
+    "logSample": "manifest fetch: 200 http://127.0.0.1:5173/manifests/n2/n2-spatial.json\nrender ok\n",
+    "domInventory": [
+      {
+        "tag": "video",
+        "cls": "vjs-tech",
+        "src": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+        "rect": {
+          "x": 0,
+          "y": 37,
+          "w": 1600,
+          "h": 897.8
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "",
+        "src": "",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "",
+        "src": "",
+        "rect": {
+          "x": 770,
+          "y": 459,
+          "w": 60,
+          "h": 60
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "",
+        "src": "",
+        "rect": {
+          "x": 21.2,
+          "y": 907.2,
+          "w": 21.6,
+          "h": 21.6
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "",
+        "src": "",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "",
+        "src": "",
+        "rect": {
+          "x": 3,
+          "y": 885.7,
+          "w": 22.5,
+          "h": 22.5
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "",
+        "src": "",
+        "rect": {
+          "x": 1517.2,
+          "y": 907.2,
+          "w": 21.6,
+          "h": 21.6
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "",
+        "src": "",
+        "rect": {
+          "x": -34438.4,
+          "y": 806.8,
+          "w": 10.8,
+          "h": 10.8
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "",
+        "src": "",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "",
+        "src": "",
+        "rect": {
+          "x": 1557.2,
+          "y": 907.2,
+          "w": 21.6,
+          "h": 21.6
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "",
+        "src": "",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        }
+      }
+    ],
+    "overlayCandidates": [],
+    "bundleResourceUrls": [
+      "https://unpkg.com/@samvera/ramp/dist/ramp.css",
+      "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js"
+    ],
+    "resolvedBundleUrls": [
+      {
+        "requested": "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js",
+        "final": "https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+      }
+    ]
+  },
+  "outcome": "renders-video-only",
+  "classificationDraft": "[CONSUMER] renders video only; overlay body not rendered ([VIEWER_GAP] for that body type)",
+  "confidence": "high"
+}

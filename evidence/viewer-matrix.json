@@ -1,0 +1,1523 @@
+{
+  "experiment": "N2 real-consumer probe matrix",
+  "plan": "research/next-session-plan.md Stage 2",
+  "generatedAt": "2026-08-22T03:28:37.244Z",
+  "note": "Observed CONSUMER behavior only. Cross-engine BROWSER facts come from E17; [NORMATIVE] claims come from specifications cited in E15/E16 reports. Consumer behavior must not be promoted to normative rank.",
+  "probes": [
+    {
+      "probeId": "N2-ramp-v1-baseline",
+      "slug": "ramp-v1-baseline",
+      "consumer": "Ramp",
+      "manifest": "/manifests/viewer-plain.json",
+      "targetDescription": "full Canvas, Video body",
+      "embeddingPath": "<video> via Ramp MediaPlayer",
+      "expectedInterpretations": [
+        "video plays (consumer sanity baseline)",
+        "consumer fails to load local manifest"
+      ],
+      "limitations": [
+        "network-dependent (unpkg bundle)"
+      ],
+      "engine": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "consumerVersion": "5.1.1",
+      "versionSource": [
+        "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js -> https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+      ],
+      "observed": {
+        "videoCount": 1,
+        "video": {
+          "currentSrc": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+          "readyState": 4,
+          "duration": 30,
+          "currentTime": 0,
+          "paused": true
+        },
+        "miradorRoot": false,
+        "rootTextSample": "Play Video\nPlay\nLoaded: 0.00%\nTime \n0:00\n/\nDuration \n0:30\nMute\nFullscreen",
+        "logSample": "manifest fetch: 200 http://127.0.0.1:5173/manifests/viewer-plain.json\nrender ok\n",
+        "domInventory": [
+          {
+            "tag": "video",
+            "cls": "vjs-tech",
+            "src": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+            "rect": {
+              "x": 0,
+              "y": 37,
+              "w": 1600,
+              "h": 897.8
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 770,
+              "y": 459,
+              "w": 60,
+              "h": 60
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 21.2,
+              "y": 907.2,
+              "w": 21.6,
+              "h": 21.6
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 3,
+              "y": 885.7,
+              "w": 22.5,
+              "h": 22.5
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 1517.2,
+              "y": 907.2,
+              "w": 21.6,
+              "h": 21.6
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": -34438.4,
+              "y": 806.8,
+              "w": 10.8,
+              "h": 10.8
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 1557.2,
+              "y": 907.2,
+              "w": 21.6,
+              "h": 21.6
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          }
+        ],
+        "overlayCandidates": [],
+        "bundleResourceUrls": [
+          "https://unpkg.com/@samvera/ramp/dist/ramp.css",
+          "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js"
+        ],
+        "resolvedBundleUrls": [
+          {
+            "requested": "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js",
+            "final": "https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+          }
+        ]
+      },
+      "outcome": "renders-video-only",
+      "classificationDraft": "[CONSUMER] renders video only; overlay body not rendered ([VIEWER_GAP] for that body type)",
+      "confidence": "high"
+    },
+    {
+      "probeId": "N2-ramp-v2-temporal",
+      "slug": "ramp-v2-temporal",
+      "consumer": "Ramp",
+      "manifest": "/manifests/n2/n2-temporal.json",
+      "targetDescription": "Canvas#t=10,20 MediaFragment URI on the Video body",
+      "embeddingPath": "<video> via Ramp MediaPlayer",
+      "expectedInterpretations": [
+        "fragment honored: currentTime starts near 10",
+        "parsed but ignored: playback from 0",
+        "parse failure / error boundary"
+      ],
+      "limitations": [
+        "autoplay policies can pause the video; currentTime samples recorded raw",
+        "'honored' is inferred from observable time state only, not from Ramp internals"
+      ],
+      "engine": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "consumerVersion": "5.1.1",
+      "versionSource": [
+        "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js -> https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+      ],
+      "observed": {
+        "videoCount": 1,
+        "video": {
+          "currentSrc": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+          "readyState": 4,
+          "duration": 30,
+          "currentTime": 0,
+          "paused": true
+        },
+        "miradorRoot": false,
+        "rootTextSample": "Play Video\nPlay\nLoaded: 0.00%\nTime \n0:00\n/\nDuration \n0:30\nMute\nFullscreen",
+        "logSample": "manifest fetch: 200 http://127.0.0.1:5173/manifests/n2/n2-temporal.json\nrender ok\n",
+        "domInventory": [
+          {
+            "tag": "video",
+            "cls": "vjs-tech",
+            "src": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+            "rect": {
+              "x": 0,
+              "y": 37,
+              "w": 1600,
+              "h": 897.8
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 770,
+              "y": 459,
+              "w": 60,
+              "h": 60
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 21.2,
+              "y": 907.2,
+              "w": 21.6,
+              "h": 21.6
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 3,
+              "y": 885.7,
+              "w": 22.5,
+              "h": 22.5
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 1517.2,
+              "y": 907.2,
+              "w": 21.6,
+              "h": 21.6
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": -34438.4,
+              "y": 806.8,
+              "w": 10.8,
+              "h": 10.8
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 1557.2,
+              "y": 907.2,
+              "w": 21.6,
+              "h": 21.6
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          }
+        ],
+        "overlayCandidates": [],
+        "bundleResourceUrls": [
+          "https://unpkg.com/@samvera/ramp/dist/ramp.css",
+          "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js"
+        ],
+        "resolvedBundleUrls": [
+          {
+            "requested": "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js",
+            "final": "https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+          }
+        ],
+        "currentTimeSamples": {
+          "t0": 0,
+          "t1After3s": 0
+        }
+      },
+      "outcome": "renders-video-only",
+      "classificationDraft": "[CONSUMER] renders video only; overlay body not rendered ([VIEWER_GAP] for that body type)",
+      "confidence": "high"
+    },
+    {
+      "probeId": "N2-ramp-v3-spatial",
+      "slug": "ramp-v3-spatial",
+      "consumer": "Ramp",
+      "manifest": "/manifests/n2/n2-spatial.json",
+      "targetDescription": "Canvas#xywh=100,100,800,600 MediaFragment URI on the Video body",
+      "embeddingPath": "<video> via Ramp MediaPlayer",
+      "expectedInterpretations": [
+        "parsed without failure (spatial fragment tolerated)",
+        "parse failure / error boundary"
+      ],
+      "limitations": [
+        "a cropped video render is not expected from any IIIF AV client; probe tests parser robustness"
+      ],
+      "engine": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "consumerVersion": "5.1.1",
+      "versionSource": [
+        "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js -> https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+      ],
+      "observed": {
+        "videoCount": 1,
+        "video": {
+          "currentSrc": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+          "readyState": 4,
+          "duration": 30,
+          "currentTime": 0,
+          "paused": true
+        },
+        "miradorRoot": false,
+        "rootTextSample": "Play Video\nPlay\nLoaded: 11.81%\nTime \n0:00\n/\nDuration \n0:30\nMute\nFullscreen",
+        "logSample": "manifest fetch: 200 http://127.0.0.1:5173/manifests/n2/n2-spatial.json\nrender ok\n",
+        "domInventory": [
+          {
+            "tag": "video",
+            "cls": "vjs-tech",
+            "src": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+            "rect": {
+              "x": 0,
+              "y": 37,
+              "w": 1600,
+              "h": 897.8
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 770,
+              "y": 459,
+              "w": 60,
+              "h": 60
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 21.2,
+              "y": 907.2,
+              "w": 21.6,
+              "h": 21.6
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 3,
+              "y": 885.7,
+              "w": 22.5,
+              "h": 22.5
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 1517.2,
+              "y": 907.2,
+              "w": 21.6,
+              "h": 21.6
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": -34438.4,
+              "y": 806.8,
+              "w": 10.8,
+              "h": 10.8
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 1557.2,
+              "y": 907.2,
+              "w": 21.6,
+              "h": 21.6
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          }
+        ],
+        "overlayCandidates": [],
+        "bundleResourceUrls": [
+          "https://unpkg.com/@samvera/ramp/dist/ramp.css",
+          "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js"
+        ],
+        "resolvedBundleUrls": [
+          {
+            "requested": "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js",
+            "final": "https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+          }
+        ]
+      },
+      "outcome": "renders-video-only",
+      "classificationDraft": "[CONSUMER] renders video only; overlay body not rendered ([VIEWER_GAP] for that body type)",
+      "confidence": "high"
+    },
+    {
+      "probeId": "N2-ramp-v4-svg-vb-region",
+      "slug": "ramp-v4-svg-vb-region",
+      "consumer": "Ramp",
+      "manifest": "/manifests/n2/n2-svg-vb.json",
+      "targetDescription": "video full canvas + SVG (viewBox 1000x1000 landmarks) @ xywh=480,270,960,540",
+      "embeddingPath": "painting Annotation Image body image/svg+xml",
+      "expectedInterpretations": [
+        "renders SVG overlay geometry per I-REGION-VIEWPORT (region-as-viewport)",
+        "renders some other reading (DOM-measurable divergence)",
+        "error boundary / no render (viewer gap dominates geometry questions)"
+      ],
+      "limitations": [
+        "if the consumer throws, no geometric reading is observable at all"
+      ],
+      "engine": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "consumerVersion": "5.1.1",
+      "versionSource": [
+        "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js -> https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+      ],
+      "observed": {
+        "videoCount": 0,
+        "video": null,
+        "miradorRoot": false,
+        "rootTextSample": "Cannot set properties of undefined (setting 'id')\nTry again",
+        "logSample": "manifest fetch: 200 http://127.0.0.1:5173/manifests/n2/n2-svg-vb.json\nrender ok\n",
+        "domInventory": [],
+        "overlayCandidates": [],
+        "bundleResourceUrls": [
+          "https://unpkg.com/@samvera/ramp/dist/ramp.css",
+          "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js"
+        ],
+        "resolvedBundleUrls": [
+          {
+            "requested": "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js",
+            "final": "https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+          }
+        ]
+      },
+      "outcome": "error-boundary-no-video",
+      "classificationDraft": "[VIEWER_GAP] consumer fails before rendering this manifest structure",
+      "confidence": "high"
+    },
+    {
+      "probeId": "N2-ramp-v5-svg-novb-region",
+      "slug": "ramp-v5-svg-novb-region",
+      "consumer": "Ramp",
+      "manifest": "/manifests/n2/n2-svg-novb.json",
+      "targetDescription": "video full canvas + no-viewBox SVG (intrinsic 1000x1000) @ xywh=480,270,960,540",
+      "embeddingPath": "painting Annotation Image body image/svg+xml",
+      "expectedInterpretations": [
+        "renders with intrinsic-stretch reading",
+        "renders 1:1 user-space reading",
+        "error boundary (identical to V4 would show the viewBox dimension is unobservable in this consumer)"
+      ],
+      "limitations": [
+        "same as V4"
+      ],
+      "engine": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "consumerVersion": "5.1.1",
+      "versionSource": [
+        "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js -> https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+      ],
+      "observed": {
+        "videoCount": 0,
+        "video": null,
+        "miradorRoot": false,
+        "rootTextSample": "Cannot set properties of undefined (setting 'id')\nTry again",
+        "logSample": "manifest fetch: 200 http://127.0.0.1:5173/manifests/n2/n2-svg-novb.json\nrender ok\n",
+        "domInventory": [],
+        "overlayCandidates": [],
+        "bundleResourceUrls": [
+          "https://unpkg.com/@samvera/ramp/dist/ramp.css",
+          "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js"
+        ],
+        "resolvedBundleUrls": [
+          {
+            "requested": "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js",
+            "final": "https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+          }
+        ]
+      },
+      "outcome": "error-boundary-no-video",
+      "classificationDraft": "[VIEWER_GAP] consumer fails before rendering this manifest structure",
+      "confidence": "high"
+    },
+    {
+      "probeId": "N2-ramp-v6-raster-body",
+      "slug": "ramp-v6-raster-body",
+      "consumer": "Ramp",
+      "manifest": "/manifests/n2/n2-raster.json",
+      "targetDescription": "video full canvas + PNG Image body full canvas",
+      "embeddingPath": "painting Annotation Image body image/png",
+      "expectedInterpretations": [
+        "secondary raster Image body rendered alongside video",
+        "error boundary (gap covers ANY secondary Image body, not just SVG)",
+        "silently ignored"
+      ],
+      "limitations": [],
+      "engine": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "consumerVersion": "5.1.1",
+      "versionSource": [
+        "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js -> https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+      ],
+      "observed": {
+        "videoCount": 0,
+        "video": null,
+        "miradorRoot": false,
+        "rootTextSample": "Cannot set properties of undefined (setting 'id')\nTry again",
+        "logSample": "manifest fetch: 200 http://127.0.0.1:5173/manifests/n2/n2-raster.json\nrender ok\n",
+        "domInventory": [],
+        "overlayCandidates": [],
+        "bundleResourceUrls": [
+          "https://unpkg.com/@samvera/ramp/dist/ramp.css",
+          "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js"
+        ],
+        "resolvedBundleUrls": [
+          {
+            "requested": "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js",
+            "final": "https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+          }
+        ]
+      },
+      "outcome": "error-boundary-no-video",
+      "classificationDraft": "[VIEWER_GAP] consumer fails before rendering this manifest structure",
+      "confidence": "high"
+    },
+    {
+      "probeId": "N2-ramp-v7-canvas-as-body",
+      "slug": "ramp-v7-canvas-as-body",
+      "consumer": "Ramp",
+      "manifest": "/manifests/e16/e16-case03-sq-full-a.json",
+      "targetDescription": "stable IIIF 3.0 outer Canvas painting an inner Canvas as body (E16 case03 Mode A twin)",
+      "embeddingPath": "painting Annotation whose body is a Canvas resource",
+      "expectedInterpretations": [
+        "nested composition rendered (pre-composed twin visible over video)",
+        "error boundary (stable-3 nested Canvas unsupported by this consumer)",
+        "silently ignored (inner canvas dropped)"
+      ],
+      "limitations": [
+        "modeA twin encodes the contain reading pre-composed; no live fit-rule decision is exercised"
+      ],
+      "engine": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "consumerVersion": "5.1.1",
+      "versionSource": [
+        "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js -> https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+      ],
+      "observed": {
+        "videoCount": 0,
+        "video": null,
+        "miradorRoot": false,
+        "rootTextSample": "Cannot set properties of undefined (setting 'id')\nTry again",
+        "logSample": "manifest fetch: 200 http://127.0.0.1:5173/manifests/e16/e16-case03-sq-full-a.json\nrender ok\n",
+        "domInventory": [],
+        "overlayCandidates": [],
+        "bundleResourceUrls": [
+          "https://unpkg.com/@samvera/ramp/dist/ramp.css",
+          "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js"
+        ],
+        "resolvedBundleUrls": [
+          {
+            "requested": "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js",
+            "final": "https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+          }
+        ]
+      },
+      "outcome": "error-boundary-no-video",
+      "classificationDraft": "[VIEWER_GAP] consumer fails before rendering this manifest structure",
+      "confidence": "high"
+    },
+    {
+      "probeId": "N2-mirador-m1-baseline",
+      "slug": "mirador-m1-baseline",
+      "consumer": "Mirador",
+      "manifest": "/manifests/viewer-plain.json",
+      "targetDescription": "full Canvas, Video body",
+      "embeddingPath": "Mirador workspace window",
+      "expectedInterpretations": [
+        "workspace loads; AV playback available",
+        "workspace loads but AV canvas not playable (no <video>)",
+        "bundle/load failure"
+      ],
+      "limitations": [
+        "smoke-level feasibility probe; NOT a full Mirador integration"
+      ],
+      "engine": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "consumerVersion": "3.4.3",
+      "versionSource": [
+        "https://unpkg.com/mirador@3/dist/mirador.min.js -> https://unpkg.com/mirador@3.4.3/dist/mirador.min.js"
+      ],
+      "observed": {
+        "videoCount": 1,
+        "video": {
+          "currentSrc": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+          "readyState": 4,
+          "duration": 30,
+          "currentTime": 0,
+          "paused": true
+        },
+        "miradorRoot": true,
+        "rootTextSample": "1\n\nMirador viewer\nviewer-plain video-only\nviewer-plain video-only",
+        "logSample": "mirador.launch ok\n",
+        "domInventory": [
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 20,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 20,
+              "y": 84,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 20,
+              "y": 148,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 20,
+              "y": 212,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 20,
+              "y": 276,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root MuiSvgIcon-fontSizeLarge",
+            "src": "",
+            "rect": {
+              "x": 14.5,
+              "y": 953,
+              "w": 35,
+              "h": 35
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 90,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 1458,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 1458,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 1506,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 1507.7,
+              "y": 21.5,
+              "w": 20.8,
+              "h": 20.8
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 1554,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "video",
+            "cls": "mirador86",
+            "src": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+            "rect": {
+              "x": 74,
+              "y": 97.5,
+              "w": 1520,
+              "h": 855
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 91,
+              "y": 21,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 1555,
+              "y": 21,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 672,
+              "y": 372,
+              "w": 256,
+              "h": 256
+            }
+          }
+        ],
+        "overlayCandidates": [],
+        "bundleResourceUrls": [
+          "https://unpkg.com/mirador@3/dist/mirador.min.js"
+        ],
+        "resolvedBundleUrls": [
+          {
+            "requested": "https://unpkg.com/mirador@3/dist/mirador.min.js",
+            "final": "https://unpkg.com/mirador@3.4.3/dist/mirador.min.js"
+          }
+        ]
+      },
+      "outcome": "renders-video-only",
+      "classificationDraft": "[CONSUMER] renders video only; overlay body not rendered ([VIEWER_GAP] for that body type)",
+      "confidence": "high"
+    },
+    {
+      "probeId": "N2-mirador-m2-svg-vb-region",
+      "slug": "mirador-m2-svg-vb-region",
+      "consumer": "Mirador",
+      "manifest": "/manifests/n2/n2-svg-vb.json",
+      "targetDescription": "video full canvas + SVG (viewBox landmarks) @ xywh=480,270,960,540",
+      "embeddingPath": "Mirador window canvas annotations",
+      "expectedInterpretations": [
+        "renders SVG overlay geometry per I-REGION-VIEWPORT (region-as-viewport)",
+        "renders some other reading (DOM-measurable divergence)",
+        "SVG annotation dropped/ignored while video renders",
+        "window fails on this canvas structure"
+      ],
+      "limitations": [
+        "smoke-level harness; no interaction with Mirador UI"
+      ],
+      "engine": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "consumerVersion": "3.4.3",
+      "versionSource": [
+        "https://unpkg.com/mirador@3/dist/mirador.min.js -> https://unpkg.com/mirador@3.4.3/dist/mirador.min.js"
+      ],
+      "observed": {
+        "videoCount": 1,
+        "video": {
+          "currentSrc": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+          "readyState": 4,
+          "duration": 30,
+          "currentTime": 0,
+          "paused": true
+        },
+        "miradorRoot": true,
+        "rootTextSample": "1\n\nMirador viewer\nn2-svg-vb\nn2-svg-vb",
+        "logSample": "mirador.launch ok\n",
+        "domInventory": [
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 20,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 20,
+              "y": 84,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 20,
+              "y": 148,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 20,
+              "y": 212,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 20,
+              "y": 276,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root MuiSvgIcon-fontSizeLarge",
+            "src": "",
+            "rect": {
+              "x": 14.5,
+              "y": 953,
+              "w": 35,
+              "h": 35
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 90,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 1458,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 1458,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 1506,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 1507.7,
+              "y": 21.5,
+              "w": 20.8,
+              "h": 20.8
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 1554,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "video",
+            "cls": "mirador86",
+            "src": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+            "rect": {
+              "x": 74,
+              "y": 97.5,
+              "w": 1520,
+              "h": 855
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 91,
+              "y": 21,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 1555,
+              "y": 21,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 672,
+              "y": 372,
+              "w": 256,
+              "h": 256
+            }
+          }
+        ],
+        "overlayCandidates": [],
+        "bundleResourceUrls": [
+          "https://unpkg.com/mirador@3/dist/mirador.min.js"
+        ],
+        "resolvedBundleUrls": [
+          {
+            "requested": "https://unpkg.com/mirador@3/dist/mirador.min.js",
+            "final": "https://unpkg.com/mirador@3.4.3/dist/mirador.min.js"
+          }
+        ],
+        "fixtureReferencingOverlays": []
+      },
+      "outcome": "renders-video-only",
+      "classificationDraft": "[CONSUMER] renders video only; overlay body not rendered ([VIEWER_GAP] for that body type)",
+      "confidence": "high"
+    },
+    {
+      "probeId": "N2-mirador-m3-canvas-as-body",
+      "slug": "mirador-m3-canvas-as-body",
+      "consumer": "Mirador",
+      "manifest": "/manifests/e16/e16-case03-sq-full-a.json",
+      "targetDescription": "stable IIIF 3.0 outer Canvas painting inner Canvas as body (E16 case03 Mode A twin)",
+      "embeddingPath": "Mirador window canvas annotations",
+      "expectedInterpretations": [
+        "nested composition rendered over video",
+        "inner Canvas body dropped/ignored while video renders",
+        "window fails on this canvas structure"
+      ],
+      "limitations": [
+        "modeA twin encodes contain pre-composed; no live fit-rule decision exercised"
+      ],
+      "engine": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+      "consumerVersion": "3.4.3",
+      "versionSource": [
+        "https://unpkg.com/mirador@3/dist/mirador.min.js -> https://unpkg.com/mirador@3.4.3/dist/mirador.min.js"
+      ],
+      "observed": {
+        "videoCount": 1,
+        "video": {
+          "currentSrc": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+          "readyState": 4,
+          "duration": 30,
+          "currentTime": 0,
+          "paused": true
+        },
+        "miradorRoot": true,
+        "rootTextSample": "1\n\nMirador viewer\ne16-case03-sq-full-a (STABLE IIIF 3.0, contain-equivalent direct paintings)\ne16-case03-sq-full-a (STABLE IIIF 3.0, contain-equivalent direct paintings)",
+        "logSample": "mirador.launch ok\n",
+        "domInventory": [
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 20,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 20,
+              "y": 84,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 20,
+              "y": 148,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 20,
+              "y": 212,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 20,
+              "y": 276,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root MuiSvgIcon-fontSizeLarge",
+            "src": "",
+            "rect": {
+              "x": 14.5,
+              "y": 953,
+              "w": 35,
+              "h": 35
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 90,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 1458,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 1458,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 1506,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "",
+            "src": "",
+            "rect": {
+              "x": 1507.7,
+              "y": 21.5,
+              "w": 20.8,
+              "h": 20.8
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 1554,
+              "y": 20,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 0,
+              "h": 0
+            }
+          },
+          {
+            "tag": "video",
+            "cls": "mirador86",
+            "src": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+            "rect": {
+              "x": 74,
+              "y": 97.5,
+              "w": 1520,
+              "h": 855
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 91,
+              "y": 21,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 1555,
+              "y": 21,
+              "w": 24,
+              "h": 24
+            }
+          },
+          {
+            "tag": "svg",
+            "cls": "MuiSvgIcon-root",
+            "src": "",
+            "rect": {
+              "x": 672,
+              "y": 372,
+              "w": 256,
+              "h": 256
+            }
+          }
+        ],
+        "overlayCandidates": [],
+        "bundleResourceUrls": [
+          "https://unpkg.com/mirador@3/dist/mirador.min.js"
+        ],
+        "resolvedBundleUrls": [
+          {
+            "requested": "https://unpkg.com/mirador@3/dist/mirador.min.js",
+            "final": "https://unpkg.com/mirador@3.4.3/dist/mirador.min.js"
+          }
+        ]
+      },
+      "outcome": "renders-video-only",
+      "classificationDraft": "[CONSUMER] renders video only; overlay body not rendered ([VIEWER_GAP] for that body type)",
+      "confidence": "high"
+    }
+  ]
+}

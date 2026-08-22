@@ -1,0 +1,45 @@
+{
+  "probeId": "N2-ramp-v4-svg-vb-region",
+  "slug": "ramp-v4-svg-vb-region",
+  "consumer": "Ramp",
+  "manifest": "/manifests/n2/n2-svg-vb.json",
+  "targetDescription": "video full canvas + SVG (viewBox 1000x1000 landmarks) @ xywh=480,270,960,540",
+  "embeddingPath": "painting Annotation Image body image/svg+xml",
+  "expectedInterpretations": [
+    "renders SVG overlay geometry per I-REGION-VIEWPORT (region-as-viewport)",
+    "renders some other reading (DOM-measurable divergence)",
+    "error boundary / no render (viewer gap dominates geometry questions)"
+  ],
+  "limitations": [
+    "if the consumer throws, no geometric reading is observable at all"
+  ],
+  "engine": "chromium",
+  "browserVersion": "151.0.7922.34",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+  "consumerVersion": "5.1.1",
+  "versionSource": [
+    "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js -> https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+  ],
+  "observed": {
+    "videoCount": 0,
+    "video": null,
+    "miradorRoot": false,
+    "rootTextSample": "Cannot set properties of undefined (setting 'id')\nTry again",
+    "logSample": "manifest fetch: 200 http://127.0.0.1:5173/manifests/n2/n2-svg-vb.json\nrender ok\n",
+    "domInventory": [],
+    "overlayCandidates": [],
+    "bundleResourceUrls": [
+      "https://unpkg.com/@samvera/ramp/dist/ramp.css",
+      "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js"
+    ],
+    "resolvedBundleUrls": [
+      {
+        "requested": "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js",
+        "final": "https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+      }
+    ]
+  },
+  "outcome": "error-boundary-no-video",
+  "classificationDraft": "[VIEWER_GAP] consumer fails before rendering this manifest structure",
+  "confidence": "high"
+}

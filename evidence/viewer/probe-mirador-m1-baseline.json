@@ -1,0 +1,271 @@
+{
+  "probeId": "N2-mirador-m1-baseline",
+  "slug": "mirador-m1-baseline",
+  "consumer": "Mirador",
+  "manifest": "/manifests/viewer-plain.json",
+  "targetDescription": "full Canvas, Video body",
+  "embeddingPath": "Mirador workspace window",
+  "expectedInterpretations": [
+    "workspace loads; AV playback available",
+    "workspace loads but AV canvas not playable (no <video>)",
+    "bundle/load failure"
+  ],
+  "limitations": [
+    "smoke-level feasibility probe; NOT a full Mirador integration"
+  ],
+  "engine": "chromium",
+  "browserVersion": "151.0.7922.34",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+  "consumerVersion": "3.4.3",
+  "versionSource": [
+    "https://unpkg.com/mirador@3/dist/mirador.min.js -> https://unpkg.com/mirador@3.4.3/dist/mirador.min.js"
+  ],
+  "observed": {
+    "videoCount": 1,
+    "video": {
+      "currentSrc": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+      "readyState": 4,
+      "duration": 30,
+      "currentTime": 0,
+      "paused": true
+    },
+    "miradorRoot": true,
+    "rootTextSample": "1\n\nMirador viewer\nviewer-plain video-only\nviewer-plain video-only",
+    "logSample": "mirador.launch ok\n",
+    "domInventory": [
+      {
+        "tag": "svg",
+        "cls": "MuiSvgIcon-root",
+        "src": "",
+        "rect": {
+          "x": 20,
+          "y": 20,
+          "w": 24,
+          "h": 24
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "MuiSvgIcon-root",
+        "src": "",
+        "rect": {
+          "x": 20,
+          "y": 84,
+          "w": 24,
+          "h": 24
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "MuiSvgIcon-root",
+        "src": "",
+        "rect": {
+          "x": 20,
+          "y": 148,
+          "w": 24,
+          "h": 24
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "MuiSvgIcon-root",
+        "src": "",
+        "rect": {
+          "x": 20,
+          "y": 212,
+          "w": 24,
+          "h": 24
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "MuiSvgIcon-root",
+        "src": "",
+        "rect": {
+          "x": 20,
+          "y": 276,
+          "w": 24,
+          "h": 24
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "MuiSvgIcon-root MuiSvgIcon-fontSizeLarge",
+        "src": "",
+        "rect": {
+          "x": 14.5,
+          "y": 953,
+          "w": 35,
+          "h": 35
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "MuiSvgIcon-root",
+        "src": "",
+        "rect": {
+          "x": 90,
+          "y": 20,
+          "w": 24,
+          "h": 24
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "MuiSvgIcon-root",
+        "src": "",
+        "rect": {
+          "x": 1458,
+          "y": 20,
+          "w": 24,
+          "h": 24
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "",
+        "src": "",
+        "rect": {
+          "x": 1458,
+          "y": 20,
+          "w": 24,
+          "h": 24
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "MuiSvgIcon-root",
+        "src": "",
+        "rect": {
+          "x": 1506,
+          "y": 20,
+          "w": 24,
+          "h": 24
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "",
+        "src": "",
+        "rect": {
+          "x": 1507.7,
+          "y": 21.5,
+          "w": 20.8,
+          "h": 20.8
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "MuiSvgIcon-root",
+        "src": "",
+        "rect": {
+          "x": 1554,
+          "y": 20,
+          "w": 24,
+          "h": 24
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "MuiSvgIcon-root",
+        "src": "",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "MuiSvgIcon-root",
+        "src": "",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "MuiSvgIcon-root",
+        "src": "",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "MuiSvgIcon-root",
+        "src": "",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0
+        }
+      },
+      {
+        "tag": "video",
+        "cls": "mirador86",
+        "src": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+        "rect": {
+          "x": 74,
+          "y": 97.5,
+          "w": 1520,
+          "h": 855
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "MuiSvgIcon-root",
+        "src": "",
+        "rect": {
+          "x": 91,
+          "y": 21,
+          "w": 24,
+          "h": 24
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "MuiSvgIcon-root",
+        "src": "",
+        "rect": {
+          "x": 1555,
+          "y": 21,
+          "w": 24,
+          "h": 24
+        }
+      },
+      {
+        "tag": "svg",
+        "cls": "MuiSvgIcon-root",
+        "src": "",
+        "rect": {
+          "x": 672,
+          "y": 372,
+          "w": 256,
+          "h": 256
+        }
+      }
+    ],
+    "overlayCandidates": [],
+    "bundleResourceUrls": [
+      "https://unpkg.com/mirador@3/dist/mirador.min.js"
+    ],
+    "resolvedBundleUrls": [
+      {
+        "requested": "https://unpkg.com/mirador@3/dist/mirador.min.js",
+        "final": "https://unpkg.com/mirador@3.4.3/dist/mirador.min.js"
+      }
+    ]
+  },
+  "outcome": "renders-video-only",
+  "classificationDraft": "[CONSUMER] renders video only; overlay body not rendered ([VIEWER_GAP] for that body type)",
+  "confidence": "high"
+}

@@ -1,0 +1,45 @@
+{
+  "probeId": "N2-ramp-v7-canvas-as-body",
+  "slug": "ramp-v7-canvas-as-body",
+  "consumer": "Ramp",
+  "manifest": "/manifests/e16/e16-case03-sq-full-a.json",
+  "targetDescription": "stable IIIF 3.0 outer Canvas painting an inner Canvas as body (E16 case03 Mode A twin)",
+  "embeddingPath": "painting Annotation whose body is a Canvas resource",
+  "expectedInterpretations": [
+    "nested composition rendered (pre-composed twin visible over video)",
+    "error boundary (stable-3 nested Canvas unsupported by this consumer)",
+    "silently ignored (inner canvas dropped)"
+  ],
+  "limitations": [
+    "modeA twin encodes the contain reading pre-composed; no live fit-rule decision is exercised"
+  ],
+  "engine": "chromium",
+  "browserVersion": "151.0.7922.34",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+  "consumerVersion": "5.1.1",
+  "versionSource": [
+    "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js -> https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+  ],
+  "observed": {
+    "videoCount": 0,
+    "video": null,
+    "miradorRoot": false,
+    "rootTextSample": "Cannot set properties of undefined (setting 'id')\nTry again",
+    "logSample": "manifest fetch: 200 http://127.0.0.1:5173/manifests/e16/e16-case03-sq-full-a.json\nrender ok\n",
+    "domInventory": [],
+    "overlayCandidates": [],
+    "bundleResourceUrls": [
+      "https://unpkg.com/@samvera/ramp/dist/ramp.css",
+      "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js"
+    ],
+    "resolvedBundleUrls": [
+      {
+        "requested": "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js",
+        "final": "https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+      }
+    ]
+  },
+  "outcome": "error-boundary-no-video",
+  "classificationDraft": "[VIEWER_GAP] consumer fails before rendering this manifest structure",
+  "confidence": "high"
+}

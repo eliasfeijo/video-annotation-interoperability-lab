@@ -1,0 +1,45 @@
+{
+  "probeId": "N2-ramp-v5-svg-novb-region",
+  "slug": "ramp-v5-svg-novb-region",
+  "consumer": "Ramp",
+  "manifest": "/manifests/n2/n2-svg-novb.json",
+  "targetDescription": "video full canvas + no-viewBox SVG (intrinsic 1000x1000) @ xywh=480,270,960,540",
+  "embeddingPath": "painting Annotation Image body image/svg+xml",
+  "expectedInterpretations": [
+    "renders with intrinsic-stretch reading",
+    "renders 1:1 user-space reading",
+    "error boundary (identical to V4 would show the viewBox dimension is unobservable in this consumer)"
+  ],
+  "limitations": [
+    "same as V4"
+  ],
+  "engine": "chromium",
+  "browserVersion": "151.0.7922.34",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+  "consumerVersion": "5.1.1",
+  "versionSource": [
+    "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js -> https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+  ],
+  "observed": {
+    "videoCount": 0,
+    "video": null,
+    "miradorRoot": false,
+    "rootTextSample": "Cannot set properties of undefined (setting 'id')\nTry again",
+    "logSample": "manifest fetch: 200 http://127.0.0.1:5173/manifests/n2/n2-svg-novb.json\nrender ok\n",
+    "domInventory": [],
+    "overlayCandidates": [],
+    "bundleResourceUrls": [
+      "https://unpkg.com/@samvera/ramp/dist/ramp.css",
+      "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js"
+    ],
+    "resolvedBundleUrls": [
+      {
+        "requested": "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js",
+        "final": "https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+      }
+    ]
+  },
+  "outcome": "error-boundary-no-video",
+  "classificationDraft": "[VIEWER_GAP] consumer fails before rendering this manifest structure",
+  "confidence": "high"
+}
