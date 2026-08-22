@@ -19,21 +19,29 @@ see [`research/findings.md`](research/findings.md) (summarised below).
   (`okay:1`, 0 errors, 0 warnings).
 - A real third-party AV player (**Ramp**) plays our video Canvas locally — and throws when an
   SVG painting annotation rides the same Canvas (a documented viewer gap, not a spec gap).
-- **Verdict: B** — the standard stack is sufficient for portable, time-segmented,
+  Later consumer probes ([`research/viewer-interop-report.md`](research/viewer-interop-report.md))
+  refined this: the Ramp 5.1.1 failure covers ANY secondary painting body (raster included),
+  while Mirador 3.4.3 silently drops such bodies.
+- **Initial-cycle verdict: B** — the standard stack is sufficient for portable, time-segmented,
   spatially-targeted graphical overlays with explicitly enumerated gaps (movement over time,
   font/tool determinism, SMIL reliability, viewer compositing).
+- Current position, open items, and governance docs:
+  [`research/current-state-index.md`](research/current-state-index.md).
 
 ## Layout
 
 ```
 index.html                     page harness
-src/lib/selectors.ts           Media Fragments parser (t=, xywh=, pct:)
-src/lib/timing.ts              half-open time windows
-src/lib/svg.ts                 SVG root attr parsing + placement math
-src/lib/iiif.ts                Renderer A: generic IIIF Presentation 3 resolver
-src/lib/sanitize.ts            allowlist SVG sanitizer
-src/renderers/rendererB.ts     Renderer B: direct reference (oracle, non-standard)
-src/renderers/dom.ts           Stage: video + overlay compositor + snapshots
+src/reference/lib/iiif.ts      Renderer A: generic IIIF Presentation 3 resolver
+src/reference/lib/selectors.ts Media Fragments parser (t=, xywh=, pct:)
+src/reference/lib/timing.ts    half-open time windows
+src/reference/lib/svg.ts       SVG root attr parsing + placement math
+src/reference/lib/sanitize.ts  allowlist SVG sanitizer
+src/reference/renderers/       Renderer B oracle (rendererB.ts) + stage (dom.ts)
+src/blind/                     independent Blind renderer (interpretation-packet-driven)
+src/native/                    Native renderer (browser <img> pipeline semantics)
+src/e14/ … src/e17/            per-experiment comparison/analysis harnesses
+src/n6/                        N6 resource conformance validator
 src/experiments.ts             per-experiment Renderer-B references + parity compare
 src/main.ts                    browser harness exposing window.__lab
 public/manifests/*.json        IIIF Presentation 3 fixtures (exp1..7, text, security)
@@ -44,7 +52,9 @@ scripts/generate-video.mjs     deterministic video generator (FFmpeg)
 scripts/build-fixtures.mjs     SVG + manifest generator
 tests/                         Vitest (unit) and Playwright (E2E) suites
 evidence/                      screenshots + machine observations produced by tests
-research/                      plan, findings, log, compatibility matrix, open questions
+research/                      plan, findings, log, compatibility matrix, open questions;
+                               consolidation/governance docs start at current-state-index.md
+docs/                          interpretation packet, blind-era reports, ambiguities ledger
 ```
 
 ## Quick start
@@ -55,8 +65,8 @@ pnpm exec playwright install chromium     # once
 pnpm gen:video      # rebuild the test-grid MP4 (requires FFmpeg)
 pnpm gen:fixtures   # rebuild SVG bodies + IIIF manifests
 pnpm dev            # http://localhost:5173 (/?exp=1..7&renderer=a|b)
-pnpm test           # 37 unit tests
-pnpm exec playwright test   # 19 E2E tests (writes evidence/); network needed for `viewer` specs
+pnpm test           # unit suite (37 tests as of the initial cycle; later totals recorded in research/)
+pnpm exec playwright test   # E2E suite (writes evidence/); network needed for `viewer` specs
 pnpm run check      # tsc --noEmit
 ```
 
