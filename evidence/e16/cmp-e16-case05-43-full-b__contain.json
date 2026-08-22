@@ -1,0 +1,47 @@
+{
+  "byPair": [
+    {
+      "a": "a",
+      "b": "blind",
+      "diffs": [
+        {
+          "overlayIndex": 1,
+          "overlayId": "http://localhost:5173/annotation/e16/inner-1",
+          "field": "inner.placement",
+          "a": "viewBox-meet|vp=0,0,640,480|s=0.48|t=80,0",
+          "b": "no-viewBox-1to1|vp=0,0,640,480|s=1|t=0,0",
+          "classification": "OPEN"
+        }
+      ]
+    },
+    {
+      "a": "a",
+      "b": "native",
+      "diffs": [
+        {
+          "overlayIndex": 1,
+          "overlayId": "http://localhost:5173/annotation/e16/inner-1",
+          "field": "inner.placement",
+          "a": "viewBox-meet|vp=0,0,640,480|s=0.48|t=80,0",
+          "b": "no-viewBox-1to1|vp=0,0,640,480|s=1|t=0,0",
+          "classification": "OPEN"
+        }
+      ]
+    },
+    {
+      "a": "blind",
+      "b": "native",
+      "diffs": []
+    }
+  ],
+  "verdicts": [
+    "a!=blind",
+    "a!=native",
+    "blind==native"
+  ],
+  "overlayCount": {
+    "a": 2,
+    "blind": 2,
+    "native": 2
+  }
+}

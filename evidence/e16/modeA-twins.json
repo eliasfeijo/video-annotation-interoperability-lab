@@ -1,0 +1,30 @@
+{
+  "e16-case03-sq-full-b": {
+    "twinStable3": "420,0,1080,1080",
+    "modelB_contain": "420,0,1080,1080",
+    "modelB_fill": "0,0,1920,1080",
+    "twinMatchesContain": true,
+    "twinMatchesFill": false
+  },
+  "e16-case04-sq-reg-b": {
+    "twinStable3": "710,290,500,500",
+    "modelB_contain": "710,290,500,500",
+    "modelB_fill": "710,290,500,500",
+    "twinMatchesContain": true,
+    "twinMatchesFill": true
+  },
+  "e16-case05-43-full-b": {
+    "twinStable3": "240,0,1440,1080",
+    "modelB_contain": "240,0,1440,1080",
+    "modelB_fill": "0,0,1920,1080",
+    "twinMatchesContain": true,
+    "twinMatchesFill": false
+  },
+  "e16-case06-169into-sq-b": {
+    "twinStable3": "710,399,500,281",
+    "modelB_contain": "710,399.375,500,281.25",
+    "modelB_fill": "710,290,500,500",
+    "twinMatchesContain": true,
+    "twinMatchesFill": false
+  }
+}

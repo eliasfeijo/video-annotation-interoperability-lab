@@ -1,0 +1,5 @@
+{
+  "novbStretchedBandNear": true,
+  "leafParCollapsedBandNear": true,
+  "finding": "Browser <img> channel applies leaf preserveAspectRatio against the destination aspect inside a fill-mapped nested Canvas: container-fit and leaf-PAR collapse into one stage. Draft is silent on precedence -> OPEN."
+}
