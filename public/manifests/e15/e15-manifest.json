@@ -1,0 +1,880 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/anno.jsonld",
+    "http://iiif.io/api/presentation/3/context.json"
+  ],
+  "id": "http://localhost:5173/manifests/e15/e15-manifest.json",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "E15 SVG embedding-semantics matrix (regions as Media Fragments)"
+    ]
+  },
+  "summary": {
+    "en": [
+      "One painting annotation per (SVG variant x target region). Regions: full Canvas, xywh=480,270,960,540, xywh=710,290,500,500, xywh=100,100,800,600."
+    ]
+  },
+  "items": [
+    {
+      "id": "http://localhost:5173/canvas/e15-main",
+      "type": "Canvas",
+      "width": 1920,
+      "height": 1080,
+      "duration": 30,
+      "label": {
+        "en": [
+          "E15 canvas"
+        ]
+      },
+      "items": [
+        {
+          "id": "http://localhost:5173/page/e15",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1000.svg-full",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main"
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1000.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1000.svg-full"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1000.svg-half",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=480,270,960,540"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1000.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1000.svg-half"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1000.svg-square500",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=710,290,500,500"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1000.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1000.svg-square500"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1000.svg-rect43",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=100,100,800,600"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1000.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1000.svg-rect43"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1920x1080.svg-full",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main"
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1920x1080.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1920x1080.svg-full"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1920x1080.svg-half",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=480,270,960,540"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1920x1080.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1920x1080.svg-half"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1920x1080.svg-square500",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=710,290,500,500"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1920x1080.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1920x1080.svg-square500"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1920x1080.svg-rect43",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=100,100,800,600"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1920x1080.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1920x1080.svg-rect43"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-novb1000.svg-full",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main"
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-novb1000.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-novb1000.svg-full"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-novb1000.svg-half",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=480,270,960,540"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-novb1000.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-novb1000.svg-half"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-novb1000.svg-square500",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=710,290,500,500"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-novb1000.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-novb1000.svg-square500"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-novb1000.svg-rect43",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=100,100,800,600"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-novb1000.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-novb1000.svg-rect43"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-novb1920x1080.svg-full",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main"
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-novb1920x1080.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-novb1920x1080.svg-full"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-novb1920x1080.svg-half",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=480,270,960,540"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-novb1920x1080.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-novb1920x1080.svg-half"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-novb1920x1080.svg-square500",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=710,290,500,500"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-novb1920x1080.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-novb1920x1080.svg-square500"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-novb1920x1080.svg-rect43",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=100,100,800,600"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-novb1920x1080.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-novb1920x1080.svg-rect43"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1000-min.svg-full",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main"
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1000-min.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1000-min.svg-full"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1000-min.svg-half",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=480,270,960,540"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1000-min.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1000-min.svg-half"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1000-min.svg-square500",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=710,290,500,500"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1000-min.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1000-min.svg-square500"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1000-min.svg-rect43",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=100,100,800,600"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1000-min.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1000-min.svg-rect43"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1000-slice.svg-full",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main"
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1000-slice.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1000-slice.svg-full"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1000-slice.svg-half",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=480,270,960,540"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1000-slice.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1000-slice.svg-half"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1000-slice.svg-square500",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=710,290,500,500"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1000-slice.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1000-slice.svg-square500"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1000-slice.svg-rect43",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=100,100,800,600"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1000-slice.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1000-slice.svg-rect43"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1000-none.svg-full",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main"
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1000-none.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1000-none.svg-full"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1000-none.svg-half",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=480,270,960,540"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1000-none.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1000-none.svg-half"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1000-none.svg-square500",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=710,290,500,500"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1000-none.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1000-none.svg-square500"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1000-none.svg-rect43",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=100,100,800,600"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1000-none.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1000-none.svg-rect43"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1920x1080-min.svg-full",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main"
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1920x1080-min.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1920x1080-min.svg-full"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1920x1080-min.svg-half",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=480,270,960,540"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1920x1080-min.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1920x1080-min.svg-half"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1920x1080-min.svg-square500",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=710,290,500,500"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1920x1080-min.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1920x1080-min.svg-square500"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1920x1080-min.svg-rect43",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=100,100,800,600"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1920x1080-min.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1920x1080-min.svg-rect43"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1920x1080-slice.svg-full",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main"
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1920x1080-slice.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1920x1080-slice.svg-full"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1920x1080-slice.svg-half",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=480,270,960,540"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1920x1080-slice.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1920x1080-slice.svg-half"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1920x1080-slice.svg-square500",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=710,290,500,500"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1920x1080-slice.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1920x1080-slice.svg-square500"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1920x1080-slice.svg-rect43",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=100,100,800,600"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1920x1080-slice.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1920x1080-slice.svg-rect43"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1920x1080-none.svg-full",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main"
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1920x1080-none.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1920x1080-none.svg-full"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1920x1080-none.svg-half",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=480,270,960,540"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1920x1080-none.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1920x1080-none.svg-half"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1920x1080-none.svg-square500",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=710,290,500,500"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1920x1080-none.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1920x1080-none.svg-square500"
+                  ]
+                }
+              }
+            },
+            {
+              "id": "http://localhost:5173/annotation/e15/e15-vb1920x1080-none.svg-rect43",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": {
+                "source": "http://localhost:5173/canvas/e15-main",
+                "selector": {
+                  "type": "FragmentSelector",
+                  "value": "xywh=100,100,800,600"
+                }
+              },
+              "body": {
+                "id": "http://localhost:5173/svg/e15/e15-vb1920x1080-none.svg",
+                "type": "Image",
+                "format": "image/svg+xml",
+                "label": {
+                  "en": [
+                    "e15-vb1920x1080-none.svg-rect43"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
