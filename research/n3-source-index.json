@@ -1,0 +1,150 @@
+{
+  "experiment": "N3 — community/spec positioning",
+  "plan": "research/next-session-plan.md Stage 3",
+  "generatedAt": "2026-08-22",
+  "report": "research/community-positioning.md",
+  "sourceTypes": ["NORMATIVE", "RECOMMENDATION", "COMMUNITY", "IMPLEMENTATION", "SPEC-PROCESS"],
+  "sources": [
+    {
+      "id": "iiif-prezi-3",
+      "title": "IIIF Presentation API 3.0 (3.0.0, stable)",
+      "url": "https://iiif.io/api/presentation/3.0/",
+      "type": "NORMATIVE",
+      "accessed": "2026-08-22",
+      "claims": [
+        { "quote": "Renderers must scale content into the space represented by the Canvas, and should follow any timeMode value provided for time-based media.", "section": "§5.3 Canvas", "directlyStates": true, "supports": "scaling mandated; no fit algorithm anywhere in stable 3.0 ('scaled' absent as exact string)", "relatesTo": ["P2", "P5"], "confidence": "high" },
+        { "quote": "A Canvas may be treated as a content resource for the purposes of annotating it on to other Canvases.", "section": "§5.7 Content Resources", "directlyStates": true, "supports": "Canvas-as-body permitted in STABLE 3.0 (re-confirms E16)", "relatesTo": ["P5"], "confidence": "high" },
+        { "claim": "width/height convey an aspect ratio for the space in which content resources are located; for Canvases the value does not have a unit", "section": "§3.2 height/width", "directlyStates": true, "supports": "Canvas = unit-less coordinate space / frame of reference", "relatesTo": ["Q3"], "confidence": "high" },
+        { "claim": "SVG / image/svg+xml appears ZERO times in the entire document; 'scaled' zero times; no z-order/paint-order semantics", "section": "whole-document search via verbatim scan", "directlyStates": false, "supports": "P1 has no external anchor; z-order is not normative", "relatesTo": ["P1", "P4", "Q1"], "confidence": "high" },
+        { "claim": "timeMode value 'scale' defines temporal fitting (duration of content resource fitted to Canvas portion)", "section": "§3.2 timeMode", "directlyStates": true, "supports": "contrast: temporal fit parameterized, spatial fit not", "relatesTo": ["Q7"], "confidence": "high" }
+      ]
+    },
+    {
+      "id": "w3c-media-frags",
+      "title": "Media Fragments URI 1.0 (basic), W3C Recommendation",
+      "url": "https://www.w3.org/TR/media-frags/",
+      "type": "NORMATIVE",
+      "accessed": "2026-08-22",
+      "claims": [
+        { "quote": "The interval is half-open: the begin time is considered part of the interval whereas the end time is considered to be the first time point that is not part of the interval.", "section": "§4.2.1 Temporal Dimension", "directlyStates": true, "supports": "lab half-open [start,end) convention is the NORMATIVE reading", "relatesTo": ["P3", "open-question-6"], "confidence": "high" },
+        { "quote": "If percent is used, x and width are interpreted as a percentage of the width of the original media, and y and height are interpreted as a percentage of the original height.", "section": "§4.2.2 Spatial Dimension", "directlyStates": true, "supports": "percent axis-split as lab implemented (open question #7)", "relatesTo": ["P3", "open-question-7"], "confidence": "high" },
+        { "claim": "pixel coordinates are interpreted after taking into account the resource's dimensions, aspect ratio, clean aperture, resolution", "section": "§4.2.2 Spatial Dimension", "directlyStates": true, "supports": "selector-side coordinates are RESOURCE-intrinsic", "relatesTo": ["Q3", "Q4"], "confidence": "high" },
+        { "claim": "(non-normative) pixel coords intended identical to HTML5 intrinsic dimensions; HTML rendering clients expected to implement cropping as default; highlight-vs-crop out of scope", "section": "§7.1 Notes to Implementors", "directlyStates": true, "supports": "tension with IIIF placement practice recorded as contradiction #3", "relatesTo": ["contradictions"], "confidence": "high" }
+      ]
+    },
+    {
+      "id": "w3c-web-annotation",
+      "title": "Web Annotation Data Model, W3C Recommendation",
+      "url": "https://www.w3.org/TR/annotation-model/",
+      "type": "NORMATIVE",
+      "accessed": "2026-08-22",
+      "claims": [
+        { "quote": "FragmentSelector ... conformsTo: http://www.w3.org/TR/media-frags/", "section": "§4.2.1 table + Example 20", "directlyStates": true, "supports": "normative WA→Media Fragments chain for selector coordinate semantics", "relatesTo": ["Q4", "P3"], "confidence": "high" },
+        { "quote": "The dimensions of the SVG shape or canvas MUST be relative to the dimensions of the Source resource, such that scaling the shape's size to the full size of the image correctly describes the desired area.", "section": "§4.2.7 SvgSelector", "directlyStates": true, "supports": "existing normative SVG↔source mapping rule — SELECTION-side, proportional/stretch-style, NO aspect-ratio logic; contrast with P2's meet model recorded", "relatesTo": ["P2", "Q4", "Q5", "contradictions"], "confidence": "high" },
+        { "quote": "Implementers SHOULD use only commonly supported features of SVG that directly contribute to describing a region... It is NOT RECOMMENDED to include style information within the SVG element, nor Javascript, animation, text...", "section": "§4.2.7 Note", "directlyStates": true, "supports": "community accepts feature-restricted SVG inside annotations; adjacent precedent for sanitizer/text-determinism positions", "relatesTo": ["P1", "sanitizer", "text-determinism"], "confidence": "high" },
+        { "claim": "the word 'coordinate(s)' appears nowhere in the document; no mismatch behavior defined beyond the proportional sentence", "section": "whole-document search", "directlyStates": false, "supports": "WA gives no general coordinate-system framework beyond selectors", "relatesTo": ["Q4"], "confidence": "high" }
+      ]
+    },
+    {
+      "id": "cookbook-0004-canvas-size",
+      "title": "IIIF Cookbook: Image and Canvas with Differing Dimensions",
+      "url": "https://iiif.io/api/cookbook/recipe/0004-canvas-size/",
+      "type": "COMMUNITY",
+      "accessed": "2026-08-22",
+      "claims": [
+        { "quote": "This recipe demonstrates the importance of thinking about a Canvas as a coordinate space, not as absolute pixel or display dimensions.", "section": "body", "directlyStates": true, "supports": "Canvas-as-coordinate-space framing", "relatesTo": ["Q3"], "confidence": "high" },
+        { "quote": "Finally, if the image dimensions are larger than the Canvas, the image will be scaled to fit the Canvas.", "section": "body", "directlyStates": true, "supports": "'scaled to fit' used without algorithm", "relatesTo": ["Q7"], "confidence": "high" },
+        { "quote": "The aspect ratio should be consistent between your source image and Canvas. Otherwise, you'll see unpredictable stretching and/or distorting.", "section": "body", "directlyStates": true, "supports": "INDEPENDENT community endorsement of same-aspect discipline (= lab P5a); admits ecosystem unpredictability on mismatch", "relatesTo": ["P5a", "N4", "Q7"], "confidence": "high" }
+      ]
+    },
+    {
+      "id": "cookbook-0036-composition",
+      "title": "IIIF Cookbook: Composition from Multiple Images",
+      "url": "https://iiif.io/api/cookbook/recipe/0036-composition-from-multiple-images/",
+      "type": "COMMUNITY",
+      "accessed": "2026-08-22",
+      "claims": [
+        { "quote": "The resource are assembled upwards on the canvas in the order they are provided in the Manifest. This works like Z-index in CSS. ... The presentation of images is upwards in a z-index from the first painting annotation encountered", "section": "body", "directlyStates": true, "supports": "z-order convention first=bottom (matches P4); COMMUNITY rank only", "relatesTo": ["P4", "Q8"], "confidence": "high" },
+        { "quote": "Note: Currently, Mirador 3 only partially supports the layering of multiple images on a single Canvas... Mirador 3 does this in reverse.", "section": "body", "directlyStates": true, "supports": "viewer divergence on identical construction documented BY IIIF (Q8 yes)", "relatesTo": ["Q8"], "confidence": "high" },
+        { "claim": "Fragment Selector used to position a smaller image into a region of the Canvas", "section": "body", "directlyStates": true, "supports": "region-targeted placement practice exists in cookbook", "relatesTo": ["P2 context"], "confidence": "medium" }
+      ]
+    },
+    {
+      "id": "cookbook-0033-choice",
+      "title": "IIIF Cookbook: Multiple Choice of Images in a Single View",
+      "url": "https://iiif.io/api/cookbook/recipe/0033-choice/",
+      "type": "COMMUNITY",
+      "accessed": "2026-08-22",
+      "claims": [
+        { "quote": "While previous iterations of Mirador processed the images upwards from the first painting annotation, Mirador 3 does this in reverse. This means that the first image in the 'choice' body sits at the top of the 'stack' in Mirador 3 rather than at the bottom.", "section": "Note", "directlyStates": true, "supports": "second documentation of Mirador reversal", "relatesTo": ["Q8", "P4"], "confidence": "high" }
+      ]
+    },
+    {
+      "id": "cookbook-0489-multimedia-canvas",
+      "title": "IIIF Cookbook: Rendering Multiple Media Types on a Time-Based Canvas",
+      "url": "https://iiif.io/api/cookbook/recipe/0489-multimedia-canvas/",
+      "type": "COMMUNITY",
+      "accessed": "2026-08-22",
+      "claims": [
+        { "quote": "The simultaneously visible resources are listed in the Manifest from the foreground to the background. The timer video comes first in the Manifest, as the only currently capable viewer places resources on the Canvas so that the first resource is the most foregrounded.", "section": "body", "directlyStates": true, "supports": "OPPOSITE stacking direction attributed to the one capable AV viewer — recipes contradict each other; z-order cannot be cited as settled practice", "relatesTo": ["Q8", "P4", "contradictions"], "confidence": "high" },
+        { "quote": "timing should be considered approximate", "section": "Restrictions", "directlyStates": true, "supports": "temporal precision caveat relevant to temporal annotations", "relatesTo": ["temporal annotations"], "confidence": "high" }
+      ]
+    },
+    {
+      "id": "cookbook-0299-region",
+      "title": "IIIF Cookbook: Addressing a Spatial Region",
+      "url": "https://iiif.io/api/cookbook/recipe/0299-region/",
+      "type": "COMMUNITY",
+      "accessed": "2026-08-22",
+      "claims": [
+        { "quote": "The region will be transformed as needed to fit the Canvas — enlarged or shrunk proportionally, or stretched or squeezed disproportionally.", "section": "body", "directlyStates": true, "supports": "both proportional and disproportionate transforms acknowledged; none mandated", "relatesTo": ["Q7"], "confidence": "high" }
+      ]
+    },
+    {
+      "id": "iiif-api-1190",
+      "title": "IIIF/api issue #1190 — Painting content/annotations to canvases without all of the dimensions is an error",
+      "url": "https://github.com/IIIF/api/issues/1190",
+      "type": "SPEC-PROCESS",
+      "accessed": "2026-08-22",
+      "claims": [
+        { "quote": "Any attempt to annotate a higher dimension resource onto a lower dimension resource is an error. In order to accomplish it, a higher dimension canvas should be created and have them both annotated on to that. Requires #1191.", "section": "issue body (Getty A/V edit, labeled 'normative')", "directlyStates": true, "supports": "canvas-annotated-to-canvas deliberate spec development incl. dimension-error matrix", "relatesTo": ["Q6", "P5"], "confidence": "high" }
+      ]
+    },
+    {
+      "id": "ramp-readme",
+      "title": "samvera-labs/ramp README + Known Issues wiki",
+      "url": "https://github.com/samvera-labs/ramp",
+      "type": "IMPLEMENTATION",
+      "accessed": "2026-08-22",
+      "claims": [
+        { "claim": "Ramp scope: components 'created to display audio/video resources in IIIF Presentation 3.0 manifests'; Known Issues lists video.js-level items only", "section": "README/wiki", "directlyStates": true, "supports": "N2 crash corresponds to SCOPE limitation, not tracked geometry bug (Q9)", "relatesTo": ["Q9"], "confidence": "medium-high" }
+      ]
+    },
+    {
+      "id": "mirador-svg-ecosystem",
+      "title": "Mirador SVG/target-side support evidence (SO answer Jun 2022; PR #4380; issue #4130; mirador-annotations#21; issues #2607/#632)",
+      "url": "https://github.com/ProjectMirador/mirador/issues/2607",
+      "type": "IMPLEMENTATION",
+      "accessed": "2026-08-22",
+      "claims": [
+        { "claim": "Mirador supports SvgSelector annotation TARGETS/highlights (maintained path incl. paint-order fixes) but drops PAINTING SVG bodies (per N2 M2/M3)", "section": "multiple", "directlyStates": true, "supports": "N2 gap is painting-body support; target-side SVG works", "relatesTo": ["Q9"], "confidence": "high" },
+        { "claim": "M3 layers panel deliberately reversed z-order vs M2 (#2607); M2-era design was first=lowest (#632)", "section": "issues", "directlyStates": true, "supports": "stacking order is client decision", "relatesTo": ["Q8", "P4"], "confidence": "high" }
+      ]
+    }
+  ],
+  "notFoundSearches": [
+    "viewBox requirement/recommendation for painting bodies anywhere in IIIF corpus or W3C annotation specs — NOT FOUND (P1 unanchored externally)",
+    "'scaled' exact string in Presentation 3.0 — NOT FOUND (only 'scale' verb forms)",
+    "SVG mention in Presentation 3.0 — NOT FOUND (zero occurrences)",
+    "coordinate(s) in Web Annotation Model — NOT FOUND"
+  ],
+  "p1p6StatusAfterN3": {
+    "P1": "[CONVENTION] unchanged — genuinely new, survives falsification attempt unrefuted but unsupported",
+    "P2": "[CONVENTION] unchanged — contrast with WA SvgSelector stretch model recorded as OPEN tension",
+    "P3": "strengthened inputs — MF §4.2.1 half-open and §4.2.2 percent axes upgraded to [NORMATIVE] support; WA→MF chain normative",
+    "P4": "[CONVENTION] unchanged, weaker as aspiration — cookbook self-contradiction + Mirador reversal documented by IIIF itself",
+    "P5": "strengthened — §5.7 verbatim permission + api#1190/#1191 deliberate work + recipe-0004 same-aspect guidance independently matches P5a",
+    "P6": "[CONVENTION] unchanged"
+  },
+  "profileModified": false
+}
