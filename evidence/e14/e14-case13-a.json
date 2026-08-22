@@ -16,7 +16,7 @@
           "overlayIndex": 0,
           "overlayId": "http://localhost:5173/annotation/e14/oob",
           "field": "placement",
-          "a": "viewBox-meet|vp=2000,0,100,100|s=0.052083|t=2000,0",
+          "a": "viewBox-meet|vp=2000,0,100,100|s=0.052083|t=2000,21.875",
           "b": "viewBox-meet|vp=0,0,1920,1080|s=1|t=0,0",
           "classification": "DERIVED"
         }
@@ -38,7 +38,7 @@
           "overlayIndex": 0,
           "overlayId": "http://localhost:5173/annotation/e14/oob",
           "field": "placement",
-          "a": "viewBox-meet|vp=2000,0,100,100|s=0.052083|t=2000,0",
+          "a": "viewBox-meet|vp=2000,0,100,100|s=0.052083|t=2000,21.875",
           "b": "viewBox-meet|vp=0,0,1920,1080|s=1|t=0,0",
           "classification": "DERIVED"
         }
