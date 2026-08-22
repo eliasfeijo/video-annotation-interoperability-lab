@@ -1,0 +1,15 @@
+{
+  "experiment": "E17/N1 cross-engine replication",
+  "engine": "chromium",
+  "case": "case03-sq-full-b (inner 1000x1000 onto full 1920x1080)",
+  "expectedNote": "Chromium truth (E16): novbBand=true (intrinsic stretch), collapsedBand=true (leaf preserveAspectRatio applied against DESTINATION aspect inside fill-mapped container). A false value in another engine is a recorded cross-engine divergence ([BROWSER]), never normalized.",
+  "verdicts": [
+    "a!=blind",
+    "a!=native",
+    "blind==native"
+  ],
+  "probes": {
+    "novbStretchedBandNearCanvas38": true,
+    "leafParCollapsedBandNearCanvas441": true
+  }
+}

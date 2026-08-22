@@ -1,0 +1,23 @@
+{
+  "experiment": "E17/N1 cross-engine replication",
+  "engine": "firefox",
+  "case": "case01-same-full-b (inner 1920x1080 onto full 1920x1080)",
+  "expectedNote": "Same-aspect composition: fill and coincide analytically; composed bands should sit at the identity-mapped frame positions regardless of fit reading.",
+  "analytic": {
+    "fitsCoincide": true,
+    "fillScaleX": 1,
+    "fillScaleY": 1,
+    "containScale": 1
+  },
+  "verdicts": [
+    "a!=blind",
+    "a!=native",
+    "blind==native"
+  ],
+  "magentaRunsRowY300Fractions": [
+    0.01056338028169014,
+    0.019561815336463225,
+    0.9796557120500783,
+    0.9886541471048513
+  ]
+}

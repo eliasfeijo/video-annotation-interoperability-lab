@@ -1,0 +1,50 @@
+{
+  "experiment": "E17/N1 cross-engine replication",
+  "engine": "chromium",
+  "case": "case06-169into-sq-b (inner 1920x1080 onto xywh=710,290,500,500)",
+  "expectedNote": "Strongest fill/contain divergence case (up to ~386 Canvas units). Raster band-probing is unreliable here (down-scaled strokes are sub-pixel at K=0.25), so this records resolver-level placements + composite <img> intrinsic size per engine; screenshots archived for visual comparison.",
+  "analyticPredictions": {
+    "fill": {
+      "scaleX": 0.2604166666666667,
+      "scaleY": 0.46296296296296297
+    },
+    "contain": {
+      "scaleX": 0.2604166666666667,
+      "scaleY": 0.2604166666666667
+    }
+  },
+  "resolverNestedPlacements": [
+    {
+      "mode": "nested-canvas",
+      "nested": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "scaleX": 0.2604166666666667,
+        "scaleY": 0.46296296296296297,
+        "offsetX": 710,
+        "offsetY": 290
+      }
+    },
+    {
+      "mode": "nested-canvas",
+      "nested": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "scaleX": 0.2604166666666667,
+        "scaleY": 0.46296296296296297,
+        "offsetX": 710,
+        "offsetY": 290
+      }
+    }
+  ],
+  "compositeImgIntrinsicSizes": [
+    {
+      "naturalWidth": 1920,
+      "naturalHeight": 1080
+    },
+    {
+      "naturalWidth": 1000,
+      "naturalHeight": 1000
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "experiment": "E17/N1 cross-engine replication",
+  "meta": {
+    "engine": "chromium",
+    "browserVersion": "151.0.7922.34",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36"
+  },
+  "note": "Raw <img>.naturalWidth/naturalHeight per SVG variant. Expected divergence surface: attribute-less SVG (SVG 1.1 §7.12 vs SVG 2 intrinsic sizing). Values are recorded verbatim.",
+  "e15Variants": {
+    "e15-vb1000.svg": {
+      "w": 1000,
+      "h": 1000
+    },
+    "e15-vb1920x1080.svg": {
+      "w": 1920,
+      "h": 1080
+    },
+    "e15-novb1000.svg": {
+      "w": 1000,
+      "h": 1000
+    },
+    "e15-novb1920x1080.svg": {
+      "w": 1920,
+      "h": 1080
+    },
+    "e15-vb1000-min.svg": {
+      "w": 1000,
+      "h": 1000
+    },
+    "e15-vb1000-slice.svg": {
+      "w": 1000,
+      "h": 1000
+    },
+    "e15-vb1000-none.svg": {
+      "w": 1000,
+      "h": 1000
+    },
+    "e15-vb1920x1080-min.svg": {
+      "w": 1920,
+      "h": 1080
+    },
+    "e15-vb1920x1080-slice.svg": {
+      "w": 1920,
+      "h": 1080
+    },
+    "e15-vb1920x1080-none.svg": {
+      "w": 1920,
+      "h": 1080
+    }
+  },
+  "e17Variants": {
+    "e17-vb1000-max.svg": {
+      "w": 1000,
+      "h": 1000
+    }
+  }
+}

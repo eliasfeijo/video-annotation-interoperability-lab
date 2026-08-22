@@ -1,0 +1,1328 @@
+{
+  "e15-novb1000.svg@square500|svg-nested-region": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-novb1000.svg@square500|img-default": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-novb1000.svg@square500|img-fill": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-novb1000.svg@square500|img-contain": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-novb1000.svg@square500|img-none": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-novb1000.svg@square500|object": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-novb1920x1080.svg@rect43|svg-nested-region": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-novb1920x1080.svg@rect43|img-default": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-novb1920x1080.svg@rect43|img-fill": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-novb1920x1080.svg@rect43|img-contain": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-novb1920x1080.svg@rect43|img-none": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-novb1920x1080.svg@rect43|object": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000.svg@rect43|svg-nested-region": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000.svg@rect43|img-default": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000.svg@rect43|img-fill": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000.svg@rect43|img-contain": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000.svg@rect43|img-none": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000.svg@rect43|object": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000.svg@square500|svg-nested-region": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000.svg@square500|img-default": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000.svg@square500|img-fill": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000.svg@square500|img-contain": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000.svg@square500|img-none": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000.svg@square500|object": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-min.svg@half|svg-nested-region": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-min.svg@half|img-default": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-min.svg@half|img-fill": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-min.svg@half|img-contain": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-min.svg@half|img-none": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-min.svg@half|object": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-none.svg@half|svg-nested-region": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-none.svg@half|img-default": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-none.svg@half|img-fill": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-none.svg@half|img-contain": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-none.svg@half|img-none": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-none.svg@half|object": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-slice.svg@half|svg-nested-region": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-slice.svg@half|img-default": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-slice.svg@half|img-fill": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-slice.svg@half|img-contain": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-slice.svg@half|img-none": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1000-slice.svg@half|object": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1920x1080.svg@rect43|svg-nested-region": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1920x1080.svg@rect43|img-default": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1920x1080.svg@rect43|img-fill": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1920x1080.svg@rect43|img-contain": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1920x1080.svg@rect43|img-none": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e15-vb1920x1080.svg@rect43|object": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e17-vb1000-max.svg@half|svg-nested-region": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e17-vb1000-max.svg@half|img-default": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e17-vb1000-max.svg@half|img-fill": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e17-vb1000-max.svg@half|img-contain": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e17-vb1000-max.svg@half|img-none": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e17-vb1000-max.svg@half|object": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e17-vb1000-max.svg@half|svg-nested-attr": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e17-vb1000-max.svg@rect43|svg-nested-region": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e17-vb1000-max.svg@rect43|img-default": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e17-vb1000-max.svg@rect43|img-fill": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e17-vb1000-max.svg@rect43|img-contain": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e17-vb1000-max.svg@rect43|img-none": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e17-vb1000-max.svg@rect43|object": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "agreement": "unanimous"
+  },
+  "e17-vb1000-max.svg@rect43|svg-nested-attr": {
+    "chromium": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "firefox": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "webkit": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "agreement": "unanimous"
+  }
+}

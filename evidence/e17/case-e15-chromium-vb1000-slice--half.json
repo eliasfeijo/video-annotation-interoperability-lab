@@ -1,0 +1,378 @@
+{
+  "experiment": "E17/N1 cross-engine replication",
+  "meta": {
+    "engine": "chromium",
+    "browserVersion": "151.0.7922.34",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36"
+  },
+  "fixture": "e15-vb1000-slice.svg",
+  "region": "half",
+  "fragment": "xywh=480,270,960,540",
+  "k": 0.25,
+  "tolerances": "E15 verbatim: coverage >= 0.8 on circle AND frame masks",
+  "cells": [
+    {
+      "variant": "e15-vb1000-slice.svg",
+      "embedding": "svg-nested-region",
+      "regionKey": "half",
+      "fragment": "xywh=480,270,960,540",
+      "k": 0.25,
+      "measured": {
+        "frameCss": {
+          "minX": 4,
+          "minY": 1,
+          "maxX": 235,
+          "maxY": 135
+        },
+        "circleCss": {
+          "cx": 120,
+          "cy": 68.5,
+          "diameterX": 96,
+          "diameterY": 97
+        },
+        "intrinsic": {
+          "w": 1000,
+          "h": 1000
+        },
+        "innerSvgBox": {
+          "x": 4.79998779296875,
+          "y": -47.7001953125,
+          "w": 230.4000244140625,
+          "h": 230.400390625
+        }
+      },
+      "derived": {
+        "circleCenterCanvas": {
+          "x": 960,
+          "y": 544
+        },
+        "circleRadiusCanvas": {
+          "x": 192,
+          "y": 194
+        },
+        "uniformScale": true
+      },
+      "predictions": {
+        "I-REGION-VIEWPORT": {
+          "circle": {
+            "predCovered": 1,
+            "measCovered": 1
+          },
+          "frame": {
+            "predCovered": 1,
+            "measCovered": 1
+          }
+        }
+      },
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ],
+      "verdict": "agree"
+    },
+    {
+      "variant": "e15-vb1000-slice.svg",
+      "embedding": "img-default",
+      "regionKey": "half",
+      "fragment": "xywh=480,270,960,540",
+      "k": 0.25,
+      "measured": {
+        "frameCss": {
+          "minX": 4,
+          "minY": 1,
+          "maxX": 235,
+          "maxY": 135
+        },
+        "circleCss": {
+          "cx": 120,
+          "cy": 68.5,
+          "diameterX": 96,
+          "diameterY": 97
+        },
+        "intrinsic": {
+          "w": 1000,
+          "h": 1000
+        },
+        "innerSvgBox": null
+      },
+      "derived": {
+        "circleCenterCanvas": {
+          "x": 960,
+          "y": 544
+        },
+        "circleRadiusCanvas": {
+          "x": 192,
+          "y": 194
+        },
+        "uniformScale": true
+      },
+      "predictions": {
+        "I-REGION-VIEWPORT": {
+          "circle": {
+            "predCovered": 1,
+            "measCovered": 1
+          },
+          "frame": {
+            "predCovered": 0.875,
+            "measCovered": 1
+          }
+        },
+        "I-INTRINSIC-STRETCH": {
+          "circle": {
+            "predCovered": 1,
+            "measCovered": 0.67
+          },
+          "frame": {
+            "predCovered": 0.363,
+            "measCovered": 1
+          }
+        }
+      },
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ],
+      "verdict": "agree"
+    },
+    {
+      "variant": "e15-vb1000-slice.svg",
+      "embedding": "img-fill",
+      "regionKey": "half",
+      "fragment": "xywh=480,270,960,540",
+      "k": 0.25,
+      "measured": {
+        "frameCss": {
+          "minX": 4,
+          "minY": 1,
+          "maxX": 235,
+          "maxY": 135
+        },
+        "circleCss": {
+          "cx": 120,
+          "cy": 68.5,
+          "diameterX": 96,
+          "diameterY": 97
+        },
+        "intrinsic": {
+          "w": 1000,
+          "h": 1000
+        },
+        "innerSvgBox": null
+      },
+      "derived": {
+        "circleCenterCanvas": {
+          "x": 960,
+          "y": 544
+        },
+        "circleRadiusCanvas": {
+          "x": 192,
+          "y": 194
+        },
+        "uniformScale": true
+      },
+      "predictions": {
+        "I-REGION-VIEWPORT": {
+          "circle": {
+            "predCovered": 1,
+            "measCovered": 1
+          },
+          "frame": {
+            "predCovered": 0.875,
+            "measCovered": 1
+          }
+        },
+        "I-INTRINSIC-STRETCH": {
+          "circle": {
+            "predCovered": 1,
+            "measCovered": 0.67
+          },
+          "frame": {
+            "predCovered": 0.363,
+            "measCovered": 1
+          }
+        }
+      },
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ],
+      "verdict": "agree"
+    },
+    {
+      "variant": "e15-vb1000-slice.svg",
+      "embedding": "img-contain",
+      "regionKey": "half",
+      "fragment": "xywh=480,270,960,540",
+      "k": 0.25,
+      "measured": {
+        "frameCss": {
+          "minX": 55,
+          "minY": 3,
+          "maxX": 185,
+          "maxY": 133
+        },
+        "circleCss": {
+          "cx": 120.5,
+          "cy": 68.5,
+          "diameterX": 55,
+          "diameterY": 55
+        },
+        "intrinsic": {
+          "w": 1000,
+          "h": 1000
+        },
+        "innerSvgBox": null
+      },
+      "derived": {
+        "circleCenterCanvas": {
+          "x": 962,
+          "y": 544
+        },
+        "circleRadiusCanvas": {
+          "x": 110,
+          "y": 110
+        },
+        "uniformScale": true
+      },
+      "predictions": {
+        "I-OBJECTFIT-CONTAIN": {
+          "circle": {
+            "predCovered": 1,
+            "measCovered": 1
+          },
+          "frame": {
+            "predCovered": 0.965,
+            "measCovered": 1
+          }
+        }
+      },
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ],
+      "verdict": "agree"
+    },
+    {
+      "variant": "e15-vb1000-slice.svg",
+      "embedding": "img-none",
+      "regionKey": "half",
+      "fragment": "xywh=480,270,960,540",
+      "k": 0.25,
+      "measured": {
+        "frameCss": null,
+        "circleCss": {
+          "cx": 120,
+          "cy": 68.5,
+          "diameterX": 240,
+          "diameterY": 135
+        },
+        "intrinsic": {
+          "w": 1000,
+          "h": 1000
+        },
+        "innerSvgBox": null
+      },
+      "derived": {
+        "circleCenterCanvas": {
+          "x": 960,
+          "y": 544
+        },
+        "circleRadiusCanvas": {
+          "x": 480,
+          "y": 270
+        },
+        "uniformScale": false
+      },
+      "predictions": {
+        "I-NATURAL-CENTERED": {
+          "circle": {
+            "predCovered": 1,
+            "measCovered": 1
+          },
+          "frame": {
+            "predCovered": 1,
+            "measCovered": 1
+          }
+        }
+      },
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ],
+      "verdict": "agree"
+    },
+    {
+      "variant": "e15-vb1000-slice.svg",
+      "embedding": "object",
+      "regionKey": "half",
+      "fragment": "xywh=480,270,960,540",
+      "k": 0.25,
+      "measured": {
+        "frameCss": {
+          "minX": 4,
+          "minY": 1,
+          "maxX": 235,
+          "maxY": 135
+        },
+        "circleCss": {
+          "cx": 120,
+          "cy": 68.5,
+          "diameterX": 96,
+          "diameterY": 97
+        },
+        "intrinsic": {
+          "w": 1000,
+          "h": 1000
+        },
+        "innerSvgBox": {
+          "x": -10,
+          "y": -571.625,
+          "w": 240,
+          "h": 135
+        }
+      },
+      "derived": {
+        "circleCenterCanvas": {
+          "x": 960,
+          "y": 544
+        },
+        "circleRadiusCanvas": {
+          "x": 192,
+          "y": 194
+        },
+        "uniformScale": true
+      },
+      "predictions": {
+        "I-REGION-VIEWPORT": {
+          "circle": {
+            "predCovered": 1,
+            "measCovered": 1
+          },
+          "frame": {
+            "predCovered": 0.875,
+            "measCovered": 1
+          }
+        },
+        "I-INTRINSIC-STRETCH": {
+          "circle": {
+            "predCovered": 1,
+            "measCovered": 0.67
+          },
+          "frame": {
+            "predCovered": 0.363,
+            "measCovered": 1
+          }
+        },
+        "I-NATURAL-TOPLEFT": {
+          "circle": {
+            "predCovered": 1,
+            "measCovered": 0
+          },
+          "frame": {
+            "predCovered": 0.024,
+            "measCovered": 0.051
+          }
+        }
+      },
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ],
+      "verdict": "agree"
+    }
+  ]
+}

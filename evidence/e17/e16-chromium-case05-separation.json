@@ -1,0 +1,20 @@
+{
+  "experiment": "E17/N1 cross-engine replication",
+  "engine": "chromium",
+  "case": "case05-43-full-b (inner 640x480 onto full 1920x1080)",
+  "expectedNote": "Chromium truth (E16): two left-side vertical bands — novb stretched near fraction <0.06; leaf-PAR collapsed band near 0.08–0.22. Recorded per engine; divergence is data.",
+  "allRuns": [
+    0.019561815336463225,
+    0.14827856025039124,
+    0.8509389671361502,
+    0.9796557120500783
+  ],
+  "leftFrameRuns": [
+    0.019561815336463225,
+    0.14827856025039124
+  ],
+  "chromiumReferenceFlags": {
+    "novbStretchedBelow0_06": true,
+    "collapsedBandIn0_08to0_22": true
+  }
+}

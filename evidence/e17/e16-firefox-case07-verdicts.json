@@ -1,0 +1,16 @@
+{
+  "experiment": "E17/N1 cross-engine replication",
+  "engine": "firefox",
+  "case": "case07-novb-b (no-viewBox body inside nested Canvas)",
+  "expectedNote": "Designed divergence preserved: a!=blind, a!=native, blind==native.",
+  "blindVerdicts": [
+    "a!=blind",
+    "a!=native",
+    "blind==native"
+  ],
+  "rendererAVerdicts": [
+    "a!=blind",
+    "a!=native",
+    "blind==native"
+  ]
+}

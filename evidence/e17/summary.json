@@ -1,0 +1,54 @@
+{
+  "experiment": "E17/N1 cross-engine replication of E15/E16 [BROWSER]-classified rows",
+  "plan": "research/next-session-plan.md Stage 1",
+  "note": "Cross-engine agreement establishes multi-engine browser behavior only; it MUST NOT be read as standards provenance.",
+  "generatedAt": "2026-08-22T02:40:45.884Z",
+  "engines": {
+    "chromium": {
+      "browserVersion": "151.0.7922.34",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36"
+    },
+    "firefox": {
+      "browserVersion": "153.0",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0"
+    },
+    "webkit": {
+      "browserVersion": "26.5",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Safari/605.1.15"
+    }
+  },
+  "cellStats": {
+    "chromium": {
+      "agree": 62,
+      "diverge": 0,
+      "unmeasured": 0
+    },
+    "firefox": {
+      "agree": 62,
+      "diverge": 0,
+      "unmeasured": 0
+    },
+    "webkit": {
+      "agree": 62,
+      "diverge": 0,
+      "unmeasured": 0
+    }
+  },
+  "totals": {
+    "distinctMatrixCells": 62,
+    "cellMeasurements": 186,
+    "unanimousRows": 62,
+    "divergentRows": 0,
+    "incompleteRows": 0
+  },
+  "divergentRows": [],
+  "incompleteRows": [],
+  "e16Agreement": {
+    "case03_novbBand_unanimous": true,
+    "case03_collapsedBand_unanimous": true,
+    "case05_leftRuns_unanimous": true,
+    "case06_compositeNaturals_unanimous": true,
+    "case07_designedDivergencePreserved_allEngines": true
+  },
+  "intrinsicsDivergentVariants": []
+}
