@@ -1,0 +1,1146 @@
+{
+  "experiment": "E15",
+  "question": "Is SVG painting geometry deterministic independently of the embedding mechanism?",
+  "browser": "Chromium (Playwright)",
+  "k": 0.25,
+  "tolerances": {
+    "centerCanvasUnits": 12,
+    "radiusCanvasUnits": 14
+  },
+  "interpretations": {
+    "iRegionViewport": "I-REGION-VIEWPORT",
+    "iIntrinsicStretch": "I-INTRINSIC-STRETCH",
+    "iObjectFitContain": "I-OBJECTFIT-CONTAIN",
+    "iNaturalTopLeft": "I-NATURAL-TOPLEFT",
+    "iNaturalCentered": "I-NATURAL-CENTERED"
+  },
+  "intrinsics": {
+    "e15-vb1000.svg": {
+      "w": 1000,
+      "h": 1000
+    },
+    "e15-vb1920x1080.svg": {
+      "w": 1920,
+      "h": 1080
+    },
+    "e15-novb1000.svg": {
+      "w": 1000,
+      "h": 1000
+    },
+    "e15-novb1920x1080.svg": {
+      "w": 1920,
+      "h": 1080
+    },
+    "e15-vb1000-min.svg": {
+      "w": 1000,
+      "h": 1000
+    },
+    "e15-vb1000-slice.svg": {
+      "w": 1000,
+      "h": 1000
+    },
+    "e15-vb1000-none.svg": {
+      "w": 1000,
+      "h": 1000
+    },
+    "e15-vb1920x1080-min.svg": {
+      "w": 1920,
+      "h": 1080
+    },
+    "e15-vb1920x1080-slice.svg": {
+      "w": 1920,
+      "h": 1080
+    },
+    "e15-vb1920x1080-none.svg": {
+      "w": 1920,
+      "h": 1080
+    }
+  },
+  "cells": {
+    "e15-novb1000.svg|svg-nested-attr@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1000.svg|svg-nested-region@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-novb1000.svg|img-default@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-novb1000.svg|img-fill@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-novb1000.svg|img-contain@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-novb1000.svg|img-none@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-novb1000.svg|object@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1000.svg|background@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1000.svg|svg-nested-attr@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1000.svg|svg-nested-region@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-novb1000.svg|img-default@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-novb1000.svg|img-fill@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-novb1000.svg|img-contain@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-novb1000.svg|img-none@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-novb1000.svg|object@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1000.svg|background@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1000.svg|svg-nested-attr@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1000.svg|svg-nested-region@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-novb1000.svg|img-default@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-novb1000.svg|img-fill@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-novb1000.svg|img-contain@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-novb1000.svg|img-none@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-novb1000.svg|object@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1000.svg|background@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1000.svg|svg-nested-attr@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1000.svg|svg-nested-region@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-novb1000.svg|img-default@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-novb1000.svg|img-fill@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-novb1000.svg|img-contain@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-novb1000.svg|img-none@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-novb1000.svg|object@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1000.svg|background@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1920x1080.svg|svg-nested-attr@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1920x1080.svg|svg-nested-region@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-novb1920x1080.svg|img-default@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-novb1920x1080.svg|img-fill@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-novb1920x1080.svg|img-contain@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-novb1920x1080.svg|img-none@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-novb1920x1080.svg|object@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1920x1080.svg|background@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1920x1080.svg|svg-nested-attr@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1920x1080.svg|svg-nested-region@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-novb1920x1080.svg|img-default@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-novb1920x1080.svg|img-fill@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-novb1920x1080.svg|img-contain@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-novb1920x1080.svg|img-none@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-novb1920x1080.svg|object@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1920x1080.svg|background@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1920x1080.svg|svg-nested-attr@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1920x1080.svg|svg-nested-region@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-novb1920x1080.svg|img-default@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-novb1920x1080.svg|img-fill@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-novb1920x1080.svg|img-contain@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-novb1920x1080.svg|img-none@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-novb1920x1080.svg|object@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1920x1080.svg|background@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1920x1080.svg|svg-nested-attr@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1920x1080.svg|svg-nested-region@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-novb1920x1080.svg|img-default@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-novb1920x1080.svg|img-fill@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-novb1920x1080.svg|img-contain@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-novb1920x1080.svg|img-none@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-novb1920x1080.svg|object@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-novb1920x1080.svg|background@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1000.svg|svg-nested-attr@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1000.svg|svg-nested-region@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000.svg|img-default@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000.svg|img-fill@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000.svg|img-contain@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-vb1000.svg|img-none@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-vb1000.svg|object@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000.svg|background@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1000.svg|svg-nested-attr@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1000.svg|svg-nested-region@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000.svg|img-default@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000.svg|img-fill@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000.svg|img-contain@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-vb1000.svg|img-none@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-vb1000.svg|object@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000.svg|background@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1000.svg|svg-nested-attr@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1000.svg|svg-nested-region@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000.svg|img-default@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000.svg|img-fill@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000.svg|img-contain@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-vb1000.svg|img-none@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-vb1000.svg|object@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000.svg|background@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1000.svg|svg-nested-attr@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1000.svg|svg-nested-region@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000.svg|img-default@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1000.svg|img-fill@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1000.svg|img-contain@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-vb1000.svg|img-none@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-vb1000.svg|object@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1000.svg|background@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1000-min.svg|svg-nested-attr@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1000-min.svg|svg-nested-region@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000-min.svg|img-default@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000-min.svg|img-fill@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000-min.svg|img-contain@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-vb1000-min.svg|img-none@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-vb1000-min.svg|object@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000-min.svg|background@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1000-none.svg|svg-nested-attr@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1000-none.svg|svg-nested-region@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000-none.svg|img-default@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1000-none.svg|img-fill@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1000-none.svg|img-contain@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-vb1000-none.svg|img-none@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-vb1000-none.svg|object@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1000-none.svg|background@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1000-slice.svg|svg-nested-attr@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1000-slice.svg|svg-nested-region@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000-slice.svg|img-default@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000-slice.svg|img-fill@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000-slice.svg|img-contain@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-vb1000-slice.svg|img-none@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-vb1000-slice.svg|object@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1000-slice.svg|background@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1920x1080.svg|svg-nested-attr@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1920x1080.svg|svg-nested-region@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1920x1080.svg|img-default@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1920x1080.svg|img-fill@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1920x1080.svg|img-contain@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-vb1920x1080.svg|img-none@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-vb1920x1080.svg|object@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1920x1080.svg|background@full": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1920x1080.svg|svg-nested-attr@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1920x1080.svg|svg-nested-region@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1920x1080.svg|img-default@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1920x1080.svg|img-fill@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1920x1080.svg|img-contain@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-vb1920x1080.svg|img-none@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-vb1920x1080.svg|object@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1920x1080.svg|background@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1920x1080.svg|svg-nested-attr@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1920x1080.svg|svg-nested-region@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1920x1080.svg|img-default@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1920x1080.svg|img-fill@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1920x1080.svg|img-contain@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-vb1920x1080.svg|img-none@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-vb1920x1080.svg|object@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1920x1080.svg|background@rect43": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1920x1080.svg|svg-nested-attr@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1920x1080.svg|svg-nested-region@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1920x1080.svg|img-default@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1920x1080.svg|img-fill@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1920x1080.svg|img-contain@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-vb1920x1080.svg|img-none@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-vb1920x1080.svg|object@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1920x1080.svg|background@square500": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1920x1080-min.svg|svg-nested-attr@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1920x1080-min.svg|svg-nested-region@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1920x1080-min.svg|img-default@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1920x1080-min.svg|img-fill@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1920x1080-min.svg|img-contain@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-vb1920x1080-min.svg|img-none@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-vb1920x1080-min.svg|object@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1920x1080-min.svg|background@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1920x1080-none.svg|svg-nested-attr@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1920x1080-none.svg|svg-nested-region@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1920x1080-none.svg|img-default@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1920x1080-none.svg|img-fill@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1920x1080-none.svg|img-contain@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-vb1920x1080-none.svg|img-none@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-vb1920x1080-none.svg|object@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1920x1080-none.svg|background@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1920x1080-slice.svg|svg-nested-attr@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    },
+    "e15-vb1920x1080-slice.svg|svg-nested-region@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT"
+      ]
+    },
+    "e15-vb1920x1080-slice.svg|img-default@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1920x1080-slice.svg|img-fill@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1920x1080-slice.svg|img-contain@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-OBJECTFIT-CONTAIN"
+      ]
+    },
+    "e15-vb1920x1080-slice.svg|img-none@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-CENTERED"
+      ]
+    },
+    "e15-vb1920x1080-slice.svg|object@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-REGION-VIEWPORT",
+        "I-INTRINSIC-STRETCH"
+      ]
+    },
+    "e15-vb1920x1080-slice.svg|background@half": {
+      "verdict": "agree",
+      "matches": [
+        "I-NATURAL-TOPLEFT"
+      ]
+    }
+  }
+}

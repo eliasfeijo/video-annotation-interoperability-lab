@@ -1,0 +1,45 @@
+{
+  "note": "Browser-reported naturalWidth/naturalHeight per SVG variant (<img> probe, Chromium)",
+  "intrinsics": {
+    "e15-vb1000.svg": {
+      "w": 1000,
+      "h": 1000
+    },
+    "e15-vb1920x1080.svg": {
+      "w": 1920,
+      "h": 1080
+    },
+    "e15-novb1000.svg": {
+      "w": 1000,
+      "h": 1000
+    },
+    "e15-novb1920x1080.svg": {
+      "w": 1920,
+      "h": 1080
+    },
+    "e15-vb1000-min.svg": {
+      "w": 1000,
+      "h": 1000
+    },
+    "e15-vb1000-slice.svg": {
+      "w": 1000,
+      "h": 1000
+    },
+    "e15-vb1000-none.svg": {
+      "w": 1000,
+      "h": 1000
+    },
+    "e15-vb1920x1080-min.svg": {
+      "w": 1920,
+      "h": 1080
+    },
+    "e15-vb1920x1080-slice.svg": {
+      "w": 1920,
+      "h": 1080
+    },
+    "e15-vb1920x1080-none.svg": {
+      "w": 1920,
+      "h": 1080
+    }
+  }
+}
