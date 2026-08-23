@@ -705,7 +705,7 @@ framework, never relocated. Owner: H.2-D §3.5–§3.6.
    defaulting, synthesized-viewBox placement).
 4. **Analysis-only / counterfactual implementation** — prediction/measurement machinery
    consumed by NO renderer; renderers MUST NOT import it (`e14/comparison.ts`,
-   `comparison/blind-comparison.ts`, `oracle/*`, `e15/analysis.ts`,
+   `comparison/blind-comparison.ts`, `oracle/*`, `embedding-semantics/analysis.ts`,
    `e16/comparison.ts`, `e17/classify.ts`).
 
 Binding corollary (H.2-A): physical location does not establish semantic ownership;
@@ -722,8 +722,9 @@ Role words used by `AGENTS.md` behavior rules and by migration planning:
   observables: reuse-governance classes 1–2 plus the interchange-record tier.
 - **Analysis infrastructure** — reuse-governance class 4 collectively (list above).
 - **Harness/measurement apparatus** — the lab app and measurement pages exposing
-  renderers, fixtures, and hooks (`main.ts`, `e15/page.ts`, `e17/page.ts`,
-  `tests/e2e/utils.ts`); deliberately below term level (see §5.7 closing note).
+  renderers, fixtures, and hooks (`main.ts`, `embedding-semantics/page.ts`,
+  `e17/page.ts`, `tests/e2e/utils.ts`); deliberately below term level (see §5.7
+  closing note).
 - **Evidence-producing test** — a test/script whose successful run writes tracked
   evidence as a side effect (vitest suites `tests/e14-comparison.test.ts`,
   `tests/e16-comparison.test.ts`, `tests/blind-comparison.test.ts`; script
@@ -1012,23 +1013,25 @@ Phase G class decision).
 | `iRegionViewport`, `iIntrinsicStretch`, `iObjectFitContain`, `iNaturalTopLeft`, `iNaturalCentered` | — | PINNED KEEP — deliberate mirrors of the frozen `I-*` labels via `INTERPRETATION_NAMES[fn.name] ?? fn.name` (`classify.ts:198`); never renamed independently of the frozen labels |
 | `e14ToResolvedA`, `e14ToBlindOverlay` | — | KEEP unless a human decision explicitly overrides open question Q2 (names cited by the ratified H.2-D record) |
 
-#### Unresolved symbol spellings (Q3 — intentionally NOT decided here)
+#### Q3 symbol spellings (RESOLVED at embedding-semantics execution — Phase G.x-2)
 
-Target spelling: unresolved / fixed during embedding-semantics execution.
+Resolved during the embedding-semantics family migration; each target was chosen from
+the symbol's actual semantic role (definition + every usage inspected) using existing
+glossary/domain vocabulary, verified collision-free against the tree.
 
-| Current symbol | Defined in | Reason unresolved |
+| Former symbol | Target | Semantic reason |
 |---|---|---|
-| `E15Rect` | `src/e15/analysis.ts` | Exact semantic role must be resolved during the family migration (generic rect serving regions AND landmark geometry alike); no speculative spelling adopted |
-| `E15Landmarks` | `src/e15/analysis.ts` | Same — role resolution deferred to embedding-semantics execution |
-| `E15SvgVariant` | `src/e15/analysis.ts` | Same |
-| `E15Map` | `src/e15/analysis.ts` | Same (affine scale/translate + clip map) |
-| `E15Measured` | `src/e15/analysis.ts` | Same |
-| `E15CellResult` | `src/e15/analysis.ts` | Same |
+| `E15Rect` | `CanvasRect` | Axis-aligned rectangle in logical Canvas space. Every usage (target-region rects, landmark frame, interpretation viewports, clip windows, contain/natural boxes) shares canvas-unit semantics; the architecture demonstrates ONE concept, so no split. Avoids collision confusion with e14's distinct unqualified `Rect`. |
+| `E15Landmarks` | `LandmarkContract` | The glossary C4 concept verbatim: the per-fixture landmark geometry table (`public/svg/e15/e15-landmarks.json`, "the landmark geometry CONTRACT reused by e16/e17"). |
+| `E15SvgVariant` | `SvgVariant` | A measurement-stimulus SVG variant record (file + viewBox + preserveAspectRatio + width/height attrs); matches the "embedding-semantics variants" fixture-family vocabulary without embedding the experiment number. |
+| `E15Map` | `PlacementMap` | The module's own contract line: "A placement = linear map user space -> Canvas space (+ optional clip box)" — the predicted placement mapping a candidate interpretation returns. Distinct from e14's richer `Placement` record (which carries mode/scale/translation as interchange data). |
+| `E15Measured` | `CellMeasurements` | Per-cell browser-measured quantities ("Measured record produced by the browser harness"): CSS-pixel frame/circle bboxes, intrinsic size, inner-svg box. |
+| `E15CellResult` | `CellResult` | Full result record for one measurement-matrix cell: coordinates (variant × embedding mechanism × region), scale k, measurements, derived geometry, matching interpretations, verdict. |
 
-When resolved, these renames execute ATOMICALLY across `src/e15/analysis.ts`,
-`src/e17/classify.ts`, and `tests/e2e/{e15,e17}.spec.ts` within the
-embedding-semantics family change-set. No replacement names are ratified here;
-speculative candidates must not be minted before then.
+These renames executed ATOMICALLY across
+`src/embedding-semantics/analysis.ts`, `src/e17/classify.ts`,
+`tests/e2e/embedding-semantics.spec.ts`, and `tests/e2e/e17.spec.ts` within the
+embedding-semantics family change-set.
 
 #### Explicit keeps (ratified)
 

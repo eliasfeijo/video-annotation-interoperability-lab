@@ -7,7 +7,7 @@
  * classified. No renderer imports these predictions.
  */
 
-export type E15Embedding =
+export type EmbeddingMechanism =
   | "svg-nested-attr"
   | "svg-nested-region"
   | "img-default"
@@ -17,22 +17,22 @@ export type E15Embedding =
   | "object"
   | "background";
 
-export interface E15Rect {
+export interface CanvasRect {
   x: number;
   y: number;
   w: number;
   h: number;
 }
 
-export interface E15Landmarks {
+export interface LandmarkContract {
   W: number;
   H: number;
-  frame: E15Rect;
+  frame: CanvasRect;
   circle: { cx: number; cy: number; r: number };
   tick: number;
 }
 
-export interface E15SvgVariant {
+export interface SvgVariant {
   name: string;
   viewBox: { minX: number; minY: number; w: number; h: number } | null;
   preserveAspectRatio: string | null;
@@ -41,17 +41,17 @@ export interface E15SvgVariant {
 }
 
 /** A placement = linear map user space -> Canvas space (+ optional clip box). */
-export interface E15Map {
+export interface PlacementMap {
   /** user unit -> canvas unit along x / y */
   sx: number;
   sy: number;
   tx: number;
   ty: number;
   /** Visible window in canvas units (clip); null = unclipped. */
-  clip?: E15Rect | null;
+  clip?: CanvasRect | null;
 }
 
-export function mapPoint(m: E15Map, p: { x: number; y: number }): { x: number; y: number } {
+export function mapPoint(m: PlacementMap, p: { x: number; y: number }): { x: number; y: number } {
   return { x: m.tx + p.x * m.sx, y: m.ty + p.y * m.sy };
 }
 
@@ -63,10 +63,10 @@ export function mapPoint(m: E15Map, p: { x: number; y: number }): { x: number; y
 
 /** PAR-aware viewBox->viewport fit used by every spec-literal reading. */
 function viewBoxFit(
-  viewport: E15Rect,
+  viewport: CanvasRect,
   vb: { minX: number; minY: number; w: number; h: number },
   par: string,
-): E15Map {
+): PlacementMap {
   const meetOrSlice = par.trim().split(/\s+/)[1] ?? "meet";
   if (/^none$/i.test(par.trim())) {
     return {
@@ -103,7 +103,7 @@ function viewBoxFit(
  * no viewBox     -> 1 user unit == 1 region unit from the region origin
  *                   (SVG 1.1 §7.9/§7.10; preserveAspectRatio ignored §7.8).
  */
-export function iRegionViewport(v: E15SvgVariant, region: E15Rect): E15Map {
+export function iRegionViewport(v: SvgVariant, region: CanvasRect): PlacementMap {
   if (v.viewBox) return viewBoxFit(region, v.viewBox, v.preserveAspectRatio ?? "xMidYMid meet");
   return { sx: 1, sy: 1, tx: region.x, ty: region.y, clip: region };
 }
@@ -114,7 +114,7 @@ export function iRegionViewport(v: E15SvgVariant, region: E15Rect): E15Map {
  * stretches it into the region (CSS object-fit: fill semantics, CSS Images 3
  * §4.5). This was the empirically observed <img> behavior in E14 case06.
  */
-export function iIntrinsicStretch(v: E15SvgVariant, region: E15Rect): E15Map {
+export function iIntrinsicStretch(v: SvgVariant, region: CanvasRect): PlacementMap {
   const w0 = v.width ?? v.viewBox?.w ?? region.w;
   const h0 = v.height ?? v.viewBox?.h ?? region.h;
   return {
@@ -126,7 +126,7 @@ export function iIntrinsicStretch(v: E15SvgVariant, region: E15Rect): E15Map {
   };
 }
 
-function containBox(naturalW: number, naturalH: number, region: E15Rect): E15Rect {
+function containBox(naturalW: number, naturalH: number, region: CanvasRect): CanvasRect {
   const s = Math.min(region.w / naturalW, region.h / naturalH);
   const w = naturalW * s;
   const h = naturalH * s;
@@ -140,7 +140,7 @@ function containBox(naturalW: number, naturalH: number, region: E15Rect): E15Rec
  * non-uniformly per axis — for a contained box this is uniform. A viewBox is
  * honored inside the box via preserveAspectRatio.
  */
-export function iObjectFitContain(v: E15SvgVariant, region: E15Rect): E15Map {
+export function iObjectFitContain(v: SvgVariant, region: CanvasRect): PlacementMap {
   const w0 = v.width ?? v.viewBox?.w ?? region.w;
   const h0 = v.height ?? v.viewBox?.h ?? region.h;
   const box = containBox(w0, h0, region);
@@ -158,10 +158,10 @@ export function iObjectFitContain(v: E15SvgVariant, region: E15Rect): E15Map {
  * also what an unmodified inline <svg> or <object> document does when its
  * root width/height attributes establish the viewport).
  */
-export function iNaturalTopLeft(v: E15SvgVariant, region: E15Rect): E15Map {
+export function iNaturalTopLeft(v: SvgVariant, region: CanvasRect): PlacementMap {
   const w0 = v.width ?? v.viewBox?.w ?? region.w;
   const h0 = v.height ?? v.viewBox?.h ?? region.h;
-  const box: E15Rect = { x: region.x, y: region.y, w: w0, h: h0 };
+  const box: CanvasRect = { x: region.x, y: region.y, w: w0, h: h0 };
   if (v.viewBox) {
     // viewBox fits the attribute-sized viewport; attrs == viewBox here, so
     // scale 1 unless PAR says otherwise.
@@ -175,10 +175,10 @@ export function iNaturalTopLeft(v: E15SvgVariant, region: E15Rect): E15Map {
  * I-NATURAL-CENTERED: object-fit none — natural size, centered in the region
  * (CSS Images 3 §4.5 `none`, default object-position 50% 50%).
  */
-export function iNaturalCentered(v: E15SvgVariant, region: E15Rect): E15Map {
+export function iNaturalCentered(v: SvgVariant, region: CanvasRect): PlacementMap {
   const w0 = v.width ?? v.viewBox?.w ?? region.w;
   const h0 = v.height ?? v.viewBox?.h ?? region.h;
-  const box: E15Rect = {
+  const box: CanvasRect = {
     x: region.x + (region.w - w0) / 2,
     y: region.y + (region.h - h0) / 2,
     w: w0,
@@ -192,7 +192,7 @@ export function iNaturalCentered(v: E15SvgVariant, region: E15Rect): E15Map {
 }
 
 /** Coordinate space an embedding's interpretations are expressed in. */
-export const EMBEDDING_SPACE: Record<E15Embedding, "canvas" | "css"> = {
+export const EMBEDDING_SPACE: Record<EmbeddingMechanism, "canvas" | "css"> = {
   "svg-nested-attr": "canvas",
   "svg-nested-region": "canvas",
   "img-default": "css",
@@ -204,7 +204,7 @@ export const EMBEDDING_SPACE: Record<E15Embedding, "canvas" | "css"> = {
 };
 
 /** Interpretations each embedding mechanism could legally implement. */
-export const INTERPRETATIONS_BY_EMBEDDING: Record<E15Embedding, Array<(v: E15SvgVariant, r: E15Rect) => E15Map>> = {
+export const INTERPRETATIONS_BY_EMBEDDING: Record<EmbeddingMechanism, Array<(v: SvgVariant, r: CanvasRect) => PlacementMap>> = {
   // Body inserted as-is into Canvas space: its width/height ATTRIBUTES define
   // the nested viewport (SVG 1.1 §7.9), anchored at the region origin.
   "svg-nested-attr": [iNaturalTopLeft],
@@ -232,7 +232,7 @@ export const INTERPRETATION_NAMES: Record<string, string> = {
 export const CANVAS_W = 1920;
 export const CANVAS_H = 1080;
 
-export const REGIONS: Array<{ key: string; fragment: string | null; rect: E15Rect }> = [
+export const REGIONS: Array<{ key: string; fragment: string | null; rect: CanvasRect }> = [
   { key: "full", fragment: null, rect: { x: 0, y: 0, w: CANVAS_W, h: CANVAS_H } },
   { key: "half", fragment: "xywh=480,270,960,540", rect: { x: 480, y: 270, w: 960, h: 540 } },
   { key: "square500", fragment: "xywh=710,290,500,500", rect: { x: 710, y: 290, w: 500, h: 500 } },
@@ -242,7 +242,7 @@ export const REGIONS: Array<{ key: string; fragment: string | null; rect: E15Rec
 const VB1000 = { minX: 0, minY: 0, w: 1000, h: 1000 };
 const VB169 = { minX: 0, minY: 0, w: 1920, h: 1080 };
 
-export const VARIANTS: E15SvgVariant[] = [
+export const VARIANTS: SvgVariant[] = [
   { name: "e15-vb1000.svg", viewBox: VB1000, preserveAspectRatio: null, width: 1000, height: 1000 },
   { name: "e15-vb1920x1080.svg", viewBox: VB169, preserveAspectRatio: null, width: 1920, height: 1080 },
   { name: "e15-novb1000.svg", viewBox: null, preserveAspectRatio: null, width: 1000, height: 1000 },
@@ -258,7 +258,7 @@ export const VARIANTS: E15SvgVariant[] = [
 // ---------------------------------------------------------------------------
 // Measured record produced by the browser harness
 // ---------------------------------------------------------------------------
-export interface E15Measured {
+export interface CellMeasurements {
   /** CSS-pixel bbox of the red frame within the cell screenshot. */
   frameCss: { minX: number; minY: number; maxX: number; maxY: number } | null;
   circleCss: { cx: number; cy: number; diameterX: number; diameterY: number } | null;
@@ -269,14 +269,14 @@ export interface E15Measured {
   note?: string;
 }
 
-export interface E15CellResult {
+export interface CellResult {
   variant: string;
-  embedding: E15Embedding;
+  embedding: EmbeddingMechanism;
   regionKey: string;
   fragment: string | null;
   /** css px per canvas unit for this cell */
   k: number;
-  measured: E15Measured;
+  measured: CellMeasurements;
   /** Derived canvas-space landmark geometry (circle centre + radius, frame box). */
   derived: {
     circleCenterCanvas: { x: number; y: number } | null;

@@ -4,11 +4,11 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import {
   VARIANTS,
-  type E15Embedding,
-  type E15Landmarks,
-  type E15Rect,
-  type E15SvgVariant,
-} from "../../src/e15/analysis.ts";
+  type EmbeddingMechanism,
+  type LandmarkContract,
+  type CanvasRect,
+  type SvgVariant,
+} from "../../src/embedding-semantics/analysis.ts";
 import { makeClassifier, K } from "../../src/e17/classify.ts";
 import { fitMap } from "../../src/e16/comparison.ts";
 import { gotoLab, seek, shot, waitFrames, canvasToCss, screenshotPng, px } from "./utils.ts";
@@ -31,7 +31,7 @@ const E17 = resolve("evidence", "e17");
 const SHOTS = resolve(E17, "screenshots");
 
 // Adversarial-but-minimal embedding set for existing-page cells.
-const ENBS: E15Embedding[] = [
+const ENBS: EmbeddingMechanism[] = [
   "svg-nested-region",
   "img-default",
   "img-fill",
@@ -41,11 +41,11 @@ const ENBS: E15Embedding[] = [
 ];
 
 // Region-painting mechanisms whose explicit-viewBox agreement is hypothesis H1.
-const REGION_PAINTING = new Set<E15Embedding>(["svg-nested-region", "img-default", "img-fill", "object"]);
+const REGION_PAINTING = new Set<EmbeddingMechanism>(["svg-nested-region", "img-default", "img-fill", "object"]);
 
 // The xMaxYMax variant E15 never generated (landmark contract identical to
 // the e15 vb1000 family; see scripts/build-e17-fixtures.mjs).
-const MAX_VARIANT: E15SvgVariant = {
+const MAX_VARIANT: SvgVariant = {
   name: "e17-vb1000-max.svg",
   viewBox: { minX: 0, minY: 0, w: 1000, h: 1000 },
   preserveAspectRatio: "xMaxYMax meet",
@@ -64,14 +64,14 @@ const PAIRS: Array<[string, string]> = [
   ["e15-vb1000-slice.svg", "half"], // clipping case
 ];
 
-function loadLandmarks(): Record<string, E15Landmarks> {
+function loadLandmarks(): Record<string, LandmarkContract> {
   const e15 = JSON.parse(readFileSync(resolve("public", "svg", "e15", "e15-landmarks.json"), "utf8")) as Record<
     string,
-    E15Landmarks
+    LandmarkContract
   >;
   const e17 = JSON.parse(readFileSync(resolve("public", "svg", "e17", "e17-landmarks.json"), "utf8")) as Record<
     string,
-    E15Landmarks
+    LandmarkContract
   >;
   return { ...e15, ...e17 };
 }
@@ -79,7 +79,7 @@ function loadLandmarks(): Record<string, E15Landmarks> {
 let classifier: ReturnType<typeof makeClassifier> | null = null;
 function classify(): ReturnType<typeof makeClassifier> {
   if (!classifier) {
-    const regions: Array<{ key: string; fragment: string | null; rect: E15Rect }> = [
+    const regions: Array<{ key: string; fragment: string | null; rect: CanvasRect }> = [
       { key: "full", fragment: null, rect: { x: 0, y: 0, w: 1920, h: 1080 } },
       { key: "half", fragment: "xywh=480,270,960,540", rect: { x: 480, y: 270, w: 960, h: 540 } },
       { key: "square500", fragment: "xywh=710,290,500,500", rect: { x: 710, y: 290, w: 500, h: 500 } },
@@ -119,7 +119,7 @@ async function measureCell(
   apiName: "__e15" | "__e17",
   variant: string,
   regionKey: string,
-  emb: E15Embedding,
+  emb: EmbeddingMechanism,
   intrinsics: Record<string, { w: number; h: number }>,
 ): Promise<ReturnType<ReturnType<typeof makeClassifier>>> {
   const id = `${variant}|${regionKey}|${emb}`;
@@ -246,7 +246,7 @@ for (const regionKey of ["half", "rect43"]) {
     const userAgent = await page.evaluate(() => navigator.userAgent);
 
     const cells: ReturnType<ReturnType<typeof makeClassifier>>[] = [];
-    for (const emb of [...ENBS, "svg-nested-attr" as E15Embedding]) {
+    for (const emb of [...ENBS, "svg-nested-attr" as EmbeddingMechanism]) {
       cells.push(await measureCell(page, "__e17", "e17-vb1000-max.svg", regionKey, emb, intrinsics));
     }
     const el = page.locator(`[data-cell="e17-vb1000-max.svg|${regionKey}|svg-nested-region"]`);

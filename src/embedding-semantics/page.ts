@@ -11,7 +11,7 @@
  * resolution semantics.
  */
 
-import type { E15Embedding } from "./analysis.ts";
+import type { EmbeddingMechanism } from "./analysis.ts";
 
 const K = 0.25; // css px per canvas unit
 
@@ -44,7 +44,7 @@ const PAR_VARIANTS = [
   "e15-vb1920x1080-none.svg",
 ];
 
-const EMBEDDINGS: E15Embedding[] = [
+const EMBEDDINGS: EmbeddingMechanism[] = [
   "svg-nested-attr",
   "svg-nested-region",
   "img-default",
@@ -61,7 +61,7 @@ function cellId(variant: string, regionKey: string, emb: string): string {
   return `${variant}|${regionKey}|${emb}`;
 }
 
-function buildBox(variant: string, region: RegionDef, emb: E15Embedding): HTMLDivElement {
+function buildBox(variant: string, region: RegionDef, emb: EmbeddingMechanism): HTMLDivElement {
   const box = document.createElement("div");
   box.className = "e15-box";
   box.dataset.cell = cellId(variant, region.key, emb);
@@ -236,9 +236,9 @@ function main(): void {
     embeddings: EMBEDDINGS,
     coreVariants: CORE_VARIANTS,
     parVariants: PAR_VARIANTS,
-    cells(): Array<{ id: string; variant: string; embedding: E15Embedding; regionKey: string }> {
+    cells(): Array<{ id: string; variant: string; embedding: EmbeddingMechanism; regionKey: string }> {
       return Array.from(document.querySelectorAll<HTMLElement>(".e15-box")).map((el) => {
-        const [variant, regionKey, embedding] = el.dataset.cell!.split("|") as [string, string, E15Embedding];
+        const [variant, regionKey, embedding] = el.dataset.cell!.split("|") as [string, string, EmbeddingMechanism];
         return { id: el.dataset.cell!, variant, embedding, regionKey };
       });
     },

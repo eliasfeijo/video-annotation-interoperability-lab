@@ -9,9 +9,9 @@ import {
   REGIONS,
   VARIANTS,
   mapPoint,
-  type E15Embedding,
-  type E15Map,
-} from "../../src/e15/analysis.ts";
+  type EmbeddingMechanism,
+  type PlacementMap,
+} from "../../src/embedding-semantics/analysis.ts";
 
 /**
  * Experiment E15 — measures the resolved Canvas-space geometry of identical
@@ -27,7 +27,7 @@ const K = 0.25; // css px per canvas unit
 const TOL_CENTER = 12; // canvas units (~3 css px at K)
 const TOL_RADIUS = 14;
 
-// Landmark user-space geometry (written by scripts/build-e15-fixtures.mjs).
+// Landmark user-space geometry (written by scripts/build-embedding-semantics-fixtures.mjs).
 const LANDMARKS = JSON.parse(
   readFileSync(resolve("public", "svg", "e15", "e15-landmarks.json"), "utf8"),
 ) as Record<
@@ -74,7 +74,7 @@ function regionByKey(key: string) {
 }
 
 interface Prediction {
-  map: E15Map;
+  map: PlacementMap;
 }
 
 const SAMPLE_STRIDE = 1; // css px between mask samples (AA-sensitive stroke band)
@@ -84,7 +84,7 @@ const SAMPLE_STRIDE = 1; // css px between mask samples (AA-sensitive stroke ban
  * stroke band) over the cell, by inverse-mapping sample points to user space.
  */
 function predictedMasks(
-  m: E15Map,
+  m: PlacementMap,
   lm: { frame: { x: number; y: number; w: number; h: number }; circle: { cx: number; cy: number; r: number } },
   cellW: number,
   cellH: number,
@@ -205,7 +205,7 @@ async function shootCell(page: import("@playwright/test").Page, id: string): Pro
 
 function classifyCell(
   variantName: string,
-  embedding: E15Embedding,
+  embedding: EmbeddingMechanism,
   regionKey: string,
   png: PNG,
   innerSvgBox: { x: number; y: number; w: number; h: number } | null,
@@ -240,7 +240,7 @@ function classifyCell(
   const unitsPerCssPx = space === "canvas" ? 1 / K : 1;
   for (const fn of INTERPRETATIONS_BY_EMBEDDING[embedding]) {
     const name = INTERPRETATION_NAMES[fn.name] ?? fn.name;
-    let m: E15Map;
+    let m: PlacementMap;
     if (space === "canvas") {
       const g = fn(v, region.rect);
       m = { ...g, tx: g.tx - R.x, ty: g.ty - R.y };
@@ -340,7 +340,7 @@ for (const variant of VARIANTS) {
     test(`e15: ${variant.name} @ ${region.key}`, async ({ page }) => {
       const intrinsics = await openLab(page);
       const results: unknown[] = [];
-      for (const emb of Object.keys(INTERPRETATIONS_BY_EMBEDDING) as E15Embedding[]) {
+      for (const emb of Object.keys(INTERPRETATIONS_BY_EMBEDDING) as EmbeddingMechanism[]) {
         const id = `${variant.name}|${region.key}|${emb}`;
         let innerSvgBox: { x: number; y: number; w: number; h: number } | null = null;
         if (emb === "svg-nested-attr" || emb === "svg-nested-region") {

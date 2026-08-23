@@ -9,8 +9,8 @@
  * as importable infrastructure and parameterizes the variant/region/landmark
  * lookups so both /e15-lab.html and /e17-lab.html cells can be scored.
  *
- * Interpretation maps come from src/e15/analysis.ts — analysis infrastructure,
- * never renderer resolution logic.
+ * Interpretation maps come from src/embedding-semantics/analysis.ts — analysis
+ * infrastructure, never renderer resolution logic.
  */
 
 import { PNG } from "pngjs";
@@ -18,12 +18,12 @@ import {
   EMBEDDING_SPACE,
   INTERPRETATIONS_BY_EMBEDDING,
   INTERPRETATION_NAMES,
-  type E15Embedding,
-  type E15Landmarks,
-  type E15Map,
-  type E15Rect,
-  type E15SvgVariant,
-} from "../e15/analysis.ts";
+  type EmbeddingMechanism,
+  type LandmarkContract,
+  type PlacementMap,
+  type CanvasRect,
+  type SvgVariant,
+} from "../embedding-semantics/analysis.ts";
 
 export const K = 0.25; // css px per canvas unit
 
@@ -110,8 +110,8 @@ function tolScore(
 }
 
 function predictedMasks(
-  m: E15Map,
-  lm: Pick<E15Landmarks, "frame" | "circle">,
+  m: PlacementMap,
+  lm: Pick<LandmarkContract, "frame" | "circle">,
   cellW: number,
   cellH: number,
   unitsPerCssPx: number,
@@ -148,9 +148,9 @@ function predictedMasks(
 }
 
 export interface ClassifierDeps {
-  variants: E15SvgVariant[];
-  regions: Array<{ key: string; fragment: string | null; rect: E15Rect }>;
-  landmarks: Record<string, E15Landmarks>;
+  variants: SvgVariant[];
+  regions: Array<{ key: string; fragment: string | null; rect: CanvasRect }>;
+  landmarks: Record<string, LandmarkContract>;
 }
 
 /**
@@ -163,7 +163,7 @@ export function makeClassifier(deps: ClassifierDeps) {
 
   return function classifyCell(
     variantName: string,
-    embedding: E15Embedding,
+    embedding: EmbeddingMechanism,
     regionKey: string,
     png: PNG,
     innerSvgBox: { x: number; y: number; w: number; h: number } | null,
@@ -196,7 +196,7 @@ export function makeClassifier(deps: ClassifierDeps) {
     const unitsPerCssPx = space === "canvas" ? 1 / K : 1;
     for (const fn of INTERPRETATIONS_BY_EMBEDDING[embedding]) {
       const name = INTERPRETATION_NAMES[fn.name] ?? fn.name;
-      let m: E15Map;
+      let m: PlacementMap;
       if (space === "canvas") {
         const g = fn(v, region.rect);
         m = { ...g, tx: g.tx - R.x, ty: g.ty - R.y };

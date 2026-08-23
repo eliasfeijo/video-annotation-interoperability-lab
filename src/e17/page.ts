@@ -4,13 +4,14 @@
  * Hosts ONLY the cells the E15 matrix lacks: the xMaxYMax preserveAspectRatio
  * variant. Everything else (cell id format `variant|regionKey|embedding`,
  * region geometry, embedding construction, measurement hooks) mirrors
- * /e15-lab.html + src/e15/page.ts verbatim so one classifier can score both.
+ * /e15-lab.html + src/embedding-semantics/page.ts verbatim so one classifier can
+ * score both.
  *
  * This page is measurement infrastructure only; it implements NO IIIF/W3C
  * resolution semantics.
  */
 
-import type { E15Embedding } from "../e15/analysis.ts";
+import type { EmbeddingMechanism } from "../embedding-semantics/analysis.ts";
 
 const K = 0.25; // css px per canvas unit
 
@@ -27,7 +28,7 @@ const REGIONS: RegionDef[] = [
 
 const VARIANTS = ["e17-vb1000-max.svg"];
 
-const EMBEDDINGS: E15Embedding[] = [
+const EMBEDDINGS: EmbeddingMechanism[] = [
   "svg-nested-region",
   "svg-nested-attr",
   "img-default",
@@ -43,7 +44,7 @@ function cellId(variant: string, regionKey: string, emb: string): string {
   return `${variant}|${regionKey}|${emb}`;
 }
 
-function buildBox(variant: string, region: RegionDef, emb: E15Embedding): HTMLDivElement {
+function buildBox(variant: string, region: RegionDef, emb: EmbeddingMechanism): HTMLDivElement {
   const box = document.createElement("div");
   box.className = "e15-box"; // same class so ready()-style queries stay uniform
   box.dataset.cell = cellId(variant, region.key, emb);
@@ -199,9 +200,9 @@ function main(): void {
     regions: REGIONS,
     embeddings: EMBEDDINGS,
     variants: VARIANTS,
-    cells(): Array<{ id: string; variant: string; embedding: E15Embedding; regionKey: string }> {
+    cells(): Array<{ id: string; variant: string; embedding: EmbeddingMechanism; regionKey: string }> {
       return Array.from(document.querySelectorAll<HTMLElement>(".e15-box")).map((el) => {
-        const [v, regionKey, embedding] = el.dataset.cell!.split("|") as [string, string, E15Embedding];
+        const [v, regionKey, embedding] = el.dataset.cell!.split("|") as [string, string, EmbeddingMechanism];
         return { id: el.dataset.cell!, variant: v, embedding, regionKey };
       });
     },

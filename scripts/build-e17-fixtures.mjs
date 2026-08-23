@@ -3,7 +3,7 @@
  *
  * E17 needs an xMaxYMax preserveAspectRatio variant that E15 never generated
  * (its PAR set was min/slice/none). The landmark contract is IDENTICAL to the
- * e15 vb1000 family (see scripts/build-e15-fixtures.mjs):
+ * e15 vb1000 family (see scripts/build-embedding-semantics-fixtures.mjs):
  *   viewBox 0 0 1000 1000; width/height 1000;
  *   frame rect inset 20 stroke #ff0000 width 8;
  *   circle cx=500 cy=500 r=200 fill #0000ff;
