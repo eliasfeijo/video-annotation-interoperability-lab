@@ -706,7 +706,7 @@ framework, never relocated. Owner: H.2-D §3.5–§3.6.
 4. **Analysis-only / counterfactual implementation** — prediction/measurement machinery
    consumed by NO renderer; renderers MUST NOT import it (`e14/comparison.ts`,
    `comparison/blind-comparison.ts`, `oracle/*`, `embedding-semantics/analysis.ts`,
-   `e16/comparison.ts`, `e17/classify.ts`).
+   `e16/comparison.ts`, `cross-engine/classify.ts`).
 
 Binding corollary (H.2-A): physical location does not establish semantic ownership;
 the class travels with the module and is declared in its module header.
@@ -723,8 +723,8 @@ Role words used by `AGENTS.md` behavior rules and by migration planning:
 - **Analysis infrastructure** — reuse-governance class 4 collectively (list above).
 - **Harness/measurement apparatus** — the lab app and measurement pages exposing
   renderers, fixtures, and hooks (`main.ts`, `embedding-semantics/page.ts`,
-  `e17/page.ts`, `tests/e2e/utils.ts`); deliberately below term level (see §5.7
-  closing note).
+  `cross-engine/page.ts`, `tests/e2e/utils.ts`); deliberately below term level
+  (see §5.7 closing note).
 - **Evidence-producing test** — a test/script whose successful run writes tracked
   evidence as a side effect (vitest suites `tests/e14-comparison.test.ts`,
   `tests/e16-comparison.test.ts`, `tests/blind-comparison.test.ts`; script

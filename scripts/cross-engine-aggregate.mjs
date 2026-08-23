@@ -1,6 +1,6 @@
 /**
  * Aggregates E17 evidence into evidence/e17/cross-engine-matrix.json and
- * summary.json. Reads only files written by tests/e2e/e17.spec.ts.
+ * summary.json. Reads only files written by tests/e2e/cross-engine.spec.ts.
  *
  * Agreement semantics: a matrix row is UNANIMOUS when every installed engine
  * produced the SAME interpretation-match set for that cell. Unanimity across

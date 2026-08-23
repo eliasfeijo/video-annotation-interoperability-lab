@@ -2,7 +2,7 @@
  * Experiment E17 — measurement/classification helpers.
  *
  * The scoring math (mask prediction, symmetric tolerance coverage, verdicts)
- * is lifted VERBATIM from tests/e2e/e15.spec.ts so E17 thresholds are exactly
+ * is lifted VERBATIM from tests/e2e/embedding-semantics.spec.ts so E17 thresholds are exactly
  * the E15 thresholds: K = 0.25 css px per canvas unit, coverage TOL_MIN 0.8,
  * dilation radius 3, SAMPLE_STRIDE 1. The e15 spec keeps its private copy
  * untouched (historical harness stays frozen); this module only re-exposes it

@@ -9,7 +9,7 @@ import {
   type CanvasRect,
   type SvgVariant,
 } from "../../src/embedding-semantics/analysis.ts";
-import { makeClassifier, K } from "../../src/e17/classify.ts";
+import { makeClassifier, K } from "../../src/cross-engine/classify.ts";
 import { fitMap } from "../../src/e16/comparison.ts";
 import { gotoLab, seek, shot, waitFrames, canvasToCss, screenshotPng, px } from "./utils.ts";
 
@@ -44,7 +44,7 @@ const ENBS: EmbeddingMechanism[] = [
 const REGION_PAINTING = new Set<EmbeddingMechanism>(["svg-nested-region", "img-default", "img-fill", "object"]);
 
 // The xMaxYMax variant E15 never generated (landmark contract identical to
-// the e15 vb1000 family; see scripts/build-e17-fixtures.mjs).
+ // the e15 vb1000 family; see scripts/build-cross-engine-fixtures.mjs).
 const MAX_VARIANT: SvgVariant = {
   name: "e17-vb1000-max.svg",
   viewBox: { minX: 0, minY: 0, w: 1000, h: 1000 },
