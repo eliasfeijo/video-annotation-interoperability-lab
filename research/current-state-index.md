@@ -81,6 +81,8 @@ These document the consolidation itself and are immutable once committed:
   governance rule and the `src/primitives/` namespace decision)
 - `phase-h2b-comparison-oracle-ownership.md` (Phase H.2-B; owns the comparison-harness
   and oracle-path ownership decisions: `src/comparison/`, `src/oracle/`)
+- `phase-h2c-dead-public-surface-reconciliation.md` (Phase H.2-C; owns the dead-surface
+  deletions and the retained `BodyKind "video"` decision)
 
 ## Maintenance rule for this index
 

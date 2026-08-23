@@ -1,8 +1,9 @@
 /**
- * Blind Renderer — layer ordering (z-order).
+ * Blind Renderer — z-order provenance and painting-motivation test.
  *
- * Collects painting annotations from all AnnotationPages in container-then-item
- * order and assigns an ascending integer zIndex in encounter order.
+ * The blind resolvers assign zIndex inline in encounter order while walking
+ * AnnotationPages; this module carries the rule provenance for that
+ * assignment.
  *
  * Provenance:
  *   - IIIF 3.0/4.0 AnnotationPage: "Clients should process the Annotation Pages
@@ -15,31 +16,6 @@
  */
 
 import type { IiifMode, Provenance } from "./types.ts";
-
-export interface Encounter {
-  /** Annotation node from the manifest. */
-  annotation: any;
-  /** Position of the AnnotationPage in the Canvas items (0-based). */
-  pageIndex: number;
-  /** Position of the Annotation within its page (0-based). */
-  itemIndex: number;
-  /** Global encounter ordinal across pages (0-based). */
-  ordinal: number;
-}
-
-/** Flatten painting annotations from a Canvas in encounter order. */
-export function collectPaintingAnnotations(canvas: any): Encounter[] {
-  const pages: any[] = Array.isArray(canvas?.items) ? canvas.items : [];
-  const out: Encounter[] = [];
-  let ordinal = 0;
-  pages.forEach((page, pageIndex) => {
-    const items: any[] = Array.isArray(page?.items) ? page.items : [];
-    items.forEach((ann, itemIndex) => {
-      out.push({ annotation: ann, pageIndex, itemIndex, ordinal: ordinal++ });
-    });
-  });
-  return out;
-}
 
 export function isPainting(annotation: any): boolean {
   const list = Array.isArray(annotation?.motivation)

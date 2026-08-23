@@ -31,10 +31,3 @@ export function temporalWindow(
 export function isActiveAt(overlay: Pick<ResolvedOverlay, "startTime" | "endTime">, t: number): boolean {
   return isActive({ start: overlay.startTime, end: overlay.endTime }, t);
 }
-
-export function activeAt(
-  overlays: ResolvedOverlay[],
-  t: number,
-): ResolvedOverlay[] {
-  return overlays.filter((o) => isActiveAt(o, t));
-}

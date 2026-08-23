@@ -81,6 +81,13 @@ export interface E14Security {
   decision: "render" | "sanitize" | "reject";
 }
 
+/**
+ * Overlay body kinds. `"video"` is currently never assigned — video bodies are
+ * carried by the manifest-level videoUrl, not as overlays — but the member is
+ * retained deliberately: removing it would decide modeled-but-unassigned
+ * record territory that belongs to the dual-model question (H.1 #11), not to
+ * dead-code cleanup (Phase H.2-C).
+ */
 export type BodyKind = "svg" | "png" | "textual" | "video";
 
 export interface E14Rule {
