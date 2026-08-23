@@ -11,16 +11,17 @@
 
 ## EXECUTION STATUS (recorded at phase G.x-6 — the body below is the pre-migration classification, preserved as written)
 
-All five ratified namespace families have been EXECUTED atomically, one commit per
+All ratified namespace families have been EXECUTED atomically, one commit per
 family, with evidence byte-identical throughout:
 
 | Family | Migration | Commit |
 |---|---|---|
 | G.x-1 validator | `src/n6/` → `src/validator/`; `run-n6-suite.mts` → `run-validator-suite.mts`; `n6-conformance.test.ts` → `validator-conformance.test.ts` | `ed33445` |
-| G.x-2 embedding-semantics | `src/e15/` → `src/embedding-semantics/`; builder + e2e spec renamed; Q3 symbols resolved (`CanvasRect`, `LandmarkContract`, `SvgVariant`, `PlacementMap`, `CellMeasurements`, `CellResult`; `E15Embedding → EmbeddingMechanism`) | `6169f83` |
+| G.x-2 embedding-semantics | `src/e15/` → `src/embedding-semantics/`; builder + e2e spec renamed; Q3 symbols resolved (`CanvasRect`, `LandmarkContract`, `SvgVariant`, `PlacementMap`, `CellMeasurements`, `CellResult`; `E15Embedding` → `EmbeddingMechanism`) | `6169f83` |
 | G.x-3 cross-engine | `src/e17/` → `src/cross-engine/`; builder, aggregate, spec, dedicated Playwright config renamed | `79658aa` |
 | G.x-4 nested-composition | `src/e16/` → `src/nested-composition/`; builder, unit test, e2e spec renamed | `a04ba86` |
 | G.x-5 composition | `src/e14/` → `src/composition/` (one namespace); builder, unit test, e2e spec renamed; ratified `Composition*` symbol set applied | `18c7ae3` |
+| G.x-8 consumer-probe | `build-n2-fixtures.mjs` → `build-consumer-probe-fixtures.mjs`; `n2-viewer.spec.ts` → `consumer-probe.spec.ts`; `playwright.n2.config.ts` → `playwright.consumer-probe.config.ts` | recorded as phase G.x-8 |
 
 Disposition of this inventory's §G ambiguities:
 

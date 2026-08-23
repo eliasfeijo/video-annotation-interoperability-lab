@@ -924,7 +924,8 @@ discovered during migration get rows here rather than new glossary terms.
 
 > ADDED BY PHASE G.x-0 MAPPING-FIRST DOCUMENTATION. Rows below were RATIFIED BEFORE
 > EXECUTION and have since been EXECUTED in full (phase G.x-1 through G.x-5; commits
-> `ed33445`, `6169f83`, `79658aa`, `a04ba86`, `18c7ae3`). The Current column is
+> `ed33445`, `6169f83`, `79658aa`, `a04ba86`, `18c7ae3`; plus the consumer-probe
+> harness family, phase G.x-8). The Current column is
 > retained as the ratified historical record of pre-migration state. This subsection
 > is a different kind of content from the archaeology table above: that table
 > translates historical FORMS for reading prose; this subsection records APPROVED
