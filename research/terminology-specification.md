@@ -704,7 +704,7 @@ framework, never relocated. Owner: H.2-D §3.5–§3.6.
    research observable (MF bounds/drop policy, security posture, z-order, window
    defaulting, synthesized-viewBox placement).
 4. **Analysis-only / counterfactual implementation** — prediction/measurement machinery
-   consumed by NO renderer; renderers MUST NOT import it (`e14/comparison.ts`,
+   consumed by NO renderer; renderers MUST NOT import it (`composition/comparison.ts`,
    `comparison/blind-comparison.ts`, `oracle/*`, `embedding-semantics/analysis.ts`,
    `nested-composition/comparison.ts`, `cross-engine/classify.ts`).
 

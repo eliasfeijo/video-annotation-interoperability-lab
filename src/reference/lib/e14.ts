@@ -19,14 +19,14 @@
  */
 
 import type {
-  E14Manifest,
-  E14Model,
-  E14Overlay,
-  E14Placement,
-  E14SvgAttrs,
+  CompositionManifest,
+  CompositionModel,
+  CompositionOverlay,
+  CompositionPlacement,
+  CompositionSvgAttrs,
   Rect,
   SvgBox,
-} from "../../e14/types.ts";
+} from "../../composition/types.ts";
 import { asArray } from "./asArray.ts";
 import {
   motivationIsPainting,
@@ -39,12 +39,12 @@ import { temporalWindow } from "./timing.ts";
 import { readSvgRootAttrs } from "../../primitives/svg-root.ts";
 import { regionAsViewportViewBoxFit } from "../../primitives/region-as-viewport-placement.ts";
 
-export interface E14Fetchers {
+export interface CompositionFetchers {
   fetchSvg: (url: string) => Promise<string>;
   fetchManifest: (url: string) => Promise<any>;
 }
 
-export interface E14ResolveOptions {
+export interface CompositionResolveOptions {
   /** Spatial frame for Model C (target media intrinsic dimensions). */
   videoWidth?: number;
   videoHeight?: number;
@@ -70,7 +70,7 @@ function firstPartOfId(body: any): string | undefined {
   return p?.id;
 }
 
-export function detectModel(manifest: any): E14Model {
+export function detectModel(manifest: any): CompositionModel {
   const type = String(manifest?.type ?? "");
   if (type === "AnnotationCollection" || type === "Annotation") return "C";
   const canvas = asArray<any>(manifest?.items).find((i) => i?.type === "Canvas");
@@ -101,7 +101,7 @@ export function parseSpatialRect(
  * synthesizes one from width/height (falling back to the region) — the
  * documented existing behavior (see docs/ambiguities.md §1).
  */
-export function refPlacement(viewport: Rect, attrs: E14SvgAttrs, synthesizeNoViewBox = true): E14Placement {
+export function refPlacement(viewport: Rect, attrs: CompositionSvgAttrs, synthesizeNoViewBox = true): CompositionPlacement {
   const hasViewBox = !!attrs.viewBox;
   const viewBox: SvgBox = attrs.viewBox ?? {
     minX: 0,
@@ -148,17 +148,17 @@ export function refPlacement(viewport: Rect, attrs: E14SvgAttrs, synthesizeNoVie
   };
 }
 
-function securityOf(kind: string): E14Overlay["security"] {
+function securityOf(kind: string): CompositionOverlay["security"] {
   if (kind === "svg") return undefined; // filled by caller when SVG text is known
   return { level: "safe", blocking: [], decision: "render" };
 }
 
-export async function resolveE14Manifest(
+export async function resolveCompositionManifest(
   manifest: any,
   manifestUrl: string,
-  fetchers: E14Fetchers,
-  options: E14ResolveOptions = {},
-): Promise<E14Manifest> {
+  fetchers: CompositionFetchers,
+  options: CompositionResolveOptions = {},
+): Promise<CompositionManifest> {
   const model = detectModel(manifest);
   const videoW = options.videoWidth ?? DEFAULT_VIDEO_W;
   const videoH = options.videoHeight ?? DEFAULT_VIDEO_H;
@@ -173,10 +173,10 @@ export async function resolveE14Manifest(
 async function resolveIiif(
   manifest: any,
   manifestUrl: string,
-  fetchers: E14Fetchers,
-  model: E14Model,
-  options: E14ResolveOptions,
-): Promise<E14Manifest> {
+  fetchers: CompositionFetchers,
+  model: CompositionModel,
+  options: CompositionResolveOptions,
+): Promise<CompositionManifest> {
   const canvasNode = asArray<any>(manifest?.items).find((i) => i?.type === "Canvas");
   if (!canvasNode) throw new Error("no Canvas in manifest");
   const canvas = {
@@ -190,7 +190,7 @@ async function resolveIiif(
   const annotations = pages.flatMap((p) => asArray<any>(p.items));
 
   let videoUrl: string | null = null;
-  const overlays: E14Overlay[] = [];
+  const overlays: CompositionOverlay[] = [];
   let paintIndex = 0;
 
   for (const ann of annotations) {
@@ -227,7 +227,7 @@ async function resolveIiif(
         }
         const attrs = readSvgRootAttrs(svgText);
         const placement = refPlacement(dest, attrs);
-        const rules: E14Overlay["rules"] = [
+        const rules: CompositionOverlay["rules"] = [
           { rule: "Model A: painting SVG directly into Canvas", provenance: model === "B" ? "NORMATIVE" : "NORMATIVE" },
           { rule: `temporal window [${window.start},${window.end})`, provenance: "NORMATIVE" },
           { rule: "spatial fragment => destination region (region-as-destination)", provenance: "DERIVED" },
@@ -281,7 +281,7 @@ async function resolveIiif(
 
       // Raster (PNG) control body.
       if (body.format && /^image\/(?!svg)/.test(String(body.format))) {
-        const placement: E14Placement = {
+        const placement: CompositionPlacement = {
           mode: "image-contain",
           viewport: dest,
           scale: null,
@@ -317,13 +317,13 @@ async function resolveIiif(
 async function resolveNestedCanvas(
   body: any,
   manifestUrl: string,
-  fetchers: E14Fetchers,
+  fetchers: CompositionFetchers,
   outerDest: Rect,
   window: { start: number; end: number },
   startZ: number,
-  model: E14Model,
-  options: E14ResolveOptions,
-): Promise<E14Overlay[]> {
+  model: CompositionModel,
+  options: CompositionResolveOptions,
+): Promise<CompositionOverlay[]> {
   const innerManifestUrl = abs(String(firstPartOfId(body) ?? body.id), manifestUrl);
   const innerManifest = await fetchers.fetchManifest(innerManifestUrl);
   const innerCanvas = asArray<any>(innerManifest?.items).find((i) => i?.type === "Canvas" && i.id === body.id)
@@ -348,7 +348,7 @@ async function resolveNestedCanvas(
   const ox = fit === "fill" ? 0 : (outerDest.w - innerW * nestedScaleX) / 2;
   const oy = fit === "fill" ? 0 : (outerDest.h - innerH * nestedScaleY) / 2;
 
-  const out: E14Overlay[] = [];
+  const out: CompositionOverlay[] = [];
   let z = startZ;
   for (const ann of innerAnnotations) {
     if (!motivationIsPainting(ann)) continue;
@@ -417,13 +417,13 @@ async function resolveNestedCanvas(
 async function resolveModelC(
   manifest: any,
   manifestUrl: string,
-  fetchers: E14Fetchers,
+  fetchers: CompositionFetchers,
   videoW: number,
   videoH: number,
-): Promise<E14Manifest> {
+): Promise<CompositionManifest> {
   const annotations = asArray<any>(manifest?.items ?? manifest);
   let videoUrl: string | null = null;
-  const overlays: E14Overlay[] = [];
+  const overlays: CompositionOverlay[] = [];
   let z = 0;
 
   for (const ann of annotations) {

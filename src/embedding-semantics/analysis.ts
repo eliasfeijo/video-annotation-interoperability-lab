@@ -1,7 +1,7 @@
 /**
  * Experiment E15 — shared evidence data model + named interpretations.
  *
- * These are ANALYSIS INFRASTRUCTURE (like src/e14/comparison.ts), not renderer
+ * These are ANALYSIS INFRASTRUCTURE (like src/composition/comparison.ts), not renderer
  * semantics: they compute where each SVG landmark SHOULD land under each
  * candidate reading of the standards, so measured browser geometry can be
  * classified. No renderer imports these predictions.

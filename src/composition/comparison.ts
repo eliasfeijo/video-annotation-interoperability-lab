@@ -12,9 +12,9 @@
  */
 
 import type {
-  E14Manifest,
-  E14Overlay,
-  E14Placement,
+  CompositionManifest,
+  CompositionOverlay,
+  CompositionPlacement,
   Provenance,
   RendererName,
 } from "./types.ts";
@@ -34,7 +34,7 @@ export interface RendererPair {
   diffs: OverlayDiff[];
 }
 
-export interface E14Comparison {
+export interface CompositionComparison {
   byPair: RendererPair[];
   /** Short verdict strings, e.g. "a==blind", "a!=native". */
   verdicts: string[];
@@ -51,7 +51,7 @@ function rectKey(r: { x: number; y: number; w: number; h: number }): string {
   return `${round(r.x)},${round(r.y)},${round(r.w)},${round(r.h)}`;
 }
 
-function placementKey(p: E14Placement): string {
+function placementKey(p: CompositionPlacement): string {
   const nested = p.nested
     ? `|nested(${round(p.nested.innerWidth)}x${round(p.nested.innerHeight)} s=${round(p.nested.scaleX)},${round(p.nested.scaleY)} off=${round(p.nested.offsetX)},${round(p.nested.offsetY)})`
     : "";
@@ -59,7 +59,7 @@ function placementKey(p: E14Placement): string {
 }
 
 /** Provenance classes carried by an overlay's rules (for reporting). */
-export function ruleProvenances(ov: E14Overlay): Provenance[] {
+export function ruleProvenances(ov: CompositionOverlay): Provenance[] {
   const seen: Provenance[] = [];
   for (const r of ov.rules) {
     if (!seen.includes(r.provenance)) seen.push(r.provenance);
@@ -71,7 +71,7 @@ export function ruleProvenances(ov: E14Overlay): Provenance[] {
  * Classify a single field divergence. Special-cases the known E14 question
  * (SVG-as-image, no viewBox) and records the rest by the involved rules.
  */
-export function classifyDiff(field: string, a: E14Overlay, b: E14Overlay): Provenance {
+export function classifyDiff(field: string, a: CompositionOverlay, b: CompositionOverlay): Provenance {
   const pa = ruleProvenances(a);
   const pb = ruleProvenances(b);
   const all = Array.from(new Set([...pa, ...pb]));
@@ -99,7 +99,7 @@ export function classifyDiff(field: string, a: E14Overlay, b: E14Overlay): Prove
   return "IMPLEMENTATION_GAP";
 }
 
-function diffFields(a: E14Overlay, b: E14Overlay, idx: number, overlayId: string): OverlayDiff[] {
+function diffFields(a: CompositionOverlay, b: CompositionOverlay, idx: number, overlayId: string): OverlayDiff[] {
   const diffs: OverlayDiff[] = [];
   const push = (field: string, av: string, bv: string) =>
     diffs.push({
@@ -142,8 +142,8 @@ function diffFields(a: E14Overlay, b: E14Overlay, idx: number, overlayId: string
 export function compareManifestPair(
   ra: RendererName,
   rb: RendererName,
-  a: E14Manifest | null,
-  b: E14Manifest | null,
+  a: CompositionManifest | null,
+  b: CompositionManifest | null,
 ): RendererPair {
   const diffs: OverlayDiff[] = [];
   if (!a || !b) {
@@ -178,9 +178,9 @@ export function compareManifestPair(
   return { a: ra, b: rb, diffs };
 }
 
-export function compareE14(
-  manifests: Partial<Record<RendererName, E14Manifest | null>>,
-): E14Comparison {
+export function compareCompositionRecords(
+  manifests: Partial<Record<RendererName, CompositionManifest | null>>,
+): CompositionComparison {
   const byPair: RendererPair[] = [];
   const verdicts: string[] = [];
   const overlayCount: Partial<Record<RendererName, number>> = {};
@@ -199,7 +199,7 @@ export function compareE14(
 }
 
 /** Map a user-space point through an overlay's placement into outer Canvas units. */
-export function userToCanvas(ov: E14Overlay, p: { x: number; y: number }): { x: number; y: number } {
+export function userToCanvas(ov: CompositionOverlay, p: { x: number; y: number }): { x: number; y: number } {
   const pl = ov.placement;
   const vp = pl.viewport;
   const vb = ov.svgAttrs.viewBox;

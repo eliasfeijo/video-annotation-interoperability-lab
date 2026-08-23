@@ -8,7 +8,7 @@
  * divergences between fill / contain / direct-painting outcomes.
  */
 
-import type { E14Overlay, Rect } from "../e14/types.ts";
+import type { CompositionOverlay, Rect } from "../composition/types.ts";
 
 export type NestedFit = "fill" | "contain";
 

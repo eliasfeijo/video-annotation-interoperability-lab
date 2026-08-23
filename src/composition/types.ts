@@ -9,7 +9,7 @@
  * Each renderer computes the values in its own way and fills these shapes.
  */
 
-export type E14Model = "A" | "B" | "C";
+export type CompositionModel = "A" | "B" | "C";
 export type RendererName = "a" | "blind" | "native";
 
 /**
@@ -38,14 +38,14 @@ export interface SvgBox {
   h: number;
 }
 
-export interface E14SvgAttrs {
+export interface CompositionSvgAttrs {
   viewBox?: SvgBox;
   preserveAspectRatio?: string;
   width?: number;
   height?: number;
 }
 
-export type E14PlacementMode =
+export type CompositionPlacementMode =
   | "viewBox-meet"
   | "viewBox-slice"
   | "viewBox-none"
@@ -54,7 +54,7 @@ export type E14PlacementMode =
   | "image-contain";
 
 /** Model B: linear map from inner Canvas space into an outer destination. */
-export interface E14NestedMap {
+export interface CompositionNestedMap {
   innerWidth: number;
   innerHeight: number;
   scaleX: number;
@@ -63,8 +63,8 @@ export interface E14NestedMap {
   offsetY: number;
 }
 
-export interface E14Placement {
-  mode: E14PlacementMode;
+export interface CompositionPlacement {
+  mode: CompositionPlacementMode;
   /** Destination region (= SVG viewport) in outer Canvas units. */
   viewport: Rect;
   /** Uniform scale factor for viewBox branches; null for none/no-viewBox. */
@@ -72,10 +72,10 @@ export interface E14Placement {
   /** Offset of the user-space origin within the destination (outer units). */
   translation: { x: number; y: number };
   /** Present only for Model B overlays. */
-  nested?: E14NestedMap;
+  nested?: CompositionNestedMap;
 }
 
-export interface E14Security {
+export interface CompositionSecurity {
   level: "safe" | "unsupported" | "unsafe";
   blocking: string[];
   decision: "render" | "sanitize" | "reject";
@@ -91,28 +91,28 @@ export interface E14Security {
  */
 export type BodyKind = "svg" | "png" | "textual" | "video";
 
-export interface E14Rule {
+export interface CompositionRule {
   rule: string;
   provenance: Provenance;
 }
 
-export interface E14Overlay {
+export interface CompositionOverlay {
   id: string;
-  model: E14Model;
+  model: CompositionModel;
   startTime: number;
   endTime: number;
   zIndex: number;
   /** Destination region in the OUTER Canvas space. */
   destination: Rect;
-  svgAttrs: E14SvgAttrs;
-  placement: E14Placement;
-  security?: E14Security;
-  rules: E14Rule[];
+  svgAttrs: CompositionSvgAttrs;
+  placement: CompositionPlacement;
+  security?: CompositionSecurity;
+  rules: CompositionRule[];
   kind: BodyKind;
   /** Model B only: the overlay resolved inside the inner Canvas before mapping. */
   inner?: {
     destination: Rect;
-    placement: E14Placement;
+    placement: CompositionPlacement;
   };
   /** Absolute URL of the body resource (used by the native <img> stage). */
   resourceUrl?: string;
@@ -120,17 +120,17 @@ export interface E14Overlay {
   svgText?: string;
 }
 
-export interface E14CanvasInfo {
+export interface CompositionCanvasInfo {
   id: string;
   width: number;
   height: number;
   duration: number | null;
 }
 
-export interface E14Manifest {
+export interface CompositionManifest {
   manifestId: string;
-  model: E14Model;
-  canvas: E14CanvasInfo;
+  model: CompositionModel;
+  canvas: CompositionCanvasInfo;
   videoUrl: string | null;
-  overlays: E14Overlay[];
+  overlays: CompositionOverlay[];
 }

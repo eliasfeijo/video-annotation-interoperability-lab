@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import { resolve, basename } from "node:path";
-import { resolveE14Manifest } from "../src/reference/lib/e14.ts";
-import { resolveBlindE14Manifest } from "../src/blind/e14.ts";
+import { resolveCompositionManifest } from "../src/reference/lib/e14.ts";
+import { resolveBlindCompositionManifest } from "../src/blind/e14.ts";
 import { resolveNativeManifest } from "../src/native/resolver.ts";
-import { compareE14 } from "../src/e14/comparison.ts";
+import { compareCompositionRecords } from "../src/composition/comparison.ts";
 import { fitMap, landmarkToOuter, fitsCoincide } from "../src/nested-composition/comparison.ts";
-import type { E14Manifest, E14Overlay, RendererName } from "../src/e14/types.ts";
+import type { CompositionManifest, CompositionOverlay, RendererName } from "../src/composition/types.ts";
 
 
 /**
@@ -59,20 +59,20 @@ function load(name: string): any {
   return JSON.parse(readFileSync(resolve(MANIFEST_DIR, `${name}.json`), "utf8"));
 }
 
-async function runAll(name: string, fit: Fit): Promise<Record<RendererName, E14Manifest>> {
+async function runAll(name: string, fit: Fit): Promise<Record<RendererName, CompositionManifest>> {
   const manifest = load(name);
   const url = `${ORIGIN}/manifests/e16/${name}.json`;
   const f = fetchers();
   const opts = { nestedFit: fit };
   return {
-    a: await resolveE14Manifest(manifest, url, f, opts),
-    blind: await resolveBlindE14Manifest(manifest, url, f, opts),
+    a: await resolveCompositionManifest(manifest, url, f, opts),
+    blind: await resolveBlindCompositionManifest(manifest, url, f, opts),
     native: await resolveNativeManifest(manifest, url, f, opts),
   };
 }
 
-const reports = new Map<string, ReturnType<typeof compareE14>>();
-const resolved = new Map<string, Record<RendererName, E14Manifest>>();
+const reports = new Map<string, ReturnType<typeof compareCompositionRecords>>();
+const resolved = new Map<string, Record<RendererName, CompositionManifest>>();
 
 describe("E16: nested-Canvas composition across three renderers x two fit readings", () => {
   for (const c of B_CASES) {
@@ -80,7 +80,7 @@ describe("E16: nested-Canvas composition across three renderers x two fit readin
       it(`${c} [${fit}]: resolves with all renderers`, async () => {
         const r = await runAll(c, fit);
         resolved.set(`${c}|${fit}`, r);
-        const cmp = compareE14(r);
+        const cmp = compareCompositionRecords(r);
         reports.set(`${c}|${fit}`, cmp);
         for (const name of ["a", "blind", "native"] as const) {
           expect(r[name].overlays.length, `${c} ${name}`).toBe(2); // vb svg + novb svg
@@ -158,7 +158,7 @@ interface RectLike {
 function round(x: number): number {
   return Math.round(x * 1000) / 1000;
 }
-function destKey(ov: E14Overlay): string {
+function destKey(ov: CompositionOverlay): string {
   const d = ov.destination;
   return `${round(d.x)},${round(d.y)},${round(d.w)},${round(d.h)}`;
 }

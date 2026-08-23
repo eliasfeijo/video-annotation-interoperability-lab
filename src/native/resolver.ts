@@ -20,14 +20,14 @@
  */
 
 import type {
-  E14Manifest,
-  E14Model,
-  E14Overlay,
-  E14Placement,
-  E14SvgAttrs,
-  E14Security,
+  CompositionManifest,
+  CompositionModel,
+  CompositionOverlay,
+  CompositionPlacement,
+  CompositionSvgAttrs,
+  CompositionSecurity,
   Rect,
-} from "../e14/types.ts";
+} from "../composition/types.ts";
 import { readSvgRootAttrs } from "../primitives/svg-root.ts";
 import { regionAsViewportViewBoxFit } from "../primitives/region-as-viewport-placement.ts";
 
@@ -61,7 +61,7 @@ function abs(url: string, base: string): string {
 // ---------------------------------------------------------------------------
 // Model detection (native's own structural walk)
 // ---------------------------------------------------------------------------
-export function detectE14ModelNative(manifest: any): E14Model {
+export function detectCompositionModelNative(manifest: any): CompositionModel {
   const t = String(manifest?.type ?? "");
   if (t === "AnnotationCollection" || t === "Annotation") return "C";
   const canvas = asArray<any>(manifest?.items).find((i) => i?.type === "Canvas");
@@ -87,7 +87,7 @@ export function detectE14ModelNative(manifest: any): E14Model {
 // ---------------------------------------------------------------------------
 // Native placement (SVG-as-image semantics)
 // ---------------------------------------------------------------------------
-export function nativePlacement(dest: Rect, attrs: E14SvgAttrs): E14Placement {
+export function nativePlacement(dest: Rect, attrs: CompositionSvgAttrs): CompositionPlacement {
   if (!attrs.viewBox) {
     return {
       mode: "no-viewBox-1to1",
@@ -135,7 +135,7 @@ export function nativePlacement(dest: Rect, attrs: E14SvgAttrs): E14Placement {
 // classification is recorded for the report — the <img> sandbox is a browser
 // behavior, NOT a manifest-expressible security policy.
 // ---------------------------------------------------------------------------
-export function nativeSecurity(svgText: string): E14Security {
+export function nativeSecurity(svgText: string): CompositionSecurity {
   const has = (re: RegExp) => re.test(svgText);
   const blocking: string[] = [];
   if (has(/<script\b/i)) blocking.push("script");
@@ -158,8 +158,8 @@ export async function resolveNativeManifest(
   manifestUrl: string,
   fetchers: NativeFetchers,
   options: NativeOptions = {},
-): Promise<E14Manifest> {
-  const model = detectE14ModelNative(manifest);
+): Promise<CompositionManifest> {
+  const model = detectCompositionModelNative(manifest);
   const videoW = options.videoWidth ?? DEFAULT_VIDEO_W;
   const videoH = options.videoHeight ?? DEFAULT_VIDEO_H;
 
@@ -171,9 +171,9 @@ async function resolveNativeIiif(
   manifest: any,
   manifestUrl: string,
   fetchers: NativeFetchers,
-  model: E14Model,
+  model: CompositionModel,
   options: NativeOptions,
-): Promise<E14Manifest> {
+): Promise<CompositionManifest> {
   const canvasNode = asArray<any>(manifest?.items).find((i) => i?.type === "Canvas");
   if (!canvasNode) throw new Error("no Canvas in manifest");
   const canvas = {
@@ -187,7 +187,7 @@ async function resolveNativeIiif(
   const annotations = pages.flatMap((p) => asArray<any>(p.items));
 
   let videoUrl: string | null = null;
-  const overlays: E14Overlay[] = [];
+  const overlays: CompositionOverlay[] = [];
   let z = 0;
 
   const targetOf = (ann: any) => {
@@ -358,9 +358,9 @@ async function resolveNativeNested(
   outerDest: Rect,
   window: { start: number; end: number },
   startZ: number,
-  model: E14Model,
+  model: CompositionModel,
   options: NativeOptions,
-): Promise<E14Overlay[]> {
+): Promise<CompositionOverlay[]> {
   // IIIF serializes partOf as an array; W3C-flavoured fixtures may use an object.
   const partOf = Array.isArray(body.partOf) ? body.partOf[0]?.id : body.partOf?.id;
   const innerManifestUrl = abs(String(partOf ?? body.id), manifestUrl);
@@ -381,7 +381,7 @@ async function resolveNativeNested(
 
   const innerPages = asArray<any>(innerCanvas.items).filter((i) => i?.type === "AnnotationPage");
   const innerAnnotations = innerPages.flatMap((p) => asArray<any>(p.items));
-  const out: E14Overlay[] = [];
+  const out: CompositionOverlay[] = [];
   let z = startZ;
 
   for (const ann of innerAnnotations) {
@@ -456,10 +456,10 @@ async function resolveNativeC(
   fetchers: NativeFetchers,
   videoW: number,
   videoH: number,
-): Promise<E14Manifest> {
+): Promise<CompositionManifest> {
   const annotations = asArray<any>(manifest?.items ?? manifest);
   let videoUrl: string | null = null;
-  const overlays: E14Overlay[] = [];
+  const overlays: CompositionOverlay[] = [];
   let z = 0;
 
   for (const ann of annotations) {

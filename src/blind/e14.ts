@@ -14,14 +14,14 @@
  */
 
 import type {
-  E14Manifest,
-  E14Model,
-  E14Overlay,
-  E14Placement,
-  E14SvgAttrs,
-  E14Security,
+  CompositionManifest,
+  CompositionModel,
+  CompositionOverlay,
+  CompositionPlacement,
+  CompositionSvgAttrs,
+  CompositionSecurity,
   Rect,
-} from "../e14/types.ts";
+} from "../composition/types.ts";
 import {
   findCanvas,
   parseTarget,
@@ -64,7 +64,7 @@ function abs(url: string, base: string): string {
 }
 
 /** Blind's own model detection (written independently of the reference). */
-export function detectE14Model(manifest: any): E14Model {
+export function detectCompositionModel(manifest: any): CompositionModel {
   const type = String(manifest?.type ?? "");
   if (type === "AnnotationCollection" || type === "Annotation") return "C";
   const canvas = findCanvas(manifest);
@@ -79,7 +79,7 @@ export function detectE14Model(manifest: any): E14Model {
   return "A";
 }
 
-function toPlacement(p: ReturnType<typeof computeRegionAsViewportPlacement>): E14Placement {
+function toPlacement(p: ReturnType<typeof computeRegionAsViewportPlacement>): CompositionPlacement {
   return {
     mode: p.mode,
     viewport: p.viewport,
@@ -88,7 +88,7 @@ function toPlacement(p: ReturnType<typeof computeRegionAsViewportPlacement>): E1
   };
 }
 
-function securityOf(svgText: string | null): E14Security {
+function securityOf(svgText: string | null): CompositionSecurity {
   if (svgText === null) return { level: "safe", blocking: [], decision: "render" };
   const c = classifySvg(svgText);
   return {
@@ -98,13 +98,13 @@ function securityOf(svgText: string | null): E14Security {
   };
 }
 
-export async function resolveBlindE14Manifest(
+export async function resolveBlindCompositionManifest(
   manifest: any,
   manifestUrl: string,
   fetchers: BlindE14Fetchers,
   options: BlindE14Options = {},
-): Promise<E14Manifest> {
-  const model = detectE14Model(manifest);
+): Promise<CompositionManifest> {
+  const model = detectCompositionModel(manifest);
   const videoW = options.videoWidth ?? DEFAULT_VIDEO_W;
   const videoH = options.videoHeight ?? DEFAULT_VIDEO_H;
 
@@ -119,9 +119,9 @@ async function resolveBlindIiif(
   manifest: any,
   manifestUrl: string,
   fetchers: BlindE14Fetchers,
-  model: E14Model,
+  model: CompositionModel,
   options: BlindE14Options,
-): Promise<E14Manifest> {
+): Promise<CompositionManifest> {
   const canvasNode = findCanvas(manifest);
   if (!canvasNode) throw new Error("no Canvas in manifest");
   const canvas = {
@@ -133,7 +133,7 @@ async function resolveBlindIiif(
 
   const inputs = collectPaintingInputs(canvasNode, canvas.width, canvas.height);
   let videoUrl: string | null = null;
-  const overlays: E14Overlay[] = [];
+  const overlays: CompositionOverlay[] = [];
   let paintIndex = 0;
 
   for (const input of inputs) {
@@ -252,9 +252,9 @@ async function resolveBlindNested(
   outerDest: Rect,
   window: { start: number; end: number },
   startZ: number,
-  model: E14Model,
+  model: CompositionModel,
   options: BlindE14Options,
-): Promise<E14Overlay[]> {
+): Promise<CompositionOverlay[]> {
   // IIIF serializes partOf as an array; W3C-flavoured fixtures may use an object.
   const partOf = Array.isArray(body.partOf) ? body.partOf[0]?.id : body.partOf?.id;
   const innerManifestUrl = abs(String(partOf ?? body.id), manifestUrl);
@@ -273,7 +273,7 @@ async function resolveBlindNested(
   const oy = fit === "fill" ? 0 : (outerDest.h - innerH * nsy) / 2;
 
   const innerInputs = collectPaintingInputs(innerCanvas, innerW, innerH);
-  const out: E14Overlay[] = [];
+  const out: CompositionOverlay[] = [];
   let z = startZ;
 
   for (const input of innerInputs) {
@@ -348,10 +348,10 @@ async function resolveBlindC(
   fetchers: BlindE14Fetchers,
   videoW: number,
   videoH: number,
-): Promise<E14Manifest> {
+): Promise<CompositionManifest> {
   const annotations = asArray<any>(manifest?.items ?? manifest);
   let videoUrl: string | null = null;
-  const overlays: E14Overlay[] = [];
+  const overlays: CompositionOverlay[] = [];
   let z = 0;
 
   for (const ann of annotations) {

@@ -16,12 +16,12 @@ import { BlindStage } from "./blind/compositor.ts";
 import { compareSemantics } from "./comparison/blind-comparison.ts";
 import type { BlindManifest, BlindOverlay } from "./blind/types.ts";
 import { classifySvg, sanitizeSvg } from "./blind/sanitize.ts";
-import { resolveE14Manifest } from "./reference/lib/e14.ts";
-import { resolveBlindE14Manifest } from "./blind/e14.ts";
+import { resolveCompositionManifest } from "./reference/lib/e14.ts";
+import { resolveBlindCompositionManifest } from "./blind/e14.ts";
 import { resolveNativeManifest } from "./native/resolver.ts";
 import { NativeStage } from "./native/stage.ts";
-import { compareE14 } from "./e14/comparison.ts";
-import type { E14Manifest, E14Overlay } from "./e14/types.ts";
+import { compareCompositionRecords } from "./composition/comparison.ts";
+import type { CompositionManifest, CompositionOverlay } from "./composition/types.ts";
 import type { ResolvedOverlay as RefOverlay } from "./reference/lib/types.ts";
 import type {
   SvgRootAttrs as BlindSvgAttrs,
@@ -36,8 +36,8 @@ interface LabApi {
   resolvedA: () => ResolvedOverlay[];
   resolvedB: () => ResolvedOverlay[];
   blindResolved: () => BlindManifest | null;
-  e14Resolved: () => Partial<Record<"a" | "blind" | "native", E14Manifest | null>>;
-  e14Compare: () => ReturnType<typeof compareE14>;
+  e14Resolved: () => Partial<Record<"a" | "blind" | "native", CompositionManifest | null>>;
+  e14Compare: () => ReturnType<typeof compareCompositionRecords>;
   imgMetrics: (id: string) => { box: DOMRect; naturalW: number; naturalH: number } | null;
   parity: () => string[][];
   parityBlind: () => {
@@ -106,7 +106,7 @@ let videoUrl: string | null = null;
 let resolvedA: ResolvedOverlay[] = [];
 let resolvedB: ResolvedOverlay[] = [];
 let blind: BlindManifest | null = null;
-let e14Manifests: Partial<Record<"a" | "blind" | "native", E14Manifest | null>> = {};
+let e14Manifests: Partial<Record<"a" | "blind" | "native", CompositionManifest | null>> = {};
 
 const MANIFEST_MAP: Record<string, string> = {
   "6": "exp1.json",
@@ -122,7 +122,7 @@ const MANIFEST_MAP: Record<string, string> = {
  * placement with its own reading, so no resolved geometry is injected into a
  * consumer stage. This lossiness is expected, not incidental.
  */
-function e14ToResolvedA(ov: E14Overlay): ResolvedOverlay {
+function e14ToResolvedA(ov: CompositionOverlay): ResolvedOverlay {
   return {
     id: ov.id,
     startTime: ov.startTime,
@@ -148,7 +148,7 @@ function e14ToResolvedA(ov: E14Overlay): ResolvedOverlay {
  * blind's union and rules are cast across E14's wider Provenance superset.
  * Known absorbed mismatches (recorded in Phase H.2-D §3.5), expected lossiness.
  */
-function e14ToBlindOverlay(ov: E14Overlay): BlindOverlay | null {
+function e14ToBlindOverlay(ov: CompositionOverlay): BlindOverlay | null {
   if (ov.kind !== "svg" || !ov.svgText) return null;
   const cls = classifySvg(ov.svgText);
   const p = ov.placement;
@@ -199,8 +199,8 @@ async function boot(): Promise<void> {
         return r.json();
       },
     };
-    const e14a = await resolveE14Manifest(manifest, manifestUrl, fetchers);
-    const e14blind = await resolveBlindE14Manifest(manifest, manifestUrl, fetchers);
+    const e14a = await resolveCompositionManifest(manifest, manifestUrl, fetchers);
+    const e14blind = await resolveBlindCompositionManifest(manifest, manifestUrl, fetchers);
     const e14native = await resolveNativeManifest(manifest, manifestUrl, fetchers);
     e14Manifests = { a: e14a, blind: e14blind, native: e14native };
     canvasInfo = {
@@ -333,7 +333,7 @@ void boot().then(() => {
     resolvedB: () => resolvedB,
     blindResolved: () => blind,
     e14Resolved: () => e14Manifests,
-    e14Compare: () => compareE14(e14Manifests),
+    e14Compare: () => compareCompositionRecords(e14Manifests),
     imgMetrics: (id) =>
       isNative ? (stage as NativeStage).imgMetrics(id) : null,
     parity: () => {

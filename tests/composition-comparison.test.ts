@@ -1,11 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import { resolve, basename } from "node:path";
-import { resolveE14Manifest } from "../src/reference/lib/e14.ts";
-import { resolveBlindE14Manifest } from "../src/blind/e14.ts";
+import { resolveCompositionManifest } from "../src/reference/lib/e14.ts";
+import { resolveBlindCompositionManifest } from "../src/blind/e14.ts";
 import { resolveNativeManifest } from "../src/native/resolver.ts";
-import { compareE14 } from "../src/e14/comparison.ts";
-import type { E14Manifest, RendererName } from "../src/e14/types.ts";
+import { compareCompositionRecords } from "../src/composition/comparison.ts";
+import type { CompositionManifest, RendererName } from "../src/composition/types.ts";
 
 const ORIGIN = "http://localhost:5173";
 const ROOT = resolve(__dirname, "..");
@@ -48,18 +48,18 @@ function loadCase(c: string): any {
   return JSON.parse(readFileSync(resolve(MANIFEST_DIR, `${c}.json`), "utf8"));
 }
 
-async function runCase(c: string): Promise<Record<RendererName, E14Manifest>> {
+async function runCase(c: string): Promise<Record<RendererName, CompositionManifest>> {
   const manifest = loadCase(c);
   const url = `${ORIGIN}/manifests/e14/${c}.json`;
   const f = fetchers();
   return {
-    a: await resolveE14Manifest(manifest, url, f),
-    blind: await resolveBlindE14Manifest(manifest, url, f),
+    a: await resolveCompositionManifest(manifest, url, f),
+    blind: await resolveBlindCompositionManifest(manifest, url, f),
     native: await resolveNativeManifest(manifest, url, f),
   };
 }
 
-const reports = new Map<string, ReturnType<typeof compareE14>>();
+const reports = new Map<string, ReturnType<typeof compareCompositionRecords>>();
 
 async function writeEvidence(): Promise<void> {
   mkdirSync(EVIDENCE_DIR, { recursive: true });
@@ -76,7 +76,7 @@ describe("E14: three-renderer semantic comparison across all fixtures", () => {
   for (const c of CASES) {
     it(`${c}: resolves with all three renderers`, async () => {
       const r = await runCase(c);
-      const cmp = compareE14(r);
+      const cmp = compareCompositionRecords(r);
       reports.set(c, cmp);
       for (const name of ["a", "blind", "native"] as const) {
         expect(r[name].manifestId, `${c} ${name} manifest id`).toBe(`${ORIGIN}/manifests/e14/${c}.json`);

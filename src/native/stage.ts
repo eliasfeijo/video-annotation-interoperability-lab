@@ -15,7 +15,7 @@
  * SVG-as-image placement, and intrinsic dimensions are recorded.
  */
 
-import type { E14CanvasInfo, E14Overlay } from "../e14/types.ts";
+import type { CompositionCanvasInfo, CompositionOverlay } from "../composition/types.ts";
 import { isActive } from "../primitives/temporal.ts";
 
 export type Fit = "contain" | "fill" | "cover";
@@ -40,8 +40,8 @@ export class NativeStage {
   private video: HTMLVideoElement;
   private box: HTMLDivElement;
   private fit: Fit = "contain";
-  private canvas: E14CanvasInfo = { id: "", width: 1920, height: 1080, duration: null };
-  private overlays: E14Overlay[] = [];
+  private canvas: CompositionCanvasInfo = { id: "", width: 1920, height: 1080, duration: null };
+  private overlays: CompositionOverlay[] = [];
   private nodes = new Map<string, HTMLElement>();
 
   constructor(container: HTMLElement) {
@@ -82,7 +82,7 @@ export class NativeStage {
     this.layout();
   }
 
-  setCanvas(info: E14CanvasInfo): void {
+  setCanvas(info: CompositionCanvasInfo): void {
     this.canvas = info;
     this.layout();
   }
@@ -107,7 +107,7 @@ export class NativeStage {
     this.box.style.height = `${r.h}px`;
   }
 
-  setOverlays(overlays: E14Overlay[]): void {
+  setOverlays(overlays: CompositionOverlay[]): void {
     this.overlays = overlays;
     this.nodes.clear();
     while (this.box.firstChild) this.box.removeChild(this.box.firstChild);
@@ -115,7 +115,7 @@ export class NativeStage {
     this.layout();
   }
 
-  private buildNode(ov: E14Overlay): void {
+  private buildNode(ov: CompositionOverlay): void {
     const d = ov.destination;
     const cw = this.canvas.width || 1920;
     const ch = this.canvas.height || 1080;
