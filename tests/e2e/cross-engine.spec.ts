@@ -385,7 +385,7 @@ test("e17 e16 case03: leaf-PAR collapse probes [native]", async ({ page }) => {
   await waitImgsLoaded(page);
 
   const verdicts = await compareVerdicts(page);
-  // Verbatim Chromium-established probe points (e16.spec.ts):
+  // Verbatim Chromium-established probe points (nested-composition.spec.ts, then e16.spec.ts):
   //   (38,540): novb layer stretched to destination (two-stage fill realized)
   //   (441,540): vb leaf letterbox INSIDE fill-mapped container (collapse)
   const novbBand = await probeNear(page, 38, 540, 5, MAGENTA);
