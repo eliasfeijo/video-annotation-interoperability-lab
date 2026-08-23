@@ -83,10 +83,11 @@ export interface E14Security {
 
 /**
  * Overlay body kinds. `"video"` is currently never assigned — video bodies are
- * carried by the manifest-level videoUrl, not as overlays — but the member is
- * retained deliberately: removing it would decide modeled-but-unassigned
- * record territory that belongs to the dual-model question (H.1 #11), not to
- * dead-code cleanup (Phase H.2-C).
+ * carried by the manifest-level videoUrl, not as overlays. Retained first by
+ * Phase H.2-C (dead-code cleanup must not decide record territory), then
+ * ratified by Phase H.2-D: the durable interchange tier documents its modeled
+ * domain beyond currently exercised territory; revisit only if
+ * video-as-overlay-body becomes research-relevant.
  */
 export type BodyKind = "svg" | "png" | "textual" | "video";
 

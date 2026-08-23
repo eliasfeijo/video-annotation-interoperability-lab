@@ -114,7 +114,14 @@ const MANIFEST_MAP: Record<string, string> = {
   security: "exp-security.json",
 };
 
-/** Lab-harness bridge: E14 record -> Renderer A's ResolvedOverlay (DOM only). */
+/**
+ * Lab-harness bridge (permanent harness tier, Phase H.2-D): interchange E14
+ * record -> legacy display substrate (ResolvedOverlay). Transports display
+ * material only (id/window/z/destination/svgAttrs/svgText); placement,
+ * security, and rules are deliberately NOT carried — Stage re-derives
+ * placement with its own reading, so no resolved geometry is injected into a
+ * consumer stage. This lossiness is expected, not incidental.
+ */
 function e14ToResolvedA(ov: E14Overlay): ResolvedOverlay {
   return {
     id: ov.id,
@@ -132,7 +139,15 @@ function e14ToResolvedA(ov: E14Overlay): ResolvedOverlay {
   };
 }
 
-/** Lab-harness bridge: E14 record -> BlindOverlay (DOM only, SVG kind). */
+/**
+ * Lab-harness bridge (permanent harness tier, Phase H.2-D): interchange E14
+ * record -> blind-private BlindOverlay. SVG bodies only (null otherwise —
+ * BlindStage paints SVG bodies only). Security is re-derived with blind's own
+ * classifier because the interchange record does not carry blind-private
+ * detail (per-feature map, sanitized text); placement.mode is remapped onto
+ * blind's union and rules are cast across E14's wider Provenance superset.
+ * Known absorbed mismatches (recorded in Phase H.2-D §3.5), expected lossiness.
+ */
 function e14ToBlindOverlay(ov: E14Overlay): BlindOverlay | null {
   if (ov.kind !== "svg" || !ov.svgText) return null;
   const cls = classifySvg(ov.svgText);

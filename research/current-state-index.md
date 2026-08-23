@@ -3,7 +3,7 @@
 Status: consolidation Layer **L6** — pointer/index only.
 Created by: Phase C design (see `research/consolidation-map.md`).
 Decision basis: D3 in `research/phase-b-provenance-terminology-audit.md`.
-Last pointer review: 2026-08-23 against HEAD `1283438` (post Phase H.2-C); covers
+Last pointer review: 2026-08-23 against HEAD `385ac58` (post Phase H.2-D); covers
 documents through the Phase E / F / G.1 / H.1 / H.2 series.
 
 ## Purpose and non-purpose
@@ -54,8 +54,8 @@ Full per-document assignment, mutability, and preservation constraints:
   observations as of their baselines only; their path citations predate H.2 and
   are historical citations, not current layout.
 - Carried architecture questions: of H.1's deferred questions #1–#12, #1/#2/#12
-  were resolved by H.2-A, #3/#4 by H.2-B, #5 by H.2-C; #6–#11 remain open (see
-  `phase-h2c-dead-public-surface-reconciliation.md` §10).
+  were resolved by H.2-A, #3/#4 by H.2-B, #5 by H.2-C, #6/#11 by H.2-D; #7–#10 remain open
+  (see `phase-h2d-interchange-display-tier-ratification.md` §5).
 - Conservative framing for future prose (adopted wording, not retroactively applied):
   see `research/documentation-conventions.md` §Framing.
 
@@ -70,7 +70,8 @@ Full per-document assignment, mutability, and preservation constraints:
 | No-viewBox body mapping across mechanisms | `[OPEN]`, eliminable by profile rule P1/R-S1 | `e15-report.md` R2; `profile-draft.md` |
 | Consumer-side certification (R-S2 realization) | BLOCKED — no capable consumer (Ramp crashes, Mirador drops) | `n6-implementation-report.md` §6; `viewer-interop-report.md` |
 | Temporal/spatial fragment honoring by consumers | `[UNKNOWN]` from passive probes | `viewer-interop-report.md` V2/V3 |
-| H.1 deferred questions #6–#11 (main.ts bridge tier, LabApi divergence, evidence-writer separation, `temporalWindow` defensive branch, naming policy U2, dual-model arrangement incl. retained `BodyKind "video"`) | OPEN — carried unchanged through H.2-C | `phase-h1-concept-architecture-reconciliation.md` §12; `phase-h2c-dead-public-surface-reconciliation.md` §10 |
+| H.1 deferred questions #7–#10 (LabApi divergence, evidence-writer separation, `temporalWindow` defensive branch, naming policy U2) | OPEN — carried unchanged through H.2-D | `phase-h2d-interchange-display-tier-ratification.md` §5; `phase-h2c-dead-public-surface-reconciliation.md` §10 |
+| Interchange/display tier boundary (E14 record / ResolvedOverlay legacy substrate / BlindOverlay private model; main.ts bridges permanent) | RATIFIED — H.1 #6/#11 resolved | `phase-h2d-interchange-display-tier-ratification.md` §4 |
 | Terminology migration (Phase F target vocabulary) | OPEN — proposal awaiting human review; no renames authorized yet | `terminology-specification.md` |
 | Question register (all numbered open questions) | living append-only register | `open-questions.md` |
 
@@ -100,6 +101,9 @@ These document the consolidation itself and are immutable once committed:
   and oracle-path ownership decisions: `src/comparison/`, `src/oracle/`)
 - `phase-h2c-dead-public-surface-reconciliation.md` (Phase H.2-C; owns the dead-surface
   deletions and the retained `BodyKind "video"` decision)
+- `phase-h2d-interchange-display-tier-ratification.md` (Phase H.2-D; owns the ratified
+  three-tier boundary — E14 interchange / ResolvedOverlay legacy display-regression /
+  BlindOverlay private — and the permanence of the `main.ts` bridges)
 - `phase-e-identifier-inventory.md` (Phase E; exhaustive identifier/terminology
   inventory; analysis-only working artifact)
 - `phase-g1-source-architecture-inventory.md` (Phase G.1; independent observation-only
