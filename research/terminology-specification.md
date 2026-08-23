@@ -706,7 +706,7 @@ framework, never relocated. Owner: H.2-D §3.5–§3.6.
 4. **Analysis-only / counterfactual implementation** — prediction/measurement machinery
    consumed by NO renderer; renderers MUST NOT import it (`e14/comparison.ts`,
    `comparison/blind-comparison.ts`, `oracle/*`, `embedding-semantics/analysis.ts`,
-   `e16/comparison.ts`, `cross-engine/classify.ts`).
+   `nested-composition/comparison.ts`, `cross-engine/classify.ts`).
 
 Binding corollary (H.2-A): physical location does not establish semantic ownership;
 the class travels with the module and is declared in its module header.

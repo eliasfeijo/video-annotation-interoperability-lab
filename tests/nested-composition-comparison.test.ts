@@ -5,7 +5,7 @@ import { resolveE14Manifest } from "../src/reference/lib/e14.ts";
 import { resolveBlindE14Manifest } from "../src/blind/e14.ts";
 import { resolveNativeManifest } from "../src/native/resolver.ts";
 import { compareE14 } from "../src/e14/comparison.ts";
-import { fitMap, landmarkToOuter, fitsCoincide } from "../src/e16/comparison.ts";
+import { fitMap, landmarkToOuter, fitsCoincide } from "../src/nested-composition/comparison.ts";
 import type { E14Manifest, E14Overlay, RendererName } from "../src/e14/types.ts";
 
 

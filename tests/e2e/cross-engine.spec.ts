@@ -10,7 +10,7 @@ import {
   type SvgVariant,
 } from "../../src/embedding-semantics/analysis.ts";
 import { makeClassifier, K } from "../../src/cross-engine/classify.ts";
-import { fitMap } from "../../src/e16/comparison.ts";
+import { fitMap } from "../../src/nested-composition/comparison.ts";
 import { gotoLab, seek, shot, waitFrames, canvasToCss, screenshotPng, px } from "./utils.ts";
 
 /**
