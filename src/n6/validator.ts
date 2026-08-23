@@ -51,8 +51,8 @@ import {
   type LandmarkInput,
   type TargetRect,
 } from "./mapping.ts";
-import { computePlacement } from "../blind/placement.ts";
-import type { SvgRootAttrs } from "../blind/types.ts";
+import { computeRegionAsViewportPlacement } from "../primitives/region-as-viewport-placement.ts";
+import type { SvgRootAttrs } from "../primitives/svg-root.ts";
 import {
   extractFragmentValue,
   parseFragmentValueStrict,
@@ -509,7 +509,7 @@ async function validateSvgBody(
         ? { preserveAspectRatio: root.preserveAspectRatio }
         : {}),
     };
-    const placement = computePlacement({ destination: rect, attrs });
+    const placement = computeRegionAsViewportPlacement({ destination: rect, attrs });
     acc.predictions.push({
       ...(bodyLoc.bodyId !== undefined ? { bodyId: bodyLoc.bodyId } : {}),
       viewport: placement.viewport,

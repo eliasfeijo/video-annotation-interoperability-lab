@@ -36,7 +36,8 @@ import {
   mergeFragments,
 } from "./iiif.ts";
 import { temporalWindow } from "./timing.ts";
-import { readSvgRootAttrs } from "./svg.ts";
+import { readSvgRootAttrs } from "../../primitives/svg-root.ts";
+import { regionAsViewportViewBoxFit } from "../../primitives/region-as-viewport-placement.ts";
 
 export interface E14Fetchers {
   fetchSvg: (url: string) => Promise<string>;
@@ -130,22 +131,20 @@ export function refPlacement(viewport: Rect, attrs: E14SvgAttrs, synthesizeNoVie
     };
   }
 
-  const meet = !/slice/.test(par);
-  const sx = viewport.w / viewBox.w;
-  const sy = viewport.h / viewBox.h;
-  const scale = meet ? Math.min(sx, sy) : Math.max(sx, sy);
-  const usedW = viewBox.w * scale;
-  const usedH = viewBox.h * scale;
-  const ox = /xMax/.test(par) ? viewport.w - usedW : /xMid/.test(par) ? (viewport.w - usedW) / 2 : 0;
-  const oy = /yMax/i.test(par) ? viewport.h - usedH : /yMid/i.test(par) ? (viewport.h - usedH) / 2 : 0;
+  // Meet/slice affine kernel of the region-as-viewport reading (shared,
+  // policy-free given the parsed components); the synthesized-viewBox
+  // READING above stays reference-owned.
+  const fit = regionAsViewportViewBoxFit({
+    destination: viewport,
+    viewBox,
+    meet: !/slice/.test(par),
+    align: par,
+  });
   return {
-    mode: (meet ? "viewBox-meet" : "viewBox-slice") as E14Placement["mode"],
+    mode: fit.mode,
     viewport,
-    scale,
-    translation: {
-      x: viewport.x + ox - viewBox.minX * scale,
-      y: viewport.y + oy - viewBox.minY * scale,
-    },
+    scale: fit.scale,
+    translation: fit.translation,
   };
 }
 

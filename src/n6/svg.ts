@@ -13,7 +13,7 @@
  *     walk (Part 5 #5: nesting relocates rather than resolves the hazard).
  */
 
-import { readSvgRootAttrs } from "../blind/svg-root.ts";
+import { readSvgRootAttrs } from "../primitives/svg-root.ts";
 import type { Diagnostic, ResourceLocation } from "./types.ts";
 
 export interface SvgRootCheck {

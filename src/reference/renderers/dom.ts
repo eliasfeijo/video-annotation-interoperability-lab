@@ -1,6 +1,7 @@
 import type { CanvasInfo, Keyframe, ResolvedOverlay } from "../lib/types.ts";
 import { isActiveAt } from "../lib/timing.ts";
-import { svgInnerContent, computeNestedSvgPlacement } from "../lib/svg.ts";
+import { computeNestedSvgPlacement } from "../lib/svg.ts";
+import { svgInnerContent } from "../../primitives/svg-root.ts";
 
 export type Fit = "contain" | "fill" | "cover";
 

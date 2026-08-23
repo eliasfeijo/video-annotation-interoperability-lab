@@ -28,6 +28,8 @@ import type {
   E14Security,
   Rect,
 } from "../e14/types.ts";
+import { readSvgRootAttrs } from "../primitives/svg-root.ts";
+import { regionAsViewportViewBoxFit } from "../primitives/region-as-viewport-placement.ts";
 
 export interface NativeFetchers {
   fetchSvg: (url: string) => Promise<string>;
@@ -75,35 +77,12 @@ export function detectE14ModelNative(manifest: any): E14Model {
 }
 
 // ---------------------------------------------------------------------------
-// SVG root attrs (native's own parser)
+// SVG root attrs
+//
+// Root-attribute parsing is a renderer-neutral, policy-free primitive shared
+// via src/primitives/svg-root.ts (Phase H.2-A consolidation; native's private
+// copy was byte-equivalent on every exercised input).
 // ---------------------------------------------------------------------------
-function readAttrs(svgText: string): E14SvgAttrs {
-  const attrs: E14SvgAttrs = {};
-  const m = /<svg\b([^>]*)>/i.exec(svgText.trim());
-  if (!m) return attrs;
-  const tag = m[1]!;
-  const re = /([A-Za-z_:][A-Za-z0-9_:.\-]*)\s*=\s*"([^"]*)"/g;
-  let x: RegExpExecArray | null;
-  while ((x = re.exec(tag)) !== null) {
-    const name = x[1]!;
-    const value = x[2]!;
-    if (name === "viewBox") {
-      const nums = value.trim().split(/[\s,]+/).map((s) => parseFloat(s)).filter((n) => !Number.isNaN(n));
-      if (nums.length === 4 && nums[2]! > 0 && nums[3]! > 0) {
-        attrs.viewBox = { minX: nums[0]!, minY: nums[1]!, w: nums[2]!, h: nums[3]! };
-      }
-    } else if (name === "preserveAspectRatio") {
-      attrs.preserveAspectRatio = value;
-    } else if (name === "width") {
-      const n = parseFloat(value);
-      if (Number.isFinite(n) && n >= 0) attrs.width = n;
-    } else if (name === "height") {
-      const n = parseFloat(value);
-      if (Number.isFinite(n) && n >= 0) attrs.height = n;
-    }
-  }
-  return attrs;
-}
 
 // ---------------------------------------------------------------------------
 // Native placement (SVG-as-image semantics)
@@ -129,22 +108,20 @@ export function nativePlacement(dest: Rect, attrs: E14SvgAttrs): E14Placement {
       translation: { x: dest.x - vb.minX * sx, y: dest.y - vb.minY * sy },
     };
   }
-  const meet = !/slice/.test(par);
-  const sx = dest.w / vb.w;
-  const sy = dest.h / vb.h;
-  const scale = meet ? Math.min(sx, sy) : Math.max(sx, sy);
-  const usedW = vb.w * scale;
-  const usedH = vb.h * scale;
-  const ox = /xMax/.test(par) ? dest.w - usedW : /xMid/.test(par) ? (dest.w - usedW) / 2 : 0;
-  const oy = /yMax/i.test(par) ? dest.h - usedH : /yMid/i.test(par) ? (dest.h - usedH) / 2 : 0;
+  // Meet/slice affine kernel of the region-as-viewport reading (shared,
+  // policy-free given the parsed components). The no-viewBox => 1:1 branch
+  // above is native's own realization of the packet's SVG-normative reading.
+  const fit = regionAsViewportViewBoxFit({
+    destination: dest,
+    viewBox: vb,
+    meet: !/slice/.test(par),
+    align: par,
+  });
   return {
-    mode: (meet ? "viewBox-meet" : "viewBox-slice") as E14Placement["mode"],
+    mode: fit.mode,
     viewport: dest,
-    scale,
-    translation: {
-      x: dest.x + ox - vb.minX * scale,
-      y: dest.y + oy - vb.minY * scale,
-    },
+    scale: fit.scale,
+    translation: fit.translation,
   };
 }
 
@@ -311,7 +288,7 @@ async function resolveNativeIiif(
         } catch {
           continue;
         }
-        const attrs = readAttrs(svgText);
+        const attrs = readSvgRootAttrs(svgText);
         const sec = nativeSecurity(svgText);
         overlays.push({
           id: String(ann.id ?? body.id ?? `native-${z}`),
@@ -427,7 +404,7 @@ async function resolveNativeNested(
       } catch {
         continue;
       }
-      const attrs = readAttrs(svgText);
+      const attrs = readSvgRootAttrs(svgText);
       const innerPlacement = nativePlacement(innerDest, attrs);
       const outerDest2: Rect = {
         x: outerDest.x + ox + innerDest.x * nsx,
@@ -553,7 +530,7 @@ async function resolveNativeC(
         } catch {
           continue;
         }
-        const attrs = readAttrs(svgText);
+        const attrs = readSvgRootAttrs(svgText);
         const sec = nativeSecurity(svgText);
         overlays.push({
           id: String(ann.id ?? body.id ?? `native-c-${z}`),

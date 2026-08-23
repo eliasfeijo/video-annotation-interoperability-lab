@@ -6,7 +6,7 @@ import type {
 } from "./types.ts";
 import { parseFragmentValue } from "./selectors.ts";
 import { temporalWindow } from "./timing.ts";
-import { readSvgRootAttrs } from "./svg.ts";
+import { readSvgRootAttrs } from "../../primitives/svg-root.ts";
 
 function asArray<T>(x: T | T[] | undefined | null): T[] {
   if (x == null) return [];

@@ -16,7 +16,7 @@
  */
 
 import type { E14CanvasInfo, E14Overlay } from "../e14/types.ts";
-import { isActive } from "../blind/temporal.ts";
+import { isActive } from "../primitives/temporal.ts";
 
 export type Fit = "contain" | "fill" | "cover";
 

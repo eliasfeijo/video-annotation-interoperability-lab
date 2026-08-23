@@ -21,8 +21,8 @@
  */
 
 import type { BlindOverlay, BlindCanvasInfo } from "./types.ts";
-import { isActive } from "./temporal.ts";
-import { svgInnerContent } from "./svg-root.ts";
+import { isActive } from "../primitives/temporal.ts";
+import { svgInnerContent } from "../primitives/svg-root.ts";
 
 export type Fit = "contain" | "fill" | "cover";
 

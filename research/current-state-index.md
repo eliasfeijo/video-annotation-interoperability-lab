@@ -77,6 +77,8 @@ These document the consolidation itself and are immutable once committed:
 - `phase-b-provenance-terminology-audit.md` (Phase B)
 - this file and its sibling Phase C artifacts (map, conventions, policies, checklist)
 - `phase-d-checklist.md` (execution plan for the mechanical phase)
+- `phase-h2a-shared-primitive-namespace.md` (Phase H.2-A; owns the helper-reuse
+  governance rule and the `src/primitives/` namespace decision)
 
 ## Maintenance rule for this index
 

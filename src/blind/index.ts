@@ -7,8 +7,18 @@
 
 export * from "./types.ts";
 export * from "./selectors.ts";
-export * from "./temporal.ts";
-export * from "./svg-root.ts";
+export { resolveWindow } from "./temporal.ts";
+export {
+  isActive,
+  type TimeWindow,
+} from "../primitives/temporal.ts";
+// Functions only: the SvgBox/SvgRootAttrs TYPE declarations remain owned by
+// ./types.ts to keep the barrel's public surface unchanged.
+export {
+  readSvgRootAttrs,
+  parseViewBox,
+  svgInnerContent,
+} from "../primitives/svg-root.ts";
 export * from "./placement.ts";
 export * from "./layers.ts";
 export * from "./parser.ts";

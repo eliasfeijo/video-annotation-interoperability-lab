@@ -19,9 +19,11 @@ import type {
   SecurityClassification,
 } from "./types.ts";
 import { findCanvas, collectPaintingInputs, mergeFragments } from "./parser.ts";
-import { resolveWindow, isActive, type TimeWindow } from "./temporal.ts";
-import { computePlacement, canvasPointOf } from "./placement.ts";
-import { readSvgRootAttrs } from "./svg-root.ts";
+import { resolveWindow } from "./temporal.ts";
+import { isActive, type TimeWindow } from "../primitives/temporal.ts";
+import { canvasPointOf } from "./placement.ts";
+import { computeRegionAsViewportPlacement } from "../primitives/region-as-viewport-placement.ts";
+import { readSvgRootAttrs } from "../primitives/svg-root.ts";
 import { classifySvg, sanitizeSvg } from "./sanitize.ts";
 import { zProvenance, isPainting } from "./layers.ts";
 
@@ -90,7 +92,7 @@ export async function resolveBlindManifest(
       }
 
       const attrs = readSvgRootAttrs(svgText);
-      const placement = computePlacement({ destination: dest, attrs });
+      const placement = computeRegionAsViewportPlacement({ destination: dest, attrs });
       const sec = classifySvg(svgText);
       const security: SecurityClassification = {
         ...sec,

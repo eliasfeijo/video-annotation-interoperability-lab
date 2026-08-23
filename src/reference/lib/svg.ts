@@ -1,70 +1,20 @@
 import type { SvgBox, SvgRootAttrs, Viewport } from "./types.ts";
 
 /**
- * Pure parsing of an SVG root element's attributes. Kept dependency-free so the
- * same functions run under Vitest (Node) and in the browser.
+ * Reference-consumer SVG placement (Renderer A reading).
+ *
+ * The pure SVG root-attribute parsing that used to live here
+ * (readSvgRootAttrs / parseViewBox / svgInnerContent) is a renderer-neutral,
+ * policy-free primitive and moved to src/primitives/svg-root.ts in Phase
+ * H.2-A; import it from there.
+ *
+ * What remains here is reference-owned: the synthesized-viewBox placement
+ * reading and its landmark predictor. On a body WITHOUT a viewBox this
+ * module synthesizes one from width/height and applies the default fit — the
+ * deliberate opposite of the packet's 1:1 reading implemented in
+ * src/primitives/region-as-viewport-placement.ts (docs/ambiguities.md #1/#5).
+ * These two readings must never be merged.
  */
-
-const ROOT_TAG_RE = /<svg\b([^>]*)>/i;
-const ATTR_RE = /([A-Za-z_:][A-Za-z0-9_:.\-]*)\s*=\s*"([^"]*)"/g;
-
-export function readSvgRootAttrs(svgText: string): SvgRootAttrs {
-  const attrs: SvgRootAttrs = {};
-  const root = ROOT_TAG_RE.exec(svgText.trim());
-  if (!root) return attrs;
-  const tag = root[1]!;
-  ATTR_RE.lastIndex = 0;
-  let m: RegExpExecArray | null;
-  while ((m = ATTR_RE.exec(tag)) !== null) {
-    const name = m[1]!;
-    const value = m[2]!;
-    if (name === "viewBox") {
-      const box = parseViewBox(value);
-      if (box) attrs.viewBox = box;
-    } else if (name === "preserveAspectRatio") {
-      attrs.preserveAspectRatio = value;
-    } else if (name === "width") {
-      const n = parseUnit(value);
-      if (n !== undefined) attrs.width = n;
-    } else if (name === "height") {
-      const n = parseUnit(value);
-      if (n !== undefined) attrs.height = n;
-    }
-  }
-  return attrs;
-}
-
-/** Parse `min-x min-y width height` or `min-x,min-y,width,height`. */
-export function parseViewBox(value: string): SvgBox | null {
-  const nums = value
-    .trim()
-    .split(/[\s,]+/)
-    .map((s) => parseFloat(s))
-    .filter((n) => !Number.isNaN(n));
-  if (nums.length !== 4) return null;
-  const [minX = 0, minY = 0, w = 0, h = 0] = nums as [number, number, number, number];
-  if (!(w > 0) || !(h > 0)) return null;
-  return { minX, minY, w, h };
-}
-
-function parseUnit(value: string): number | undefined {
-  const n = parseFloat(value);
-  return Number.isFinite(n) && n >= 0 ? n : undefined;
-}
-
-/**
- * Strip the outer `<svg ...>` wrapper only, leaving inner content. Used to move
- * a body SVG's content inside the renderer's host `<svg>`.
- */
-export function svgInnerContent(svgText: string): string {
-  const root = ROOT_TAG_RE.exec(svgText.trim());
-  if (!root) return svgText.trim();
-  const openTag = root[0];
-  const rest = svgText.slice(svgText.indexOf(openTag) + openTag.length);
-  const closeTag = rest.lastIndexOf("</svg");
-  if (closeTag === -1) return rest.replace(/\/>$/, "").trim();
-  return rest.slice(0, closeTag).trim();
-}
 
 /**
  * Compute the placement of a nested `<svg>` inside a host that spans the Canvas.

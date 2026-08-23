@@ -4,12 +4,14 @@ import {
   parseSpatial,
   parseFragmentValue,
 } from "../src/blind/selectors.ts";
-import { resolveWindow, isActive } from "../src/blind/temporal.ts";
+import { resolveWindow } from "../src/blind/temporal.ts";
+import { isActive } from "../src/primitives/temporal.ts";
 import {
   readSvgRootAttrs,
   parseViewBox,
-} from "../src/blind/svg-root.ts";
-import { computePlacement, canvasPointOf } from "../src/blind/placement.ts";
+} from "../src/primitives/svg-root.ts";
+import { canvasPointOf } from "../src/blind/placement.ts";
+import { computeRegionAsViewportPlacement } from "../src/primitives/region-as-viewport-placement.ts";
 import {
   resolveBlindManifest,
 } from "../src/blind/resolver.ts";
@@ -149,7 +151,7 @@ describe("blind svg root parsing", () => {
 describe("blind placement", () => {
   const dest = { x: 480, y: 270, w: 960, h: 540 };
   it("viewBox + default meet centers content in region", () => {
-    const p = computePlacement({
+    const p = computeRegionAsViewportPlacement({
       destination: dest,
       attrs: { viewBox: { minX: 0, minY: 0, w: 1000, h: 1000 } },
     });
@@ -159,7 +161,7 @@ describe("blind placement", () => {
     expect(canvasPointOf(p, { x: 500, y: 500 })).toEqual({ x: 960, y: 540 });
   });
   it("preserveAspectRatio none stretches non-uniformly", () => {
-    const p = computePlacement({
+    const p = computeRegionAsViewportPlacement({
       destination: dest,
       attrs: {
         viewBox: { minX: 0, minY: 0, w: 100, h: 100 },
@@ -171,7 +173,7 @@ describe("blind placement", () => {
     expect(canvasPointOf(p, { x: 100, y: 100 })).toEqual({ x: 1440, y: 810 });
   });
   it("preserveAspectRatio slice covers the viewport", () => {
-    const p = computePlacement({
+    const p = computeRegionAsViewportPlacement({
       destination: dest,
       attrs: {
         viewBox: { minX: 0, minY: 0, w: 100, h: 100 },
@@ -182,7 +184,7 @@ describe("blind placement", () => {
     expect(p.scale).toBeCloseTo(9.6, 5);
   });
   it("no viewBox => 1:1 user units from the region origin", () => {
-    const p = computePlacement({ destination: dest, attrs: {} });
+    const p = computeRegionAsViewportPlacement({ destination: dest, attrs: {} });
     expect(p.mode).toBe("no-viewBox-1to1");
     expect(p.scale).toBe(1);
     expect(canvasPointOf(p, { x: 100, y: 100 })).toEqual({ x: 580, y: 370 });

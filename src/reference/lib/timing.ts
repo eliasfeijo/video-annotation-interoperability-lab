@@ -1,4 +1,5 @@
 import type { ResolvedOverlay, TemporalFragment } from "./types.ts";
+import { isActive } from "../../primitives/temporal.ts";
 
 /**
  * Visibility rule tested in this experiment.
@@ -10,6 +11,11 @@ import type { ResolvedOverlay, TemporalFragment } from "./types.ts";
  *
  * The half-open interval avoids double-counting at boundaries and gives a
  * deterministic, single-frame-precision answer for any real-valued t.
+ *
+ * The half-open PREDICATE itself is the renderer-neutral primitive in
+ * src/primitives/temporal.ts; only this window-resolution wrapper (including
+ * its defensive end<start branch) and its overlay-shaped signature remain
+ * consumer-local.
  */
 export function temporalWindow(
   temporal: TemporalFragment | undefined,
@@ -23,7 +29,7 @@ export function temporalWindow(
 }
 
 export function isActiveAt(overlay: Pick<ResolvedOverlay, "startTime" | "endTime">, t: number): boolean {
-  return t >= overlay.startTime && t < overlay.endTime;
+  return isActive({ start: overlay.startTime, end: overlay.endTime }, t);
 }
 
 export function activeAt(

@@ -1,16 +1,39 @@
 /**
- * Blind Renderer — SVG root attribute parsing.
+ * Renderer-neutral primitive — SVG root attribute parsing.
  *
  * Extracts the placement-relevant attributes of the outermost `<svg>` element:
  * viewBox, preserveAspectRatio, width, height. Implemented from the SVG 1.1
  * grammar for these attributes (Ch. 7). Dependency-free so it runs under
- * Vitest (Node) and in the browser.
+ * Vitest (Node) and in the browser. Policy-free: this module makes no
+ * consumer-specific interpretation decisions; it only reports what the root
+ * tag declares (missing/malformed attributes are simply absent from the
+ * result).
  *
  * Provenance: [NORMATIVE] SVG 1.1 §7.7 (viewBox), §7.8 (preserveAspectRatio),
  * §7.2 (width/height).
+ *
+ * Governance: physical location does not establish semantic ownership. This
+ * module was consolidated in Phase H.2-A from three byte-equivalent copies
+ * (src/blind/svg-root.ts, src/reference/lib/svg.ts, inline readAttrs in
+ * src/native/resolver.ts); the blind copy was chosen as the canonical body
+ * because it was already the de-facto shared one (the validator consumed it).
+ * No renderer is authoritative for it.
  */
 
-import type { SvgBox, SvgRootAttrs } from "./types.ts";
+/** viewBox value: user-space rectangle. */
+export interface SvgBox {
+  minX: number;
+  minY: number;
+  w: number;
+  h: number;
+}
+
+export interface SvgRootAttrs {
+  viewBox?: SvgBox;
+  preserveAspectRatio?: string;
+  width?: number;
+  height?: number;
+}
 
 const ROOT_TAG_RE = /<svg\b([^>]*)>/i;
 

@@ -3,6 +3,8 @@ import {
   readSvgRootAttrs,
   svgInnerContent,
   parseViewBox,
+} from "../src/primitives/svg-root.ts";
+import {
   computeNestedSvgPlacement,
   canvasPointOfSvgUserPoint,
 } from "../src/reference/lib/svg.ts";

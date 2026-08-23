@@ -32,8 +32,8 @@ import {
 } from "./parser.ts";
 import { isPainting } from "./layers.ts";
 import { resolveWindow } from "./temporal.ts";
-import { readSvgRootAttrs } from "./svg-root.ts";
-import { computePlacement } from "./placement.ts";
+import { readSvgRootAttrs } from "../primitives/svg-root.ts";
+import { computeRegionAsViewportPlacement } from "../primitives/region-as-viewport-placement.ts";
 import { classifySvg } from "./sanitize.ts";
 
 export interface BlindE14Fetchers {
@@ -79,7 +79,7 @@ export function detectE14Model(manifest: any): E14Model {
   return "A";
 }
 
-function toPlacement(p: ReturnType<typeof computePlacement>): E14Placement {
+function toPlacement(p: ReturnType<typeof computeRegionAsViewportPlacement>): E14Placement {
   return {
     mode: p.mode,
     viewport: p.viewport,
@@ -174,7 +174,7 @@ async function resolveBlindIiif(
           continue;
         }
         const attrs = readSvgRootAttrs(svgText);
-        const placement = toPlacement(computePlacement({ destination: dest, attrs }));
+        const placement = toPlacement(computeRegionAsViewportPlacement({ destination: dest, attrs }));
         const sec = securityOf(svgText);
         overlays.push({
           id: String(input.id || body.id || `blind-${paintIndex}`),
@@ -294,7 +294,7 @@ async function resolveBlindNested(
         continue;
       }
       const attrs = readSvgRootAttrs(svgText);
-      const innerPlacement = toPlacement(computePlacement({ destination: innerDest, attrs }));
+      const innerPlacement = toPlacement(computeRegionAsViewportPlacement({ destination: innerDest, attrs }));
       const outerDest2: Rect = {
         x: outerDest.x + ox + innerDest.x * nsx,
         y: outerDest.y + oy + innerDest.y * nsy,
@@ -379,7 +379,7 @@ async function resolveBlindC(
           continue;
         }
         const attrs = readSvgRootAttrs(svgText);
-        const placement = toPlacement(computePlacement({ destination: dest, attrs }));
+        const placement = toPlacement(computeRegionAsViewportPlacement({ destination: dest, attrs }));
         const sec = securityOf(svgText);
         overlays.push({
           id: String(ann.id || body.id || `c-${z}`),

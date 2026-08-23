@@ -3,7 +3,7 @@ import type {
   ReferenceOverlay,
   ResolvedOverlay,
 } from "../lib/types.ts";
-import { readSvgRootAttrs } from "../lib/svg.ts";
+import { readSvgRootAttrs } from "../../primitives/svg-root.ts";
 
 /**
  * Renderer B: direct reference model. Deliberately simple and NON-STANDARD.
