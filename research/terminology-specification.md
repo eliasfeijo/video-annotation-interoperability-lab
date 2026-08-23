@@ -181,7 +181,7 @@ Subgroups (natural joints found in the material):
 Why: the profile converts measurements into a publishable contract; these are
 its moving parts.
 
-Belongs: interoperability profile, safe subset, requirement, exclusion,
+Belongs: interoperability profile, requirement, exclusion,
 provenance class, open fence, non-guarantee statement, resource conformance,
 consumer conformance, interoperability claim, conformance predicate.
 
@@ -219,7 +219,7 @@ Why: methodology depends on independence among implementations.
 
 Belongs: Renderer A (standards-driven resolver), Renderer B
 (direct-reference oracle), Blind renderer, Native renderer, methodological
-blinding, interpretation packet, harness.
+blinding, interpretation packet.
 
 Does NOT belong: code symbols, module paths, route keys (implementation detail,
 excluded per §2 principle 8's complement).
@@ -273,9 +273,9 @@ Related: explicit viewBox. ID: no.
 
 **Explicit viewBox** — a `viewBox` attribute on the root `<svg>` element of a
 painting-body SVG resource; the coordinate-space declaration the profile
-requires. Category C1.a. Owner: profile Part 2 + R-S1. Historical: "P1 rule"
-(candidate-rule era). ID: inherits requirement ID R-S1 (the rule, not the
-attribute).
+requires. Category C1.a. Owner: profile Part 2. Historical: "P1 rule"
+(candidate-rule era). ID: no — formalized by R-S1 (the requirement mandating
+this attribute carries the identifier; the concept does not).
 
 **Nested Canvas (Canvas-as-body)** — a Canvas painted as a content resource
 onto another Canvas or region. Permitted by IIIF 3.0 §5.7; geometry governed
@@ -284,7 +284,7 @@ composition models. ID: no.
 
 **Replacement Canvas** — a Canvas whose dimensions supersede an earlier
 Canvas's while annotations must stay aligned; conforming replacement requires
-equal aspect ratio. Owner: profile Part 2. ID: no (covered by R-S4).
+equal aspect ratio. Owner: profile Part 2. ID: no (formalized by R-S4).
 
 **Composition model** — the structural pattern by which overlay content is
 expressed in a manifest. Three canonical instances, always written with both
@@ -328,13 +328,15 @@ cross-multiplication, else within the documented ε tolerance. ID: no.
 **Same-aspect constraint** — the profile rule that a painted/replaced Canvas
 must match its target's aspect ratio, making every reasonable placement rule
 coincide; aspect mismatches are non-conforming with NO fallback behavior.
-Owner: R-S4 (+ profile Part 7 mathematics). Historical: "P5a". ID: yes —
-R-S4.
+Owner: profile Part 7 mathematics. Historical: "P5a". ID: no — formalized by
+R-S4 (the requirement enforcing this constraint carries the identifier; the
+concept does not).
 
 **Uniform-scale mapping** — under the same-aspect constraint, every landmark
 `(u,v)` maps as `(Tx+k·u, Ty+k·v)` with unique `k`; the analytic prediction
-validators emit. Owner: R-S5, profile Part 7. Historical: "landmark mapping",
-"P5a math". ID: inherits R-S5.
+validators emit. Owner: profile Part 7. Historical: "landmark mapping",
+"P5a math". ID: no — formalized by R-S5 (the requirement predicting this
+mapping carries the identifier; the concept does not).
 
 **Fit policy** — any rule choosing placement/scaling when aspects differ
 (fill, contain/meet, cover/slice, stretch…). Deliberately undefined by this
@@ -361,8 +363,9 @@ without a measurement behind them. ID: no (labels, not instances).
 acts as the SVG viewport for a painting body, with preserveAspectRatio applied
 between viewBox and region. Neither SVG nor CSS nor IIIF assigns this; it is
 the profile's own decision, and the single most load-bearing consumer
-obligation. Owner: R-S2, profile Parts 2/6. Historical: "P2", "S2". ID: yes —
-R-S2.
+obligation. Owner: profile Parts 2/6. Historical: "P2", "S2". ID: no —
+formalized by R-S2 (the requirement assigning this role carries the
+identifier; the concept does not).
 
 **Page viewport** — the CSS host element/window area in the measurement
 harness. Confined to harness description. ID: no.
@@ -394,12 +397,6 @@ painted-content geometry becomes predictable and mechanically checkable. Owner:
 it is a lab conventions-plus-evidence construct. Historical: "N5 draft",
 "Stage 5 output", "safe-subset formalization". ID: no (the document is the
 instance).
-
-**Safe Interoperability Subset** — the smallest useful interoperability-safe
-rule set derivable from available evidence; the profile's content in its
-pre-formalized decision form. Historical: "N4", "S1–S8". Current status: fully
-superseded AS VOCABULARY by requirement/exclusion terms; the decision record
-remains the historical owner. ID: no.
 
 **Requirement** — a normative statement of what profile-conforming
 resources/consumers MUST, SHOULD, or MAY satisfy, carrying exactly one
@@ -621,9 +618,9 @@ are evidence rather than coincidence. ID: no.
 readings, with its own rule-class table (normative/derived/convention/open
 rule classes). Owner: `docs/blind-interpretation-rules.md`. ID: no.
 
-**Harness** — the local app/config surface exposing renderers, fixtures, and
-measurement hooks for experiments. Implementation detail below term level.
-ID: no.
+*Implementation detail below term level (no glossary entry): the harness —
+the local app/config surface exposing renderers, fixtures, and measurement
+hooks for experiments.*
 
 ### 5.8 Governance (C6)
 
@@ -636,23 +633,22 @@ external-source claims (L2), normative profile (L3), conformance design (L4),
 implementation state (L5), navigation (L6, owns no claims). Retained verbatim
 — clean, load-bearing, already minimal. ID: YES — `L<n>`, closed set of seven.
 
-**Edit-flow direction** — expectation changes move strictly
-profile → matrix → suite → generator → evidence in ONE change-set; reverse
-flow requires a falsification-protocol entry. Owner: consolidation map §2.
-ID: no.
+Procedural/convention pointers — named here for citation only; their
+definitions live solely at their owning sites:
 
-**Falsification protocol** — the standing procedure by which new evidence may
-revise claims/promotions; the only sanctioned route from measurement to
-normative change. ID: no.
+**Edit-flow direction** — expectation changes move strictly profile → matrix →
+suite → generator → evidence; defined at consolidation map §2.
 
-**Immutable record / append-only register / controlled document / pointer
-index** — the four mutability regimes. Owners: consolidation map. ID: no.
+**Falsification protocol** — the sanctioned route from measurement to
+normative change; anchors: consolidation map (reverse-flow entries), profile
+Part 3 (promotion rules).
 
-**Writing convention** — binding style rules for new documents (axis words,
-qualified collision terms, era-appropriate comparison vocabulary,
-conformance≠compatibility≠honoring, framing sentence, immutable-ID respect).
-Owner: `documentation-conventions.md` Part I. Historical: `T-1…T-6` item
-numbers (process-local). ID: no.
+**Mutability regimes** (immutable record / append-only register / controlled
+document / pointer index) — defined at consolidation map.
+
+**Writing convention** — binding style rules for new documents; defined at
+documentation-conventions.md Part I. Historical: `T-1…T-6` item numbers
+(process-local).
 
 ---
 
@@ -806,6 +802,7 @@ table exists so readers (and the eventual migration tooling) can translate.
 | `E18` | Ghost: proposed survey, executed under a different name | Do not use; the consumer-probe report exists under its own name |
 | `N1–N6` / `Stage 0–6` | Research stages/generations | Same treatment as generations; "Stage" was a pure alias |
 | `S1–S8` | Subset rules = today's requirements | Map: S1→R-S1, S2→R-S2, S3→R-S3, S4→R-S4, S5→R-S5, S6→R-S6a+R-S6b, S7→R-S7(+X-list), S8→R-S8a+R-S8b |
+| `N4`, "safe subset", "Safe Interoperability Subset" | Superseded pre-profile vocabulary for the decision record now carried by Requirement/Exclusion terms | Not current vocabulary; cite `n4-safe-subset.md` as the historical decision record |
 | `P1–P6`, `P5a` | Candidate profile rules | P1→explicit-viewBox requirement (R-S1); P2→region-as-viewport (R-S2); P3→fragment syntax (R-S6a/b, R-S8a); P4→z-order (now open fence / X6 territory); P5→nested composition (R-S4/R-S5 + X1/X8 boundaries); P5a→same-aspect constraint (R-S4); P6→exclusions (R-S7/X1–X8) |
 | `R1–R5` (embedding report) | Classified embedding-semantics findings | Cite the report §; concept absorbed into candidate-interpretation/finding vocabulary |
 | `Finding 1–6`, `F1–F8` | Findings | "finding" + report name |
