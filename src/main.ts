@@ -1,4 +1,4 @@
-import { expRefs, sameOverlay, VIDEO } from "./experiments.ts";
+import { expRefs, sameOverlay, VIDEO } from "./oracle/experiments.ts";
 import { resolveManifest } from "./reference/lib/iiif.ts";
 import {
   allowlistSanitizer,
@@ -10,10 +10,10 @@ import type {
   ResolvedOverlay,
 } from "./reference/lib/types.ts";
 import { Stage, type Fit } from "./reference/renderers/dom.ts";
-import { resolveReference } from "./reference/renderers/rendererB.ts";
+import { resolveReference } from "./oracle/rendererB.ts";
 import { resolveBlindManifest } from "./blind/resolver.ts";
 import { BlindStage } from "./blind/compositor.ts";
-import { compareSemantics } from "./blind/comparison.ts";
+import { compareSemantics } from "./comparison/blind-comparison.ts";
 import type { BlindManifest, BlindOverlay } from "./blind/types.ts";
 import { classifySvg, sanitizeSvg } from "./blind/sanitize.ts";
 import { resolveE14Manifest } from "./reference/lib/e14.ts";

@@ -1,12 +1,15 @@
 /**
- * Blind vs Reference — semantic comparison harness (shared infra).
+ * Blind vs Reference — semantic comparison harness (comparison infrastructure).
  *
- * This module is NOT part of the blind renderer's semantic resolution. It is a
- * test/evidence harness that lowers BOTH renderers' outputs into a common
- * "semantic overlay" record and diffs them. It is allowed to touch the
+ * Location: src/comparison/ (Phase H.2-B). This module is NOT part of the
+ * blind renderer's semantic resolution and is not a renderer namespace member;
+ * it is a test/evidence harness that lowers BOTH renderers' outputs into a
+ * common "semantic overlay" record and diffs them. It is allowed to touch the
  * reference model (types + placement predictor) precisely so that it can
  * compare like-for-like; it must never feed reference logic back into
- * src/blind/resolver.ts.
+ * src/blind/resolver.ts. The "blind comparison" name is the historical era
+ * coordinate of this mechanism (N-06); physical location does not establish
+ * semantic ownership for either consumer.
  *
  * The semantic record answers: "where does this body's content land, when is it
  * visible, at what depth?" rather than comparing raw pixels.
@@ -26,8 +29,8 @@ import type {
   BlindOverlay,
   IiifMode,
   Placement,
-} from "./types.ts";
-import { canvasPointOf } from "./placement.ts";
+} from "../blind/types.ts";
+import { canvasPointOf } from "../blind/placement.ts";
 
 export interface SemanticPoint {
   user: { x: number; y: number };

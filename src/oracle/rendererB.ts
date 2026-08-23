@@ -2,12 +2,18 @@ import type {
   CanvasInfo,
   ReferenceOverlay,
   ResolvedOverlay,
-} from "../lib/types.ts";
-import { readSvgRootAttrs } from "../../primitives/svg-root.ts";
+} from "../reference/lib/types.ts";
+import { readSvgRootAttrs } from "../primitives/svg-root.ts";
 
 /**
  * Renderer B: direct reference model. Deliberately simple and NON-STANDARD.
  * Every coordinate is already in Canvas space; there is no selector parsing.
+ *
+ * Oracle path, not a consumer implementation (Phase H.2-B home: src/oracle/).
+ * It performs no standards resolution — it lowers oracle data from
+ * experiments.ts into the legacy ResolvedOverlay record so it can be compared
+ * against Renderer A's resolved sets. It must never be counted as an
+ * independent consumer in agreement claims.
  */
 export function resolveReference(
   refs: ReferenceOverlay[],

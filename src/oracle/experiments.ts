@@ -2,12 +2,17 @@ import type {
   Keyframe,
   ReferenceOverlay,
   ResolvedOverlay,
-} from "./reference/lib/types.ts";
+} from "../reference/lib/types.ts";
 
 /**
- * Reference (Renderer B) overlays per experiment. These mirror the same SVG
- * files referenced by the IIIF manifests, so that resolved-set equality is a
- * meaningful test of whether Renderer A carries the same information.
+ * Renderer B oracle data — direct-reference path (Phase H.2-B home: src/oracle/).
+ *
+ * NOT a consumer implementation: these overlays mirror the same SVG files
+ * referenced by the IIIF manifests, so that resolved-set equality is a
+ * meaningful test of whether Renderer A carries the same information. This
+ * module must never be counted as an implementing consumer in agreement
+ * claims. (`sameOverlay` below is the L1 parity comparator and remains
+ * embedded here exactly as recorded in H.1 §6.)
  */
 
 export const VIDEO = "/video/test-grid-1920x1080-30s.mp4";

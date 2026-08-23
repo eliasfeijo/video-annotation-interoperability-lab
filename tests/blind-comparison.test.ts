@@ -3,7 +3,7 @@ import { readFileSync, mkdirSync, writeFileSync } from "node:fs";
 import { resolve, basename } from "node:path";
 import { resolveManifest } from "../src/reference/lib/iiif.ts";
 import { resolveBlindManifest } from "../src/blind/resolver.ts";
-import { compareSemantics, type ComparisonResult } from "../src/blind/comparison.ts";
+import { compareSemantics, type ComparisonResult } from "../src/comparison/blind-comparison.ts";
 
 const ORIGIN = "http://localhost:5173";
 const ROOT = resolve(__dirname, "..");

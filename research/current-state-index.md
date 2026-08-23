@@ -79,6 +79,8 @@ These document the consolidation itself and are immutable once committed:
 - `phase-d-checklist.md` (execution plan for the mechanical phase)
 - `phase-h2a-shared-primitive-namespace.md` (Phase H.2-A; owns the helper-reuse
   governance rule and the `src/primitives/` namespace decision)
+- `phase-h2b-comparison-oracle-ownership.md` (Phase H.2-B; owns the comparison-harness
+  and oracle-path ownership decisions: `src/comparison/`, `src/oracle/`)
 
 ## Maintenance rule for this index
 

@@ -4,7 +4,8 @@
  * These types describe the *semantic* resolution of a manifest (or Web
  * Annotation document) into compositable overlays, so that independent
  * renderers can be compared record-for-record. They are deliberately shared
- * infrastructure (like src/blind/comparison.ts), NOT renderer semantics.
+ * infrastructure (like the comparison harnesses under src/comparison/), NOT
+ * renderer semantics.
  * Each renderer computes the values in its own way and fills these shapes.
  */
 

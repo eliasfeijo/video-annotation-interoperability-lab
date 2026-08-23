@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { resolveManifest } from "../src/reference/lib/iiif.ts";
-import { resolveReference } from "../src/reference/renderers/rendererB.ts";
+import { resolveReference } from "../src/oracle/rendererB.ts";
 
 const ORIGIN = "http://localhost:5173";
 
