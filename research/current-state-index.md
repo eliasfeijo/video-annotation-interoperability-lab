@@ -3,6 +3,8 @@
 Status: consolidation Layer **L6** — pointer/index only.
 Created by: Phase C design (see `research/consolidation-map.md`).
 Decision basis: D3 in `research/phase-b-provenance-terminology-audit.md`.
+Last pointer review: 2026-08-23 against HEAD `1283438` (post Phase H.2-C); covers
+documents through the Phase E / F / G.1 / H.1 / H.2 series.
 
 ## Purpose and non-purpose
 
@@ -41,6 +43,19 @@ Full per-document assignment, mutability, and preservation constraints:
 - Normative profile (what MUST hold, what is excluded, what stays open):
   `profile-draft.md` (Part 1 states explicitly what the profile IS and IS NOT).
 - What is mechanically enforced vs declaratively blocked: `n6-implementation-report.md`.
+- Identifier registry (which ID means what; alias and collision hazards):
+  `research/terminology.md`. Proposed replacement target vocabulary — a Phase F
+  design artifact awaiting human review, adopting/renaming nothing by itself:
+  `research/terminology-specification.md`.
+- Source-architecture truth today: the H.2 phase records own the current tree
+  layout (`src/primitives/`, `src/comparison/`, `src/oracle/`). The G.1 inventory
+  (`phase-g1-source-architecture-inventory.md`) and the H.1 reconciliation
+  (`phase-h1-concept-architecture-reconciliation.md`) are authoritative
+  observations as of their baselines only; their path citations predate H.2 and
+  are historical citations, not current layout.
+- Carried architecture questions: of H.1's deferred questions #1–#12, #1/#2/#12
+  were resolved by H.2-A, #3/#4 by H.2-B, #5 by H.2-C; #6–#11 remain open (see
+  `phase-h2c-dead-public-surface-reconciliation.md` §10).
 - Conservative framing for future prose (adopted wording, not retroactively applied):
   see `research/documentation-conventions.md` §Framing.
 
@@ -55,6 +70,8 @@ Full per-document assignment, mutability, and preservation constraints:
 | No-viewBox body mapping across mechanisms | `[OPEN]`, eliminable by profile rule P1/R-S1 | `e15-report.md` R2; `profile-draft.md` |
 | Consumer-side certification (R-S2 realization) | BLOCKED — no capable consumer (Ramp crashes, Mirador drops) | `n6-implementation-report.md` §6; `viewer-interop-report.md` |
 | Temporal/spatial fragment honoring by consumers | `[UNKNOWN]` from passive probes | `viewer-interop-report.md` V2/V3 |
+| H.1 deferred questions #6–#11 (main.ts bridge tier, LabApi divergence, evidence-writer separation, `temporalWindow` defensive branch, naming policy U2, dual-model arrangement incl. retained `BodyKind "video"`) | OPEN — carried unchanged through H.2-C | `phase-h1-concept-architecture-reconciliation.md` §12; `phase-h2c-dead-public-surface-reconciliation.md` §10 |
+| Terminology migration (Phase F target vocabulary) | OPEN — proposal awaiting human review; no renames authorized yet | `terminology-specification.md` |
 | Question register (all numbered open questions) | living append-only register | `open-questions.md` |
 
 ## Where current normative requirements are
@@ -83,6 +100,22 @@ These document the consolidation itself and are immutable once committed:
   and oracle-path ownership decisions: `src/comparison/`, `src/oracle/`)
 - `phase-h2c-dead-public-surface-reconciliation.md` (Phase H.2-C; owns the dead-surface
   deletions and the retained `BodyKind "video"` decision)
+- `phase-e-identifier-inventory.md` (Phase E; exhaustive identifier/terminology
+  inventory; analysis-only working artifact)
+- `phase-g1-source-architecture-inventory.md` (Phase G.1; independent observation-only
+  source-tree audit; path citations are as-of-baseline, pre-H.2)
+- `phase-h1-concept-architecture-reconciliation.md` (Phase H.1; concept ↔ architecture
+  reconciliation; owns deferred questions #1–#12)
+
+Mutable consolidation-era registers and proposals, governed by their own headers
+(not part of the frozen record):
+
+- `terminology.md` (identifier & terminology registry derived from the Phase E
+  inventory; navigation over ID namespaces; owning documents win over it)
+- `terminology-specification.md` (Phase F; proposed target vocabulary/taxonomy;
+  PROPOSAL AWAITING HUMAN REVIEW — migrates and renames nothing by itself)
+- `cleanup-checklist.md` (stale-documentation findings from the 2026-08-23 pointer
+  review; working checklist whose items expire when executed)
 
 ## Maintenance rule for this index
 
