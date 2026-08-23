@@ -652,6 +652,94 @@ documentation-conventions.md Part I. Historical: `T-1…T-6` item numbers
 
 ---
 
+### 5.9 Architecture tiers, reuse-governance classes, and module roles (Phase G additions)
+
+Added by Phase G mapping-first documentation (`phase-g-terminology-taxonomy.md`),
+recording vocabulary demonstrated necessary by the Phase G audit and already ratified
+in phase records. Per principle 12, the BOUNDARIES these terms name are owned by their
+ratifying records; this glossary indexes them for prose use. None of these terms may
+be paraphrased into synonyms.
+
+#### Gap A — display/interchange architecture tiers (ratified phase H.2-D)
+
+**Interchange record** — the durable, renderer-filled shared record of the composition
+domain: each consumer resolves a manifest into its OWN instance, carrying its readings
+AS DATA (placement modes, provenance-classed rules, security summaries), so agreement
+can be diffed mechanically without any consumer importing another's logic. Code home:
+`src/e14/types.ts` (migration target `src/composition/types.ts`, §9.1). It is NOT
+renderer semantics, NOT a display model, and NOT owned by any consumer. Owner:
+`phase-h2d-interchange-display-tier-ratification.md` §3–§4. Type names such as
+`E14Overlay`/`E14Manifest` are implementation spellings of this concept (migratable
+per §9.1); the VALUES they carry (model letters, placement modes, BodyKind values) are
+frozen machine surfaces.
+
+**Legacy display-regression substrate** — the `ResolvedOverlay` record plus the legacy
+`Stage` rendering path; multi-role and LIVE: exp-era flows, Renderer B oracle lowering,
+L1 parity, L2 reference-side input, Renderer A native output. "Legacy" records era
+origin, NOT scheduled removal. Distinct from the interchange record (its unique
+`keyframes` field is exp7 experimental machinery attached here alone). Owner:
+H.2-D §3.3.
+
+**Consumer-private model** — a record owned by exactly ONE consumer and never merged
+or replaced; instance: `BlindOverlay` (the methodological blinding device; sharing it
+would manufacture representation agreement and destroy the L2 observable). Owner:
+H.2-D §3.4.
+
+**Harness-tier bridge** — one of the two permanent `main.ts` adapters
+(`e14ToResolvedA`, `e14ToBlindOverlay`) crossing between the interchange record and
+the display/private tiers; transport-only (no resolved geometry injected into any
+consumer stage) with documented, expected lossiness; never normalized into a generic
+framework, never relocated. Owner: H.2-D §3.5–§3.6.
+
+#### Gap B — reuse-governance classes (ratified phase H.2-A; names verbatim)
+
+1. **Renderer-neutral primitive** — zero interpretive content; free reuse in any
+   direction (`primitives/svg-root.ts`, `primitives/temporal.ts`).
+2. **Explicitly labeled profile-defined reading** — a named interpretation the profile
+   itself assigns; shareable ONLY under a name and header stating the reading so
+   alternative readings stay visible (`primitives/region-as-viewport-placement.ts`,
+   the region-as-viewport reading per R-S2).
+3. **Consumer-policy implementation** — embodies a choice where consumers deliberately
+   diverge; stays owned by its consumer; sharing prohibited when it would collapse a
+   research observable (MF bounds/drop policy, security posture, z-order, window
+   defaulting, synthesized-viewBox placement).
+4. **Analysis-only / counterfactual implementation** — prediction/measurement machinery
+   consumed by NO renderer; renderers MUST NOT import it (`e14/comparison.ts`,
+   `comparison/blind-comparison.ts`, `oracle/*`, `e15/analysis.ts`,
+   `e16/comparison.ts`, `e17/classify.ts`).
+
+Binding corollary (H.2-A): physical location does not establish semantic ownership;
+the class travels with the module and is declared in its module header.
+
+#### Gap C — module/test roles (engineering vocabulary)
+
+Role words used by `AGENTS.md` behavior rules and by migration planning:
+
+- **Consumer implementation** — an independent renderer/resolver whose semantic
+  resolution logic must not import another consumer's (`reference/`, `blind/`,
+  `native/`).
+- **Shared infrastructure** — code multiple consumers may depend on without collapsing
+  observables: reuse-governance classes 1–2 plus the interchange-record tier.
+- **Analysis infrastructure** — reuse-governance class 4 collectively (list above).
+- **Harness/measurement apparatus** — the lab app and measurement pages exposing
+  renderers, fixtures, and hooks (`main.ts`, `e15/page.ts`, `e17/page.ts`,
+  `tests/e2e/utils.ts`); deliberately below term level (see §5.7 closing note).
+- **Evidence-producing test** — a test/script whose successful run writes tracked
+  evidence as a side effect (vitest suites `tests/e14-comparison.test.ts`,
+  `tests/e16-comparison.test.ts`, `tests/blind-comparison.test.ts`; script
+  `scripts/run-n6-suite.mts`; the browser suites); governed by evidence policy
+  P-2/P-3/P-7.
+- **Protected machine surface** — an identifier whose value/key/name crosses a machine
+  boundary or is frozen by policy: URL parameters+values, browser globals,
+  routes/events/CSS hooks, serialized vocabularies, live ID spaces, filename grammars.
+- **Historical citation** — a legitimate occurrence of a retired identifier when
+  NAMING a historical artifact, document, or serialized value; sanctioned use, never
+  prose vocabulary.
+- **Frozen output grammar** — the filename/content grammar of an evidence or fixture
+  family; byte-stable under regeneration; renames forbidden (evidence policy P-5).
+
+---
+
 ## 6. Concept relationships
 
 The vocabulary's power sits in a handful of load-bearing distinctions and one
@@ -828,6 +916,141 @@ table exists so readers (and the eventual migration tooling) can translate.
 
 Mapping maintenance: this table is append-only; new historical families
 discovered during migration get rows here rather than new glossary terms.
+
+---
+
+### 9.1 Approved implementation migration mapping (Phase G)
+
+> ADDED BY PHASE G.x-0 MAPPING-FIRST DOCUMENTATION. Rows below are RATIFIED AND
+> PENDING EXECUTION — nothing has been renamed yet. This subsection is a different
+> kind of content from the archaeology table above: that table translates historical
+> FORMS for reading prose; this subsection authorizes FUTURE IMPLEMENTATION MOVES.
+> The two must not be conflated. Ratifying artifact:
+> `research/phase-g-terminology-taxonomy.md` (full rationale, sequencing §13,
+> verification protocol §14). Baseline at ratification: HEAD `5ec792d`.
+
+Naming policy governing every row below (ratified Phase G):
+
+- Living prose refers to experiments semantically first: `<semantic name>
+  (<historical ID>)`, e.g. "cross-engine replication (E17)". Number-first forms
+  (`E17 — …`) are reserved for archival indexes/citations where the number is the
+  lookup key.
+- New namespaces/slugs/identifiers MUST NOT embed historical experiment numbers;
+  generation tokens remain historical citations or frozen machine coordinates only.
+- Frozen machine surfaces (serialized values/keys, filename grammars, URL parameters,
+  browser globals, routes/events/CSS hooks, live ID spaces) NEVER change as part of
+  any row below.
+
+Execution discipline: ONE atomic change-set per family (every row's importers and
+coupled files move together; each commit compiles green and is its own rollback
+boundary); evidence-producing vitest suites are run focused after their family and
+byte-compared against HEAD (expected identical — never absorb churn); browser/
+Playwright suites are NOT run as rename verification; per-family gates are defined in
+the taxonomy artifact §14.
+
+#### Approved namespace migrations
+
+| Current | Target | Atomicity / coupling notes |
+|---|---|---|
+| `src/n6/` | `src/validator/` | ONE directory move. `suite.ts` moves WITH the validator (edit-flow stage 3). Importers `tests/n6-conformance.test.ts` + `scripts/run-n6-suite.mts` update in the same change-set. Values stay byte-identical: `VALIDATOR_VERSION = "n6-resource-validator@1.0.0"`, fixture ids `n6-t01…n6-t15`, `AMB-N6-1` context, `OUT_DIR = "evidence/n6"`, `matrixRows` literals. The `src/n6/types.ts` owner citations in THIS document become pointer updates AT EXECUTION (see pointer obligations below). Vitest conformance suite writes no evidence. |
+| `src/e14/` | `src/composition/` | ONE namespace migration: `types.ts` + `comparison.ts` move TOGETHER. Do NOT split; do NOT merge `comparison.ts` into `src/comparison/`. Importer sweep: `main.ts`, `reference/lib/e14.ts`, `blind/e14.ts`, `native/resolver.ts`, `native/stage.ts`, `src/e16/comparison.ts`, unit tests, e2e specs. Browser-global keys `__lab.e14Resolved`/`__lab.e14Compare`, verdict strings, model letters, placement modes, BodyKind values UNCHANGED; `evidence/e14/` grammar unchanged. Evidence-producing unit suite (`e14-comparison`) requires focused run + byte-compare. |
+| `src/e15/` | `src/embedding-semantics/` | Directory move incl. `analysis.ts` + `page.ts`. `public/e15-lab.html` `<script src>` mount updates in the SAME change-set; route `/e15-lab.html`, `window.__e15`, CSS/event hooks unchanged. `src/e17/classify.ts` + `src/e17/page.ts` imports repoint in THIS family's change-set. `tests/e2e/e15.spec.ts` is a browser-dependent evidence writer (`evidence/e15/`) — not run as rename verification. `INTERPRETATION_NAMES` VALUES and pinned interpretation function names untouched. |
+| `src/e16/` | `src/nested-composition/` | Single-module move. Imports `../e14/types` (repointed during this family or the composition family, whichever runs later). Importer `tests/e16-comparison.test.ts` follows atomically; `evidence/e16/` grammar unchanged; that suite is evidence-producing — focused run + byte-compare required. |
+| `src/e17/` | `src/cross-engine/` | Directory move incl. `classify.ts` + `page.ts`. `public/e17-lab.html` `<script src>` mount updates same change-set; route `/e17-lab.html`, `__e17`, shared `.e15-box/.e15-row` hooks unchanged. Spec+config move in ONE change-set (row below). `scripts/e17-aggregate.mjs` rename must NOT alter any frozen `evidence/e17/*` path literal or `"experiment"` value. |
+
+#### Approved script migrations
+
+| Current | Target | Notes |
+|---|---|---|
+| `scripts/run-n6-suite.mts` | `scripts/run-validator-suite.mts` | Moves with validator family; `OUT_DIR="evidence/n6"` and all output literals byte-identical; not executed during migration. |
+| `scripts/build-e14-fixtures.mjs` | `scripts/build-composition-fixtures.mjs` | Generated fixture filenames (`e14-caseNN-*` grammar) frozen. |
+| `scripts/build-e15-fixtures.mjs` | `scripts/build-embedding-semantics-fixtures.mjs` | Variant/landmark outputs frozen. |
+| `scripts/build-e16-fixtures.mjs` | `scripts/build-nested-composition-fixtures.mjs` | Outputs frozen. |
+| `scripts/build-e17-fixtures.mjs` | `scripts/build-cross-engine-fixtures.mjs` | Outputs frozen. |
+| `scripts/build-n2-fixtures.mjs` | `scripts/build-consumer-probe-fixtures.mjs` | Probe-manifest slugs frozen (incl. its citations of e14/e15/e16 fixture paths). |
+| `scripts/e17-aggregate.mjs` | `scripts/cross-engine-aggregate.mjs` | Reads frozen `evidence/e17/*`; writes `cross-engine-matrix.json`/`summary.json` with unchanged `"experiment"` values; not executed during migration. |
+
+#### Approved unit-test migrations
+
+| Current | Target | Notes |
+|---|---|---|
+| `tests/n6-conformance.test.ts` | `tests/validator-conformance.test.ts` | T01–T15 ids immutable; writes NO evidence. |
+| `tests/e14-comparison.test.ts` | `tests/composition-comparison.test.ts` | Evidence-producing (`evidence/e14/`) — focused run + byte-compare post-rename. Fixture-path literals frozen. |
+| `tests/e16-comparison.test.ts` | `tests/nested-composition-comparison.test.ts` | Evidence-producing (`evidence/e16/`) — focused run + byte-compare post-rename. `cmp-*` filename construction frozen. |
+
+#### Approved E2E spec migrations
+
+| Current | Target | Notes |
+|---|---|---|
+| `tests/e2e/e14.spec.ts` | `tests/e2e/composition.spec.ts` | Root config pins nothing for it; `record()` observation names (`e14-case06-*`…) frozen; `__lab` keys unchanged. Browser suite — static verification only by default. |
+| `tests/e2e/e15.spec.ts` | `tests/e2e/embedding-semantics.spec.ts` | Navigates `/e15-lab.html` (route KEPT); `__e15` calls unchanged; writes `evidence/e15/*` — DO NOT RUN. |
+| `tests/e2e/e16.spec.ts` | `tests/e2e/nested-composition.spec.ts` | `__lab.*` keys and record names unchanged. |
+| `tests/e2e/e17.spec.ts` | `tests/e2e/cross-engine.spec.ts` | Couples to dedicated config — SAME change-set; drives BOTH lab pages (`__e15` + `__e17`). |
+| `tests/e2e/n2-viewer.spec.ts` | `tests/e2e/consumer-probe.spec.ts` | Couples to dedicated config — SAME change-set; network-dependent, never run casually. |
+
+Initial-cycle specs (`exp1..7`, `parity`, `security`, `text`, `viewer`, `blind`) and
+`tests/e2e/utils.ts`: KEEP (reproducibility apparatus around frozen `?exp=` surfaces;
+Phase G class decision).
+
+#### Approved Playwright config migrations
+
+| Current | Target | Notes |
+|---|---|---|
+| `playwright.e17.config.ts` | `playwright.cross-engine.config.ts` | `testMatch` regex + `outputDir` move in the same change-set as the spec rename; engine project names `chromium/firefox/webkit` untouched. |
+| `playwright.n2.config.ts` | `playwright.consumer-probe.config.ts` | Same coupling rule. |
+
+#### Symbol mappings
+
+| Current | Target | Status |
+|---|---|---|
+| Every exported symbol prefixed `E14` (`E14Model`, `E14SvgAttrs`, `E14Placement`, `E14PlacementMode`, `E14NestedMap`, `E14Security`, `E14Rule`, `E14Overlay`, `E14CanvasInfo`, `E14Manifest`, `E14Comparison`) | `Composition<name>` equivalent | APPROVED (mechanical prefix swap; member inventory confirmed against the export surface at composition-family execution). Non-prefixed exports of those modules (`RendererName`, `Provenance`, `Rect`, `SvgBox`, `BodyKind`, `OverlayDiff`, `RendererPair`, `classifyDiff`, `compareManifestPair`, `ruleProvenances`, `userToCanvas`) are NOT touched by this rule. Serialized VALUES (letters/modes/kinds) unchanged. |
+| `resolveE14Manifest` | `resolveCompositionManifest` | APPROVED |
+| `resolveBlindE14Manifest` | `resolveBlindCompositionManifest` | APPROVED |
+| `compareE14` | `compareCompositionRecords` | APPROVED (final spelling ratified by G.x-0) |
+| `E15Embedding` | `EmbeddingMechanism` | APPROVED — adopts the existing §5.3 glossary term; channel VALUE strings unchanged |
+| `resolveNativeManifest` | — | KEEP (already semantic) |
+| `iRegionViewport`, `iIntrinsicStretch`, `iObjectFitContain`, `iNaturalTopLeft`, `iNaturalCentered` | — | PINNED KEEP — deliberate mirrors of the frozen `I-*` labels via `INTERPRETATION_NAMES[fn.name] ?? fn.name` (`classify.ts:198`); never renamed independently of the frozen labels |
+| `e14ToResolvedA`, `e14ToBlindOverlay` | — | KEEP unless a human decision explicitly overrides open question Q2 (names cited by the ratified H.2-D record) |
+
+#### Unresolved symbol spellings (Q3 — intentionally NOT decided here)
+
+Target spelling: unresolved / fixed during embedding-semantics execution.
+
+| Current symbol | Defined in | Reason unresolved |
+|---|---|---|
+| `E15Rect` | `src/e15/analysis.ts` | Exact semantic role must be resolved during the family migration (generic rect serving regions AND landmark geometry alike); no speculative spelling adopted |
+| `E15Landmarks` | `src/e15/analysis.ts` | Same — role resolution deferred to embedding-semantics execution |
+| `E15SvgVariant` | `src/e15/analysis.ts` | Same |
+| `E15Map` | `src/e15/analysis.ts` | Same (affine scale/translate + clip map) |
+| `E15Measured` | `src/e15/analysis.ts` | Same |
+| `E15CellResult` | `src/e15/analysis.ts` | Same |
+
+When resolved, these renames execute ATOMICALLY across `src/e15/analysis.ts`,
+`src/e17/classify.ts`, and `tests/e2e/{e15,e17}.spec.ts` within the
+embedding-semantics family change-set. No replacement names are ratified here;
+speculative candidates must not be minted before then.
+
+#### Explicit keeps (ratified)
+
+`scripts/build-fixtures.mjs`; `scripts/generate-video.mjs`; namespaces
+`src/reference/`, `src/blind/`, `src/native/`, `src/primitives/`, `src/comparison/`,
+`src/oracle/`; `src/main.ts`; lab-page filenames/routes `/e15-lab.html`,
+`/e17-lab.html`; initial-cycle spec filenames (above); all clean unit tests
+(`blind*`, `iiif`, `selectors`, `svg`, `timing`); infrastructure configs.
+
+#### Pointer obligations inside this document (future updates, NOT edits now)
+
+Current-state path references below remain accurate until the corresponding family
+executes; they then become POINTER UPDATES to the migrated paths. Protected VALUES
+are never changed either way:
+
+- Validator family → update `src/n6/types.ts` / `src/n6/` / `src/n6/suite.ts`
+  citations at: §3.1 Method; §3.2 row N-23; §5.4 Requirement ("encoded in …
+  `RequirementId`"); §5.5 Validator ("Implementation: …") and Conformance test case
+  ("executable transcription …"); §7.2 Diagnostic codes row; §8 Output vocabulary
+  (both bullets); Appendix row "`src/n6/types.ts`".
+- Composition/embedding-semantics/nested-composition/cross-engine families → update
+  the code-home citations introduced in §5.9 Gap A/B/C if they name moved paths.
 
 ---
 
