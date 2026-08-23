@@ -1,7 +1,7 @@
 /**
  * N6 evidence generator.
  *
- * Runs the black-box conformance suite T01–T15 (src/n6/suite.ts) and writes
+ * Runs the black-box conformance suite T01–T15 (src/validator/suite.ts) and writes
  * machine-readable artifacts to evidence/n6/:
  *   - summary.json            build context, totals, standing confirmations
  *   - conformance-matrix.json requirement/exclusion rows vs implementation state
@@ -14,8 +14,8 @@
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import { execSync } from "node:child_process";
-import { runSuite } from "../src/n6/suite.ts";
-import { VALIDATOR_VERSION } from "../src/n6/validator.ts";
+import { runSuite } from "../src/validator/suite.ts";
+import { VALIDATOR_VERSION } from "../src/validator/validator.ts";
 
 const OUT_DIR = "evidence/n6";
 

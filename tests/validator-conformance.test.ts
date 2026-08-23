@@ -2,14 +2,14 @@
  * N6 — black-box conformance tests T01–T15.
  *
  * Expected outcomes are pre-registered in research/conformance-matrix.md
- * (Part B) and encoded once in src/n6/suite.ts; these tests assert that the
+ * (Part B) and encoded once in src/validator/suite.ts; these tests assert that the
  * validator meets them exactly. They are falsifiable: any divergence between
  * pre-registered expectation and actual outcome fails here.
  */
 
 import { describe, expect, it } from "vitest";
-import { runSuite } from "../src/n6/suite.ts";
-import type { ConformanceReport } from "../src/n6/types.ts";
+import { runSuite } from "../src/validator/suite.ts";
+import type { ConformanceReport } from "../src/validator/types.ts";
 
 const outcomes = await runSuite();
 const byId = new Map(outcomes.map((o) => [o.id, o]));
@@ -180,7 +180,7 @@ describe("N6 supplementary suite details", () => {
     expect(a.pairA.mappings[0]!.k).toBe(2);
     expect(a.pairB.diagnostics[0]!.code).toBe("ASPECT_MISMATCH");
     // Formula W'·H == H'·W (profile Part 7.1): 2000·1080 vs 2000·1920.
-    // See recorded ambiguity AMB-N6-1 in src/n6/suite.ts T12.expected.
+    // See recorded ambiguity AMB-N6-1 in src/validator/suite.ts T12.expected.
     expect(a.pairB.diagnostics[0]!.actual!.crossProductA).toBe("2160000");
     expect(a.pairB.diagnostics[0]!.actual!.crossProductB).toBe("3840000");
     expect(a.pairB.diagnostics[0]!.actual!.epsilon).toBeUndefined();

@@ -727,7 +727,7 @@ Role words used by `AGENTS.md` behavior rules and by migration planning:
 - **Evidence-producing test** — a test/script whose successful run writes tracked
   evidence as a side effect (vitest suites `tests/e14-comparison.test.ts`,
   `tests/e16-comparison.test.ts`, `tests/blind-comparison.test.ts`; script
-  `scripts/run-n6-suite.mts`; the browser suites); governed by evidence policy
+  `scripts/run-validator-suite.mts`; the browser suites); governed by evidence policy
   P-2/P-3/P-7.
 - **Protected machine surface** — an identifier whose value/key/name crosses a machine
   boundary or is frozen by policy: URL parameters+values, browser globals,
