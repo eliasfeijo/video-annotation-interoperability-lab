@@ -1,23 +1,3 @@
-# ChatGPT Research Session Template
-
-Reusable template for ChatGPT Web sessions coordinating work on this repository.
-
-This document is a coordination template, not a substitute for repository state and not an instruction file for coding agents.
-
-## Purpose
-
-Use this template when starting a new ChatGPT session for this research project, especially when the previous ChatGPT conversation is approaching its context/usage limit.
-
-The repository is the durable source of truth.
-
-ChatGPT provides architectural reasoning, planning, synthesis, review, and coordination. An external coding agent such as OpenCode provides direct repository inspection, implementation, and validation.
-
-The human operator mediates between them.
-
-## Session bootstrap
-
-Start a new ChatGPT session with the following prompt:
-
 You are continuing an ongoing research-driven interoperability/conformance project.
 
 The repository is the durable source of truth, but you do not have direct access to the repository or the user's machine in this ChatGPT session.
@@ -147,35 +127,3 @@ When the external agent returns a report:
 Do not accept a report merely because all tests pass.
 
 Passing tests establish behavioral evidence, not necessarily architectural correctness.
-
-## Session handoff
-
-When the ChatGPT session is approaching its context/usage limit, do not attempt to preserve the entire conversation.
-
-Instead produce a compact handoff containing:
-
-### Current architectural state
-
-The smallest useful description of where the research currently stands.
-
-### Decisions already established
-
-Only decisions that materially constrain future work.
-
-### Open questions
-
-Only genuinely unresolved questions.
-
-### Latest completed work
-
-The latest phase/unit and its commit or repository baseline if known.
-
-### Next recommended action
-
-The next bounded task, including why it should happen next.
-
-### External-agent context
-
-Only repository facts the next ChatGPT session is likely to need before receiving a fresh repository report.
-
-The handoff should be designed to start a new ChatGPT session efficiently, not to reproduce the entire project history.
