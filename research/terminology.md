@@ -44,9 +44,9 @@ era only), **generated** (machine output).
 | Identifier | Example | What it identifies | Syntax / range | Status | Owner | Aliases & warnings |
 |---|---|---|---|---|---|---|
 | `S<n>` | `S4` | N4 safe-subset rules (pre-profile formulation) | S1–S8 | historical→current via alias rows | `n4-safe-subset.md`; equivalence table `conformance-matrix.md` Part A | each has an R-S twin — full map in §3; NOT the capability grade `S` |
-| `R-S<n><part>` | `R-S6b` | formal profile requirements; a/b splits where provenance differs | R-S1–R-S8b | current normative | `profile-draft.md` Part 4; encoded in `src/n6/types.ts` (`RequirementId`) | immutable; part-split pairs: R-S6a/b, R-S8a/b |
+| `R-S<n><part>` | `R-S6b` | formal profile requirements; a/b splits where provenance differs | R-S1–R-S8b | current normative | `profile-draft.md` Part 4; encoded in `src/validator/types.ts` (`RequirementId`) | immutable; part-split pairs: R-S6a/b, R-S8a/b |
 | `X<n>` | `X7` | profile exclusions (no geometry promised) | X1–X8 | current normative | `profile-draft.md` Part 10 | unrelated to lowercase SVG tokens (`xywh=`, `xMidYMid`) |
-| `T<nn>` | `T08` | pre-registered black-box conformance cases | T01–T15 | design frozen (N5); executed (N6) | design: `conformance-matrix.md` Part B; execution encoding: `src/n6/suite.ts` | distinct from terminology rules `T-1…T-6` (§4) |
+| `T<nn>` | `T08` | pre-registered black-box conformance cases | T01–T15 | design frozen (N5); executed (N6) | design: `conformance-matrix.md` Part B; execution encoding: `src/validator/suite.ts` | distinct from terminology rules `T-1…T-6` (§4) |
 | `RF<nn>` | `RF02` | future consumer rendering checks (blocked by design; informational only) | RF01–RF04 | current design, unexecuted | `conformance-matrix.md` Part B ("Future rendering-level checks") | never gate conformance |
 | `P<n>` (+`P5a`) | `P2`, `P5a` | lab-convention rules from the E15/E16 cycle; P5a = same-aspect sub-rule | P1–P6, P5a | historical rules; final ranks in N3 | formulated `e15-e16-final-report.md` §9; rank table `community-positioning.md` §10 | formalized into S/R-S*; IDs remain citation currency — NOT policy points `P-1…P-7` (§4) |
 
@@ -84,8 +84,8 @@ their multiple surface forms.
 
 | Convention | Example | Meaning | Values | Owner |
 |---|---|---|---|---|
-| Region short-names | `square500`, `rect43`, `full`, `half` | four E15 target regions on the 1920×1080 canvas | 4 | `build-e15-fixtures.mjs`; `e15-report.md` §2 |
-| Embedding mechanisms | `svg-nested-region`, `img-none`, `background` | eight embedding channels under test | typed union in `src/e15/analysis.ts` | same |
+| Region short-names | `square500`, `rect43`, `full`, `half` | four E15 target regions on the 1920×1080 canvas | 4 | `build-embedding-semantics-fixtures.mjs` (historical `build-e15-fixtures.mjs`); `e15-report.md` §2 |
+| Embedding mechanisms | `svg-nested-region`, `img-none`, `background` | eight embedding channels under test | typed union in `src/embedding-semantics/analysis.ts` | same |
 | Variant short-names | `vb1000`, `novb1920x1080-min`, `e17-vb1000-max` | viewBox presence/size + PAR token encoding; `-max` = xMaxYMax | vb/novb × sizes × PAR | builders e15/e17 |
 | Interpretation labels | `I-REGION-VIEWPORT` | analytic candidate readings scored by the pixel classifier | I-REGION-VIEWPORT, I-INTRINSIC-STRETCH, I-OBJECTFIT-CONTAIN, I-NATURAL-CENTERED, I-NATURAL-TOPLEFT | `e15-report.md` §3 |
 | Evidence filename grammars | `cmp-e16-case05-43-full-b__contain.json`, `case-e15-firefox-vb1000--rect43.json` | per-family generated-artifact grammars (`__<fit>`, `<variant>--<region>`, engine infix, `parity-<n>`, `observations/<id>`) | per family | producing specs/tests; rename-forbidden |
@@ -208,12 +208,12 @@ Each item keeps its existing legend/owner:
 - **Compatibility status** `S/G/B/S*` → `compatibility-matrix.md` legend.
 - **Conformance-state vocabularies** (IN FORCE/EXCLUDED/OPEN fence/OUT OF SCOPE;
   implemented/BLOCKED/open fence/excluded) → `conformance-matrix.md` Part A; the
-  md→JSON status mapping lives ONLY in `scripts/run-n6-suite.mts` (`matrixRows`).
+  md→JSON status mapping lives ONLY in `scripts/run-validator-suite.mts` (`matrixRows`).
 - **Provenance taxonomies** (four scoped sets: blind-packet rule classes, E14
   divergence classes, profile requirement provenance `[NORMATIVE]/[BROWSER]/…`,
   N2 consumer labels) → common legend in `documentation-conventions.md` Part II.
 - **N6 diagnostic codes** (`MISSING_VIEWBOX`, `TEMPORAL_HONORING_OPEN`, …) →
-  implementation/output vocabulary, owned by `src/n6/types.ts`; surfaced in the
+  implementation/output vocabulary, owned by `src/validator/types.ts`; surfaced in the
   requirement-to-code table of `n6-implementation-report.md` §2. Machine codes,
   not human identifier namespaces.
 - **Typed-axis value sets** (RendererKind a/b; IiifMode A/B; E14Model A/B/C) →

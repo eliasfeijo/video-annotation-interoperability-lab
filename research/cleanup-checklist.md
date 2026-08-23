@@ -36,6 +36,11 @@ every finding below cites its evidence.
 
 ### 1. README.md — Layout and quick-start stale after Phases H.2-A/B/C
 
+Status: RESOLVED by the Phase G.x-6 living-documentation refresh (layout block now
+describes the post-G.x tree: oracle path, primitives, comparison, and the five
+renamed semantic namespaces; renderer enumeration corrected). URL parameter prose
+was described, never changed.
+
 Priority: medium. Public entry point; a refresh touches no protected machine surface
 as long as URL params/verdicts are only described, never changed.
 
@@ -152,7 +157,7 @@ by the index still resolve (e.g., documentation-conventions T-5 "Framing").
   listing): every L0/L1/L2/L3/L4/L5 owner named there, all phase records A–H.2,
   `terminology.md`, `terminology-specification.md`, `n3-source-index.json`.
 - Normative-chain surfaces verified present at HEAD: `profile-draft.md` Parts 4–10,
-  `conformance-matrix.md`, `src/n6/suite.ts` and the other `src/n6/*` modules.
+  `conformance-matrix.md`, `src/validator/suite.ts` and the other `src/validator/*` modules.
 - Layer assignments in the index were left untouched: inventing new epistemic layers
   would be a semantic decision owned by the frozen consolidation map, not a pointer
   edit. New documents are instead navigated via the position bullets and the

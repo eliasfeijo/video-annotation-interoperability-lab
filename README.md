@@ -37,12 +37,17 @@ src/reference/lib/selectors.ts Media Fragments parser (t=, xywh=, pct:)
 src/reference/lib/timing.ts    half-open time windows
 src/reference/lib/svg.ts       SVG root attr parsing + placement math
 src/reference/lib/sanitize.ts  allowlist SVG sanitizer
-src/reference/renderers/       Renderer B oracle (rendererB.ts) + stage (dom.ts)
+src/reference/renderers/       Renderer A display stage (dom.ts)
+src/oracle/                    Renderer B oracle (rendererB.ts) + per-experiment references (experiments.ts)
 src/blind/                     independent Blind renderer (interpretation-packet-driven)
 src/native/                    Native renderer (browser <img> pipeline semantics)
-src/e14/ … src/e17/            per-experiment comparison/analysis harnesses
-src/n6/                        N6 resource conformance validator
-src/experiments.ts             per-experiment Renderer-B references + parity compare
+src/primitives/                shared primitives + explicitly labeled profile-defined reading
+src/comparison/                blind-vs-reference semantic-diff harness
+src/composition/               composition interchange record + renderer-agreement comparison (historical e14)
+src/embedding-semantics/       embedding-semantics analysis + measurement page (historical e15)
+src/nested-composition/        nested-Canvas fit analysis (historical e16)
+src/cross-engine/              cross-engine classifier + measurement page (historical e17)
+src/validator/                 resource conformance validator, suite T01–T15 (historical n6)
 src/main.ts                    browser harness exposing window.__lab
 public/manifests/*.json        IIIF Presentation 3 fixtures (exp1..7, text, security)
 public/svg/*.svg               experiment bodies + Renderer-B oracles

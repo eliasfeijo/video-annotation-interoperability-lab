@@ -1,5 +1,14 @@
 # Session Context Block
 
+> **TEMPLATE NOTE (phase G.x-6):** the block below is a preserved worked EXAMPLE
+> describing the repository as of the post-H.2-C state (`1283438`). Its path names
+> (`src/n6/`, `src/e14/`–`src/e17/`) and its open questions are ERA-BOUND history.
+> Current namespaces are `src/validator/`, `src/composition/`,
+> `src/embedding-semantics/`, `src/nested-composition/`, `src/cross-engine/`
+> (Phase G.x migration, commits `ed33445`…`18c7ae3`); H.2-D/E/F were subsequently
+> resolved or carried per their phase records. Copy the STRUCTURE of this example,
+> not its contents.
+
 ## Project
 
 Video Annotation Interoperability Lab / standards interoperability research repository.

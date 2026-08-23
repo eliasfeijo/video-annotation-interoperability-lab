@@ -20,7 +20,8 @@ Bare letters A/B/C are forbidden in new prose. Always carry the axis word:
 | Mode A / Mode B | "Mode A" ok; "A/B semantics" alone | IIIF 3.0-stable vs 4.0-draft semantics (blind renderer) |
 
 Definition sites: `src/reference/lib/types.ts` (`RendererKind`),
-`src/e14/types.ts` (`E14Model`), `src/blind/layers.ts` (`IiifMode`,
+`src/composition/types.ts` (`CompositionModel`, historical
+`src/e14/types.ts`/`E14Model`), `src/blind/layers.ts` (`IiifMode`,
 `zProvenance`), `docs/iiif-3-vs-4.md`, `e14-report.md` §2.
 
 ### T-2. Qualified collision terms
@@ -102,8 +103,8 @@ Do not mix these with A–D when writing:
 | System | Object | Labels | Definition source |
 |---|---|---|---|
 | Compatibility status | capability row | `S` `G` `B` `S*` | `compatibility-matrix.md` legend |
-| Conformance state | requirement implementation status | implemented / BLOCKED / OPEN fence / EXCLUDED / OUT OF SCOPE (markdown vocabulary); implemented/blocked/open fence/excluded (JSON presentation) | `conformance-matrix.md` Part A; `scripts/run-n6-suite.mts` `matrixRows` (mapping lives ONLY there) |
-| Diagnostic codes | validator output items | `VIEWBOX_PRESENT`, `MISSING_VIEWBOX`, `ASPECT_MISMATCH`, `TEMPORAL_HONORING_OPEN`, … | `src/n6/types.ts` |
+| Conformance state | requirement implementation status | implemented / BLOCKED / OPEN fence / EXCLUDED / OUT OF SCOPE (markdown vocabulary); implemented/blocked/open fence/excluded (JSON presentation) | `conformance-matrix.md` Part A; `scripts/run-validator-suite.mts` `matrixRows` (mapping lives ONLY there) |
+| Diagnostic codes | validator output items | `VIEWBOX_PRESENT`, `MISSING_VIEWBOX`, `ASPECT_MISMATCH`, `TEMPORAL_HONORING_OPEN`, … | `src/validator/types.ts` |
 | Comparison verdicts | fixture×renderer pairs | `a==blind`, `a==native`, `blind==native` (+ `!=`) | evidence/e14,e16,e17 JSONs |
 | Hypothesis verdict scale | session-level falsification outcome | grades A–E | `findings.md` §Verdict |
 

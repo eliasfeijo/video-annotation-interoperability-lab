@@ -81,11 +81,11 @@ The following are infrastructure rather than consumers:
 
 - `src/comparison/`
 - `src/oracle/`
-- `src/n6/`
-- `src/e14/`
-- `src/e15/`
-- `src/e16/`
-- `src/e17/`
+- `src/validator/` (historical `src/n6/`)
+- `src/composition/` (historical `src/e14/`)
+- `src/embedding-semantics/` (historical `src/e15/`)
+- `src/nested-composition/` (historical `src/e16/`)
+- `src/cross-engine/` (historical `src/e17/`)
 
 These may compare, predict, validate, or analyze consumer behavior, but must not become part of consumer resolution logic or be counted as an additional consumer in agreement claims.
 

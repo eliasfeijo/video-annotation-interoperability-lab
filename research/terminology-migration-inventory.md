@@ -9,6 +9,40 @@
 
 ---
 
+## EXECUTION STATUS (recorded at phase G.x-6 — the body below is the pre-migration classification, preserved as written)
+
+All five ratified namespace families have been EXECUTED atomically, one commit per
+family, with evidence byte-identical throughout:
+
+| Family | Migration | Commit |
+|---|---|---|
+| G.x-1 validator | `src/n6/` → `src/validator/`; `run-n6-suite.mts` → `run-validator-suite.mts`; `n6-conformance.test.ts` → `validator-conformance.test.ts` | `ed33445` |
+| G.x-2 embedding-semantics | `src/e15/` → `src/embedding-semantics/`; builder + e2e spec renamed; Q3 symbols resolved (`CanvasRect`, `LandmarkContract`, `SvgVariant`, `PlacementMap`, `CellMeasurements`, `CellResult`; `E15Embedding → EmbeddingMechanism`) | `6169f83` |
+| G.x-3 cross-engine | `src/e17/` → `src/cross-engine/`; builder, aggregate, spec, dedicated Playwright config renamed | `79658aa` |
+| G.x-4 nested-composition | `src/e16/` → `src/nested-composition/`; builder, unit test, e2e spec renamed | `a04ba86` |
+| G.x-5 composition | `src/e14/` → `src/composition/` (one namespace); builder, unit test, e2e spec renamed; ratified `Composition*` symbol set applied | `18c7ae3` |
+
+Disposition of this inventory's §G ambiguities:
+
+- **G.1** ANSWERED: generation-named trees were treated as LIVING namespaces and
+  migrated; their frozen OUTPUT grammars (fixtures, evidence) were untouched.
+- **G.2** RESOLVED (conservative): semantic slugs recorded in the taxonomy artifact
+  §10 for prose only; initial-cycle spec filenames kept.
+- **G.3** ANSWERED by audit S1 and confirmed in execution: zero type/function-name
+  serialization; all renames byte-safe.
+- **G.4** RESOLVED: lab-page routes/filenames KEPT (`/e15-lab.html`, `/e17-lab.html`);
+  only `<script src>` mounts moved.
+- **G.5** RESOLVED: README refresh folded into phase G.x-6 (this phase).
+- **G.6** RESOLVED: prompt template annotated as era-bound worked example (Q5).
+- **G.7 / U1** STILL OPEN: project self-descriptor untouched.
+
+Intentionally retained historical identities: fixture/evidence grammars
+(`e14-caseNN-*`, `evidence/e14…e17/n6`, `n6-tXX`), URL values, browser-global keys,
+`VALIDATOR_VERSION="n6-resource-validator@1.0.0"`, `AMB-N6-1`, probe IDs, frozen
+report filenames, and every citation inside frozen records.
+
+---
+
 ## 0. Method and authority basis
 
 Read first (governance): `AGENTS.md`, `research/terminology-specification.md`

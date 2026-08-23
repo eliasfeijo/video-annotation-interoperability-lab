@@ -48,11 +48,16 @@ Full per-document assignment, mutability, and preservation constraints:
   design artifact awaiting human review, adopting/renaming nothing by itself:
   `research/terminology-specification.md`.
 - Source-architecture truth today: the H.2 phase records own the current tree
-  layout (`src/primitives/`, `src/comparison/`, `src/oracle/`). The G.1 inventory
+  layout (`src/primitives/`, `src/comparison/`, `src/oracle/`). The Phase G.x
+  namespace migration (ratified by `phase-g-terminology-taxonomy.md`; executed in
+  commits `ed33445`, `6169f83`, `79658aa`, `a04ba86`, `18c7ae3`) renamed the
+  generation-numbered namespaces to semantic ones (`src/validator/`,
+  `src/composition/`, `src/embedding-semantics/`, `src/nested-composition/`,
+  `src/cross-engine/`). The G.1 inventory
   (`phase-g1-source-architecture-inventory.md`) and the H.1 reconciliation
   (`phase-h1-concept-architecture-reconciliation.md`) are authoritative
   observations as of their baselines only; their path citations predate H.2 and
-  are historical citations, not current layout.
+  G.x and are historical citations, not current layout.
 - Carried architecture questions: of H.1's deferred questions #1–#12, #1/#2/#12
   were resolved by H.2-A, #3/#4 by H.2-B, #5 by H.2-C, #6/#11 by H.2-D; #7–#10 remain open
   (see `phase-h2d-interchange-display-tier-ratification.md` §5).
@@ -78,7 +83,7 @@ Full per-document assignment, mutability, and preservation constraints:
 ## Where current normative requirements are
 
 `profile-draft.md` Parts 4–10 (R-S1…R-S8b, X1–X8), operationalized for testing by
-`conformance-matrix.md` and executed via `src/n6/suite.ts`. Edit flow and ownership
+`conformance-matrix.md` and executed via `src/validator/suite.ts`. Edit flow and ownership
 rules: `research/consolidation-map.md` §"N6 ownership and edit flow".
 
 ## Historical claims (do not modernize)

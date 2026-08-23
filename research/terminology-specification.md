@@ -84,7 +84,7 @@ Binding for this specification and any document derived from it:
 
 Concepts were extracted from what the repository *does*, not from what it *once
 called things*: the profile's requirement blocks, the validator's data model
-(`src/n6/types.ts`), the conformance matrix, the experiment reports' methods and
+(`src/validator/types.ts`), the conformance matrix, the experiment reports' methods and
 findings, the provenance-class rules, and the consolidation governance model.
 The Phase E inventory was used only as an exhaustive checklist to ensure no
 concept was missed; its category scheme (letter groups A–I) was deliberately
@@ -118,7 +118,7 @@ Each historically entangled case classified per the Phase F rubric:
 | N-20 | `E18` ghost | HISTORICAL CONCEPT WITH NO CURRENT EQUIVALENT | Proposed survey realized under a different name; recorded, never minted again |
 | N-21 | exp-era keyframe timeline (`exp7`), text/security pseudo-experiments, parity harness | HISTORICAL CONCEPTS WITH NO CURRENT EQUIVALENT | Described in their reports; absent from target vocabulary except as history |
 | N-22 | Project self-descriptor ("video annotation …") | CURRENT CONCEPT WITH NO CLEAN NAME | Framing sentence adopted (documentation-conventions §T-5); a short project descriptor is an open naming decision (§10 U1) |
-| N-23 | Validator diagnostic codes (`MISSING_VIEWBOX`, …) | OUTPUT VOCABULARY (resolves Phase E open question) | Neither identifier namespace nor taxonomy label: machine codes emitted by software. Listed in §8, owned by `src/n6/types.ts`; humans quote them verbatim, never paraphrase or extend them |
+| N-23 | Validator diagnostic codes (`MISSING_VIEWBOX`, …) | OUTPUT VOCABULARY (resolves Phase E open question) | Neither identifier namespace nor taxonomy label: machine codes emitted by software. Listed in §8, owned by `src/validator/types.ts`; humans quote them verbatim, never paraphrase or extend them |
 | N-24 | Probe slug/probeId/filename grammars, landmark contracts, evidence filename grammars | EVIDENCE ARTIFACT | Naming conventions for generated files; documented, frozen for existing evidence |
 | N-25 | Phases A–F, decisions D1–D10, ops, L0–L6 | PROCESS ARTIFACT | Consolidation machinery; L0–L6 promoted to canonical governance terms (they are good); phase letters remain process-local |
 | N-26 | Harness route keys, lab globals, CSS hooks, URL params, playwright projects | IMPLEMENTATION DETAIL | Out of vocabulary scope entirely |
@@ -403,7 +403,7 @@ resources/consumers MUST, SHOULD, or MAY satisfy, carrying exactly one
 provenance class, a rationale, cited evidence, a mechanical or observable
 predicate, a failure example, and explicit non-goals. Category C2. Canonical
 instances: R-S1, R-S2, R-S3, R-S4, R-S5, R-S6a, R-S6b, R-S7, R-S8a, R-S8b.
-Owner: `profile-draft.md` Part 4; encoded in `src/n6/types.ts`
+Owner: `profile-draft.md` Part 4; encoded in `src/validator/types.ts`
 (`RequirementId`). Historical: `S1–S8` (subset-rule formulation — same
 concepts), candidate rules `P1/P2/P5a/P6` (pre-formalization). ID: YES —
 `R-S<n><part>`; immutable; see §7.
@@ -461,13 +461,13 @@ silently. ID: no (owned by its requirement).
 
 **Validator** — the deterministic, browser-free program that checks resources
 against the profile and emits diagnostics, mappings, predictions, fences.
-Implementation: `src/n6/`. Historical: "N6 validator", "resource conformance
+Implementation: `src/validator/` (historical `src/n6/`). Historical: "N6 validator", "resource conformance
 validator". ID: no (module path identifies it).
 
 **Conformance test case** — a pre-registered black-box check with fixed
 fixture, input, expected result, failure condition; expectations fixed BEFORE
 implementation. Canonical instances T01–T15. Owner: `conformance-matrix.md`
-Part B (normative design); executable transcription `src/n6/suite.ts`.
+Part B (normative design); executable transcription `src/validator/suite.ts`.
 Historical: none. ID: YES — `T<nn>` zero-padded; immutable.
 
 **Pre-registration** — the discipline of fixing expected outcomes before
@@ -666,7 +666,7 @@ be paraphrased into synonyms.
 domain: each consumer resolves a manifest into its OWN instance, carrying its readings
 AS DATA (placement modes, provenance-classed rules, security summaries), so agreement
 can be diffed mechanically without any consumer importing another's logic. Code home:
-`src/e14/types.ts` (migration target `src/composition/types.ts`, §9.1). It is NOT
+`src/composition/types.ts` (historical `src/e14/types.ts`). It is NOT
 renderer semantics, NOT a display model, and NOT owned by any consumer. Owner:
 `phase-h2d-interchange-display-tier-ratification.md` §3–§4. Type names such as
 `E14Overlay`/`E14Manifest` are implementation spellings of this concept (migratable
@@ -726,8 +726,8 @@ Role words used by `AGENTS.md` behavior rules and by migration planning:
   `cross-engine/page.ts`, `tests/e2e/utils.ts`); deliberately below term level
   (see §5.7 closing note).
 - **Evidence-producing test** — a test/script whose successful run writes tracked
-  evidence as a side effect (vitest suites `tests/e14-comparison.test.ts`,
-  `tests/e16-comparison.test.ts`, `tests/blind-comparison.test.ts`; script
+  evidence as a side effect (vitest suites `tests/composition-comparison.test.ts`,
+  `tests/nested-composition-comparison.test.ts`, `tests/blind-comparison.test.ts`; script
   `scripts/run-validator-suite.mts`; the browser suites); governed by evidence policy
   P-2/P-3/P-7.
 - **Protected machine surface** — an identifier whose value/key/name crosses a machine
@@ -805,7 +805,7 @@ Otherwise: describe in prose, anchor by document + heading, and skip the ID.
 | Requirements | `R-S<n><part>` | Cited by profile, matrix, code union (`RequirementId`), evidence, disputes | Immutable; append new requirements with next free number + provenance-forced letter part; never renumber, never recycle |
 | Exclusions | `X<n>` | Same cross-artifact web | Immutable; append-only |
 | Conformance test cases | `T<nn>` | Pre-registration + suite encoding + evidence filenames | Zero-padded; immutable; append-only while suite v1 lives |
-| Diagnostic codes | `SCREAMING_SNAKE` strings | Machine-emitted, evidence-carried, audited | Owned solely by `src/n6/types.ts`; additions require validator change-set; humans quote verbatim |
+| Diagnostic codes | `SCREAMING_SNAKE` strings | Machine-emitted, evidence-carried, audited | Owned solely by `src/validator/types.ts`; additions require validator change-set; humans quote verbatim |
 | Epistemic layers | `L0…L6` | Governance shorthand used across consolidation documents | Closed set |
 | Fixture/evidence family ids | kebab-case in provenance manifest | Machine-facing provenance tracking | Append via manifest schema |
 | Living ambiguity records | `AMB-<report>-<n>` | Must stay citable until human resolution | Minted only in an implementation/report context |
@@ -846,10 +846,10 @@ Human terminology ends here. These are software interface surfaces — listed so
 the glossary visibly excludes them, owned by their definition sites.
 
 - **Diagnostic statuses**: `PASS | FAIL | BLOCKED | OPEN_FENCE`
-  (`src/n6/types.ts` `DiagnosticStatus`). PASS/FAIL apply only to
+  (`src/validator/types.ts` `DiagnosticStatus`). PASS/FAIL apply only to
   resource-side mechanical predicates; BLOCKED marks consumer-side
   untestability; OPEN_FENCE records predicate-free boundaries.
-- **Diagnostic codes** (20, `src/n6/types.ts`): `MISSING_VIEWBOX`,
+- **Diagnostic codes** (20, `src/validator/types.ts`): `MISSING_VIEWBOX`,
   `INVALID_VIEWBOX`, `VIEWBOX_PRESENT`, `MISSING_CANVAS_DIMENSION`,
   `NONPOSITIVE_CANVAS_DIMENSION`, `NONINTEGER_CANVAS_DIMENSION`,
   `CANVAS_DIMENSIONS_OK`, `ASPECT_MISMATCH`, `ASPECT_CONFORMS`,
@@ -922,11 +922,13 @@ discovered during migration get rows here rather than new glossary terms.
 
 ### 9.1 Approved implementation migration mapping (Phase G)
 
-> ADDED BY PHASE G.x-0 MAPPING-FIRST DOCUMENTATION. Rows below are RATIFIED AND
-> PENDING EXECUTION — nothing has been renamed yet. This subsection is a different
-> kind of content from the archaeology table above: that table translates historical
-> FORMS for reading prose; this subsection authorizes FUTURE IMPLEMENTATION MOVES.
-> The two must not be conflated. Ratifying artifact:
+> ADDED BY PHASE G.x-0 MAPPING-FIRST DOCUMENTATION. Rows below were RATIFIED BEFORE
+> EXECUTION and have since been EXECUTED in full (phase G.x-1 through G.x-5; commits
+> `ed33445`, `6169f83`, `79658aa`, `a04ba86`, `18c7ae3`). The Current column is
+> retained as the ratified historical record of pre-migration state. This subsection
+> is a different kind of content from the archaeology table above: that table
+> translates historical FORMS for reading prose; this subsection records APPROVED
+> IMPLEMENTATION MOVES. The two must not be conflated. Ratifying artifact:
 > `research/phase-g-terminology-taxonomy.md` (full rationale, sequencing §13,
 > verification protocol §14). Baseline at ratification: HEAD `5ec792d`.
 
@@ -1029,8 +1031,9 @@ glossary/domain vocabulary, verified collision-free against the tree.
 | `E15CellResult` | `CellResult` | Full result record for one measurement-matrix cell: coordinates (variant × embedding mechanism × region), scale k, measurements, derived geometry, matching interpretations, verdict. |
 
 These renames executed ATOMICALLY across
-`src/embedding-semantics/analysis.ts`, `src/e17/classify.ts`,
-`tests/e2e/embedding-semantics.spec.ts`, and `tests/e2e/e17.spec.ts` within the
+`src/embedding-semantics/analysis.ts`, `src/cross-engine/classify.ts` (then
+`src/e17/classify.ts`), `tests/e2e/embedding-semantics.spec.ts`, and
+`tests/e2e/cross-engine.spec.ts` (then `tests/e2e/e17.spec.ts`) within the
 embedding-semantics family change-set.
 
 #### Explicit keeps (ratified)
@@ -1041,19 +1044,23 @@ embedding-semantics family change-set.
 `/e17-lab.html`; initial-cycle spec filenames (above); all clean unit tests
 (`blind*`, `iiif`, `selectors`, `svg`, `timing`); infrastructure configs.
 
-#### Pointer obligations inside this document (future updates, NOT edits now)
+#### Pointer obligations inside this document (FULFILLED — phase G.x-6)
 
-Current-state path references below remain accurate until the corresponding family
-executes; they then become POINTER UPDATES to the migrated paths. Protected VALUES
-are never changed either way:
+The pointer obligations recorded at ratification have been discharged now that all
+five families executed:
 
-- Validator family → update `src/n6/types.ts` / `src/n6/` / `src/n6/suite.ts`
-  citations at: §3.1 Method; §3.2 row N-23; §5.4 Requirement ("encoded in …
-  `RequirementId`"); §5.5 Validator ("Implementation: …") and Conformance test case
-  ("executable transcription …"); §7.2 Diagnostic codes row; §8 Output vocabulary
-  (both bullets); Appendix row "`src/n6/types.ts`".
-- Composition/embedding-semantics/nested-composition/cross-engine families → update
-  the code-home citations introduced in §5.9 Gap A/B/C if they name moved paths.
+- Validator family → all `src/n6/types.ts` / `src/n6/` / `src/n6/suite.ts`
+  current-state citations updated to `src/validator/…`: §3.1 Method; §3.2 row N-23;
+  §5.4 Requirement ("encoded in … `RequirementId`"); §5.5 Validator
+  ("Implementation: …") and Conformance test case ("executable transcription …");
+  §7.2 Diagnostic codes row; §8 Output vocabulary (both bullets); Appendix row.
+- Composition/embedding-semantics/nested-composition/cross-engine families → the
+  §5.9 Gap A/B/C code-home citations were repointed to the new paths during their
+  respective family change-sets (G.x-2…G.x-5) and this refresh.
+
+The §9.1 mapping table's Current column intentionally retains the pre-migration paths
+as the ratified historical record. Protected VALUES (diagnostic codes, IDs,
+serialized strings) were never altered by these pointer updates.
 
 ---
 
@@ -1144,7 +1151,7 @@ Minimal by design:
 | `research/phase-e-identifier-inventory.md` | Archaeological map; superseded as design input, kept as record |
 | `profile-draft.md` Part 2/3 | Remains DEFINITION SITE for domain terms and provenance classes; this spec defers to it |
 | `documentation-conventions.md` | Its rules are restated/absorbed conceptually; remains operative for new documents until migration supersedes file organization |
-| `src/n6/types.ts` | Definition site of output vocabulary (§8); untouched |
+| `src/validator/types.ts` | Definition site of output vocabulary (§8); untouched (path updated post-migration; historical `src/n6/types.ts`) |
 | Evidence, reports, logs | Untouched; historical forms read via §9 |
 
 *End of Phase F terminology specification.*
