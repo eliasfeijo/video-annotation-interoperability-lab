@@ -1,13 +1,18 @@
-# Terminology Specification — Proposed Target Vocabulary
+# Terminology Specification — Target Vocabulary
 
-> **PHASE F DESIGN ARTIFACT — PROPOSAL AWAITING HUMAN REVIEW.**
-> This document DESIGNS the target terminology/taxonomy. It does not rename,
-> rewrite, or migrate anything. `research/terminology.md` (the Phase E identifier
-> registry) remains in force as an audit/navigation artifact until the migration
-> phase is approved. Nothing here modifies historical records, evidence, code, or
-> validator behavior. Where this document conflicts with an owning document, the
-> owning document still wins (Phase C rule) — until the migration this specifies
-> is separately approved and executed.
+> **STATUS: RATIFIED AND EXECUTED (Phase H.4-1 header correction of the original
+> Phase F proposal banner).** This document is the AUTHORITATIVE vocabulary/taxonomy
+> source for living prose and new identifiers. Its migration mapping was approved
+> (commit `622417a`) and executed atomically by Phase G.x — execution record:
+> `research/terminology-migration-inventory.md` §EXECUTION STATUS; ratifying taxonomy:
+> `phase-g-terminology-taxonomy.md`; post-migration dispositions:
+> `phase-h3-1-carried-question-disposition-ratification.md`. `research/terminology.md`
+> is RETIRED from vocabulary authority (Phase H.4-1) and preserved as a historical
+> identifier appendix / audit artifact. Historical provenance: this document began as
+> the Phase F design proposal, which renamed, rewrote, and migrated nothing by itself.
+> Nothing here modifies historical records, evidence, code, or validator behavior.
+> Where this document conflicts with an owning document, the owning document still wins
+> (Phase C rule).
 
 ---
 

@@ -1,32 +1,36 @@
-# Terminology & Identifier Registry
+# Terminology & Identifier Registry — RETIRED Historical Appendix
 
-Status: human-facing navigation layer for the repository's identifier namespaces.
-Derived from `research/phase-e-identifier-inventory.md` (the exhaustive audit).
-Authority rule (Phase C): **if this registry conflicts with an owning document, the
-owning document wins.** This file documents meaning; it never redefines, renames,
-or supersedes historical identifiers.
-
-Governing principle: **"IDs provide traceability; names provide comprehension."**
+> **RETIREMENT NOTICE (Phase H.4-1, 2026-08-24).** The vocabulary authority for this
+> repository is now `research/terminology-specification.md` (mapping ratified in
+> commit `622417a`, executed by Phase G.x; dispositions ratified through Phase H.3).
+> This file is a **historical identifier appendix / audit artifact**: it preserves
+> exact historical identifier → meaning mappings for provenance. It is NOT current
+> vocabulary policy and must not be consulted for naming governance or extended with
+> new identifier families. Content below was carried from the former Phase E registry
+> at retirement time; framing sections that duplicated current governance (reading
+> guide, maintenance rules) are reduced to pointers. Where any entry here conflicts
+> with an owning document, the owning document wins.
 
 ---
 
-## 1. Purpose and reading guide
+## 1. Authority
 
-You met an identifier — `E15`, `N6`, `Stage 6`, `S4`, `R-S6b`, `P3`, `P-3`, `T08`,
-`T-3`, `R-V4`, `V4`, `M-M3`, `M3`, `Q7`, `Q1.4` — and want to know what it is.
+- Current vocabulary, glossary, qualifier discipline, and naming policy:
+  **`research/terminology-specification.md`**.
+- Exhaustive historical audit from which this appendix derives:
+  `phase-e-identifier-inventory.md`.
+- Executed migration record: `terminology-migration-inventory.md` §EXECUTION STATUS.
+- This appendix documents meaning only; it never redefines, renames, or supersedes
+  historical identifiers.
 
-1. Find the namespace in §2 (grouped by semantic role).
-2. Check §3 if it might be an ALIAS of something else (many are).
-3. Check §4 if it looks similar to something else (collision hazards).
-4. If it is not in §2 at all, it is probably deliberately excluded — see §6.
+Governing principle of the former registry, retained for reading its rows:
+**"IDs provide traceability; names provide comprehension."**
 
-Status vocabulary used here: **historical** (fixed experiment-era record),
+## 2. Historical identifier appendix
+
+Status vocabulary used below: **historical** (fixed experiment-era record),
 **current** (live citation/normative space), **process** (consolidation/governance
-era only), **generated** (machine output).
-
----
-
-## 2. Core identifier registry
+era only), **generated** (machine output) — as of the era when each row was written.
 
 ### A. Experiment / generation IDs
 
@@ -67,17 +71,23 @@ era only), **generated** (machine output).
 Consumer-probe IDs live in §3 (mapping tables) because their defining feature IS
 their multiple surface forms.
 
-### D. Process / governance IDs (consolidation era)
+### D. Process / governance IDs (consolidation era — HISTORICAL)
+
+HISTORICAL-scope note (Phase H.4-1): this subsection maps identifiers minted during
+the early consolidation phases only; the phrase "consolidation phases A–E" below is a
+period description as of the former registry's writing, not a statement about later
+phases. Later-era identifier families are cataloged by the specification and their own
+owning records, not here.
 
 | Identifier | Example | What it identifies | Syntax / range | Status | Owner | Warnings |
 |---|---|---|---|---|---|---|
 | `D<n>` | `D7` | consolidation decisions operationalizing Phase B | D1–D10 | process | `phase-b-provenance-terminology-audit.md` §11 | not `DERIVED`, not verdict grade D |
 | `L<n>` | `L4` | epistemic layers L0–L5 + pointer layer L6 | L0–L6 | process/current | `consolidation-map.md` §1 | L6 owns no claims |
-| Phase letters | `Phase C` | consolidation phases A–E | A–E | process | mission briefs / doc titles | letter overload (§4) |
+| Phase letters | `Phase C` | consolidation phases A–E (as of the former registry's writing; a period description, not current scope) | A–E | process/historical | mission briefs / doc titles | letter overload (Phase E inventory §3) |
 | Checklist ops | `P-0`, `R-1`, `G-1`, `V-1`, `N-2`, `D-DEF`; sub-steps `R-1.x`, `V-1.x` | Phase D operations (pre-flight, README, governance link, integrity sweep, deferred suite.ts comment fix, deferred-designs bucket) | letter-number with hyphen | process (executed/closed; N-2 deferred) | `phase-d-checklist.md` §0/A/B | `V-1`≠probes V1–V7; `R-1`≠rules R1–R5; `N-2`≠generation N2 |
 | Terminology rules | `T-3` | six writing conventions for new documents | T-1–T-6 | process/current | `documentation-conventions.md` Part I | hyphenated/unpadded vs tests T01–T15 |
 | Preservation rules | `P-TERM-4` | six historical-terminology preservation rules | P-TERM-1–6 | process/current | defined `phase-b audit` §3; applied in conventions/map | compound prefix disambiguates within P-cluster |
-| Evidence-policy points | `P-6` | seven adopted evidence policies | P-1–P-7 | process/current | `evidence-policy.md` §2 | hyphen separates from rules P1–P6 — barely (§4) |
+| Evidence-policy points | `P-6` | seven adopted evidence policies | P-1–P-7 | process/current | `evidence-policy.md` §2 | hyphen separates from rules P1–P6 — barely (Phase E inventory §3) |
 | Fixture family ids | `case-blind-1-13` | eight kebab-case family ids in the provenance manifest | fixed set of 8; extensible schema | process/current | `fixture-provenance.json` `_schemaNotes` | machine-facing |
 
 ### E. Matrix / fixture naming conventions (systematic vocabularies worth knowing)
@@ -91,9 +101,7 @@ their multiple surface forms.
 | Evidence filename grammars | `cmp-e16-case05-43-full-b__contain.json`, `case-e15-firefox-vb1000--rect43.json` | per-family generated-artifact grammars (`__<fit>`, `<variant>--<region>`, engine infix, `parity-<n>`, `observations/<id>`) | per family | producing specs/tests; rename-forbidden |
 | Landmark contract files | `e15-landmarks.json` | landmark geometry contracts; e15's reused verbatim by e16/e17 | e15/e16/e17 | builders |
 
----
-
-## 3. Alias and mapping tables
+## 3. Alias bridges (historical mapping tables)
 
 ### 3.1 Subset rules ↔ formal requirements (S* ↔ R-S*)
 
@@ -145,47 +153,18 @@ One probe object, four surface forms (canonical = report ID).
 
 Owner of canonical forms: `research/viewer-interop-report.md` probe matrix.
 Shorthand spread via `conformance-matrix.md` / `profile-draft.md` ("N2 V4–V7, M2/M3").
-When writing NEW prose, use the report-ID form on first use.
+In NEW prose use the report-ID form on first use (rule now owned by the specification).
 
----
+## 4. Reading hazards — REDUCED (pointer)
 
-## 4. Reading hazards
-
-High-risk confusion clusters (full analysis: Phase E inventory §3).
-
-1. **Letter overload (highest risk).** Bare letters A/B/C mean different things per
-   axis: Renderer A/B (implementation; lowercase in URLs), Mode A/B (IIIF version
-   semantics), Model A/B/C (composition structure), fixture suffixes `-a/-b/-c`
-   (variant encoding), verdict grades A–E, taxonomy meta-labels A–D, E15 variant
-   letters A–D. Never write a bare letter; always carry the axis word
-   (`documentation-conventions.md` T-1).
-2. **P-cluster.** `P1–P6` rules vs `P5a` vs evidence-policy points `P-1–P-7` vs
-   pre-flight op `P-0` vs preservation rules `P-TERM-1–6`. The hyphen is nearly the
-   only separator: `P1` (rule) vs `P-1` (policy point).
-3. **S-cluster.** `S1–S8` subset rules vs `R-S*` requirements (alias pair, §3.1) vs
-   stopping conditions `S1.0–S1.3` (belong to Stage 1 of `next-session-plan.md`) vs
-   capability grade `S`. Four objects, near-identical strings.
-4. **Q-cluster.** Three question spaces share digits: open-question integers 1–15,
-   N3 brief questions `Q1–Q10`, plan-stage questions `Q1.1–Q1.6` (plus prose
-   numbered answer lists in reports that are NOT identifiers).
-5. **T-cluster.** Tests `T01–T15` vs terminology rules `T-1–T-6`.
-6. **R-cluster.** E15 rules `R1–R5` vs requirements `R-S*` vs probes `R-V*` vs
-   future checks `RF01–04` vs README op `R-1`.
-7. **Probe naming redundancy.** One probe, four surface forms (§3.3). Use report
-   IDs canonically; the mapping table is the arbiter.
-8. **N-cluster.** Generation `N2` vs deferred op `N-2` vs probeId prefix `N2-` vs
-   manifest family id `n2-manifests`.
-9. **V-cluster.** Probes `V1–V7` vs integrity-sweep op `V-1`.
-10. **Stage ↔ N duality.** Same objects, two names (§3.2); `S1.x` conditions attach
-    to Stage 1, compounding hazard 3.
-11. **case-padding split.** blind generation `case6` (unpadded) vs e14/e16
-    `case06` (padded). Both live; searches miss across the boundary.
-12. **E18 ghost ID.** Proposed, never executed; no artifacts exist (see §5).
-13. Minor clusters: `D1–D10` vs `DERIVED`/grade D; op `G-1` vs grade `G`;
-    `L0–L6` clean; `Finding <n>` vs `F<n>` are sibling-but-distinct families;
-    `X1–X8` vs lowercase SVG tokens do not collide (case+context).
-
----
+Full analysis of the collision clusters (letter overload; P/S/Q/T/R/N/V clusters;
+Stage↔N duality; case-padding split; E18 ghost ID; minor clusters) is owned by
+`phase-e-identifier-inventory.md` §3; qualifier discipline for new prose is owned by
+`terminology-specification.md`. Retained here only as a one-line index of the cluster
+names formerly detailed in this registry: bare letters (A/B/C), P-cluster, S-cluster,
+Q-cluster, T-cluster, R-cluster, probe-naming redundancy (§3.3), N-cluster, V-cluster,
+Stage↔N duality, case-padding split, E18 ghost ID, minor clusters (`D<n>` vs grade D,
+op `G-1` vs grade G, `Finding <n>` vs `F<n>`, `X1–X8` vs lowercase SVG tokens).
 
 ## 5. Historical / unresolved identifiers
 
@@ -198,56 +177,22 @@ High-risk confusion clusters (full analysis: Phase E inventory §3).
 | Rare bracket labels `[VIEWER]`, `[IMPLEMENTATION]`, `[RECOMMENDATION]`, `[SUPPORTED]`, `[COMMUNITY PRACTICE]`, `[PROPOSAL]` | historical/ad-hoc labels, counts 1–2 each | deliberately NOT promoted to formal vocabulary; several sit outside the Phase C legend. Warning: do not reuse them as if they were governed classes. Sites: `e15-report.md` (R3), `e15-e16-final-report.md` §6, `community-positioning.md` header, `next-session-plan.md` Stage 2/3 class lists |
 | Two confidence vocabularies (`CONFIRMED/LIKELY/UNCERTAIN` in phase docs vs `"confidence": "high"` in `n3-source-index.json`) | coexist unreconciled | owners respectively: consolidation docs / n3 JSON; reconciliation intentionally out of scope |
 
----
+## 6. What is NOT an identifier — REDUCED (pointer)
 
-## 6. What is NOT an identifier
+The former exclusion list (compatibility status grades, conformance-state vocabularies,
+provenance taxonomies, N6 diagnostic codes, typed-axis value sets, verdict scales,
+register states, confidence words, N3 source labels, ordinary technical vocabulary,
+external citation coordinates, code symbols/parameters, lab globals/CSS hooks) remains
+owned where it always was: the owners cited per item in `phase-e-identifier-inventory.md`
+§2 and `documentation-conventions.md` Part II. This appendix does not restate those
+boundaries.
 
-Deliberately excluded from this registry so it cannot become an acronym dump.
-Each item keeps its existing legend/owner:
+## 7. Status and maintenance of this appendix
 
-- **Compatibility status** `S/G/B/S*` → `compatibility-matrix.md` legend.
-- **Conformance-state vocabularies** (IN FORCE/EXCLUDED/OPEN fence/OUT OF SCOPE;
-  implemented/BLOCKED/open fence/excluded) → `conformance-matrix.md` Part A; the
-  md→JSON status mapping lives ONLY in `scripts/run-validator-suite.mts` (`matrixRows`).
-- **Provenance taxonomies** (four scoped sets: blind-packet rule classes, E14
-  divergence classes, profile requirement provenance `[NORMATIVE]/[BROWSER]/…`,
-  N2 consumer labels) → common legend in `documentation-conventions.md` Part II.
-- **N6 diagnostic codes** (`MISSING_VIEWBOX`, `TEMPORAL_HONORING_OPEN`, …) →
-  implementation/output vocabulary, owned by `src/validator/types.ts`; surfaced in the
-  requirement-to-code table of `n6-implementation-report.md` §2. Machine codes,
-  not human identifier namespaces.
-- **Typed-axis value sets** (RendererKind a/b; IiifMode A/B; E14Model A/B/C) →
-  semantics owned by Phase B audit §2.1 and the code types themselves.
-- **Verdict scale A–E**, comparison verdict strings (`a==blind`…), register states
-  (OPEN/ANSWERED/SUPERSEDED), SUPERSEDED markers, state quartet
-  `[OPEN]/[UNKNOWN]/BLOCKED/OPEN_FENCE`, confidence words → statuses/meta, owners
-  as listed in Phase E inventory §2.
-- **N3 source-type labels and source ids, `relatesTo` values** →
-  `n3-source-index.json`.
-- **Ordinary technical vocabulary** (fit keywords fill/contain/meet/slice/none/
-  cover; PAR tokens xMinYMin…; engine names chromium/firefox/webkit) → specs/config.
-- **External citation coordinates** (IIIF recipe numbers, spec §§, Use Case 6) →
-  external documents, cited not registered.
-- **Code symbols & parameters** (`RAW_PARITY_EXPS`, `EMBEDDING_SPACE`, K=0.25,
-  TOL_MIN=0.8, ε=10⁻⁶), URL query params, playwright project names, git
-  branches/tags, `test-results/` → infrastructure/environment metadata.
-- **Lab globals/CSS hooks** (`__lab`, `__e15`, `__e17`, `.ar-*`, `.viewport`),
-  harness route keys (`MANIFEST_MAP`) → implementation detail, `src/main.ts` et al.
+RETIRED (Phase H.4-1): no longer the vocabulary authority; superseded by
+`terminology-specification.md`. Permitted maintenance is limited to corrections that
+keep the retained historical mappings ACCURATE (wrong owner citations, transcription
+errors); do not add new identifier families, do not extend governance content, do not
+modernize historical wording inside the tables.
 
----
-
-## 7. Maintenance rules
-
-Minimal, by design:
-
-1. Do not rename historical identifiers.
-2. Do not reuse an existing identifier for a different object.
-3. New identifiers must have an explicit semantic owner (an owning document or
-   definition site).
-4. Avoid bare-letter identifiers; a contextual prefix is cheap.
-5. When an existing shorthand is retained, document its canonical form (add it to
-   §3 if a new alias family appears).
-6. Prefer writing the noun/context alongside an ambiguous identifier on first use
-   (e.g., "requirement R-S6b", "probe R-V4", "decision D7").
-7. This registry documents meaning; it does not supersede owning documents. When
-   adding rows, cite the owner; when owners disagree with this file, fix this file.
+*End of the retired historical appendix.*

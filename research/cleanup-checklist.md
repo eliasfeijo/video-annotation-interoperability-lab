@@ -99,6 +99,13 @@ OBSERVED:
 Suggested action: small registry update once items 1–2 land, or alongside the Phase F
 review outcome (which may supersede parts of the registry anyway).
 
+Resolution: RESOLVED by Phase H.4-1 — `terminology.md` was retired from vocabulary
+authority and reduced to a pointer + historical identifier appendix per
+`terminology-specification.md` §11 principle 5. The coverage lag (including the
+"consolidation phases A–E" row, now historically qualified) is superseded by the
+retirement rather than patched; later-era identifier cataloging is owned by the
+specification. Item closed.
+
 ### 4. Untracked governance files — AGENTS.md, docs/prompts/
 
 Priority: housekeeping / human decision.
