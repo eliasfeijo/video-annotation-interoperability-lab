@@ -65,9 +65,12 @@ Every evidence family must remain traceable to its producer:
 |---|---|---|
 | `evidence/observations/*` | e2e specs via `record()` | exp-era + cross-generation probes |
 | `evidence/blind-comparison/*` | `tests/blind-comparison.test.ts` | regenerated whenever that suite runs — see P-7 |
-| `evidence/e14…e17/`, screenshots | corresponding specs + `e17-aggregate.mjs` | engine/version metadata embedded per row (keep that convention) |
-| `evidence/viewer-matrix.json`, `evidence/viewer/probe-*` | `tests/e2e/n2-viewer.spec.ts` (+ legacy `viewer.spec.ts` for observations/screenshots/viewer) | network-dependent |
-| `evidence/n6/*` | `scripts/run-n6-suite.mts` only | edit flow per `consolidation-map.md` §2 |
+| `evidence/e14…e17/`, screenshots | corresponding specs + `cross-engine-aggregate.mjs` | engine/version metadata embedded per row (keep that convention) |
+| `evidence/viewer-matrix.json`, `evidence/viewer/probe-*` | `tests/e2e/consumer-probe.spec.ts` (+ legacy `viewer.spec.ts` for observations/screenshots/viewer) | network-dependent |
+| `evidence/n6/*` | `scripts/run-validator-suite.mts` only | edit flow per `consolidation-map.md` §2 |
+
+Producer filenames refreshed to post-G.x names (phase H.3-1, H.1 #8 disposition);
+policy substance unchanged.
 
 Fixture families and their generator status are recorded separately in
 `fixture-provenance.json`.
