@@ -135,6 +135,10 @@ Mutable consolidation-era registers and proposals, governed by their own headers
   Phase H.4-1; no longer the vocabulary authority — see the specification)
 - `cleanup-checklist.md` (stale-documentation findings from the 2026-08-23 pointer
   review; working checklist whose items expire when executed)
+- `research-program.md` (living forward-looking research-program surface,
+  established post-H.5-2R as the I-cycle planning regime; supersedes
+  `next-session-plan.md` as forward-looking planner only; owns priorities/gates/
+  triggers/deferrals, no scientific claims — owners cited there win)
 
 ## Maintenance rule for this index
 
