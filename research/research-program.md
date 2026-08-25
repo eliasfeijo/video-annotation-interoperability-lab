@@ -61,9 +61,7 @@ The main measurement and conformance arc is complete. In plain terms:
   by the lab's validator (`research/n6-implementation-report.md`,
   `evidence/n6/`); checking a *consumer* remains impossible until a capable
   consumer exists.
-- Whether any viewer actually honors a `t=` time window during playback is
-  **still unknown** — the only probe so far was passive and could not tell
-  "honors later" from "ignores" (`research/viewer-interop-report.md`, probe V2).
+- Whether any viewer honors a `t=` time window is now **characterized for the tested implementations**: Ramp 5.1.1 demonstrably **does not honor** `#t=10,20` on a Canvas target when driven through its own playback surface (interaction probe, Chromium 151, 2×2 runs, delta 0.01 — `research/experiment-log.md` #18, `evidence/viewer-interaction/viewer-interaction-matrix.json`); Mirador 3.4.3 was **inconclusive / experimentally unreachable** for this question because it exposed no consumer-owned AV playback control. Temporal honoring therefore remains **outside the profile's guaranteed requirement set** (`research/profile-draft.md` R-S8b `[OPEN]`).
 
 ## 3. What have we established?
 
@@ -113,14 +111,7 @@ R-S8b) — see §4.
 
 ### Internally answerable
 
-**Does a real viewer honor `#t=` time windows when actually used?**
-The prior probe loaded a manifest with a time window and recorded the video's
-state passively; autoplay blocking left the video paused at time zero, so the
-result was inconclusive by construction. The question is genuinely open in both
-directions: honoring might appear once playback is driven through the viewer's
-own interface. Answering it requires one bounded experiment (see §5, step 2).
-This matters because temporal targeting is half of the project's founding
-subject — everything else about the temporal story is established except this.
+**Does a real viewer honor `#t=` time windows when actually used?** — **ANSWERED (version-scoped, D1).** Ramp 5.1.1: **NOT-HONORED** for the `#t=10,20` Canvas-target case when driven through the consumer's own playback surface (`research/experiment-log.md` #18, `evidence/viewer-interaction/viewer-interaction-matrix.json`, Chromium 151, 4 valid drives via `.vjs-big-play-button`, temporal settled 2.65/2.64 vs control 2.63/2.64 delta 0.01, `hasMediaFragmentInSrc:false`). Mirador 3.4.3: **INCONCLUSIVE / experimentally unreachable** — no consumer-owned AV playback control was found (native `controls:true` only), so no causal honoring verdict is possible. The result is version- and case-scoped; it does **not** generalize to “Ramp never supports temporal fragments” and does **not** become a normative profile requirement (R-S8b stays `[OPEN]`). See `§5 Step 2` completion record.
 
 Two smaller internal items were decisions rather than experiments, both closed by
 unit I.2: the recorded wording ambiguity in the validator documents (AMB-N6-1,
@@ -165,21 +156,10 @@ record committed unchanged as a completed historical record.
 *Why now:* these are tiny, and finishing them keeps later synthesis honest.
 *Done when:* each item carries a recorded disposition or explicit deferral owner. ✓
 
-**Step 2 — Interaction-level temporal experiment. PLANNED, NOT AUTHORIZED.**
-Drive the tested viewer(s) through their own playback surface — play/seek via
-the viewer's UI or public API, never synthetic video-element events — and
-compare a manifest carrying `#t=10,20` against a control without one, recording
-whether playback seeks to the window start. Either outcome strengthens the final
-result: observed honoring becomes the project's first consumer-positive instance
-(version-scoped); confirmed non-honoring upgrades an "unknown" into a
-characterized boundary.
-*Prerequisites:* a pre-registered protocol and outcome classes fixed before
-measurement; an explicit authorization covering regeneration of the viewer
-evidence family; reopening the experiment log append-only (per
-`research/consolidation-map.md` §1.5 #2).
-*Done when:* machine-readable evidence rows classify the outcome per consumer
-and version, and the temporal fence citation is updated through the authorized
-edit flow.
+**Step 2 — Interaction-level temporal experiment. COMPLETE (unit I.3, 2026-08-25, commit 994e293).**
+Drove the tested viewer(s) through their own playback surface — play via the consumer's UI (Ramp `.vjs-big-play-button`), never synthetic media-element events — and compared `#t=10,20` (`public/manifests/n2/n2-temporal.json`) against a control without a fragment (`public/manifests/viewer-plain.json`), recording whether playback seeks to the window start. Outcome: Ramp 5.1.1 **NOT-HONORED** (version-scoped, see `evidence/viewer-interaction/viewer-interaction-matrix.json`, `research/experiment-log.md` #18; 2×2 valid drives, delta 0.01); Mirador 3.4.3 **INCONCLUSIVE / unreachable** (no consumer-owned path). The result upgrades the prior `[UNKNOWN]` into a characterized boundary for the tested case without creating a general browser or normative claim.
+*Prerequisites were met:* pre-registered protocol and outcome classes (I.3-A), authorization covering `evidence/viewer-interaction/` regeneration, and append-only reopening of the experiment log (`research/consolidation-map.md` §1.5 #2).
+*Done when satisfied:* machine-readable evidence rows classify the outcome per consumer/version, and the temporal fence citation is updated through the authorized edit flow (this synthesis, I.3-B). ✓
 
 **Step 3 — Capstone synthesis. PLANNED.**
 One durable document integrating the whole arc: what was asked, what was

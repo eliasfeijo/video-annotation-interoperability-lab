@@ -499,10 +499,9 @@ cannot distinguish "honors later" from "ignores") — `[UNKNOWN]` (N2 V2). Inter
 probes are required before any claim either way. This item MUST NOT be read as a requirement
 on producers or consumers; it exists to fence the boundary honestly.
 
-**Evidence.** N2 V2 (`evidence/viewer-matrix.json` probeId N2-ramp-v2-temporal);
-`research/viewer-interop-report.md` §Answers #7.
+**Evidence.** N2 V2 (`evidence/viewer-matrix.json` probeId N2-ramp-v2-temporal) `[UNKNOWN]` passive; D1 `evidence/viewer-interaction/viewer-interaction-matrix.json` + `evidence/viewer-interaction/probe-ramp-d1-*.json` (Chromium 151.0.7922.34, Ramp 5.1.1 **NOT-HONORED** via valid `.vjs-big-play-button` consumer drive, Mirador 3.4.3 **INCONCLUSIVE/unreachable**) — `research/experiment-log.md` #18 and Part 8 B above.
 
-**Predicate.** None — not implementable (Part 17: OPEN / NOT IMPLEMENTABLE YET).
+**Predicate.** None — not implementable as a conformance requirement (Part 17: OPEN / NOT IMPLEMENTABLE YET). The D1 result is a version-scoped consumer observation, not a normative predicate.
 
 **Failure example.** n/a (a promoted claim would BE the failure; none exists in this
 profile).
@@ -654,8 +653,7 @@ semantics untouched.
 **B. Consumer support (NOT guaranteed).** The profile MUST NOT and DOES NOT claim "consumer X
 will honor the fragment". Recorded status:
 
-- Temporal honoring: `[UNKNOWN]`/`[OPEN]` — Ramp parsed `#t=10,20` but no seek observable in
-  passive capture (N2 V2); interaction-level probes required before any claim.
+- Temporal honoring: `[OPEN]` fence retained — no requirement. N2 passive capture (Ramp V2) was `[UNKNOWN]` (no seek at 0, autoplay-blocked). D1 interaction probe (Chromium 151, valid consumer-owned drive via `.vjs-big-play-button`, `evidence/viewer-interaction/viewer-interaction-matrix.json`, `research/experiment-log.md` #18) provides version-scoped evidence: Ramp 5.1.1 **NOT-HONORED** for `#t=10,20` Canvas target (settled 2.65/2.64 vs control 2.63/2.64, delta 0.01, `hasMediaFragmentInSrc:false`), Mirador 3.4.3 **INCONCLUSIVE / unreachable** (no consumer-owned AV playback control found, native `controls:true` only). Not promoted to normative requirement.
 - Spatial parsing robustness: Ramp parsed `#xywh=` without failure (N2 V3) `[CONSUMER
   observation]` — parsing ≠ honoring; no geometry claims follow.
 - What IS guaranteed for conforming resources: fragments are well-formed and their interval/
@@ -835,10 +833,7 @@ Target: `http://…/canvas1#t=10,20`.
   half-open interval `[10 s, 20 s)` — begin included, end excluded — by MF §4.2.1
   `[NORMATIVE]`. A validator can verify this deterministically.
 - NOT guaranteed (consumer level): that any player seeks to t=10 or stops at t=20. Ramp 5.1.1
-  parsed it without failure yet showed currentTime 0 (paused, autoplay-blocked passive
-  capture) with no observable seek after 3 s (N2 V2) — honoring `[UNKNOWN]`, fenced by
-  R-S8b `[OPEN]`. Interaction-level probes (driving the consumer's own UI) are required
-  before any honoring claim; none exist today.
+  parsed it without failure; N2 passive capture was `[UNKNOWN]` (currentTime 0, paused, autoplay-blocked). D1 interaction probe (Chromium 151, valid consumer-owned drive, `evidence/viewer-interaction/viewer-interaction-matrix.json`, `research/experiment-log.md` #18) shows Ramp 5.1.1 **NOT-HONORED** for `#t=10,20` Canvas target when driven through its own playback surface, and Mirador 3.4.3 **INCONCLUSIVE / unreachable** (no consumer-owned control). R-S8b remains `[OPEN]` fence; temporal support stays outside the guaranteed set.
 
 ---
 
@@ -859,8 +854,7 @@ Profile conformance — of a resource OR a consumer — implies NONE of the foll
    ANY secondary painting Image body INCLUDING plain PNG (V4–V6); Mirador 3.4.3 silently
    drops them (M2). The profile describes data-level interoperability, not current viewer
    rendering.
-5. **Temporal fragment honoring.** Syntax is normative (R-S6a); application is unobserved
-   (`[UNKNOWN]`, R-S8b). No seek/window/crop promise exists.
+5. **Temporal fragment honoring.** Syntax is normative (R-S6a); application remains outside guarantees (R-S8b `[OPEN]`). N2 passive was `[UNKNOWN]`; D1 interaction probe (Ramp 5.1.1 **NOT-HONORED** for `#t=10,20` Canvas target via consumer-owned drive, Mirador 3.4.3 **INCONCLUSIVE/unreachable**, `evidence/viewer-interaction/viewer-interaction-matrix.json`) — no general honoring promise exists.
 6. **Z-order.** No stacking guarantee across consumers; recipes disagree; Mirador's reversal
    is deliberate (Part 9).
 7. **Arbitrary aspect-ratio replacement.** Mismatched aspects are non-conforming; NOTHING is

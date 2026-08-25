@@ -3,8 +3,7 @@
 Status: consolidation Layer **L6** — pointer/index only.
 Created by: Phase C design (see `research/consolidation-map.md`).
 Decision basis: D3 in `research/phase-b-provenance-terminology-audit.md`.
-Last pointer review: 2026-08-25 during Phase I.2 ledger closure; covers documents
-through the Phase E / F / G / G.x / H.1–H.5 series plus the living research program.
+Last pointer review: 2026-08-25 during Phase I.3-B D1 synthesis (prior review: I.2 ledger closure); covers documents through the Phase E / F / G / G.x / H.1–H.5 / I.3 series plus the living research program.
 
 ## Purpose and non-purpose
 
@@ -72,12 +71,12 @@ Full per-document assignment, mutability, and preservation constraints:
 | Item | Status | Owner document |
 |---|---|---|
 | AMB-N6-1 replacement-form arithmetic parentheticals | RESOLVED (2026-08-25) — formula-consistent correction; verdicts unchanged | `n6-implementation-report.md` §9 resolution record |
-| Temporal consumer honoring (R-S8b / X7) | `[OPEN]` fence — no predicate by design | `profile-draft.md`; `conformance-matrix.md` row S8b |
+| Temporal consumer honoring (R-S8b / X7) | `[OPEN]` fence retained — no predicate; version-scoped D1 evidence: Ramp 5.1.1 **NOT-HONORED** for `#t=10,20` Canvas target via consumer UI (Chromium 151, `evidence/viewer-interaction/viewer-interaction-matrix.json`, `research/experiment-log.md` #18; valid `.vjs-big-play-button` drive, delta 0.01), Mirador 3.4.3 **INCONCLUSIVE / unreachable** (no consumer-owned playback control) — not promoted to requirement | `profile-draft.md` R-S8b (still `[OPEN]`); `conformance-matrix.md` row S8b/X7; `evidence/viewer-interaction/viewer-interaction-matrix.json` |
 | Nested-composition fit rule ("scaled to fit") | `[OPEN]`; same-aspect subset is the safe path (P5a) | `e16-report.md` §4.2; `n4-safe-subset.md`; `profile-draft.md` S4 |
 | Leaf-PAR vs container-fit precedence | `[OPEN]` + `[BROWSER]` (tri-engine measured) | `e16-report.md` §4.3; `e17-report.md` F5 |
 | No-viewBox body mapping across mechanisms | `[OPEN]`, eliminable by profile rule P1/R-S1 | `e15-report.md` R2; `profile-draft.md` |
 | Consumer-side certification (R-S2 realization) | BLOCKED — no capable consumer (Ramp crashes, Mirador drops) | `n6-implementation-report.md` §6; `viewer-interop-report.md` |
-| Temporal/spatial fragment honoring by consumers | `[UNKNOWN]` from passive probes | `viewer-interop-report.md` V2/V3 |
+| Temporal/spatial fragment honoring — passive N2 (historical) | Superseded for Ramp by D1 interaction probe (see row above); passive `[UNKNOWN]` remains frozen record for `viewer-interop-report.md` V2/V3 | `viewer-interop-report.md` V2/V3 (frozen); `evidence/viewer-interaction/viewer-interaction-matrix.json` (current) |
 | H.1 #7–#10 decisions | DECISIONS RATIFIED (document-only dispositions); listed implementation follow-ups DEFERRED / NOT AUTHORIZED | `phase-h3-1-carried-question-disposition-ratification.md` §3, §6 |
 | Interchange/display tier boundary (E14 record / ResolvedOverlay legacy substrate / BlindOverlay private model; main.ts bridges permanent) | RATIFIED — H.1 #6/#11 resolved | `phase-h2d-interchange-display-tier-ratification.md` §4 |
 | Question register (all numbered open questions) | living append-only register | `open-questions.md` |

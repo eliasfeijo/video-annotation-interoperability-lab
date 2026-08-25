@@ -27,7 +27,7 @@ E15 = `research/e15-report.md` + `evidence/e15/`; E16 = `research/e16-report.md`
 | S6b / R-S6b | `pct:` alias accepted as `percent:` equivalent | [PROFILE] | Yes — parser | Normalize both prefixes; assert identical parsed result | MF §4.2.2 base + lab usage (exp4; bug-fix #10) | IN FORCE (SHOULD-level) |
 | S7 / R-S7 | Exclusions: no geometry promised for viewBox-less bodies, background-channel painting, naive insertion (full list X1–X8 below) | [PROFILE] | Resource side yes; consumer side needs fixture | Reject viewBox-less bodies (shares S1 check); flag manifests relying on excluded channels via declared metadata; consumer-side promise-checking requires a real consumer | [BROWSER] E15 R2/R5 + E17 F2/F3; [NORMATIVE] CSS Images 3 §4.3.1/§4.5, SVG 1.1 §7.12 | IN FORCE (boundary) |
 | S8a / R-S8a | Producers MAY use `t=` fragments; syntax valid regardless of honoring | [NORMATIVE] (syntax) | Yes — shares S6a parser | Grammar validity check | MF §4.2.1 | IN FORCE (permission) |
-| S8b / R-S8b | Temporal consumer honoring explicitly NOT guaranteed | [OPEN] | No — not implementable from existing evidence | Requires interaction-level probes driving a consumer's own UI; passive capture proven insufficient | N2 V2 (currentTime stayed 0; `[UNKNOWN]`) | OPEN fence — MUST NOT become a requirement |
+| S8b / R-S8b | Temporal consumer honoring explicitly NOT guaranteed | [OPEN] | No — not implementable as conformance predicate | Requires interaction-level probes driving a consumer's own UI; passive capture proven insufficient | N2 V2 (`[UNKNOWN]` passive) + D1 `evidence/viewer-interaction/viewer-interaction-matrix.json` (Ramp 5.1.1 NOT-HONORED via valid consumer-owned drive, Mirador 3.4.3 INCONCLUSIVE/unreachable) — `research/experiment-log.md` #18 | OPEN fence — MUST NOT become a requirement |
 
 ### Exclusion rows (profile boundaries; none claims standards forbid these)
 
@@ -39,7 +39,7 @@ E15 = `research/e15-report.md` + `evidence/e15/`; E16 = `research/e16-report.md`
 | X4 | Consumer-specific SVG painting-body assumptions | [OPEN] (viewer gap) | No today | Would require rendering consumers; zero available (crash/drop) | N2 V4–V6/M2; Ramp scope statement (Ramp README, N3 §4) | EXCLUDED until ecosystem changes |
 | X5 | Reliance on Canvas-as-body RENDERING through current consumers | [OPEN] (permission itself [NORMATIVE] §5.7) | No today | Rendering probes impossible (V7 crash; M3 drop) | N2 V7/M3 | EXCLUDED for guarantees; data-level expression allowed |
 | X6 | Z-order assumptions | [OPEN] | No | No stacking assertions anywhere in conformance output (meta-test T08) | Cookbook 0036/0033 vs 0489 contradiction; mirador#2607 (N3 §4/§7) | OUT OF SCOPE; future-extension candidate |
-| X7 | Reliance on temporal consumer honoring | [OPEN] | No | Same as S8b | N2 V2 | OPEN fence |
+| X7 | Reliance on temporal consumer honoring | [OPEN] | No | Same as S8b | N2 V2 (`[UNKNOWN]`) + D1 `evidence/viewer-interaction/viewer-interaction-matrix.json` (Ramp 5.1.1 NOT-HONORED, Mirador 3.4.3 INCONCLUSIVE/unreachable) | OPEN fence |
 | X8 | Two-stage composition reliance | [OPEN] | No today | Consumer pre-compositing observable only with capable consumer | E16 §4.3 + E17 F5 ([BROWSER] collapse); N2 V7/M3 | EXCLUDED for guarantees |
 
 Counts: 10 requirement rules (S1–S8 decomposed), 8 exclusions. Mechanically/statically
