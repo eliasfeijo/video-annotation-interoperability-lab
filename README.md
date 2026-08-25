@@ -25,6 +25,7 @@ see [`research/findings.md`](research/findings.md) (summarised below).
 - **Initial-cycle verdict: B** — the standard stack is sufficient for portable, time-segmented,
   spatially-targeted graphical overlays with explicitly enumerated gaps (movement over time,
   font/tool determinism, SMIL reliability, viewer compositing).
+- **Final synthesis (canonical):** [`research/capstone.md`](research/capstone.md) — what is predictable/interoperable/checkable, under which conditions, what real consumers do, and what remains outside the guarantee boundary.
 - Current position, open items, and governance docs:
   [`research/current-state-index.md`](research/current-state-index.md).
 

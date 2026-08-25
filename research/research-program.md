@@ -161,13 +161,11 @@ Drove the tested viewer(s) through their own playback surface — play via the c
 *Prerequisites were met:* pre-registered protocol and outcome classes (I.3-A), authorization covering `evidence/viewer-interaction/` regeneration, and append-only reopening of the experiment log (`research/consolidation-map.md` §1.5 #2).
 *Done when satisfied:* machine-readable evidence rows classify the outcome per consumer/version, and the temporal fence citation is updated through the authorized edit flow (this synthesis, I.3-B). ✓
 
-**Step 3 — Capstone synthesis. PLANNED.**
+**Step 3 — Capstone synthesis. COMPLETE (capstone, 2026-08-25, `research/capstone.md`).**
 One durable document integrating the whole arc: what was asked, what was
-established, what stays open, with the negative guarantees stated plainly.
-*Why after steps 1–2:* closure prevents immediate staleness; the temporal result
-should be characterized before integration so the capstone is written once.
-If sequencing changes by later decision, the capstone must state the temporal
-question as the open fence it is today.
+established, what stays open, with the negative guarantees stated plainly — now realized as `research/capstone.md` (final research synthesis, Layer L0-adjacent, new document; does not replace, rename, or rewrite any frozen report).
+*Why after steps 1–2:* closure prevented immediate staleness; the temporal result was characterized via D1 before integration so the capstone could be written once.
+*Done when:* capstone exists and is traceable to canonical sources — satisfied by `research/capstone.md`. ✓
 
 **Step 4 — Externalization posture. OPTIONAL, HUMAN DECISION.**
 Assemble (and, only if separately decided, file) a submission-ready package for
@@ -214,9 +212,10 @@ none of these blocks the roadmap.
 | The interoperability profile (requirements) | `research/profile-draft.md` |
 | Requirement matrix & test design | `research/conformance-matrix.md` |
 | Validator implementation record | `research/n6-implementation-report.md` (+ `evidence/n6/`) |
-| Real-consumer probe results | `research/viewer-interop-report.md` (+ `evidence/viewer-matrix.json`) |
+| Real-consumer probe results | `research/viewer-interop-report.md` (+ `evidence/viewer-matrix.json`); `research/experiment-log.md` #18 + `evidence/viewer-interaction/` (D1 interaction probe) |
 | Community/spec source analysis | `research/community-positioning.md` (+ `research/n3-source-index.json`) |
 | Safe-subset decision | `research/n4-safe-subset.md` |
+| **Final synthesis (canonical)** | **`research/capstone.md`** — auditable synthesis of the full arc: what is guaranteed, under which conditions, what real consumers do, what remains outside the boundary |
 | Phase-by-phase consolidation history | `research/phase-*.md`; governance in `research/consolidation-map.md` |
 
 This program is a map, not a substitute for those documents.

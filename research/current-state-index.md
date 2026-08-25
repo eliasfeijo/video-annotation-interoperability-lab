@@ -3,7 +3,7 @@
 Status: consolidation Layer **L6** — pointer/index only.
 Created by: Phase C design (see `research/consolidation-map.md`).
 Decision basis: D3 in `research/phase-b-provenance-terminology-audit.md`.
-Last pointer review: 2026-08-25 during Phase I.3-B D1 synthesis (prior review: I.2 ledger closure); covers documents through the Phase E / F / G / G.x / H.1–H.5 / I.3 series plus the living research program.
+Last pointer review: 2026-08-25 during Capstone Commit A (prior: I.3-B D1 synthesis); covers documents through the Phase E / F / G / G.x / H.1–H.5 / I.3 series, the D1 interaction evidence, and the new `research/capstone.md`, plus the living research program.
 
 ## Purpose and non-purpose
 
@@ -33,6 +33,7 @@ Full per-document assignment, mutability, and preservation constraints:
 
 ## Current research position (summary with owners)
 
+- Final synthesis (canonical, new): `research/capstone.md` (Layer L0-adjacent, 2026-08-25) — auditable answer to what is predictable/interoperable/checkable and where guarantees stop; traces every claim to the canonical source table (§12 evidence map).
 - Original question and falsification verdict **B** for the initial cycle:
   `findings.md` (frozen snapshot, 2026-08-20).
 - What the standards/cookbook/implementations actually establish:
