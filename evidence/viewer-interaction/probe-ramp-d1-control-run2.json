@@ -1,0 +1,315 @@
+{
+  "engine": "chromium",
+  "browserVersion": "151.0.7922.34",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+  "consumer": "Ramp",
+  "consumerVersion": "5.1.1",
+  "versionSource": [
+    "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js -> https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+  ],
+  "manifest": "/manifests/viewer-plain.json",
+  "slug": "ramp-d1-control-run2",
+  "probeId": "D1-ramp-d1-control-run2",
+  "timestamp": "2026-08-25T08:29:21.583Z",
+  "interaction": {
+    "selectorAttempted": [
+      ".vjs-big-play-button"
+    ],
+    "selectorClicked": ".vjs-big-play-button",
+    "clickSucceeded": true,
+    "clickError": null
+  },
+  "videoBefore": {
+    "currentTime": 0,
+    "paused": true,
+    "readyState": 4,
+    "duration": 30,
+    "currentSrc": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4"
+  },
+  "videoImmediatePostClick": {
+    "currentTime": 0.619879,
+    "paused": false,
+    "readyState": 4,
+    "duration": 30,
+    "currentSrc": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4"
+  },
+  "videoSettled": {
+    "currentTime": 2.642807,
+    "paused": false,
+    "readyState": 4,
+    "duration": 30,
+    "currentSrc": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4"
+  },
+  "timeDisplay": {
+    "currentTimeText": "Time 0:02",
+    "durationText": "0:30",
+    "rawInnerText": "Pause\nLoaded: 100.00%\nTime \n0:02\n/\nDuration \n0:30\nMute\nFullscreen"
+  },
+  "domInventory": [
+    {
+      "tag": "video",
+      "cls": "vjs-tech",
+      "src": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+      "rect": {
+        "x": 0,
+        "y": 37,
+        "w": 1600,
+        "h": 897.8
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 770,
+        "y": 459,
+        "w": 60,
+        "h": 60
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 21.2,
+        "y": 907.2,
+        "w": 21.6,
+        "h": 21.6
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 3,
+        "y": 885.7,
+        "w": 22.5,
+        "h": 22.5
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 1517.2,
+        "y": 907.2,
+        "w": 21.6,
+        "h": 21.6
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": -34438.4,
+        "y": 806.8,
+        "w": 10.8,
+        "h": 10.8
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 1557.2,
+        "y": 907.2,
+        "w": 21.6,
+        "h": 21.6
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    }
+  ],
+  "domInventorySettled": [
+    {
+      "tag": "video",
+      "cls": "vjs-tech",
+      "src": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+      "rect": {
+        "x": 0,
+        "y": 37,
+        "w": 1600,
+        "h": 897.8
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 21.2,
+        "y": 907.2,
+        "w": 21.6,
+        "h": 21.6
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 140.9,
+        "y": 885.7,
+        "w": 22.5,
+        "h": 22.5
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 1517.2,
+        "y": 907.2,
+        "w": 21.6,
+        "h": 21.6
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": -34438.4,
+        "y": 806.8,
+        "w": 10.8,
+        "h": 10.8
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 1557.2,
+        "y": 907.2,
+        "w": 21.6,
+        "h": 21.6
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    }
+  ],
+  "bundleResourceUrls": [
+    "https://unpkg.com/@samvera/ramp/dist/ramp.css",
+    "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js"
+  ],
+  "resolvedBundleUrls": [
+    {
+      "requested": "https://unpkg.com/@samvera/ramp/dist/ramp.standalone.umd.js",
+      "final": "https://unpkg.com/@samvera/ramp@5.1.1/dist/ramp.standalone.umd.js"
+    }
+  ],
+  "logSample": "manifest fetch: 200 http://127.0.0.1:5173/manifests/viewer-plain.json\nrender ok\n",
+  "rootTextSample": "Play Video\nPlay\nLoaded: 78.23%\nTime \n0:00\n/\nDuration \n0:30\nMute\nFullscreen",
+  "currentSrc": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+  "rampDiagnostics": {
+    "hasMediaFragmentInSrc": false,
+    "clickSelector": ".vjs-big-play-button",
+    "videoBeforeCurrentTime": 0,
+    "videoSettledCurrentTime": 2.642807
+  },
+  "classification": "PROVISIONAL_VALID_DRIVE",
+  "classificationReason": "valid drive via .vjs-big-play-button; settled currentTime=2.642807 paused=false hasFragmentInSrc=false"
+}

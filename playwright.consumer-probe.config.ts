@@ -12,7 +12,7 @@ import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./tests/e2e",
-  testMatch: /consumer-probe\.spec\.ts$/,
+  testMatch: /consumer-(probe|interaction)\.spec\.ts$/,
   timeout: 120_000,
   fullyParallel: false,
   workers: 1,

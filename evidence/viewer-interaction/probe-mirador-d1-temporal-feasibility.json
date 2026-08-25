@@ -1,0 +1,363 @@
+{
+  "engine": "chromium",
+  "browserVersion": "151.0.7922.34",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.7922.34 Safari/537.36",
+  "consumer": "Mirador",
+  "consumerVersion": "3.4.3",
+  "versionSource": [
+    "https://unpkg.com/mirador@3/dist/mirador.min.js -> https://unpkg.com/mirador@3.4.3/dist/mirador.min.js"
+  ],
+  "manifest": "/manifests/n2/n2-temporal.json",
+  "slug": "mirador-d1-temporal-feasibility",
+  "probeId": "D1-mirador-d1-temporal-feasibility",
+  "timestamp": "2026-08-25T08:29:25.109Z",
+  "interaction": {
+    "selectorAttempted": [],
+    "selectorClicked": null,
+    "clickSucceeded": false,
+    "clickError": null
+  },
+  "hasMiradorRoot": true,
+  "videoCount": 1,
+  "hasVideo": true,
+  "hasConsumerPlaybackControl": false,
+  "controlCandidates": [
+    {
+      "tag": "button",
+      "cls": "MuiButtonBase-root MuiFab-root mirador9 MuiFab-sizeMedium MuiFab-primary mirador",
+      "text": "",
+      "ariaLabel": "Add resource"
+    },
+    {
+      "tag": "button",
+      "cls": "MuiButtonBase-root MuiIconButton-root mirador14",
+      "text": "1",
+      "ariaLabel": "Jump to window"
+    },
+    {
+      "tag": "button",
+      "cls": "MuiButtonBase-root MuiIconButton-root mirador16",
+      "text": "",
+      "ariaLabel": "Workspace settings"
+    },
+    {
+      "tag": "button",
+      "cls": "MuiButtonBase-root MuiIconButton-root mirador18",
+      "text": "",
+      "ariaLabel": "Workspace options"
+    },
+    {
+      "tag": "button",
+      "cls": "MuiButtonBase-root MuiIconButton-root mirador12",
+      "text": "",
+      "ariaLabel": "Full screen"
+    },
+    {
+      "tag": "a",
+      "cls": "MuiButtonBase-root MuiIconButton-root",
+      "text": "About Project Mirador",
+      "ariaLabel": ""
+    },
+    {
+      "tag": "button",
+      "cls": "MuiButtonBase-root MuiIconButton-root",
+      "text": "",
+      "ariaLabel": "Toggle sidebar"
+    },
+    {
+      "tag": "button",
+      "cls": "MuiButtonBase-root MuiIconButton-root",
+      "text": "",
+      "ariaLabel": "Window views & thumbnail display"
+    },
+    {
+      "tag": "button",
+      "cls": "MuiButtonBase-root MuiIconButton-root mirador-window-maximize",
+      "text": "",
+      "ariaLabel": "Maximize window"
+    },
+    {
+      "tag": "button",
+      "cls": "MuiButtonBase-root MuiIconButton-root mirador-window-close",
+      "text": "",
+      "ariaLabel": "Close window"
+    },
+    {
+      "tag": "button",
+      "cls": "MuiButtonBase-root MuiIconButton-root",
+      "text": "",
+      "ariaLabel": "Open in separate panel"
+    },
+    {
+      "tag": "button",
+      "cls": "MuiButtonBase-root MuiIconButton-root mirador72",
+      "text": "",
+      "ariaLabel": "Collapse \"Current item\" section"
+    },
+    {
+      "tag": "button",
+      "cls": "MuiButtonBase-root MuiIconButton-root mirador72",
+      "text": "",
+      "ariaLabel": "Collapse \"Resource\" section"
+    },
+    {
+      "tag": "button",
+      "cls": "MuiButtonBase-root MuiIconButton-root mirador72",
+      "text": "",
+      "ariaLabel": "Collapse \"Related\" section"
+    },
+    {
+      "tag": "button",
+      "cls": "MuiButtonBase-root MuiIconButton-root Mui-disabled Mui-disabled",
+      "text": "",
+      "ariaLabel": "Toggle sidebar"
+    },
+    {
+      "tag": "button",
+      "cls": "MuiButtonBase-root MuiIconButton-root mirador68 mirador-window-close",
+      "text": "",
+      "ariaLabel": "Close window"
+    }
+  ],
+  "domInventory": [
+    {
+      "tag": "svg",
+      "cls": "MuiSvgIcon-root",
+      "src": "",
+      "rect": {
+        "x": 20,
+        "y": 20,
+        "w": 24,
+        "h": 24
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "MuiSvgIcon-root",
+      "src": "",
+      "rect": {
+        "x": 20,
+        "y": 84,
+        "w": 24,
+        "h": 24
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "MuiSvgIcon-root",
+      "src": "",
+      "rect": {
+        "x": 20,
+        "y": 148,
+        "w": 24,
+        "h": 24
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "MuiSvgIcon-root",
+      "src": "",
+      "rect": {
+        "x": 20,
+        "y": 212,
+        "w": 24,
+        "h": 24
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "MuiSvgIcon-root",
+      "src": "",
+      "rect": {
+        "x": 20,
+        "y": 276,
+        "w": 24,
+        "h": 24
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "MuiSvgIcon-root MuiSvgIcon-fontSizeLarge",
+      "src": "",
+      "rect": {
+        "x": 14.5,
+        "y": 953,
+        "w": 35,
+        "h": 35
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "MuiSvgIcon-root",
+      "src": "",
+      "rect": {
+        "x": 90,
+        "y": 20,
+        "w": 24,
+        "h": 24
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "MuiSvgIcon-root",
+      "src": "",
+      "rect": {
+        "x": 1458,
+        "y": 20,
+        "w": 24,
+        "h": 24
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 1458,
+        "y": 20,
+        "w": 24,
+        "h": 24
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "MuiSvgIcon-root",
+      "src": "",
+      "rect": {
+        "x": 1506,
+        "y": 20,
+        "w": 24,
+        "h": 24
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "",
+      "src": "",
+      "rect": {
+        "x": 1507.7,
+        "y": 21.5,
+        "w": 20.8,
+        "h": 20.8
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "MuiSvgIcon-root",
+      "src": "",
+      "rect": {
+        "x": 1554,
+        "y": 20,
+        "w": 24,
+        "h": 24
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "MuiSvgIcon-root",
+      "src": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "MuiSvgIcon-root",
+      "src": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "MuiSvgIcon-root",
+      "src": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "MuiSvgIcon-root",
+      "src": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0
+      }
+    },
+    {
+      "tag": "video",
+      "cls": "mirador86",
+      "src": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4",
+      "rect": {
+        "x": 74,
+        "y": 97.5,
+        "w": 1520,
+        "h": 855
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "MuiSvgIcon-root",
+      "src": "",
+      "rect": {
+        "x": 91,
+        "y": 21,
+        "w": 24,
+        "h": 24
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "MuiSvgIcon-root",
+      "src": "",
+      "rect": {
+        "x": 1555,
+        "y": 21,
+        "w": 24,
+        "h": 24
+      }
+    },
+    {
+      "tag": "svg",
+      "cls": "MuiSvgIcon-root",
+      "src": "",
+      "rect": {
+        "x": 672,
+        "y": 372,
+        "w": 256,
+        "h": 256
+      }
+    }
+  ],
+  "videoState": {
+    "currentTime": 0,
+    "paused": true,
+    "readyState": 4,
+    "duration": 30,
+    "currentSrc": "http://localhost:5173/video/test-grid-1920x1080-30s.mp4"
+  },
+  "bundleResourceUrls": [
+    "https://unpkg.com/mirador@3/dist/mirador.min.js"
+  ],
+  "resolvedBundleUrls": [
+    {
+      "requested": "https://unpkg.com/mirador@3/dist/mirador.min.js",
+      "final": "https://unpkg.com/mirador@3.4.3/dist/mirador.min.js"
+    }
+  ],
+  "classification": "INCONCLUSIVE",
+  "classificationReason": "no consumer-owned playback control found (native controls: true); video relies on browser-native media controls — no valid causal path. Feasibility INCONCLUSIVE/unreachable.",
+  "rootTextSample": "1\n\nMirador viewer\nn2-temporal\nn2-temporal"
+}
