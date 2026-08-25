@@ -85,6 +85,11 @@ substance remains genuinely OPEN.
 Suggested action: append status lines using the established new-above-historic
 practice; keep all numbering intact.
 
+Resolution: RESOLVED by Phase I.2 (ledger closure) — items 12–15 annotated in place as
+**ANSWERED** (not SUPERSEDED, since each question was executed by exactly the candidate
+mechanism its text named), each pointing to its establishing report with per-item scope
+caveats; original question text and numbering untouched. Item closed.
+
 ### 3. terminology.md — phase coverage lags
 
 Priority: low. The registry's own §7 authorizes fixing it when it lags owners.

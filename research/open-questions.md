@@ -24,17 +24,39 @@ New questions from E15/E16:
 12. **N1 — Cross-engine replication [OPEN].** Every `[BROWSER]` row in the compatibility
     matrix is Chromium-only. Re-run the E15 core matrix + E16 leaf-PAR collapse probes in
     Firefox/WebKit. Candidate E17.
+    **ANSWERED by E17** (`research/e17-report.md`; annotated at I.2 ledger closure,
+    2026-08-25): executed as E17 — 62/62 distinct geometry-matrix rows unanimous across
+    Chromium/Firefox/WebKit, zero divergences, and the plan's S1.1 divergence stop condition
+    did not fire. Browser facts remain version-scoped (Chromium 151 / Firefox 153 /
+    WebKit 26.5) and none were promoted to normative rank.
 13. **N2 — Two-stage composition in deployed viewers [OPEN].** Does any real consumer
     pre-composite an inner Canvas (honoring container fit) rather than collapsing through an
     image pipeline? Survey/probe; decides whether profile rule P2 can name concrete safe
     mechanisms.
+    **ANSWERED by N2** (`research/viewer-interop-report.md`; annotated at I.2 ledger closure,
+    2026-08-25): negative finding among the tested consumers — Ramp 5.1.1 error-boundary-crashes
+    on any secondary painting body including the stable-3 Canvas-as-body twin (V7); Mirador 3.4.3
+    silently drops inner Canvas bodies (M3). Scoped to those consumers/versions, NOT a universal
+    claim about future consumers. Consequence stands as recorded: P2 cannot name concrete safe
+    mechanisms today and consumer-side certification remains BLOCKED (profile Parts 11.2/17;
+    exclusions X4/X5/X8). Temporal/spatial fragment honoring stays separately fenced (R-S8b/X7).
 14. **N3 — Community positioning of P1/P2 and the fit question [OPEN].** Candidate IIIF AV
     cookbook/FAQ issue: (a) recommend explicit viewBox on painting bodies; (b) ask for a
     normative sentence resolving "scaled to fit". Evidence packets:
     `evidence/e15/`, `evidence/e16/modeA-twins.json`.
+    **ANSWERED by N3** (`research/community-positioning.md` + `research/n3-source-index.json`;
+    annotated at I.2 ledger closure, 2026-08-25): falsification-pass source survey complete —
+    P1/P2 confirmed genuinely anchorless (Presentation 3.0 contains zero SVG occurrences; WA
+    SvgSelector recorded as contrast, not support), the fit rule absent from IIIF with
+    self-contradictory community guidance, and recipe 0004 independently converging with the
+    aspect-consistency discipline. Survey facts only; no community endorsement exists.
 15. **N4 — Same-aspect-safe subset adoption [OPEN].** Would restricting nested overlays to
     target aspect == inner Canvas aspect (P5a) cost any real use case? Needs one worked
     example set (e.g., letterboxed cinematic overlays) before deciding.
+    **ANSWERED by N4** (`research/n4-safe-subset.md`; annotated at I.2 ledger closure,
+    2026-08-25): the worked example set was produced (Part 3) and P5a was ADOPTED as a formal
+    `[PROFILE]` rule with zero cost identified for the probed use cases; now carried as S4/R-S4
+    in the profile. Profile-level adoption, not a standards-level claim.
 
 Historic items below unchanged.
 
