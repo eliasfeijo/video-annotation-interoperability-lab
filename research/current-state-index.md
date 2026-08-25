@@ -3,8 +3,8 @@
 Status: consolidation Layer **L6** — pointer/index only.
 Created by: Phase C design (see `research/consolidation-map.md`).
 Decision basis: D3 in `research/phase-b-provenance-terminology-audit.md`.
-Last pointer review: 2026-08-24 against HEAD `efd6224` (post Phase H.3-1); covers
-documents through the Phase E / F / G / G.x / H.1 / H.2 / H.3 series.
+Last pointer review: 2026-08-25 during Phase I.2 ledger closure; covers documents
+through the Phase E / F / G / G.x / H.1–H.5 series plus the living research program.
 
 ## Purpose and non-purpose
 
@@ -123,6 +123,12 @@ These document the consolidation itself and are immutable once committed:
   baseline for H.1 questions #7–#10)
 - `phase-h3-1-carried-question-disposition-ratification.md` (Phase H.3-1; ratified
   document-only dispositions for #7/#8/#9/#10)
+- `phase-h5-0-deferred-technical-follow-up-triage.md` (Phase H.5-0; triage of the
+  deferred technical follow-ups A–E left by G.x/H.3-1/H.4-1; committed unchanged by
+  Phase I.2 as a completed historical record — its candidates' later execution
+  history is owned by subsequent records, not rewritten here)
+- `phase-h5-2r-post-gx-chromium-p3-refresh.md` (Phase H.5-2R; aborted root-config
+  incident disposition + canonical Chromium-only P-3 refresh of E17/N2 evidence)
 
 Mutable consolidation-era registers and proposals, governed by their own headers
 (not part of the frozen record):
