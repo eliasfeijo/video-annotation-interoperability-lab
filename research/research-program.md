@@ -122,11 +122,11 @@ own interface. Answering it requires one bounded experiment (see §5, step 2).
 This matters because temporal targeting is half of the project's founding
 subject — everything else about the temporal story is established except this.
 
-Two smaller internal items are decisions rather than experiments: a recorded
-wording ambiguity in the validator documents (AMB-N6-1,
-`research/n6-implementation-report.md` §9 — verdicts unaffected) and routine
-register bookkeeping (annotating answered questions in
-`research/open-questions.md`; dispositioning an untracked working record).
+Two smaller internal items were decisions rather than experiments, both closed by
+unit I.2: the recorded wording ambiguity in the validator documents (AMB-N6-1,
+resolved with the formula-consistent correction — `research/n6-implementation-report.md`
+§9) and routine register bookkeeping (questions 12–15 annotated as ANSWERED;
+the H.5-0 working record committed unchanged).
 
 ### Externally gated
 
@@ -157,13 +157,13 @@ where noted; listing them here plans work, it does not authorize it.
 **Step 0 — Living research-program surface. COMPLETE (this document, unit I.1).**
 Gives the project a durable, conversation-independent forward-looking plan.
 
-**Step 1 — Ledger/documentation closure. PENDING (human decision items).**
-Resolve the recorded validator-document wording ambiguity (AMB-N6-1); annotate
-the four already-executed entries in the open-question register (their answers
-exist as whole reports; only the status lines were never appended); commit or
-explicitly disposition the untracked H.5-0 working record.
+**Step 1 — Ledger/documentation closure. COMPLETE (unit I.2).**
+AMB-N6-1 resolved via the formula-consistent correction (`W'·H == H'·W`; verdicts
+unchanged — resolution record in `n6-implementation-report.md` §9); register questions
+12–15 annotated in place as ANSWERED with per-item scope caveats; the H.5-0 triage
+record committed unchanged as a completed historical record.
 *Why now:* these are tiny, and finishing them keeps later synthesis honest.
-*Done when:* each item carries a recorded disposition or explicit deferral owner.
+*Done when:* each item carries a recorded disposition or explicit deferral owner. ✓
 
 **Step 2 — Interaction-level temporal experiment. PLANNED, NOT AUTHORIZED.**
 Drive the tested viewer(s) through their own playback surface — play/seek via
