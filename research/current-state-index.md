@@ -71,7 +71,7 @@ Full per-document assignment, mutability, and preservation constraints:
 
 | Item | Status | Owner document |
 |---|---|---|
-| AMB-N6-1 replacement-form arithmetic parentheticals | OPEN — recorded, not resolved | `n6-implementation-report.md` §9; `evidence/n6/summary.json` `recordedAmbiguities` |
+| AMB-N6-1 replacement-form arithmetic parentheticals | RESOLVED (2026-08-25) — formula-consistent correction; verdicts unchanged | `n6-implementation-report.md` §9 resolution record |
 | Temporal consumer honoring (R-S8b / X7) | `[OPEN]` fence — no predicate by design | `profile-draft.md`; `conformance-matrix.md` row S8b |
 | Nested-composition fit rule ("scaled to fit") | `[OPEN]`; same-aspect subset is the safe path (P5a) | `e16-report.md` §4.2; `n4-safe-subset.md`; `profile-draft.md` S4 |
 | Leaf-PAR vs container-fit precedence | `[OPEN]` + `[BROWSER]` (tri-engine measured) | `e16-report.md` §4.3; `e17-report.md` F5 |

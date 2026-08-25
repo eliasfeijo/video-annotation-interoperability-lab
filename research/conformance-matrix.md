@@ -80,10 +80,16 @@ Design constraints honored throughout:
 | ID | Fixture | Input | Expected result | Failure condition | Deterministic? | Depends on browser? | Depends on real consumer? |
 |---|---|---|---|---|---|---|---|
 | T11 | Target `xywh=pct:50,0,25,25` and `xywh=percent:50,0,25,25` | Parser normalization | Both accepted (S6b SHOULD); identical normalized rects (per-axis split per MF §4.2.2) | Alias rejected outright, or divergent normalizations | Yes | No | No |
-| T12 | Replacement pair A: 1920×1080 → 3840×2160; pair B: 1920×1080 → 2000×2000 | Run S4 replacement form | A: PASS, `k = 2`. B: FAIL `ASPECT_MISMATCH` (`2,160,000 ≠ 2,073,600`) | Wrong cross-product arithmetic; ε path applied to integers | Yes | No | No |
+| T12 | Replacement pair A: 1920×1080 → 3840×2160; pair B: 1920×1080 → 2000×2000 | Run S4 replacement form | A: PASS, `k = 2`. B: FAIL `ASPECT_MISMATCH` (`W'·H = 2,160,000 ≠ H'·W = 3,840,000`) | Wrong cross-product arithmetic; ε path applied to integers | Yes | No | No |
 | T13 | Canvas missing `height`; Canvas with `height: 0`; Canvas with fractional width | Run S3 check | Each REJECTED (`MISSING_CANVAS_DIMENSION` / non-positive / non-integer) | Any accepted | Yes | No | No |
 | T14 | Nested structure: inner SVG leaf without viewBox inside a nested Canvas composition (E16 case07 pattern) | Run S1 check at all depths | REJECTED — every SVG leaf requires its own viewBox (nesting does not exempt) | Only root checked; leaf passes | Yes | No | No |
 | T15 | Non-integer dimension pair (e.g., Tw = 500.5) | Run S4 default path | REJECTED per SHOULD-reject rule; if implementation selects documented ε mode, decision recorded with ε ≤ 10⁻⁶ value in output | Undocumented tolerance silently applied | Yes | No | No |
+
+*AMB-N6-1 resolution (2026-08-25, human research decision): the T12 pair-B expected-result
+parenthetical previously quoted `2,160,000 ≠ 2,073,600`; its second value equaled H·W rather
+than the pre-registered formula's H'·W (= 3,840,000). Corrected to the formula-consistent
+arithmetic above; every pre-registered outcome, including FAIL `ASPECT_MISMATCH` for pair B,
+is unchanged. Resolution record: `n6-implementation-report.md` §9.*
 
 ### Future rendering-level checks (informational ONLY; NOT part of conformance v1)
 

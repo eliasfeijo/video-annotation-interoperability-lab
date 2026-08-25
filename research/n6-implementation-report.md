@@ -146,7 +146,7 @@ No research document was modified (`git diff` empty against HEAD `23e7f50`). Whe
 implementation required interpretation choices, they are recorded here and in
 `suite.ts` expected-outcome strings rather than resolved silently.
 
-## 9. Recorded ambiguity AMB-N6-1 (reported, not resolved)
+## 9. Recorded ambiguity AMB-N6-1 (reported; RESOLVED 2026-08-25)
 
 **Exact ambiguity.** The replacement-form cross product formula is stated identically in
 three places — profile-draft.md Part 7.1 ("conform iff `W'·H == H'·W`"), R-S4's predicate
@@ -170,6 +170,18 @@ Part A row S4 vs Part B row T12.
 prose parentheticals — or state the alternative intended formula. The implementation
 follows the thrice-stated formula and awaits instruction before ANY research-document
 edit.
+
+**RESOLUTION (2026-08-25, human research decision, Phase I.2 ledger closure).** The
+formula-consistent interpretation is confirmed: B = H'·W. The recorded cross products for
+T12 pair B are A = W'·H = 2000·1080 = **2,160,000** and B = H'·W = 2000·1920 =
+**3,840,000** (unequal → NON-CONFORMING, FAIL ASPECT_MISMATCH — verdict unchanged). The two
+defective prose parentheticals were corrected in this authorized change-set:
+`profile-draft.md` Part 14 Example B and `conformance-matrix.md` Part B row T12 (each
+carries an inline resolution note). No validator, test-suite, or evidence change was
+required or performed: `suite.ts` and `evidence/n6/` already carried the formula-consistent
+products, and `suite.ts`'s T12 note remains verbatim as a quotation record — any phrasing
+refresh is bundled into a future explicitly authorized regeneration event. Frozen records
+mentioning the former OPEN state are intentionally untouched (era-bound record discipline).
 
 ---
 

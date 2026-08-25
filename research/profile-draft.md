@@ -793,7 +793,7 @@ fit internals. (Browser confirmation: E17 F6 same-aspect control unanimous tri-e
 
 ### Example B — aspect-ratio mismatch: 1920×1080 → 2000×2000
 
-Check: `2000 · 1080 = 2,160,000` vs `1080 · 1920 = 2,073,600`. Unequal → NON-CONFORMING.
+Check: `W'·H = 2000·1080 = 2,160,000` vs `H'·W = 2000·1920 = 3,840,000`. Unequal → NON-CONFORMING. *(AMB-N6-1 resolution, 2026-08-25: the second product previously quoted here as `1080·1920 = 2,073,600` equaled H·W, not H'·W; corrected to the formula-consistent value with the verdict unchanged — see `n6-implementation-report.md` §9.)*
 
 - No uniform k exists: `k_x = 2000/1920 ≈ 1.0417` but `k_y = 2000/1080 ≈ 1.8519`; forcing
   either single value overflows/letterboxes the other axis. A uniform scale cannot
