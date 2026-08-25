@@ -27,6 +27,10 @@ describe("temporalWindow", () => {
   it("open end runs to +infinity", () => {
     expect(temporalWindow({ start: 10 }, DURATION)).toEqual({ start: 10, end: Number.POSITIVE_INFINITY });
   });
+  // Defensive inverted-range clamp ratified by H.3-1 §3.3.
+  it("inverted finite range becomes open-ended at start", () => {
+    expect(temporalWindow({ start: 10, end: 5 }, DURATION)).toEqual({ start: 10, end: Number.POSITIVE_INFINITY });
+  });
 });
 
 describe("isActiveAt boundaries (half-open [start, end))", () => {
