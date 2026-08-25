@@ -1,7 +1,7 @@
 {
   "experiment": "N2 real-consumer probe matrix",
   "plan": "research/next-session-plan.md Stage 2",
-  "generatedAt": "2026-08-22T03:28:37.244Z",
+  "generatedAt": "2026-08-25T01:59:37.246Z",
   "note": "Observed CONSUMER behavior only. Cross-engine BROWSER facts come from E17; [NORMATIVE] claims come from specifications cited in E15/E16 reports. Consumer behavior must not be promoted to normative rank.",
   "probes": [
     {
@@ -35,7 +35,7 @@
           "paused": true
         },
         "miradorRoot": false,
-        "rootTextSample": "Play Video\nPlay\nLoaded: 0.00%\nTime \n0:00\n/\nDuration \n0:30\nMute\nFullscreen",
+        "rootTextSample": "Play Video\nPlay\nLoaded: 100.00%\nTime \n0:00\n/\nDuration \n0:30\nMute\nFullscreen",
         "logSample": "manifest fetch: 200 http://127.0.0.1:5173/manifests/viewer-plain.json\nrender ok\n",
         "domInventory": [
           {
@@ -209,7 +209,7 @@
           "paused": true
         },
         "miradorRoot": false,
-        "rootTextSample": "Play Video\nPlay\nLoaded: 0.00%\nTime \n0:00\n/\nDuration \n0:30\nMute\nFullscreen",
+        "rootTextSample": "Play Video\nPlay\nLoaded: 78.23%\nTime \n0:00\n/\nDuration \n0:30\nMute\nFullscreen",
         "logSample": "manifest fetch: 200 http://127.0.0.1:5173/manifests/n2/n2-temporal.json\nrender ok\n",
         "domInventory": [
           {
@@ -385,7 +385,7 @@
           "paused": true
         },
         "miradorRoot": false,
-        "rootTextSample": "Play Video\nPlay\nLoaded: 11.81%\nTime \n0:00\n/\nDuration \n0:30\nMute\nFullscreen",
+        "rootTextSample": "Play Video\nPlay\nLoaded: 33.53%\nTime \n0:00\n/\nDuration \n0:30\nMute\nFullscreen",
         "logSample": "manifest fetch: 200 http://127.0.0.1:5173/manifests/n2/n2-spatial.json\nrender ok\n",
         "domInventory": [
           {

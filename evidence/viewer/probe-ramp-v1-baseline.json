@@ -29,7 +29,7 @@
       "paused": true
     },
     "miradorRoot": false,
-    "rootTextSample": "Play Video\nPlay\nLoaded: 0.00%\nTime \n0:00\n/\nDuration \n0:30\nMute\nFullscreen",
+    "rootTextSample": "Play Video\nPlay\nLoaded: 100.00%\nTime \n0:00\n/\nDuration \n0:30\nMute\nFullscreen",
     "logSample": "manifest fetch: 200 http://127.0.0.1:5173/manifests/viewer-plain.json\nrender ok\n",
     "domInventory": [
       {

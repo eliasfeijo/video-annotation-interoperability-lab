@@ -2,7 +2,7 @@
   "experiment": "E17/N1 cross-engine replication of E15/E16 [BROWSER]-classified rows",
   "plan": "research/next-session-plan.md Stage 1",
   "note": "Cross-engine agreement establishes multi-engine browser behavior only; it MUST NOT be read as standards provenance.",
-  "generatedAt": "2026-08-22T02:40:45.884Z",
+  "generatedAt": "2026-08-25T01:59:48.216Z",
   "engines": {
     "chromium": {
       "browserVersion": "151.0.7922.34",

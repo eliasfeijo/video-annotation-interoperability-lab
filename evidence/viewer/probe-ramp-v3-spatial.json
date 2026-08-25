@@ -29,7 +29,7 @@
       "paused": true
     },
     "miradorRoot": false,
-    "rootTextSample": "Play Video\nPlay\nLoaded: 11.81%\nTime \n0:00\n/\nDuration \n0:30\nMute\nFullscreen",
+    "rootTextSample": "Play Video\nPlay\nLoaded: 33.53%\nTime \n0:00\n/\nDuration \n0:30\nMute\nFullscreen",
     "logSample": "manifest fetch: 200 http://127.0.0.1:5173/manifests/n2/n2-spatial.json\nrender ok\n",
     "domInventory": [
       {
