@@ -1,175 +1,260 @@
-# Research Program — Living Forward-Looking Surface
+# Research Program
 
-> **STATUS: LIVING PROGRAM SURFACE (mutable working document, governed by this
-> header).** Established by unit I.1 against baseline HEAD `c34bd0a` (post
-> H.5-2R), opening the I-cycle research regime after the completed A–H
-> consolidation cycle. This document PRIORITIZES and SEQUENCES; it owns NO
-> scientific truth. Every substantive statement below either cites its owning
-> document or is program metadata. Where this document and any owning document
-> disagree, the OWNING DOCUMENT WINS, and this file must be corrected as a
-> pointer-level edit. It is superseded by nothing; it supersedes
-> `research/next-session-plan.md` as the forward-looking planning surface only —
-> that file remains a frozen L0 historical record whose stages are already
-> executed by their owning reports.
+> **STATUS: LIVING ROADMAP (mutable planning surface).** This document is the
+> project's forward-looking research program. It explains what the project is,
+> what has been established, what remains unknown, and what is planned next —
+> for readers who did not participate in the repository's earlier phases. It
+> owns no scientific claims: wherever a factual statement matters, this file
+> points to the authoritative document that owns it. Established by unit I.1
+> against HEAD `c34bd0a`; restructured into its current human-facing form by
+> I.1-R. It supersedes `research/next-session-plan.md` as the forward-looking
+> planner only; that file remains frozen history.
 
 Date: 2026-08-25.
 
-## 1. Purpose / non-purpose
+---
 
-Purpose:
+## 1. What is this project?
 
-- register the active research questions of the I-cycle with priority,
-  prerequisites, decision gates, and completion criteria;
-- capture event-triggered follow-ups and intentional deferrals;
-- preserve the forward-looking program independently of conversational history;
-- point to authoritative documents for every claim of fact.
+This lab studies a concrete question:
 
-This document does NOT own or restate:
+> **Under which conditions does the geometry of graphical content painted onto
+> IIIF Presentation Canvases become predictable, interoperable, and mechanically
+> checkable?**
 
-- normative requirements (`research/profile-draft.md`);
-- pre-registered test expectations (`research/conformance-matrix.md`);
-- capability verdicts (`research/compatibility-matrix.md`);
-- experiment conclusions or historical evidence (L0 reports under `research/`,
-  `docs/`; `evidence/`);
-- question substance and status history (`research/open-questions.md` remains
-  the question register);
-- validator implementation state (`research/n6-implementation-report.md`).
+Concretely: IIIF Presentation manifests can describe a video (via a Canvas) and
+attach graphical overlays to it — an SVG shape drawn on top of the video,
+targeted at a spatial region (`xywh=`) and a time window (`t=`) using standard
+W3C Media Fragments. The standards *permit* all of this. What they do not fully
+specify is what the resulting geometry **means**: how an SVG body's coordinate
+system maps onto the Canvas, how nested Canvases fit into their target regions,
+or whether real software honors any of it.
 
-Terminology follows `documentation-conventions.md` (T-4: conformance /
-compatibility / honoring kept distinct; T-6: immutable identifiers quoted
-verbatim; zero new provenance labels).
+The lab therefore measures when this stack behaves predictably across
+independent implementations and browsers, distills the results into a small
+written interoperability profile, and checks that profile with a mechanical
+validator — without inventing new standards vocabulary.
 
-Identifier note: the D-numbers below are PROGRAM PRIORITY POINTERS introduced
-by this surface, subordinate to the immutable owner identifiers cited alongside
-them (R-S*/X*/P*/probe IDs/AMB-N6-1/open-question numbers). Where an existing
-identifier owns the question, that identifier is authoritative and is named
-first-class here.
+## 2. Where are we now?
 
-## 2. Relationship to the A–H cycle → I-cycle transition
+The main measurement and conformance arc is complete. In plain terms:
 
-OBSERVED (phase records): Phases A–H completed the consolidation and
-architectural-stabilization cycle — documentation layering (Phase C artifacts),
-terminology taxonomy and namespace migration (F/G/G.x; ratified by
-`phase-g-terminology-taxonomy.md`, executed per `terminology-migration-inventory.md`
-§EXECUTION STATUS), concept/architecture reconciliation and dispositions
-(H.1–H.3, incl. H.2-A..D governance records), terminology currency (H.4), and
-deferred technical follow-up triage/closure (H.5-0 triage [untracked working
-material], H.5-1 pin, H.5-2R post-G.x Chromium P-3 refresh).
+- The standards stack **can express** portable time-segmented, spatially
+  targeted graphical overlays; the original falsification attempt failed
+  (`research/findings.md`, historical snapshot).
+- Requiring an explicit `viewBox` on overlay SVG bodies makes their geometry
+  deterministic; without one, different rendering mechanisms produce different
+  geometries from identical data (`research/e15-report.md`).
+- That behavior was reproduced identically in Chromium, Firefox, and WebKit —
+  62 of 62 measurement rows agree across all three engines
+  (`research/e17-report.md`, `evidence/e17/`). Cross-engine agreement proves
+  browser behavior; it does not promote anything to standards law.
+- When a Canvas is painted onto another Canvas, restricting compositions to
+  matching aspect ratios removes the last geometric ambiguity mathematically
+  (`research/n4-safe-subset.md`; measured divergence otherwise: up to ~386
+  Canvas units).
+- The two mainstream IIIF viewers tested (Ramp 5.1.1, Mirador 3.4.3) fail
+  before ever drawing such overlays — one crashes on any secondary painting
+  body, one silently drops it (`research/viewer-interop-report.md`). So the
+  data model works; deployed viewers cannot yet show it.
+- The written profile's resource-side rules are mechanically checkable today
+  by the lab's validator (`research/n6-implementation-report.md`,
+  `evidence/n6/`); checking a *consumer* remains impossible until a capable
+  consumer exists.
+- Whether any viewer actually honors a `t=` time window during playback is
+  **still unknown** — the only probe so far was passive and could not tell
+  "honors later" from "ignores" (`research/viewer-interop-report.md`, probe V2).
 
-With I.1 the repository enters the I-cycle: research consolidation, synthesis,
-the remaining internally reachable research questions, and potential
-externalization work. NOTHING of the I-cycle is complete beyond this program
-surface; every item below proceeds only through its stated gate.
+## 3. What have we established?
 
-## 3. Current scientific position (pointers only)
+Grouped by theme; each point cites its owning document.
 
-- Resource-side conformance stack COMPLETE: profile R-S1…R-S8b + X1–X8
-  (`profile-draft.md`) operationalized by `conformance-matrix.md` and executed
-  via the validator (T01–T15 all matching pre-registered outcomes;
-  `n6-implementation-report.md`; `evidence/n6/`).
-- Geometry determinism STRONG: explicit-viewBox region-painting agreement and
-  no-viewBox three-readings hazard reproduced unanimously across Chromium/
-  Firefox/WebKit (E17 F1–F6, 62/62 rows; `evidence/e17/`); same-aspect
-  constraint collapses fit readings mathematically (E16 coincidence theorem +
-  E17 F6).
-- Post-G.x integrity VERIFIED: canonical Chromium E17/N2 measurements
-  byte-reproduced across the rename boundary (H.5-2R record).
-- Real-consumer geometry BLOCKED: Ramp 5.1.1 crashes on ANY secondary painting
-  body; Mirador 3.4.3 silently drops them — zero consumer-side geometric
-  readings exist (N2 V4–V7/M2/M3; `viewer-interop-report.md`;
-  `evidence/viewer-matrix.json`). Consumer-side certification therefore remains
-  declaratively blocked (profile Part 11.2/17; N6 §6).
-- Temporal honoring FENCED: fragment syntax/intervals are normative (R-S6a/
-  R-S8a) but consumer application is `[UNKNOWN]` — N2 V2 was passive-only and
-  provably cannot distinguish later honoring from ignoring (R-S8b fence; X7).
-- External anchors: P1/P2 have NO external anchor (genuinely profile-level);
-  fit rule absent from IIIF with contradictory community evidence; z-order
-  recipes self-contradict (`community-positioning.md`; `n3-source-index.json`;
-  `n4-safe-subset.md` Part 5).
+**Expressibility.** The full annotation model (temporal + spatial targeting +
+SVG painting bodies, including Canvas-on-Canvas nesting) is expressible in
+stable IIIF Presentation 3.0 plus W3C vocabularies, with documented gaps that
+need conventions rather than new vocabulary (`research/findings.md`;
+`research/e15-e16-final-report.md`).
 
-## 4. Active questions
+**Geometry determinism.** One small publisher rule — explicit `viewBox` on every
+SVG painting body — eliminates the principal ambiguity: with it, all mechanisms
+that paint into a region agree; without it, three incompatible readings coexist
+(`research/e15-report.md`; formalized as rule R-S1 in `research/profile-draft.md`).
 
-Register pointers only; `open-questions.md` keeps status history.
+**Cross-engine stability.** The browser behaviors underlying those findings hold
+identically in three engines (`research/e17-report.md`). These are version-scoped
+browser facts, kept separate from normative claims by design.
 
-| ID | Question | Authoritative owner(s) | Reach | Prerequisites | Decision gate | Completion criterion |
-|---|---|---|---|---|---|---|
-| D1 | Does any tested consumer actively honor `#t=` fragments when driven at interaction level (seek-to-start/windowing)? | R-S8b fence + X7 (`profile-draft.md`; `conformance-matrix.md` S8b row); evidence N2 V2 (`viewer-interop-report.md`) | INTERNAL | Pre-registered interaction protocol driving the consumer's own playback surface (not synthetic media-element events) + pre-registered outcome classes; P-3-style authorization covering viewer-family regeneration; `experiment-log.md` reopened append-only per `consolidation-map.md` §1.5 #2 | Explicit human authorization of the D1 package (listing here does NOT authorize execution) | Machine-evidence rows classifying honoring observed/not-observed per consumer+version; R-S8b/X7 citation upgraded or fence retained with interaction-grade evidence, via authorized edit flow |
-| D2 | Will a capable consumer realize region-as-viewport (R-S2) / Canvas-as-body rendering? | R-S2 BLOCKED + X4/X5/X8; consumer-row fixture designs (`conformance-matrix.md`); `viewer-interop-report.md` | EXTERNAL (+ internal event-gated watch) | A consumer release claiming painting-body support (or credible candidate) | Event trigger §6; certification fixtures are designed, not yet exercisable | Fixtures executed against a claiming consumer, or standing blocked note unchanged |
-| D3 | Fit behavior for mismatched aspects ("scaled to fit" names no algorithm) | E16 §4.2 `[OPEN]`; X1/X3; `community-positioning.md` §8; `n4-safe-subset.md` Part 5 | EXTERNAL (spec/community process) | None repo-internally resolvable | Human posture decision on externalization (§9); upstream movement | Recorded spec/community resolution supersedes the exclusion; otherwise mismatched aspects stay non-conforming by design |
-| D4 | Z-order portability across consumers | X6; `profile-draft.md` Part 9; recipe contradiction (`community-positioning.md` §§4/7) | EXTERNAL | Same shape as D3 | Human posture decision on externalization (§9) | Community/spec convergence recorded; otherwise local-convention-only stands |
-| D5 | AMB-N6-1 replacement-form arithmetic parentheticals disposition | `n6-implementation-report.md` §9; `evidence/n6/case-T12.json`; edit-flow chain stages 1–2 (`consolidation-map.md` §2) | INTERNAL (human decision) | None | Explicit human research decision (edit-flow rule §2.2 #5: stays OPEN until then; resolution must be repeated explicitly in every touched document) | Disposition propagated through the N6 edit flow in one change-set |
-| D6 | Register/documentation currency decisions | `cleanup-checklist.md` item 2 (open-questions items 12–15 ANSWERED-vs-SUPERSEDED wording call); commit/disposition decision for the untracked H.5-0 triage record | INTERNAL (human calls) | None | Human wording/versioning decisions, each as its own micro-unit | Annotations appended (numbering untouched); H.5-0 record committed or explicitly dispositioned |
+**Composition safety.** For aspect-mismatched nesting, no standard defines a fit
+behavior ("scaled to fit" names no algorithm), and readings measurably diverge;
+matching aspect ratios make every reading coincide exactly — the safe subset
+adopted as profile rule R-S4/P5a (`research/n4-safe-subset.md` Part 2;
+`research/profile-draft.md` Part 7).
 
-## 5. Decision gates
+**Consumer reality.** Both tested viewers fail before geometry: Ramp with a hard
+error, Mirador by silent omission, for SVG, raster, and nested-Canvas bodies
+alike (`research/viewer-interop-report.md`). This is a measured gap in current
+deployed software, version-scoped — not a verdict on the standards or on future
+viewers.
 
-Gates state CONDITIONS; listing a gate authorizes nothing.
+**Conformance.** A formal profile (requirements R-S1…R-S8b, exclusions X1–X8)
+exists with provenance labels separating standards text from browser facts,
+community practice, and deliberate profile decisions
+(`research/profile-draft.md`). Eight resource-side checks are implemented and
+passing in the validator; consumer-side certification is explicitly blocked, not
+silently skipped (`research/conformance-matrix.md`;
+`research/n6-implementation-report.md`).
 
-- **G1 — Ledger closure before capstone**: D5/D6 dispositions should precede or
-  accompany capstone finalization so the synthesis does not immediately require
-  pointer repairs.
-- **G2 — D1 authorization package**: before any D1 execution there must exist
-  an explicit instruction carrying: purpose; Chromium-only scope (N2
-  consumer-isolation precedent); the pre-registered interaction protocol and
-  outcome classes; expected evidence churn classes for the viewer family
-  (P-2/P-3 discipline); and the mechanism reopening `experiment-log.md`
-  append-only.
-- **G3 — Capstone sequencing**: see §8.
-- **G4 — External escalation posture**: no issue/submission may be filed
-  without an explicit human decision (§9).
+**Temporal semantics.** Time-window syntax and half-open interval meaning are
+normative (Media Fragments); producers may use them freely. Whether consumers
+*apply* them is deliberately fenced as unknown (`research/profile-draft.md`
+R-S8b) — see §4.
 
-## 6. Event-triggered follow-ups
+## 4. What remains unknown?
 
-Each trigger is conditional; none schedules work without a question.
+### Internally answerable
 
-| Trigger | Follow-up |
+**Does a real viewer honor `#t=` time windows when actually used?**
+The prior probe loaded a manifest with a time window and recorded the video's
+state passively; autoplay blocking left the video paused at time zero, so the
+result was inconclusive by construction. The question is genuinely open in both
+directions: honoring might appear once playback is driven through the viewer's
+own interface. Answering it requires one bounded experiment (see §5, step 2).
+This matters because temporal targeting is half of the project's founding
+subject — everything else about the temporal story is established except this.
+
+Two smaller internal items are decisions rather than experiments: a recorded
+wording ambiguity in the validator documents (AMB-N6-1,
+`research/n6-implementation-report.md` §9 — verdicts unaffected) and routine
+register bookkeeping (annotating answered questions in
+`research/open-questions.md`; dispositioning an untracked working record).
+
+### Externally gated
+
+These cannot be settled by more repository experimentation, because the deciding
+fact lives outside the lab:
+
+- **Capable consumer support.** Whether any viewer will ever realize the profile's
+  consumer-side contract depends on software we do not control. The certification
+  test fixtures are designed and waiting (`research/conformance-matrix.md`);
+  they become runnable the day a claiming consumer appears.
+- **Fit behavior for mismatched aspects.** IIIF specifies no algorithm and the
+  community's own guidance is contradictory; resolving it is a specification/
+  community process. The profile currently excludes the case honestly rather
+  than guessing (`research/community-positioning.md`).
+- **Z-order portability.** IIIF's own recipes contradict each other on stacking
+  direction; cross-consumer guarantees await community convergence
+  (`research/community-positioning.md`; profile Part 9).
+
+The distinction matters operationally: internally answerable questions get
+experiments now; externally gated ones get monitoring triggers and, if desired,
+community engagement — not more lab measurement pretending to decide them.
+
+## 5. What are we doing next?
+
+Four steps, in dependency order. Each awaits its own explicit authorization
+where noted; listing them here plans work, it does not authorize it.
+
+**Step 0 — Living research-program surface. COMPLETE (this document, unit I.1).**
+Gives the project a durable, conversation-independent forward-looking plan.
+
+**Step 1 — Ledger/documentation closure. PENDING (human decision items).**
+Resolve the recorded validator-document wording ambiguity (AMB-N6-1); annotate
+the four already-executed entries in the open-question register (their answers
+exist as whole reports; only the status lines were never appended); commit or
+explicitly disposition the untracked H.5-0 working record.
+*Why now:* these are tiny, and finishing them keeps later synthesis honest.
+*Done when:* each item carries a recorded disposition or explicit deferral owner.
+
+**Step 2 — Interaction-level temporal experiment. PLANNED, NOT AUTHORIZED.**
+Drive the tested viewer(s) through their own playback surface — play/seek via
+the viewer's UI or public API, never synthetic video-element events — and
+compare a manifest carrying `#t=10,20` against a control without one, recording
+whether playback seeks to the window start. Either outcome strengthens the final
+result: observed honoring becomes the project's first consumer-positive instance
+(version-scoped); confirmed non-honoring upgrades an "unknown" into a
+characterized boundary.
+*Prerequisites:* a pre-registered protocol and outcome classes fixed before
+measurement; an explicit authorization covering regeneration of the viewer
+evidence family; reopening the experiment log append-only (per
+`research/consolidation-map.md` §1.5 #2).
+*Done when:* machine-readable evidence rows classify the outcome per consumer
+and version, and the temporal fence citation is updated through the authorized
+edit flow.
+
+**Step 3 — Capstone synthesis. PLANNED.**
+One durable document integrating the whole arc: what was asked, what was
+established, what stays open, with the negative guarantees stated plainly.
+*Why after steps 1–2:* closure prevents immediate staleness; the temporal result
+should be characterized before integration so the capstone is written once.
+If sequencing changes by later decision, the capstone must state the temporal
+question as the open fence it is today.
+
+**Step 4 — Externalization posture. OPTIONAL, HUMAN DECISION.**
+Assemble (and, only if separately decided, file) a submission-ready package for
+IIIF community channels: the fit-rule question with measured divergence figures,
+the explicit-viewBox recommendation, the viewer-gap documentation, and the
+validator's existence as evidence that the proposal is checkable. Source
+analysis already exists (`research/community-positioning.md`); nothing here
+authorizes external communication.
+
+## 6. Why this order?
+
+Closure precedes synthesis because a capstone built on unresolved ledger items
+would need immediate repair. The temporal experiment precedes synthesis because
+it is the only remaining research-grade question the lab can answer for itself,
+and both possible answers change what the synthesis should say. Externalization
+comes last (or in parallel, as preparation only) because no amount of additional
+internal experimentation can resolve externally gated questions — packaging them
+is the lab's only lever there.
+
+## 7. What is deliberately deferred?
+
+Carried from ratified records (`phase-h3-1…md` §3.4/§6; the H.5 triage series);
+none of these blocks the roadmap.
+
+| Item | Trigger for revisiting |
 |---|---|
-| Consumer release claiming painting-body support | Targeted N2 re-probe; exercise designed certification fixtures (D2) |
-| Tracked consumer version change | Re-run affected N2 probes; compare outcome rows version-scoped |
-| Browser engine major-version change relevant to version-scoped `[BROWSER]` rows | Reassess remeasurement need against E17 F-findings; no scheduled runs |
-| Next authorized evidence regeneration event | Consider bundling writer restructuring/rootTextSample normalization per H.5-0 §D and the H.5-2R carried open question |
-| Ecosystem/spec movement on fit rule or z-order | Reopen D3/D4 assessment |
+| LabApi guard/dispatch cleanup (harness-only robustness) | A dedicated fix phase, if ever authorized |
+| Evidence-writer restructuring / aggregation extraction | The next authorized evidence-regeneration event |
+| `rootTextSample` capture-field normalization (churn-noise cosmetic) | Same regeneration event |
+| Consumer surveys beyond Ramp/Mirador | A credible new candidate consumer appears |
+| Firefox/WebKit re-measurement | A new research question or a relevant engine major change (renames were proven behavior-neutral by byte-reproduction under Chromium) |
+| Adapter filename renames | Closed permanently — intentional traceability residue |
+| Movement/keyframe vocabulary | Out of scope by standing advice against inventing vocabulary |
+| Security-policy expression track | Separate track; not opened |
 
-## 7. Explicit deferrals
+## 8. Where to go for details?
 
-Carried from ratified records; do not reopen closed items.
+| Want… | Read |
+|---|---|
+| Navigation across everything | `research/current-state-index.md` |
+| Original question & session verdict (historical) | `research/findings.md` |
+| Experiment records | `research/e14-report.md` … `e17-report.md`; `research/e15-e16-final-report.md`; `research/experiment-log.md` |
+| Live question register | `research/open-questions.md` |
+| The interoperability profile (requirements) | `research/profile-draft.md` |
+| Requirement matrix & test design | `research/conformance-matrix.md` |
+| Validator implementation record | `research/n6-implementation-report.md` (+ `evidence/n6/`) |
+| Real-consumer probe results | `research/viewer-interop-report.md` (+ `evidence/viewer-matrix.json`) |
+| Community/spec source analysis | `research/community-positioning.md` (+ `research/n3-source-index.json`) |
+| Safe-subset decision | `research/n4-safe-subset.md` |
+| Phase-by-phase consolidation history | `research/phase-*.md`; governance in `research/consolidation-map.md` |
 
-- LabApi guard/dispatch/type-narrowing work (H.5-0 §A: harness-only; future
-  scope defined there) — DEFERRED.
-- Evidence-writer restructuring / N2 aggregation extraction (H.5-0 §D) —
-  DEFERRED, gated on the next authorized regeneration event.
-- `rootTextSample` normalization (carried open question of H.5-2R) — DEFERRED,
-  bundle with the writer event.
-- Extended consumer survey beyond Ramp/Mirador — DEFERRED, event-gated.
-- Firefox/WebKit re-measurement as research — REDUNDANT absent a new question
-  or engine change (renames proven behavior-neutral by H.5-2R byte-reproduction);
-  version-scoped trigger only.
-- Adapter filename renames (`src/reference/lib/e14.ts`, `src/blind/e14.ts`) —
-  CLOSED without action (H.3-1 §3.4 ratified residue; H.5-0 §E).
-- Movement/keyframes vocabulary — out of profile scope; findings-era gap
-  documented; E15–E17/N3 jointly advise against inventing vocabulary.
-- Security-policy expression track — separate, not opened.
+This program is a map, not a substitute for those documents.
 
-## 8. Capstone synthesis
+## 9. Governance / maintenance
 
-A durable capstone synthesis is PLANNED, not written. Recommended sequence:
-ledger/documentation closure (D5/D6) → D1 characterization → capstone. The
-temporal-honoring result should be characterized first where practical so the
-capstone integrates the last internally reachable research question once rather
-than requiring immediate revision. If a later human decision reorders this,
-the capstone must write its temporal chapter as the currently fenced unknown
-(R-S8b/X7) rather than asserting either way. This section is a planning
-preference, not a normative lock.
+This is a mutable planning surface. It does not own scientific claims, normative
+requirements, capability verdicts, historical question status, or experimental
+conclusions; the relevant owning document remains authoritative, and disputes
+resolve in the owner's favor.
 
-## 9. Externalization / community
+Existing repository identifiers (requirement IDs, exclusion IDs, probe IDs,
+open-question numbers, AMB-N6-1) remain authoritative wherever cited. Any
+program-local shorthand (such as the D-numbers for the questions in §4) is a
+subordinate pointer to those owners, never a replacement.
 
-The falsification-pass source matrix and rank table live in
-`community-positioning.md` (+ `n3-source-index.json`); submission-ready
-evidence packets exist (`evidence/e15/`, `evidence/e16/modeA-twins.json`,
-named in open-questions item 14). D2/D3/D4 cannot be resolved solely by
-repository experimentation; their resolution lives in ecosystem/spec/community
-processes. Whether to actually file external issues or submissions is a HUMAN
-POSTURE DECISION (gate G4); nothing in this program authorizes external
-communication.
+Maintenance rule: edit this file only for priorities, sequence, gates, triggers,
+and deferrals; substantive changes to any cited claim belong in the owning
+document.
 
-*End of research-program surface. Maintenance rule: pointer/priority edits
-only; substantive changes to any cited claim belong in the owning document.*
+*End of the research program.*
