@@ -105,4 +105,36 @@ sequencing principle (do not start P3 before stable public artifact).
 Recorded at: `99c56ad9b464e395d8a4033bbf071130e4e0b8b5`
 Date: 2026-08-25
 
-*End of audit record.*
+---
+
+## G1 status
+
+**G1 PASSED** — citation readiness per `research/post-research-plan.md` §12 Gate G1.
+
+- public repository: `https://github.com/eliasfeijo/video-annotation-interoperability-lab` (public, `main`) — verified `gh api` visibility public, `200` at `https://github.com/eliasfeijo/video-annotation-interoperability-lab`
+- `CITATION.cff` present with decided authorship (`Elias Feijó`), title `Video Annotation Interoperability Lab`, license `MIT`, version `1.0.0`, repository URL, and DOIs — live `main` at `cdc9af956d284797867908071770c695329a086b` / `99c026b` contains `doi: 10.5281/zenodo.22105056` and `identifiers: 10.5281/zenodo.22105055` (concept), validated `cff-version 1.2.0`; `v1.0.0` snapshot intentionally retains pre-DOI `CITATION.cff` at `dbe4f2b7934231c1434d296376eb4241c3601340`
+- stable release `v1.0.0` tagged: annotated tag `89021251337fa5549c93bd17f371e8587db933b7` → `dbe4f2b7934231c1434d296376eb4241c3601340`, GitHub release `https://github.com/eliasfeijo/video-annotation-interoperability-lab/releases/tag/v1.0.0` published `2026-08-26T03:13:59Z`, not draft/prerelease, `target_commitish main`
+- archival DOI minted via Zenodo: version DOI `10.5281/zenodo.22105056` (`https://doi.org/10.5281/zenodo.22105056` `302 → 302 → 200` → `https://zenodo.org/records/22105056` `200`, `Link: <https://doi.org/10.5281/zenodo.22105056>; rel="cite-as"`) and concept DOI `10.5281/zenodo.22105055` (`https://doi.org/10.5281/zenodo.22105055` `200`), both public, `Zenodo API` `id 22105056 conceptrecid 22105055 doi 10.5281/zenodo.22105056 conceptdoi 10.5281/zenodo.22105055 version v1.0.0 publication_date 2026-08-26 creators `Feijó, Elias`, keywords/title match `CITATION.cff`, related_identifiers `https://github.com/.../tree/v1.0.0`
+
+Gate closes: DOI resolves and citation snippet is verified — both satisfied (Zenodo `citation_title`/`citation_author`/`citation_doi`/`citation_keywords` present, record file `eliasfeijo/video-annotation-interoperability-lab-v1.0.0.zip` size 4766519).
+
+Recorded at: `be72139b6a7d4e1a00287594cdb23194863d70ce` (a11y polish) — closure recorded at next commit `G1/G2 closure`
+Date: 2026-08-26
+
+## G2 status
+
+**G2 PASSED** — discovery readiness per `research/post-research-plan.md` §12 Gate G2 and `research/landing-page-spec.md` §12 traceability matrix.
+
+- published landing page: `https://eliasfeijo.github.io/video-annotation-interoperability-lab/` (`main` + `/docs`, `status built`, commits `99c026b` → `be72139`, `HTTP 200` len 27046) — verified via `gh api .../pages` and `Invoke-WebRequest`
+- actual repository `https://github.com/eliasfeijo/video-annotation-interoperability-lab` `200`, release `v1.0.0` `200`, version DOI `https://doi.org/10.5281/zenodo.22105056` `200`, concept DOI `200`, Zenodo record `https://zenodo.org/records/22105056` `200` — all publication URLs verified
+- publication metadata consistent: `CITATION.cff` `1.2.0` with version DOI on `main`, repository description `A reproducibility lab testing whether Web Annotation, Media Fragments, IIIF Presentation, and SVG can express portable video annotation without a new vocabulary.`, homepage `https://eliasfeijo.github.io/...`, topics `iiif, iiif-presentation, web-annotation, media-fragments, svg, video-annotation, interoperability, reproducibility` verified via `gh api`, Pages delivery audit kept `main + /docs` (legacy, automatically published; CI/CD rejected as unnecessary per P1-E.5/P1-E.6 — docs/ is final static artifact, 2 requests, 36k, no build)
+- artifact/citation links verified: `Repository` `github.com/...`, `Capstone blob/main/research/capstone.md` `200`, `Release v1.0.0` `200`, `DOI version 22105056` `200` + `concept 22105055` `200`, `Validator src/validator/` + `evidence/n6/`, `CITATION.cff` `200` (live DOI-bearing), evidence families — all `200` or `file-exists`, internal anchors `href="#hero"` etc. `exists:true`, no failed requests/console errors at 7 viewports
+- stale placeholders removed: `&lt;REPO_URL&gt;` count `0`, `&lt;DOI_PLACEHOLDER&gt;` count `0`, no `DOI pending`/`forthcoming`/`URL TBD` language; `Badge` now `Published v1.0.0 — DOI 10.5281/zenodo.22105056`; `Footer` now cites `CITATION.cff` + both DOIs + `Release v1.0.0` + `Pages main + /docs`
+- visual/responsive/accessibility audit completed: Playwright Chromium 7 viewports (1440x900, 1280x800, 1024x768, 768x1024, 390x844, 375x812, 320x568) — `scrollWidth === clientWidth` at all widths, `overflowX false`, `tables 13 rows width 280–656 stacked cards usable`, `codeBlocks 1` internally scrollable at narrow widths, `focus-visible` blue outline, `axe` violations `0` passes `24` (incomplete `aria-prohibited-attr` `2 nodes` fixed in `be72139` → incomplete `0` at desktop), performance `HTML 27046 + CSS 8949 = 35995 bytes 2 requests 0 JS 0 images max-age 600`, `DOMContentLoaded 31–44ms` warm
+
+Gate closes: external reader can land, understand contribution, and reach every canonical artifact in one click — satisfied.
+
+Recorded at: `be72139b6a7d4e1a00287594cdb23194863d70ce` — closure recorded at next commit `G1/G2 closure`
+Date: 2026-08-26
+
+*End of audit record. G1/G2 closed. Next: P2/G3 AI-assisted methodology note.*
