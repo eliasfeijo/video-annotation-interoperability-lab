@@ -9,6 +9,11 @@ authors:
 license: MIT
 repository-code: "https://github.com/eliasfeijo/video-annotation-interoperability-lab"
 url: "https://eliasfeijo.github.io/video-annotation-interoperability-lab/"
+doi: 10.5281/zenodo.22105056
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22105055
+    description: "Zenodo concept DOI (all versions)"
 abstract: "A reproducibility lab testing whether W3C Web Annotation + Media Fragments + IIIF Presentation 3.0 + SVG can express portable, temporal, graphical video annotations without a new vocabulary — and where that stack becomes predictable, interoperable, and checkable."
 keywords:
   - iiif
