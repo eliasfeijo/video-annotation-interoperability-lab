@@ -6,9 +6,9 @@
 > (commit `622417a`) and executed atomically by Phase G.x — execution record:
 > `research/terminology-migration-inventory.md` §EXECUTION STATUS; ratifying taxonomy:
 > `phase-g-terminology-taxonomy.md`; post-migration dispositions:
-> `phase-h3-1-carried-question-disposition-ratification.md`. `research/terminology.md`
+> `phase-h3-1-carried-question-disposition-ratification.md`. `research/archived/terminology.md`
 > is RETIRED from vocabulary authority (Phase H.4-1) and preserved as a historical
-> identifier appendix / audit artifact. Historical provenance: this document began as
+> identifier appendix / audit artifact (now under `research/archived/`). Historical provenance: this document began as
 > the Phase F design proposal, which renamed, rewrote, and migrated nothing by itself.
 > Nothing here modifies historical records, evidence, code, or validator behavior.
 > Where this document conflicts with an owning document, the owning document still wins
@@ -25,7 +25,7 @@ conformance stack (evidence → safe subset → profile → conformance matrix �
 validator) plus a large residue of historical naming systems from successive
 experiment generations.
 
-The earlier registry (`research/terminology.md`) answers "I met identifier X —
+The earlier registry (`research/archived/terminology.md`) answers "I met identifier X —
 what is it?". That is an archaeological service. It is NOT a vocabulary a new
 contributor can adopt, because its organizing principle is the history of
 identifiers rather than the structure of the ideas.
@@ -1153,7 +1153,7 @@ Minimal by design:
 
 | Artifact | Status under this specification |
 |---|---|
-| `research/terminology.md` | Unchanged now; becomes pointer + historical appendix AFTER approved migration |
+| `research/archived/terminology.md` | Pointer + historical appendix (archived, now under `research/archived/`); unchanged, retired Phase H.4-1 |
 | `research/phase-e-identifier-inventory.md` | Archaeological map; superseded as design input, kept as record |
 | `profile-draft.md` Part 2/3 | Remains DEFINITION SITE for domain terms and provenance classes; this spec defers to it |
 | `documentation-conventions.md` | Its rules are restated/absorbed conceptually; remains operative for new documents until migration supersedes file organization |

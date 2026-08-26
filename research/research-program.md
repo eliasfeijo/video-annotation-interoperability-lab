@@ -7,8 +7,8 @@
 > owns no scientific claims: wherever a factual statement matters, this file
 > points to the authoritative document that owns it. Established by unit I.1
 > against HEAD `c34bd0a`; restructured into its current human-facing form by
-> I.1-R. It supersedes `research/next-session-plan.md` as the forward-looking
-> planner only; that file remains frozen history.
+> I.1-R. It supersedes `research/archived/next-session-plan.md` as the forward-looking
+> planner only; that file remains frozen history (now under `research/archived/`).
 
 Date: 2026-08-25.
 
@@ -41,13 +41,13 @@ The main measurement and conformance arc is complete. In plain terms:
 
 - The standards stack **can express** portable time-segmented, spatially
   targeted graphical overlays; the original falsification attempt failed
-  (`research/findings.md`, historical snapshot).
+  (`research/archived/findings.md`, historical snapshot — now under `research/archived/`).
 - Requiring an explicit `viewBox` on overlay SVG bodies makes their geometry
   deterministic; without one, different rendering mechanisms produce different
-  geometries from identical data (`research/e15-report.md`).
+  geometries from identical data (`research/archived/e15-report.md`).
 - That behavior was reproduced identically in Chromium, Firefox, and WebKit —
   62 of 62 measurement rows agree across all three engines
-  (`research/e17-report.md`, `evidence/e17/`). Cross-engine agreement proves
+  (`research/archived/e17-report.md`, `evidence/e17/`). Cross-engine agreement proves
   browser behavior; it does not promote anything to standards law.
 - When a Canvas is painted onto another Canvas, restricting compositions to
   matching aspect ratios removes the last geometric ambiguity mathematically
@@ -70,16 +70,16 @@ Grouped by theme; each point cites its owning document.
 **Expressibility.** The full annotation model (temporal + spatial targeting +
 SVG painting bodies, including Canvas-on-Canvas nesting) is expressible in
 stable IIIF Presentation 3.0 plus W3C vocabularies, with documented gaps that
-need conventions rather than new vocabulary (`research/findings.md`;
-`research/e15-e16-final-report.md`).
+need conventions rather than new vocabulary (`research/archived/findings.md`;
+`research/archived/e15-e16-final-report.md`).
 
 **Geometry determinism.** One small publisher rule — explicit `viewBox` on every
 SVG painting body — eliminates the principal ambiguity: with it, all mechanisms
 that paint into a region agree; without it, three incompatible readings coexist
-(`research/e15-report.md`; formalized as rule R-S1 in `research/profile-draft.md`).
+(`research/archived/e15-report.md`; formalized as rule R-S1 in `research/profile-draft.md`).
 
 **Cross-engine stability.** The browser behaviors underlying those findings hold
-identically in three engines (`research/e17-report.md`). These are version-scoped
+identically in three engines (`research/archived/e17-report.md`). These are version-scoped
 browser facts, kept separate from normative claims by design.
 
 **Composition safety.** For aspect-mismatched nesting, no standard defines a fit
@@ -206,8 +206,8 @@ none of these blocks the roadmap.
 | Want… | Read |
 |---|---|
 | Navigation across everything | `research/current-state-index.md` |
-| Original question & session verdict (historical) | `research/findings.md` |
-| Experiment records | `research/e14-report.md` … `e17-report.md`; `research/e15-e16-final-report.md`; `research/experiment-log.md` |
+| Original question & session verdict (historical) | `research/archived/findings.md` |
+| Experiment records | `research/archived/e14-report.md` … `research/archived/e17-report.md`; `research/archived/e15-e16-final-report.md`; `research/experiment-log.md` |
 | Live question register | `research/open-questions.md` |
 | The interoperability profile (requirements) | `research/profile-draft.md` |
 | Requirement matrix & test design | `research/conformance-matrix.md` |
@@ -216,7 +216,7 @@ none of these blocks the roadmap.
 | Community/spec source analysis | `research/community-positioning.md` (+ `research/n3-source-index.json`) |
 | Safe-subset decision | `research/n4-safe-subset.md` |
 | **Final synthesis (canonical)** | **`research/capstone.md`** — auditable synthesis of the full arc: what is guaranteed, under which conditions, what real consumers do, what remains outside the boundary |
-| Phase-by-phase consolidation history | `research/phase-*.md`; governance in `research/consolidation-map.md` |
+| Phase-by-phase consolidation history | `research/archived/phase-*.md` (historical phase records, now under `research/archived/`); governance in `research/consolidation-map.md` |
 
 This program is a map, not a substitute for those documents.
 

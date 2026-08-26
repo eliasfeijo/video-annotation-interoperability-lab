@@ -48,7 +48,7 @@ report filenames, and every citation inside frozen records.
 
 Read first (governance): `AGENTS.md`, `research/terminology-specification.md`
 (§2 principles, §5 glossary, §7 identifier policy, §8 output vocabulary, §9 mapping,
-§10 open decisions, §11 migration rules), `research/terminology.md` (Phase E registry,
+§10 open decisions, §11 migration rules), `research/archived/terminology.md` (Phase E registry, now archived,
 in force as audit/navigation), `research/documentation-conventions.md`,
 `research/current-state-index.md`, `research/consolidation-map.md`,
 `research/cleanup-checklist.md`.
@@ -166,7 +166,7 @@ Clean living namespaces (no action): `src/reference/`, `src/blind/`, `src/native
 | `docs/prompts/external/session-handoff-example.md` | uses `E14`, `N6`, `src/n6/`, `E14Overlay` etc. as current object names | F (see G.6) | mostly B/citation + code symbols | — | Example handoff template; decide whether prompt templates are in migration scope |
 | `AGENTS.md` | infrastructure list citing `src/n6/`, `src/e14/`–`src/e17/` | C-lite (path facts, not prose terminology) | updated automatically when/if §B executes | n/a | Living instructions; also cites retired families only to forbid extending them (B) |
 | `research/cleanup-checklist.md` | N1–N4, E17, V1–V7/M1–M3, op R-1/D9 mentions | B (historical citations of artifacts/docs) | — | — | No action |
-| `research/current-state-index.md`, `research/terminology.md` | pervasive historical identifiers | B (citation/navigation by charter) | — | — | Registry retirement happens AFTER approved migration per §11.5 |
+| `research/current-state-index.md`, `research/archived/terminology.md` | pervasive historical identifiers (registry now archived) | B (citation/navigation by charter) | — | — | Registry retirement happens AFTER approved migration per §11.5 (now under `research/archived/`) |
 
 Frozen documentation (L0/L5/L2 + phase records + controlled convention/policy docs):
 NOT candidates — see §F. In particular `documentation-conventions.md` T-1…T-6 item

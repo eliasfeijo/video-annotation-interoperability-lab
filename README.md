@@ -6,7 +6,7 @@ can express portable, temporal, graphical video annotations **without a new anno
 vocabulary**.
 
 The experiment actively attempts to **falsify** that hypothesis. Verdict and evidence:
-see [`research/findings.md`](research/findings.md) (summarised below).
+see [`research/archived/findings.md`](research/archived/findings.md) (historical snapshot, now under `research/archived/` — summarised below; canonical synthesis: `research/capstone.md`).
 
 ## TL;DR
 

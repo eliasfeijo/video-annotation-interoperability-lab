@@ -2,8 +2,8 @@
 
 Status: consolidation Layer **L6** — pointer/index only.
 Created by: Phase C design (see `research/consolidation-map.md`).
-Decision basis: D3 in `research/phase-b-provenance-terminology-audit.md`.
-Last pointer review: 2026-08-25 during Capstone Commit A (prior: I.3-B D1 synthesis); covers documents through the Phase E / F / G / G.x / H.1–H.5 / I.3 series, the D1 interaction evidence, and the new `research/capstone.md`, plus the living research program.
+Decision basis: D3 in `research/archived/phase-b-provenance-terminology-audit.md`.
+Last pointer review: 2026-08-25 during Capstone Commit A (prior: I.3-B D1 synthesis); covers documents through the Phase E / F / G / G.x / H.1–H.5 / I.3 series, the D1 interaction evidence, and the new `research/capstone.md`, plus the living research program. Historical process records now under `research/archived/` — pointers updated, frozen content unchanged.
 
 ## Purpose and non-purpose
 
@@ -20,7 +20,7 @@ This document NAVIGATES. It does not own claims.
 
 | Layer | Owns | Documents |
 |---|---|---|
-| L0 | Immutable historical experiment record | per-experiment reports (`e14-report.md`, `e15-report.md`, `e16-report.md`, `e17-report.md`, `e15-e16-final-report.md`, `viewer-interop-report.md`), `findings.md`, `plan.md`, `experiment-log.md`, `next-session-plan.md`, `docs/*` (interpretation packet, blind report, ambiguities ledger, IIIF 3-vs-4 comparison) |
+| L0 | Immutable historical experiment record | per-experiment reports (`archived/e14-report.md`, `archived/e15-report.md`, `archived/e16-report.md`, `archived/e17-report.md`, `archived/e15-e16-final-report.md`, `viewer-interop-report.md`), `archived/findings.md`, `archived/plan.md`, `experiment-log.md`, `archived/next-session-plan.md`, `docs/*` (interpretation packet, blind report, ambiguities ledger, IIIF 3-vs-4 comparison) |
 | L1 | Capability status (supported / gap / browser-dependent) | `compatibility-matrix.md` |
 | L2 | External-source claims (what specs/cookbook/implementations say) | `community-positioning.md`, `n3-source-index.json` |
 | L3 | Current normative profile requirements + terminology definitions | `profile-draft.md` |
@@ -35,7 +35,7 @@ Full per-document assignment, mutability, and preservation constraints:
 
 - Final synthesis (canonical, new): `research/capstone.md` (Layer L0-adjacent, 2026-08-25) — auditable answer to what is predictable/interoperable/checkable and where guarantees stop; traces every claim to the canonical source table (§12 evidence map).
 - Original question and falsification verdict **B** for the initial cycle:
-  `findings.md` (frozen snapshot, 2026-08-20).
+  `research/archived/findings.md` (frozen snapshot, 2026-08-20).
 - What the standards/cookbook/implementations actually establish:
   `community-positioning.md` (esp. §10 final P1–P6 rank table).
 - Capability gaps and browser-dependent rows today: `compatibility-matrix.md`
@@ -46,23 +46,24 @@ Full per-document assignment, mutability, and preservation constraints:
 - Vocabulary authority: `research/terminology-specification.md` (Phase F design;
   migration mapping ratified in commit `622417a`; executed by Phase G.x). Historical
   identifier provenance / audit appendix (retired from vocabulary authority,
-  Phase H.4-1): `research/terminology.md`. Authoritative G.x execution-status record:
+  Phase H.4-1): `research/archived/terminology.md`. Authoritative G.x execution-status record:
   `research/terminology-migration-inventory.md` §EXECUTION STATUS.
+- Methodology disclosure: `research/ai-assisted-methodology.md` (Phase P2/G3; human-directed AI-assisted workflow, verification model, G3 disclosure).
 - Source-architecture truth today: the H.2 phase records own the current tree
   layout (`src/primitives/`, `src/comparison/`, `src/oracle/`). The Phase G.x
-  namespace migration (ratified by `phase-g-terminology-taxonomy.md`; executed in
+  namespace migration (ratified by `research/archived/phase-g-terminology-taxonomy.md`; executed in
   commits `ed33445`, `6169f83`, `79658aa`, `a04ba86`, `18c7ae3`, `f956d4d`) renamed the
   generation-numbered namespaces to semantic ones (`src/validator/`,
   `src/composition/`, `src/embedding-semantics/`, `src/nested-composition/`,
   `src/cross-engine/`). The G.1 inventory
-  (`phase-g1-source-architecture-inventory.md`) and the H.1 reconciliation
-  (`phase-h1-concept-architecture-reconciliation.md`) are authoritative
+  (`research/archived/phase-g1-source-architecture-inventory.md`) and the H.1 reconciliation
+  (`research/archived/phase-h1-concept-architecture-reconciliation.md`) are authoritative
   observations as of their baselines only; their path citations predate H.2 and
   G.x and are historical citations, not current layout.
 - Carried architecture questions: H.1's deferred questions #1–#12 are fully
   dispositioned — #1/#2/#12 resolved by H.2-A, #3/#4 by H.2-B, #5 by H.2-C,
   #6/#11 by H.2-D; #10 closed as RESOLVED-BY-G.x; #7/#8/#9 ratified as document-only
-  dispositions (see `phase-h3-1-carried-question-disposition-ratification.md`; the
+  dispositions (see `research/archived/phase-h3-1-carried-question-disposition-ratification.md`; the
   implementation follow-ups listed there §6 remain DEFERRED / NOT AUTHORIZED).
 - Conservative framing for future prose (adopted wording, not retroactively applied):
   see `research/documentation-conventions.md` §Framing.
@@ -96,12 +97,12 @@ including superseded ones (e.g., E14's "Model B draft-only", corrected inline in
 
 ## Consolidation process records (outside the L0–L6 stack)
 
-These document the consolidation itself and are immutable once committed:
+These document the consolidation itself and are immutable once committed. Historical process records now under `research/archived/` — pointers updated, frozen content unchanged; `research/consolidation-map.md` pre-archive paths remain historical citations:
 
-- `pre-consolidation-inventory.md` (Phase A)
-- `phase-b-provenance-terminology-audit.md` (Phase B)
+- `research/archived/pre-consolidation-inventory.md` (Phase A)
+- `research/archived/phase-b-provenance-terminology-audit.md` (Phase B)
 - this file and its sibling Phase C artifacts (map, conventions, policies, checklist)
-- `phase-d-checklist.md` (execution plan for the mechanical phase)
+- `research/archived/phase-d-checklist.md` (execution plan for the mechanical phase)
 - `phase-h2a-shared-primitive-namespace.md` (Phase H.2-A; owns the helper-reuse
   governance rule and the `src/primitives/` namespace decision)
 - `phase-h2b-comparison-oracle-ownership.md` (Phase H.2-B; owns the comparison-harness
@@ -111,23 +112,23 @@ These document the consolidation itself and are immutable once committed:
 - `phase-h2d-interchange-display-tier-ratification.md` (Phase H.2-D; owns the ratified
   three-tier boundary — E14 interchange / ResolvedOverlay legacy display-regression /
   BlindOverlay private — and the permanence of the `main.ts` bridges)
-- `phase-e-identifier-inventory.md` (Phase E; exhaustive identifier/terminology
+- `research/archived/phase-e-identifier-inventory.md` (Phase E; exhaustive identifier/terminology
   inventory; analysis-only working artifact)
-- `phase-g1-source-architecture-inventory.md` (Phase G.1; independent observation-only
+- `research/archived/phase-g1-source-architecture-inventory.md` (Phase G.1; independent observation-only
   source-tree audit; path citations are as-of-baseline, pre-H.2)
-- `phase-h1-concept-architecture-reconciliation.md` (Phase H.1; concept ↔ architecture
+- `research/archived/phase-h1-concept-architecture-reconciliation.md` (Phase H.1; concept ↔ architecture
   reconciliation; owns deferred questions #1–#12)
-- `phase-g-terminology-taxonomy.md` (Phase G; ratified terminology taxonomy and
+- `research/archived/phase-g-terminology-taxonomy.md` (Phase G; ratified terminology taxonomy and
   migration mapping; executed by Phase G.x)
-- `phase-h3-0-carried-question-disposition-scoping.md` (Phase H.3-0; observation/scoping
+- `research/archived/phase-h3-0-carried-question-disposition-scoping.md` (Phase H.3-0; observation/scoping
   baseline for H.1 questions #7–#10)
-- `phase-h3-1-carried-question-disposition-ratification.md` (Phase H.3-1; ratified
+- `research/archived/phase-h3-1-carried-question-disposition-ratification.md` (Phase H.3-1; ratified
   document-only dispositions for #7/#8/#9/#10)
-- `phase-h5-0-deferred-technical-follow-up-triage.md` (Phase H.5-0; triage of the
+- `research/archived/phase-h5-0-deferred-technical-follow-up-triage.md` (Phase H.5-0; triage of the
   deferred technical follow-ups A–E left by G.x/H.3-1/H.4-1; committed unchanged by
   Phase I.2 as a completed historical record — its candidates' later execution
   history is owned by subsequent records, not rewritten here)
-- `phase-h5-2r-post-gx-chromium-p3-refresh.md` (Phase H.5-2R; aborted root-config
+- `research/archived/phase-h5-2r-post-gx-chromium-p3-refresh.md` (Phase H.5-2R; aborted root-config
   incident disposition + canonical Chromium-only P-3 refresh of E17/N2 evidence)
 
 Mutable consolidation-era registers and proposals, governed by their own headers
@@ -137,14 +138,15 @@ Mutable consolidation-era registers and proposals, governed by their own headers
   `622417a`, executed by Phase G.x)
 - `terminology-migration-inventory.md` (working inventory artifact; §EXECUTION STATUS is
   the authoritative record of the executed G.x migration families/commits)
-- `terminology.md` (RETIRED to historical identifier appendix / audit artifact,
+- `research/archived/terminology.md` (RETIRED to historical identifier appendix / audit artifact,
   Phase H.4-1; no longer the vocabulary authority — see the specification)
-- `cleanup-checklist.md` (stale-documentation findings from the 2026-08-23 pointer
-  review; working checklist whose items expire when executed)
-- `research-program.md` (living forward-looking research-program surface,
+- `research/archived/cleanup-checklist.md` (stale-documentation findings from the 2026-08-23 pointer
+  review; working checklist whose items expire when executed — now archived)
+- `research/research-program.md` (living forward-looking research-program surface,
   established post-H.5-2R as the I-cycle planning regime; supersedes
-  `next-session-plan.md` as forward-looking planner only; owns priorities/gates/
+  `research/archived/next-session-plan.md` as forward-looking planner only; owns priorities/gates/
   triggers/deferrals, no scientific claims — owners cited there win)
+- `research/ai-assisted-methodology.md` (P2/G3 methodology disclosure; human-directed AI-assisted workflow, verification model; short disclosure `docs/index.html#ai-method`)
 
 ## Maintenance rule for this index
 
