@@ -191,8 +191,13 @@ main { overflow-x: clip; }
 caption { text-align: left; font-weight: 600; padding: 8px 0; color: var(--muted); display: block; }
 table thead { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 table tbody, table tr { display: block; width: 100%; }
-table tr { border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 16px; background: var(--bg); overflow: hidden; }
-table th, table td { border: none; border-bottom: 1px solid var(--border); padding: 10px 12px 10px 42%; position: relative; text-align: left; vertical-align: top; min-width: 0; width: auto; display: block; background: var(--bg); }
+table tr { border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 16px; background: var(--bg); overflow: visible; }
+table tr td:first-child { border-top-left-radius: var(--radius); border-top-right-radius: var(--radius); }
+table tr td:last-child { border-bottom-left-radius: var(--radius); border-bottom-right-radius: var(--radius); }
+table th, table td { border: none; border-bottom: 1px solid var(--border); padding: 10px 12px 10px 42%; position: relative; text-align: left; vertical-align: top; min-width: 0; width: auto; display: block; background: var(--bg); height: auto; min-height: 44px; overflow: visible; overflow-wrap: anywhere; word-break: break-word; }
+@media (max-width: 480px) {
+  table td { min-height: 56px; }
+}
 table th { display: none; }
 table td:last-child { border-bottom: none; }
 table td::before { content: attr(data-label); position: absolute; left: 12px; top: 10px; width: 38%; font-weight: 600; font-size: 0.82rem; color: var(--muted); white-space: normal; overflow-wrap: anywhere; }
