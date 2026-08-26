@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Video Annotation Interoperability Lab"
+version: 1.0.0
+date-released: 2026-08-26
+authors:
+  - given-names: Elias
+    family-names: Feijó
+license: MIT
+repository-code: "https://github.com/eliasfeijo/video-annotation-interoperability-lab"
+url: "https://eliasfeijo.github.io/video-annotation-interoperability-lab/"
+abstract: "A reproducibility lab testing whether W3C Web Annotation + Media Fragments + IIIF Presentation 3.0 + SVG can express portable, temporal, graphical video annotations without a new vocabulary — and where that stack becomes predictable, interoperable, and checkable."
+keywords:
+  - iiif
+  - iiif-presentation
+  - web-annotation
+  - media-fragments
+  - svg
+  - video-annotation
+  - interoperability
+  - conformance
+  - reproducibility
+type: software
